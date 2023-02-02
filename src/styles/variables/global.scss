@@ -1,0 +1,10 @@
+:root {
+  --font-family: Caliso, "Times New Roman", Serif;
+  --font-size-m: 16px;
+  --font-lh-m: 24px;
+  --font-base-m: var(--font-size-m) / var(--font-lh-m) var(--font-family);
+
+  --font-size-l: 32px;
+  --font-lh-l: 40px;
+  --font-base-l: var(--font-size-l) / var(--font-lh-l) var(--font-family);
+}
