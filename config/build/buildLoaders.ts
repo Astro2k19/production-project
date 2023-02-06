@@ -4,8 +4,12 @@ import {BuildOptions} from "./types/config";
 
 export const buildLoaders = ({isDev}: BuildOptions): webpack.RuleSetRule[] => {
 
-    const scssModules = {
-
+    const fontsLoader = {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+            filename: isDev ? 'fonts/[name][ext][query]' : 'fonts/[hash:5][ext][query]'
+        }
     }
 
     const scssLoader = {
@@ -38,7 +42,8 @@ export const buildLoaders = ({isDev}: BuildOptions): webpack.RuleSetRule[] => {
     }
 
     return [
+        fontsLoader,
         tsLoader,
-        scssLoader
+        scssLoader,
     ]
 }
