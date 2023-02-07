@@ -1,10 +1,11 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
-import {BuildPaths} from "./types/config";
+import {BuildOptions} from "./types/config";
 import type {WebpackPluginInstance} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
-export const buildPlugins = (paths: BuildPaths): WebpackPluginInstance[] => {
+export const buildPlugins = ({isDev, paths}: BuildOptions): WebpackPluginInstance[] => {
     return [
         new HtmlWebpackPlugin({template: paths.html}),
         new webpack.ProgressPlugin(),
@@ -12,6 +13,11 @@ export const buildPlugins = (paths: BuildPaths): WebpackPluginInstance[] => {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].css'
-        })
-    ]
+        }),
+        new webpack.DefinePlugin({
+            __IS_DEV__: isDev
+        }),
+        // refresh react components withour reloading
+        isDev && new ReactRefreshWebpackPlugin()
+    ].filter(Boolean)
 }

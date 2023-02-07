@@ -1,8 +1,19 @@
 import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
-export const buildLoaders = ({isDev}: BuildOptions): webpack.RuleSetRule[] => {
+export const buildLoaders = ({isDev, paths}: BuildOptions): webpack.RuleSetRule[] => {
+
+    const imagesLoader = {
+        test: /\.(png|jpg?e|gif)$/i,
+        type: 'asset/resource'
+    }
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
 
     const fontsLoader = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -31,18 +42,39 @@ export const buildLoaders = ({isDev}: BuildOptions): webpack.RuleSetRule[] => {
                 }
             },
             // Compiles Sass to CSS
-            "sass-loader",
+            {
+                loader: 'sass-loader',
+                options: {
+                    sassOptions: {
+                        includePaths: [paths.src]
+                    }
+                }
+            }
         ],
     }
 
+
+    // setus ts-loader with React Refresh Webpack Plugin for updating react components without refresh
     const tsLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    getCustomTransformers: () => ({
+                        before: [isDev && ReactRefreshTypeScript()].filter(Boolean)
+                    }),
+                    transpileOnly: isDev,
+                }
+            }
+        ],
     }
 
     return [
+        imagesLoader,
         fontsLoader,
+        svgLoader,
         tsLoader,
         scssLoader,
     ]

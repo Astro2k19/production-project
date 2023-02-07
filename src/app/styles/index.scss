@@ -2,7 +2,7 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
-@import "fonts/fonts";
+@import "fonts";
 
 .app {
     font: var(--font-m);
@@ -11,4 +11,14 @@
     color: var(--primary-color);
 
     min-height: 100vh;
+}
+
+.page-content {
+    display: flex;
+    padding: 15px;
+}
+
+.page-wrapper {
+    flex: 1;
+    padding: 15px;
 }
