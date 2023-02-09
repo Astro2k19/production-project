@@ -92,7 +92,7 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
     imagesLoader,
     fontsLoader,
     svgLoader,
-    babelLoader,
+    // babelLoader,
     tsLoader,
     scssLoader
   ]

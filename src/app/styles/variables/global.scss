@@ -1,15 +1,12 @@
 :root {
-    --font-family-main: Inter;
-
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: 400 var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-
-    --font-size-l: 24px;
-    --font-line-l: 32px;
-    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-
-    --navbar-height: 50px;
-    --sidebar-width: 80px;
-    --sidebar-collapsed-width:300px;
+  --font-family-main: inter;
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: 400 var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --navbar-height: 50px;
+  --sidebar-width: 80px;
+  --sidebar-collapsed-width: 300px;
 }

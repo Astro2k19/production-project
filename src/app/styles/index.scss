@@ -5,20 +5,18 @@
 @import "fonts";
 
 .app {
-    font: var(--font-m);
-
-    background: var(--bg-color);
-    color: var(--primary-color);
-
-    min-height: 100vh;
+  font: var(--font-m);
+  background: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
 }
 
 .page-content {
-    display: flex;
-    padding: 15px;
+  display: flex;
+  padding: 15px;
 }
 
 .page-wrapper {
-    flex: 1;
-    padding: 15px;
+  flex: 1;
+  padding: 15px;
 }

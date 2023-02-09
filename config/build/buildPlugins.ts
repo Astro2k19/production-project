@@ -19,5 +19,5 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
     }),
     // refresh react components withour reloading
     isDev && new ReactRefreshWebpackPlugin()
-  ].filter(Boolean)
+  ]
 }

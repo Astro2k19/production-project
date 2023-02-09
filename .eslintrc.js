@@ -20,7 +20,8 @@ module.exports = {
     project: './tsconfig.json'
   },
   plugins: [
-    'react'
+    'react',
+    "i18next"
   ],
   rules: {
     'react/jsx-indent': [2, 4],
@@ -34,6 +35,8 @@ module.exports = {
       {
         "checksVoidReturn": false
       }
-    ]
+    ],
+    // only text in react files
+    'i18next/no-literal-string': ['error', {markupOnly: true, onlyAttribute: ['']}]
   }
 }
