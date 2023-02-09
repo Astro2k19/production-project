@@ -1,2 +1,2 @@
-export * from './appLink/AppLink';
-export * from './button/Button';
+export * from './appLink/AppLink'
+export * from './button/Button'
