@@ -12,12 +12,13 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
       options: {
         presets: ['@babel/preset-env'],
         plugins: [
-          ['i18next-extract', {
-            locales: ['eng', 'ua'],
-            keyAsDefaultValue: false,
-            saveMissing: true,
-            outputPath: 'public/locales/{{locale}}/{{ns}}.json'
-          }]
+          ['i18next-extract',
+            {
+              locales: ['eng', 'ua'],
+              keyAsDefaultValue: false,
+              saveMissing: true,
+              outputPath: 'public/locales/{{locale}}/{{ns}}.json'
+            }]
         ]
       }
     }
@@ -55,7 +56,8 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
             localIdentName: isDev
               ? '[path][name]__[local]--[hash:base64:5]'
               : '[hash:base64]',
-            auto: (resourcePath: string) => resourcePath.includes('.module.')
+            auto: (resourcePath: string) => resourcePath.includes('.module.'),
+            exportLocalsConvention: 'camelCase'
           }
         }
       },
@@ -92,7 +94,7 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
     imagesLoader,
     fontsLoader,
     svgLoader,
-    // babelLoader,
+    babelLoader,
     tsLoader,
     scssLoader
   ]

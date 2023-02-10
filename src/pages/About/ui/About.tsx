@@ -1,14 +1,13 @@
 import React, { type FC, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
+import { PageLoader } from 'widgets/pageLoader'
 
 const About: FC = () => {
-  const { t } = useTranslation('about')
+  const { t } = useTranslation()
   return (
-      <Suspense fallback={'test...'}>
-          <div>
-              <h1>{t('About page')}</h1>
-          </div>
-      </Suspense>
+      <div>
+          <h1>{t('About page', { ns: 'about' })}</h1>
+      </div>
   )
 }
 export default About

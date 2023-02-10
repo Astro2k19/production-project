@@ -9,7 +9,7 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher: FC = ({ className }: LangSwitcherProps) => {
-  const { t, i18n } = useTranslation('translation')
+  const { t, i18n } = useTranslation()
 
   const toggleLanguage = async (): Promise<void> => {
     await i18n.changeLanguage(i18n.language === 'eng' ? 'ua' : 'eng')
@@ -17,7 +17,7 @@ export const LangSwitcher: FC = ({ className }: LangSwitcherProps) => {
 
   return (
       <Button className={classNames([cls.switcher, className])} onClick={toggleLanguage} variant={ButtonVariants.CLEAR}>
-          {t('Language')}
+          {t('Language', { ns: 'translation' })}
       </Button>
   )
 }

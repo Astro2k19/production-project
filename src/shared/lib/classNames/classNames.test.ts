@@ -1,6 +1,6 @@
 import { classNames } from './classNames'
 
-describe('classNames', function () {
+describe('classNames', () => {
   test('with strings in classes array', () => {
     expect(classNames(['class1', 'class2'])).toBe('class1 class2')
   })
