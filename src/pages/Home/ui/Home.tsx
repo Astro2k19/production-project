@@ -13,7 +13,6 @@ const Home: FC = () => {
           <Translation ns={'home'}>
               {(t, { i18n }) => <h2>{t('Home page')}</h2> }
           </Translation>
-          ssasdfasdfasdfasdasdas
       </Suspense>
   )
 }
