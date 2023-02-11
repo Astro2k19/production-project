@@ -18,6 +18,6 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
       __IS_DEV__: isDev
     }),
     // refresh react components withour reloading
-    new ReactRefreshWebpackPlugin()
+    ...(isDev ? [new ReactRefreshWebpackPlugin()] : [])
   ]
 }
