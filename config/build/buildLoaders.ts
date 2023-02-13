@@ -14,7 +14,7 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
         plugins: [
           ['i18next-extract',
             {
-              locales: ['eng', 'ua'],
+              locales: ['en', 'ua'],
               keyAsDefaultValue: false,
               saveMissing: true,
               outputPath: 'public/locales/{{locale}}/{{ns}}.json'
@@ -94,7 +94,7 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
     imagesLoader,
     fontsLoader,
     svgLoader,
-    babelLoader,
+    // babelLoader,
     tsLoader,
     scssLoader
   ]

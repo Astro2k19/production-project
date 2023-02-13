@@ -12,7 +12,7 @@ export const LangSwitcher: FC = ({ className }: LangSwitcherProps) => {
   const { t, i18n } = useTranslation()
 
   const toggleLanguage = async (): Promise<void> => {
-    await i18n.changeLanguage(i18n.language === 'eng' ? 'ua' : 'eng')
+    await i18n.changeLanguage(i18n.language === 'en' ? 'ua' : 'en')
   }
 
   return (

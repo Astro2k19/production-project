@@ -1,12 +1,13 @@
-import React, { type FC, Suspense } from 'react'
-import { Translation, useTranslation } from 'react-i18next'
+import React, { type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Home: FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation('home')
 
   return (
       <div>
           <h1>{t('Home page', { ns: 'home' })}</h1>
+          asdasdasdasd
       </div>
   )
 }

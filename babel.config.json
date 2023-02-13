@@ -1,11 +1,11 @@
 {
-  "presets": ["@babel/preset-env", '@babel/preset-typescript'],
+  "presets": ["@babel/preset-env"],
   "plugins": [
     ["i18next-extract", {
-      "locales": ["eng", "ua"],
+      "locales": ["en", "ua"],
       "keyAsDefaultValue": false,
       "saveMissing": true,
       "outputPath": "public/locales/{{locale}}/{{ns}}.json"
-    }],
+    }]
   ]
 }
