@@ -4,6 +4,14 @@
 @import "themes/dark";
 @import "fonts";
 
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
 .app {
   font: var(--font-m);
   background: var(--bg-color);

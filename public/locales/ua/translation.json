@@ -1,6 +1,10 @@
 {
-  "About": "Про сайт",
-  "Home": "Головна сторінка",
   "Language": "EN",
-  "Not found page": "Такоъ сторінки не існує!"
+  "Not found page": "Такої сторінки не існує!",
+  "Oops! Something went wrong.": "Ой! Щось пішло не так.",
+  "Try again": "Спробуйте ще раз",
+  "Home": "Головна",
+  "About": "Про сайт",
+  "ua": "ua",
+  "en": "en"
 }

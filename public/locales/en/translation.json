@@ -1,6 +1,10 @@
 {
-  "About": "About",
-  "Home": "Home",
   "Language": "UA",
-  "Not found page": "Not found page"
+  "Not found page": "Not found page",
+  "Oops! Something went wrong.": "Oops! Something went wrong.",
+  "Try again": "Try again",
+  "Home": "Home",
+  "About": "About",
+  "en": "en",
+  "ua": "ua"
 }

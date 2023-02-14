@@ -4,8 +4,9 @@ import { type BuildOptions } from './types/config'
 import type { WebpackPluginInstance } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = ({ isDev, paths, analyze }: BuildOptions): WebpackPluginInstance[] => {
   return [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
@@ -18,6 +19,11 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
       __IS_DEV__: isDev
     }),
     // refresh react components withour reloading
-    ...(isDev ? [new ReactRefreshWebpackPlugin()] : [])
+    ...(isDev
+      ? [new ReactRefreshWebpackPlugin({
+          overlay: false
+        })]
+      : []),
+    ...(analyze ? [new BundleAnalyzerPlugin()] : [])
   ]
 }
