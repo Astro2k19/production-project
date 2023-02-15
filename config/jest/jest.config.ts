@@ -31,6 +31,7 @@ export default {
   ],
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
+  moduleDirectories: ['node_modules', 'src'],
   // An array of directory names to be searched recursively up from the requiring module's location
   modulePaths: ['<rootDir>src'],
   // The glob patterns Jest uses to detect test files

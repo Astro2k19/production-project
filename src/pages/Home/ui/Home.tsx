@@ -1,7 +1,5 @@
 import React, { type FC, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ErrorBoundary } from 'react-error-boundary'
-import { PageError } from 'widgets/PageError'
 
 const Home: FC = () => {
   const { t } = useTranslation('home')

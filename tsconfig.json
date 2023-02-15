@@ -14,13 +14,13 @@
     "moduleResolution": "node",
     "strictNullChecks": true,
     // Для абсолютного импорта
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "*": ["./src/*"]
     },
-    "include": [
-      "./config/jest/jest-setup.ts"
-    ],
+//    "include": [
+//      "./config/jest/jest-setup.ts"
+//    ],
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
     // import Moment from 'moment';
