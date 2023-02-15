@@ -12,7 +12,7 @@ export const NotFound: FC = ({ className }: NotFoundProps) => {
 
   return (
       <div className={classNames([cls.notFound, className])}>
-          <h1>{t('Not found page', { ns: 'translation' })}! :(</h1>
+          <h1>{t('Not found page', { ns: 'translation' })}</h1>
       </div>
   )
 }

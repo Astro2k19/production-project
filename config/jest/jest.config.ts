@@ -39,7 +39,12 @@ export default {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts']
+  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/config/jest/fileMock.tsx',
+    '\\.(css|scss)$': 'identity-obj-proxy'
+  }
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
