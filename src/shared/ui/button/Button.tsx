@@ -5,7 +5,7 @@ import { type ButtonHTMLAttributes, type FC } from 'react'
 export enum ButtonVariants {
   DEFAULT = 'default',
   CLEAR = 'clear',
-  BORDERED = 'bordered'
+  OUTLINE = 'outline'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

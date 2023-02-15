@@ -2,8 +2,11 @@ import type webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildOptions } from './types/config'
 import ReactRefreshTypeScript from 'react-refresh-typescript'
+import { buildCssLoaders } from './cssLoaders/buildCssLoaders'
 
-export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRule[] => {
+export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+  const { isDev, paths } = options
+
   const babelLoader = {
     test: /\.m?(js?x|tsx)$/,
     exclude: /node_modules/,
@@ -42,36 +45,7 @@ export const buildLoaders = ({ isDev, paths }: BuildOptions): webpack.RuleSetRul
     }
   }
 
-  const scssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      // Creates `style` nodes from JS strings
-      // "style-loader",
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64]',
-            auto: (resourcePath: string) => resourcePath.includes('.module.'),
-            exportLocalsConvention: 'camelCase'
-          }
-        }
-      },
-      // Compiles Sass to CSS
-      {
-        loader: 'sass-loader',
-        options: {
-          sassOptions: {
-            includePaths: [paths.src]
-          }
-        }
-      }
-    ]
-  }
+  const scssLoader = buildCssLoaders(isDev, paths)
 
   // setus ts-loader with React Refresh Webpack Plugin for updating react components without refresh
   const tsLoader = {
