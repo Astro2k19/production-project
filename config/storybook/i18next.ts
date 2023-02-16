@@ -6,16 +6,14 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 const ns = ['translation', 'home', 'about']
 const supportedLngs = ['en', 'ua']
 
-const resources = ns.reduce((acc, n) => {
+type ResourcesType = Record<string, Record<string, string>>
+
+const resources = ns.reduce((acc: ResourcesType, n) => {
   supportedLngs.forEach((lng) => {
-    // @ts-expect-error
-    if (!acc[lng]) {
-      // @ts-expect-error
+    if (acc[lng] === undefined) {
       acc[lng] = {}
     }
-    // @ts-expect-error
     acc[lng] = {
-      // @ts-expect-error
       ...acc[lng],
       [n]: require(`../../public/locales/${lng}/${n}.json`)
     }

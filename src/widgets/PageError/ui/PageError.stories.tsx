@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { type FC, useEffect } from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 // with ErrorBoundary decorator
-const StoryPageError = () => {
+const StoryPageError: FC = () => {
   useEffect(() => {
     throw new Error('Story error')
   })

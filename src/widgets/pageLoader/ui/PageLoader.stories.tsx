@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { PageLoader } from './PageLoader'
 

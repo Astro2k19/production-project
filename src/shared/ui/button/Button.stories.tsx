@@ -1,8 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Button, ButtonVariants } from './Button'
-import { Theme } from 'shared/lib'
-import { withThemes } from 'storybook-addon-themes/react'
+import { withThemes } from 'storybook-addon-themes'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

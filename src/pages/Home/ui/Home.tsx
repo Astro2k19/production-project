@@ -1,4 +1,4 @@
-import React, { type FC, useEffect } from 'react'
+import React, { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const Home: FC = () => {
