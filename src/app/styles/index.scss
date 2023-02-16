@@ -1,6 +1,6 @@
 @import "reset";
 @import "variables/global";
-@import "themes/normal";
+@import "themes/light";
 @import "themes/dark";
 @import "fonts";
 
@@ -17,6 +17,7 @@ body {
   background: var(--bg-color);
   color: var(--primary-color);
   min-height: 100vh;
+  height: 100%;
 }
 
 .page-content {

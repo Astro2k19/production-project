@@ -1,7 +1,8 @@
 import React from 'react'
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
-
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Button, ButtonVariants } from './Button'
+import { Theme } from 'shared/lib'
+import { withThemes } from 'storybook-addon-themes/react'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,6 +23,8 @@ Primary.args = {
   children: 'Test'
 }
 
+// Primary.decorators = [themeDecorator(Theme.DARK)]
+
 export const Clear = Template.bind({})
 Clear.args = {
   children: 'Test',
@@ -32,4 +35,19 @@ export const Outline = Template.bind({})
 Outline.args = {
   children: 'Test',
   variant: ButtonVariants.OUTLINE
+}
+
+export const OutlineDark = Template.bind({})
+OutlineDark.args = {
+  children: 'Test',
+  variant: ButtonVariants.OUTLINE
+}
+
+OutlineDark.story = {
+  decorators: [withThemes],
+  parameters: {
+    themes: {
+      default: 'Dark'
+    }
+  }
 }

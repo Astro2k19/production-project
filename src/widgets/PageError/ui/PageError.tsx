@@ -7,10 +7,6 @@ import { type FallbackProps } from 'react-error-boundary'
 export const PageError: FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
   const { t } = useTranslation()
 
-  if (error.message) {
-    console.log(error.message)
-  }
-
   return (
       <div className={classNames([cls.pageError])}>
           <div>

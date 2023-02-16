@@ -18,7 +18,7 @@ export const buildPlugins = ({ isDev, paths, analyze }: BuildOptions): WebpackPl
     new webpack.DefinePlugin({
       __IS_DEV__: isDev
     }),
-    // refresh react components withour reloading
+    // refresh react components without reloading
     ...(isDev
       ? [new ReactRefreshWebpackPlugin({
           overlay: false

@@ -1,4 +1,4 @@
-.page-error {
+.pageError {
   display: grid;
   place-items: center;
   width: 100%;
@@ -7,5 +7,6 @@
 
   h1 {
     margin-bottom: 30px;
+    color: var(--primary-color);
   }
 }
