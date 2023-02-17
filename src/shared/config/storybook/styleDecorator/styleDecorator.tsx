@@ -1,5 +1,4 @@
-import { type Story } from '@storybook/react'
+import { type DecoratorFn, type Story } from '@storybook/react'
 import 'app/styles/index.scss'
-import { type ReactElement } from 'react'
 
-export const styleDecorator = (StoryComponent: Story): ReactElement => <StoryComponent />
+export const styleDecorator: DecoratorFn = (StoryComponent: Story) => <StoryComponent />

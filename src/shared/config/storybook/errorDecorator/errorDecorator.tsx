@@ -1,9 +1,9 @@
 import { ErrorBoundary } from 'react-error-boundary'
 import { PageError } from 'widgets/PageError'
-import React, { type FC } from 'react'
-import { type Story } from '@storybook/react'
+import React from 'react'
+import { type Story, type DecoratorFn } from '@storybook/react'
 
-export const errorDecorator: FC = (StoryComponent: Story) => {
+export const errorDecorator: DecoratorFn = (StoryComponent: Story) => {
   return (
       <ErrorBoundary FallbackComponent={PageError}>
           <StoryComponent />

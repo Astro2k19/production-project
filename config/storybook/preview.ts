@@ -1,0 +1,34 @@
+import { addDecorator } from '@storybook/react'
+import { styleDecorator } from 'shared/config/storybook/styleDecorator/styleDecorator'
+
+import { withThemes } from 'storybook-addon-themes/react'
+import { routerDecorator } from 'shared/config/storybook/routerDecorator/routerDecorator'
+import { errorDecorator } from 'shared/config/storybook/errorDecorator/errorDecorator'
+import i18n from './i18next'
+
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/
+    }
+  },
+  themes: {
+    default: 'Light',
+    list: [
+      { name: 'Light', class: ['app', 'light'], color: '#e8e8ea' },
+      { name: 'Dark', class: ['app', 'dark'], color: '#090949' }
+    ]
+  },
+  i18n,
+  locale: 'en',
+  locales: {
+    en: 'English',
+    ua: 'Ukrainian'
+  }
+}
+addDecorator(errorDecorator)
+addDecorator(styleDecorator)
+addDecorator(withThemes)
+addDecorator(routerDecorator)

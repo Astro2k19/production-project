@@ -1,8 +1,7 @@
-import { type Story } from '@storybook/react'
+import { type DecoratorFn, type Story } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
-import { type FC } from 'react'
 
-export const routerDecorator: FC = (StoryComponent: Story) => {
+export const routerDecorator: DecoratorFn = (StoryComponent: Story) => {
   return (
       <BrowserRouter>
           <StoryComponent />
