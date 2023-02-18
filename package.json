@@ -17,6 +17,7 @@
     "test:ui": "npx loki test",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "test:ui:approve": "npx loki approve",
+    "test:ui:update": "npx loki update",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook"
   },
