@@ -1,9 +1,11 @@
 import { addDecorator } from '@storybook/react'
-import { styleDecorator } from 'shared/config/storybook/styleDecorator/styleDecorator'
+import { styleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator'
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import { withThemes } from 'storybook-addon-themes/react'
-import { routerDecorator } from 'shared/config/storybook/routerDecorator/routerDecorator'
-import { errorDecorator } from 'shared/config/storybook/errorDecorator/errorDecorator'
+import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator'
+import { errorDecorator } from '../../src/shared/config/storybook/errorDecorator/errorDecorator'
 import i18n from './i18next'
 
 export const parameters = {
