@@ -1,5 +1,5 @@
 import { I18nextProvider } from 'react-i18next'
-import i18n from './i18nForTests'
+import i18n from 'shared/config/i18n/i18nForTests'
 import { type ReactNode } from 'react'
 import { render, type RenderResult } from '@testing-library/react'
 

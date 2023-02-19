@@ -9,7 +9,7 @@ describe('Button component', function () {
   })
 
   test('Button with variant', () => {
-    render(<Button variant={ButtonVariants.CLEAR}>HELLO</Button>)
+    render(<Button data-testid='btn' variant={ButtonVariants.CLEAR}>HELLO</Button>)
     const btn = screen.getByTestId('btn')
 
     expect(btn).toHaveTextContent('HELLO')
