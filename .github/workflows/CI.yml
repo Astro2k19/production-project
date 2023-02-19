@@ -43,18 +43,23 @@ jobs:
 
       - name: Run Eslint
         run: npm run lint:ts
+        if: always()
 
       - name: Run StyleLint
         run: npm run lint:scss
+        if: always()
 
       - name: Run Unit tests
         run: npm run test:unit
+        if: always()
 
       - name: Run Build production
         run: npm run build:prod
+        if: always()
 
       - name: Run build storybook
         run: npm run build:storybook
+        if: always()
 
       - name: Run screenshot testing
         run: npm run test:ui:ci

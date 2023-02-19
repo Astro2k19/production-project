@@ -5,11 +5,21 @@ import { type ButtonHTMLAttributes, type FC } from 'react'
 export enum ButtonVariants {
   DEFAULT = 'default',
   CLEAR = 'clear',
-  OUTLINE = 'outline'
+  OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted'
+}
+
+export enum ButtonSizes {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants
+  square?: boolean
+  size?: ButtonSizes
 }
 
 export const Button: FC<ButtonProps> = (props) => {
@@ -17,14 +27,23 @@ export const Button: FC<ButtonProps> = (props) => {
     className,
     children,
     variant = ButtonVariants.DEFAULT,
+    square = false,
+    size = ButtonSizes.M,
     ...othersProps
   } = props
+
+  const mods = {
+    [cls.square]: square
+  }
 
   return (
       <button {...othersProps}
               data-testid='btn'
             type={'button'}
-            className={classNames([cls.button, cls[variant], className])} >
+            className={
+        classNames(
+          [cls.button, cls[variant], cls[size], className], mods
+        )} >
           {children}
       </button>
   )

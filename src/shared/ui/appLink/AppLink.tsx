@@ -10,7 +10,7 @@ export enum AppLinkVariants {
 
 interface AppLinkProps extends LinkProps {
   className?: string
-  variant: AppLinkVariants
+  variant?: AppLinkVariants
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {

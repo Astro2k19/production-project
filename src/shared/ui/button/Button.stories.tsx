@@ -1,7 +1,6 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Button, ButtonVariants } from './Button'
-import { withThemes } from 'storybook-addon-themes'
+import { Button, ButtonSizes, ButtonVariants } from './Button'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,8 +21,6 @@ Primary.args = {
   children: 'Test'
 }
 
-// Primary.decorators = [themeDecorator(Theme.DARK)]
-
 export const Clear = Template.bind({})
 Clear.args = {
   children: 'Test',
@@ -36,17 +33,51 @@ Outline.args = {
   variant: ButtonVariants.OUTLINE
 }
 
-export const OutlineDark = Template.bind({})
-OutlineDark.args = {
+export const OutlineSizeL = Template.bind({})
+OutlineSizeL.args = {
   children: 'Test',
+  size: ButtonSizes.L,
   variant: ButtonVariants.OUTLINE
 }
 
-OutlineDark.story = {
-  decorators: [withThemes],
-  parameters: {
-    themes: {
-      default: 'Dark'
-    }
-  }
+export const OutlineSizeXL = Template.bind({})
+OutlineSizeXL.args = {
+  children: 'Test',
+  size: ButtonSizes.XL,
+  variant: ButtonVariants.OUTLINE
+}
+
+export const BackgroundTheme = Template.bind({})
+BackgroundTheme.args = {
+  children: 'Test',
+  variant: ButtonVariants.BACKGROUND
+}
+
+export const BackgroundInverted = Template.bind({})
+BackgroundInverted.args = {
+  children: 'Test',
+  variant: ButtonVariants.BACKGROUND_INVERTED
+}
+
+export const Square = Template.bind({})
+Square.args = {
+  children: '>',
+  square: true,
+  variant: ButtonVariants.BACKGROUND_INVERTED
+}
+
+export const SquareSizeL = Template.bind({})
+SquareSizeL.args = {
+  children: '>',
+  square: true,
+  size: ButtonSizes.L,
+  variant: ButtonVariants.BACKGROUND_INVERTED
+}
+
+export const SquareSizeXL = Template.bind({})
+SquareSizeXL.args = {
+  children: '>',
+  square: true,
+  size: ButtonSizes.XL,
+  variant: ButtonVariants.BACKGROUND_INVERTED
 }
