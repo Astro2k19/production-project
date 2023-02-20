@@ -13,7 +13,7 @@ jobs:
   # This workflow contains a job called "integration"
   integration:
     # The runners that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     # A strategy that defines different variations of an environment to run each job in.
     strategy:
       matrix:
@@ -29,16 +29,7 @@ jobs:
       - name: Checkout master branch
         uses: actions/checkout@v2
 
-#      - name: Cache node_modules
-#        uses: actions/cache@v2.1.0
-#        with:
-#        # A list of files, directories, and wildcard patterns to cache and restore
-#        path: node_modules
-#        # An explicit key for restoring and saving the cache
-#        key: ${{ matrix.os }}-node-v${{ matrix.node-version }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run Eslint
