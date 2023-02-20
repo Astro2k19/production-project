@@ -1,7 +1,7 @@
 .button {
   cursor: pointer;
   border: none;
-  padding: 7px 15px;
+  padding: 10px 15px;
 }
 
 .clear {
@@ -20,6 +20,7 @@
 .backgroundInverted {
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
+  background: red;
 }
 
 .square {
