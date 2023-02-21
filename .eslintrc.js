@@ -10,7 +10,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard-with-typescript'
+    'standard-with-typescript',
+    "plugin:react-hooks/recommended"
   ],
   overrides: [
   ],
@@ -21,7 +22,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'i18next'
+    'i18next',
+    "react-hooks"
   ],
   rules: {
     'react/jsx-indent': [2, 4],
@@ -39,6 +41,7 @@ module.exports = {
     // only text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
     '@typescript-eslint/consistent-type-assertions': 'off',
-    // '@typescript-eslint/strict-boolean-expressions',
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   }
 }
