@@ -1,16 +1,18 @@
 .sidebar {
   position: relative;
   flex: 0 1 var(--sidebar-width);
+  width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
   padding: 15px;
   background-color: var(--inverted-bg-color);
-  transition: flex-basis 0.2s ease;
+  transition: flex-basis 0.2s ease, width 0.2s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   &.collapsed {
     flex: 0 1 var(--sidebar-collapsed-width);
+    width: var(--sidebar-collapsed-width);
   }
 }
 

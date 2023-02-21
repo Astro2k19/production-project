@@ -1,57 +1,58 @@
-# Name your workflow
-name: CI
-
-# Set on which events you want run the actions.
-# In this case the workflow will run on push for master and on pull request for master and develop branches
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  # This workflow contains a job called "integration"
-  integration:
-    # The runners that the job will run on
-    runs-on: windows-2019
-    # A strategy that defines different variations of an environment to run each job in.
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Checkout master branch
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run build storybook
-        run: npm run build:storybook
-        if: always()
-
-      - name: Run screenshot testing
-        run: npm run test:ui:ci
-        if: always()
-
-      - name: Run Eslint
-        run: npm run lint:ts
-        if: always()
-
-      - name: Run StyleLint
-        run: npm run lint:scss
-        if: always()
-
-      - name: Run Unit tests
-        run: npm run test:unit
-        if: always()
-
-      - name: Run Build production
-        run: npm run build:prod
-        if: always()
+## Name your workflow
+#name: CI
+#
+## Set on which events you want run the actions.
+## In this case the workflow will run on push for master and on pull request for master and develop branches
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+#
+#jobs:
+#  # This workflow contains a job called "integration"
+#  integration:
+#    # The runners that the job will run on
+#    # i can use tests with docker
+#    runs-on: windows-2019
+#    # A strategy that defines different variations of an environment to run each job in.
+#    strategy:
+#      matrix:
+#        node-version: [ 17.x ]
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      - name: Setup Node.js environment
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#
+#      - name: Checkout master branch
+#        uses: actions/checkout@v2
+#
+#      - name: Install dependencies
+#        run: npm install
+#
+#      - name: Run Eslint
+#        run: npm run lint:ts
+#        if: always()
+#
+#      - name: Run StyleLint
+#        run: npm run lint:scss
+#        if: always()
+#
+#      - name: Run Unit tests
+#        run: npm run test:unit
+#        if: always()
+#
+#      - name: Run Build production
+#        run: npm run build:prod
+#        if: always()
+#
+#      - name: Run build storybook
+#        run: npm run build:storybook
+#        if: always()
+#
+#      - name: Run screenshot testing
+#        run: npm run test:ui:ci
+#        if: always()

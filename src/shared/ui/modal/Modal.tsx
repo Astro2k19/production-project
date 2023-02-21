@@ -18,8 +18,6 @@ export const Modal: FC<ModalProps> = (props) => {
     isOpen
   } = props
 
-  const renderPlace = document.querySelector('.app')
-
   const onContentClick = (e: MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
   }
@@ -57,7 +55,7 @@ export const Modal: FC<ModalProps> = (props) => {
   }
 
   return (
-      <Portal domNode={renderPlace}>
+      <Portal>
           <div className={classNames([cls.modal, className], mods)}>
               <div className={cls.overlay} onClick={closeModal}>
                   <div className={cls.content} onClick={onContentClick}>

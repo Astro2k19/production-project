@@ -2,19 +2,10 @@
   "About": "Про сайт",
   "Home": "Головна",
   "Language": "EN",
-  "Log In": "",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Fugit ipsa iure maxime nostrum ut": {
-      "\nDeserunt dolorem doloremque fuga fugiat fugit inventore iure magni maiores, minus molestiae\nprovident quisquam repellat similique?": ""
-    }
-  },
   "Not found page": "Такої сторінки не існує! :(",
-  "Oops! Something went wrong": {
-    "": ""
-  },
   "Oops! Something went wrong.": "Ой! Щось пішло не так.",
-  "Toggle": "",
   "Try again": "Спробуйте ще раз",
   "en": "en",
-  "ua": "ua"
+  "ua": "ua",
+  "Log In": "Увійти"
 }

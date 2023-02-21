@@ -5,7 +5,7 @@ import { ThemeSwitcher } from 'features/themeSwitcher'
 import { LangSwitcher } from 'features/langSwitcher'
 import { useTranslation } from 'react-i18next'
 import ToggleSidebarIcon from 'shared/assets/icons/sidebar-toggle.svg'
-import { AppLink, Button, ButtonSizes, ButtonVariants } from 'shared/ui'
+import { AppLink, AppLinkVariants, Button, ButtonSizes, ButtonVariants } from 'shared/ui'
 import HomeIcon from 'shared/assets/icons/home_icon.svg'
 import AboutIcon from 'shared/assets/icons/about_icon.svg'
 import { appPaths, AppRoutes } from 'shared/config/routerConfig'
@@ -36,11 +36,11 @@ export const Sidebar: FC = ({ className = '' }: SidebarProps) => {
           </Button>
           <nav className={cls.navigation}>
               <div className={cls.items}>
-                  <AppLink to={appPaths[AppRoutes.MAIN]} className={cls.item}>
+                  <AppLink to={appPaths[AppRoutes.MAIN]} className={cls.item} variant={AppLinkVariants.INVERTED}>
                       <HomeIcon className={cls.itemIcon} />
                       <span>{t('Home')}</span>
                   </AppLink>
-                  <AppLink to={appPaths[AppRoutes.ABOUT]} className={cls.item}>
+                  <AppLink to={appPaths[AppRoutes.ABOUT]} className={cls.item} variant={AppLinkVariants.INVERTED}>
                       <AboutIcon className={cls.itemIcon} />
                       <span>{t('About')}</span>
                   </AppLink>
