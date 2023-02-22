@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {},
+  "users": [
+    {
+      "id": 1,
+      "username": "Astro2k19",
+      "password": "lolka"
+    },
+    {
+      "id": 2,
+      "username": "Valera",
+      "password": "12345678"
+    }
+  ]
+}

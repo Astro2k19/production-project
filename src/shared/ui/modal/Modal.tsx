@@ -1,7 +1,7 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib'
 import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC } from 'react'
-import { Portal } from 'shared/ui/portal/Portal'
+// import { Portal } from 'shared/ui/portal/Portal'
 
 interface ModalProps {
   className?: string
@@ -55,14 +55,14 @@ export const Modal: FC<ModalProps> = (props) => {
   }
 
   return (
-      <Portal>
-          <div className={classNames([cls.modal, className], mods)}>
-              <div className={cls.overlay} onClick={closeModal}>
-                  <div className={cls.content} onClick={onContentClick}>
-                      {children}
-                  </div>
+  // <Portal>
+      <div className={classNames([cls.modal, className], mods)}>
+          <div className={cls.overlay} onClick={closeModal}>
+              <div className={cls.content} onClick={onContentClick}>
+                  {children}
               </div>
           </div>
-      </Portal>
+      </div>
+  // </Portal>
   )
 }

@@ -2,11 +2,14 @@
   "About": "About",
   "Home": "Home",
   "Language": "UA",
+  "Log In": "Log In",
   "Not found page": "Not found page! :(",
+  "Oops! Something went wrong": {
+    "": ""
+  },
   "Oops! Something went wrong.": "Oops! Something went wrong.",
   "Toggle": "",
   "Try again": "Try again",
   "en": "en",
-  "ua": "ua",
-  "Log In": "Log In"
+  "ua": "ua"
 }
