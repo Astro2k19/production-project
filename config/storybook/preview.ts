@@ -17,8 +17,8 @@ export const parameters = {
   themes: {
     default: 'Light',
     list: [
-      { name: 'Light', class: ['app_light_theme'], color: '#e8e8ea' },
-      { name: 'Dark', class: ['app_dark_theme'], color: '#090949' }
+      { name: 'Light', class: ['app', 'app_light_theme'], color: '#e8e8ea' },
+      { name: 'Dark', class: ['app', 'app_dark_theme'], color: '#090949' }
     ]
   },
   i18n,
