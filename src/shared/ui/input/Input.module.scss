@@ -9,12 +9,7 @@
   outline: none;
   border: none;
   font-weight: 700;
-  color: var(--inverted-primary-color);
-}
-
-.caretWrapper {
-  position: relative;
-  flex: 1;
+  color: var(--primary-color);
 }
 
 @keyframes blink {
@@ -31,18 +26,9 @@
   }
 }
 
-.caret {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 9px;
-  height: 3px;
-  background-color: var(--inverted-primary-color);
-  animation: blink 0.7s infinite;
-}
-
 .placeholder {
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 

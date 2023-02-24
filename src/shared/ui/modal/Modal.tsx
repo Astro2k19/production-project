@@ -1,6 +1,6 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib'
-import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC } from 'react'
+import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
 // import { Portal } from 'shared/ui/portal/Portal'
 
 interface ModalProps {
@@ -8,6 +8,7 @@ interface ModalProps {
   children?: ReactNode
   isOpen: boolean
   onClose?: () => void
+  lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -15,8 +16,11 @@ export const Modal: FC<ModalProps> = (props) => {
     className,
     children,
     onClose,
-    isOpen
+    isOpen,
+    lazy = false
   } = props
+
+  const [isMounted, setIsMounted] = useState(false)
 
   const onContentClick = (e: MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
@@ -42,6 +46,12 @@ export const Modal: FC<ModalProps> = (props) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
       document.body.addEventListener('keyup', onKeyUp)
     }
 
@@ -52,6 +62,10 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen
+  }
+
+  if (lazy && !isMounted) {
+    return null
   }
 
   return (

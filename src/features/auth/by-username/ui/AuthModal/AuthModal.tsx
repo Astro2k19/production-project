@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib'
 import { Modal } from 'shared/ui'
 import { AuthForm } from 'features/auth/by-username/ui/AuthForm/AuthForm'
 import { type FC } from 'react'
+import { Portal } from 'shared/ui/portal/Portal'
 
 interface AuthModalProps {
   className?: string
@@ -18,8 +19,10 @@ export const AuthModal: FC<AuthModalProps> = (props) => {
   } = props
 
   return (
-      <Modal className={classNames([cls.authModal, className])} onClose={onClose} isOpen={isOpen}>
-          <AuthForm />
-      </Modal>
+      <Portal>
+          <Modal className={classNames([cls.authModal, className])} onClose={onClose} isOpen={isOpen} lazy={true}>
+              <AuthForm />
+          </Modal>
+      </Portal>
   )
 }

@@ -1,4 +1,4 @@
-import React, { type InputHTMLAttributes, memo } from 'react'
+import React, { type InputHTMLAttributes, memo, useEffect, useState, useRef } from 'react'
 import cls from './Input.module.scss'
 import { classNames } from 'shared/lib'
 
@@ -17,8 +17,10 @@ export const Input = memo((props: InputProps) => {
     value,
     type = 'text',
     placeholder,
+    autoFocus = false,
     ...others
   } = props
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange?.(event.target.value)
@@ -27,16 +29,15 @@ export const Input = memo((props: InputProps) => {
   return (
       <div className={classNames([cls.inputWrapper, className])}>
           {placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
-          <div className={cls.caretWrapper}>
-              <input
-              type={type}
-              value={value}
-              onChange={onChangeHandler}
-              className={cls.input}
-              {...others}
-          />
-              <span className={cls.caret}></span>
-          </div>
+          <input
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          className={cls.input}
+          ref={inputRef}
+          autoFocus={autoFocus}
+          {...others}
+        />
       </div>
   )
 })

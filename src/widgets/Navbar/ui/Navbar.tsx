@@ -4,6 +4,7 @@ import { Button, ButtonVariants } from 'shared/ui'
 import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
+import { Portal } from 'shared/ui/portal/Portal'
 
 interface NavbarProps {
   className?: string
