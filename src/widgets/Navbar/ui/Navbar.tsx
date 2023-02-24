@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib'
 import { Button, ButtonVariants } from 'shared/ui'
 import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Modal } from 'shared/ui/modal/Modal'
+import { AuthModal } from 'features/auth/by-username'
 
 interface NavbarProps {
   className?: string
@@ -13,9 +13,16 @@ export const Navbar: FC = ({ className = '' }: NavbarProps) => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
-  const onToggleModal = useCallback(
+  const onClose = useCallback(
     () => {
-      setIsOpen(prevState => !prevState)
+      setIsOpen(false)
+    },
+    []
+  )
+
+  const onOpen = useCallback(
+    () => {
+      setIsOpen(true)
     },
     []
   )
@@ -24,13 +31,9 @@ export const Navbar: FC = ({ className = '' }: NavbarProps) => {
 
   return (
       <div className={classNames([cls.navbar, className])}>
-          <Modal isOpen={isOpen} onClose={onToggleModal}>
-              {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsa iure maxime nostrum ut.\n' +
-                    'Deserunt dolorem doloremque fuga fugiat fugit inventore iure magni maiores, minus molestiae\n' +
-                    'provident quisquam repellat similique?')}
-          </Modal>
+          <AuthModal isOpen={isOpen} onClose={onClose} />
           <div className={cls.links}>
-              <Button onClick={onToggleModal} variant={ButtonVariants.CLEAR_INVERTED}>
+              <Button onClick={onOpen} variant={ButtonVariants.CLEAR_INVERTED}>
                   {t('Log In')}
               </Button>
           </div>

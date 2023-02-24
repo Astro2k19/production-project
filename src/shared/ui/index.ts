@@ -1,3 +1,5 @@
 export * from './appLink/AppLink'
 export * from './button/Button'
 export { Loader } from './loader/Loader'
+export { Modal } from './modal/Modal'
+export { Input } from './input/Input'
