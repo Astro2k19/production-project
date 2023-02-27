@@ -12,7 +12,7 @@ export const PageError: FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
   return (
       <div className={classNames([cls.pageError])}>
           <div>
-              <h1>{t('Oops! Something went wrong.', { ns: 'translation' })}</h1>
+              <h1>{t('Oops! Something went wrong. Please, try Again!', { ns: 'translation' })}</h1>
               <button onClick={resetErrorBoundary}>{t('Try again', { ns: 'translation' })}</button>
           </div>
       </div>

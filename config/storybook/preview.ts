@@ -1,9 +1,8 @@
 import { addDecorator } from '@storybook/react'
-import { styleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator'
+import { StyleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator'
 
 import { withThemes } from 'storybook-addon-themes/react'
-import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator'
-import { errorDecorator } from '../../src/shared/config/storybook/errorDecorator/errorDecorator'
+import { RouterDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator'
 import i18n from './i18next'
 
 export const parameters = {
@@ -28,7 +27,7 @@ export const parameters = {
     ua: 'Ukrainian'
   }
 }
-addDecorator(errorDecorator)
-addDecorator(styleDecorator)
+
+addDecorator(StyleDecorator)
 addDecorator(withThemes)
-addDecorator(routerDecorator)
+addDecorator(RouterDecorator)

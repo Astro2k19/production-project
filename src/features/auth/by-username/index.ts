@@ -1,4 +1,3 @@
 export { AuthModal } from './ui/AuthModal/AuthModal'
-export type { AuthFormSchema } from './model/types/AuthForm'
-export { authReducer } from './model/slice/authByUsernameSlice'
-export { loginByUsername } from './model/services/loginByUsername/loginByUsername'
+export type { LoginFormSchema } from './model/types/loginSchema'
+export { authReducer } from './model/slice/loginByUsernameSlice'

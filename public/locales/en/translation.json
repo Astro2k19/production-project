@@ -3,18 +3,19 @@
   "Home": "Home",
   "Language": "UA",
   "Log In": "Log In",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Fugit ipsa iure maxime nostrum ut": {
-      "\nDeserunt dolorem doloremque fuga fugiat fugit inventore iure magni maiores, minus molestiae\nprovident quisquam repellat similique?": ""
-    }
-  },
+  "Log Out": "Log Out",
   "Not found page": "Not found page! :(",
   "Oops! Something went wrong": {
-    "": ""
+    " Please, try Again!": "",
+    " Please, try again!": ""
   },
-  "Oops! Something went wrong.": "Oops! Something went wrong.",
+  "Oops! Something went wrong. Please, try again!": "Oops! Something went wrong. Please, try Again!",
+  "Password or username is wrong!": "Password or username is wrong!",
   "Toggle": "",
   "Try again": "Try again",
+  "decrement": "",
   "en": "en",
-  "ua": "ua"
+  "increment": "",
+  "ua": "ua",
+  "value": ""
 }

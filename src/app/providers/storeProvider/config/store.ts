@@ -1,19 +1,21 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type StoreShema } from 'app/providers/storeProvider/config/StoreShema'
+import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { type Store } from 'redux'
 import { counterReducer } from 'entities/Counter'
-import { userReducer } from 'entities/User'
+import { authMiddleware, userReducer } from 'entities/User'
 import { authReducer } from 'features/auth/by-username'
 
-export const createReduxStore = (initialState?: StoreShema): Store => {
-  const storeReducer: ReducersMapObject<StoreShema> = {
+export const createReduxStore = (initialState?: StoreSchema): Store => {
+  const storeReducer: ReducersMapObject<StoreSchema> = {
     counter: counterReducer,
     user: userReducer,
-    authForm: authReducer
+    loginForm: authReducer
   }
 
-  return configureStore<StoreShema>({
+  return configureStore<StoreSchema>({
     reducer: storeReducer,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().prepend(authMiddleware.middleware)
   })
 }

@@ -1,3 +1,4 @@
-import { type StoreShema } from 'app/providers/storeProvider/config/StoreShema'
+import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type LoginFormSchema } from '../../types/loginSchema'
 
-export const getAuthState = (state: StoreShema) => state.authForm
+export const getAuthState = (state: StoreSchema): LoginFormSchema => state.loginForm

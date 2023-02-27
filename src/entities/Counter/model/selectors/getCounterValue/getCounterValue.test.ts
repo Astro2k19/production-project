@@ -1,15 +1,15 @@
 import { type DeepPartial } from '@reduxjs/toolkit'
-import { type StoreShema } from 'app/providers/storeProvider/config/StoreShema'
+import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { getCounterValue } from './getCounterValue'
 
 describe('getCounterValue', () => {
-  const state: DeepPartial<StoreShema> = {
+  const state: DeepPartial<StoreSchema> = {
     counter: {
       value: 55
     }
   }
 
   test('should return counter value', () => {
-    expect(getCounterValue(state as StoreShema)).toBe(55)
+    expect(getCounterValue(state as StoreSchema)).toBe(55)
   })
 })

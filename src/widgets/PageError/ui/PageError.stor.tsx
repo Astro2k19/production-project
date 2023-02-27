@@ -1,5 +1,6 @@
 import React, { type FC, useEffect } from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { ErrorDecorator } from 'shared/config/storybook/errorDecorator/errorDecorator'
 
 // with ErrorBoundary decorator
 const StoryPageError: FC = () => {
@@ -26,3 +27,4 @@ const Template: ComponentStory<typeof StoryPageError> = (args) => <StoryPageErro
 export const PageErrorComponent = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 PageErrorComponent.args = {}
+PageErrorComponent.decorators = [ErrorDecorator]

@@ -2,6 +2,11 @@
   cursor: pointer;
   border: none;
   padding: 10px 15px;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: auto;
+  }
 }
 
 .clear,

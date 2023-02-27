@@ -38,6 +38,7 @@ module.exports = {
         "checksVoidReturn": false
       }
     ],
+    "@typescript-eslint/strict-boolean-expressions": "off",
     // only text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
     '@typescript-eslint/consistent-type-assertions': 'off',

@@ -3,7 +3,7 @@ import { PageError } from 'widgets/PageError'
 import React from 'react'
 import { type Story, type DecoratorFn } from '@storybook/react'
 
-export const errorDecorator: DecoratorFn = (StoryComponent: Story) => {
+export const ErrorDecorator: DecoratorFn = (StoryComponent: Story) => {
   return (
       <ErrorBoundary FallbackComponent={PageError}>
           <StoryComponent />
