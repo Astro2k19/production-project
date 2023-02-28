@@ -43,7 +43,8 @@ export default {
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/config/jest/fileMock.tsx',
-    '\\.(css|scss)$': 'identity-obj-proxy'
+    '\\.(css|scss)$': 'identity-obj-proxy',
+    axios: 'axios/dist/node/axios.cjs'
   }
 
   // Indicates whether the coverage information should be collected while executing the test

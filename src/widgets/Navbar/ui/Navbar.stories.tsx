@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Navbar } from './Navbar'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,12 +19,12 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
 export const Unauthorized = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Unauthorized.args = {}
-Unauthorized.decorators = [storeDecorator({})]
+Unauthorized.decorators = [StoreDecorator({})]
 
 export const Authorized = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Authorized.args = {}
-Authorized.decorators = [storeDecorator({
+Authorized.decorators = [StoreDecorator({
   user: {
     authData: {}
   }

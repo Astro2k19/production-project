@@ -11,7 +11,7 @@ export const useTheme = (): useThemeResult => {
 
   const toggleTheme = (): void => {
     const themeName = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-    if (setTheme !== undefined) {
+    if (setTheme) {
       setTheme(themeName)
       document.body.className = themeName
     }

@@ -19,5 +19,6 @@ export const ModalComponent = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ModalComponent.args = {
   isOpen: true,
-  children: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloribus odio pariatur quasi similique. Accusamus architecto iste obcaecati officia perspiciatis quis rem repellat rerum similique, totam? Assumenda dicta nostrum tempore!'
+  children: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloribus odio pariatur quasi similique. Accusamus architecto iste obcaecati officia perspiciatis quis rem repellat rerum similique, totam? Assumenda dicta nostrum tempore!',
+  withPortal: false
 }

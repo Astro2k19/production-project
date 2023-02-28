@@ -1,17 +1,17 @@
 import { type RouteProps } from 'react-router-dom'
-import { Home } from 'pages/Home'
-import { About } from 'pages/About'
+import { HomePage } from 'pages/Home'
+import { AboutPage } from 'pages/About'
 import { NotFound } from 'pages/NotFound'
-import { appPaths, AppRoutes } from 'shared/config/routerConfig'
+import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
 
 export const routerConfig: RouteProps[] = [
   {
     path: appPaths[AppRoutes.MAIN],
-    element: <Home/>
+    element: <HomePage/>
   },
   {
     path: appPaths[AppRoutes.ABOUT],
-    element: <About/>
+    element: <AboutPage/>
   },
   {
     path: appPaths[AppRoutes.NOT_FOUND],

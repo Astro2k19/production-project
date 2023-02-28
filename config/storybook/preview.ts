@@ -1,8 +1,8 @@
 import { addDecorator } from '@storybook/react'
-import { StyleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator'
+import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 
 import { withThemes } from 'storybook-addon-themes/react'
-import { RouterDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 import i18n from './i18next'
 
 export const parameters = {

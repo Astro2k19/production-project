@@ -1,7 +1,7 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib'
 import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
-// import { Portal } from 'shared/ui/portal/Portal'
+import { Portal } from 'shared/ui/portal/Portal'
 
 interface ModalProps {
   className?: string
@@ -9,6 +9,7 @@ interface ModalProps {
   isOpen: boolean
   onClose?: () => void
   lazy?: boolean
+  withPortal?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -17,7 +18,8 @@ export const Modal: FC<ModalProps> = (props) => {
     children,
     onClose,
     isOpen,
-    lazy = false
+    lazy = false,
+    withPortal = true
   } = props
 
   const [isMounted, setIsMounted] = useState(false)
@@ -68,8 +70,21 @@ export const Modal: FC<ModalProps> = (props) => {
     return null
   }
 
+  if (withPortal) {
+    return (
+        <Portal>
+            <div className={classNames([cls.modal], mods)}>
+                <div className={cls.overlay} onClick={closeModal}>
+                    <div className={classNames([cls.content, className])} onClick={onContentClick}>
+                        {children}
+                    </div>
+                </div>
+            </div>
+        </Portal>
+    )
+  }
+
   return (
-  // <Portal>
       <div className={classNames([cls.modal], mods)}>
           <div className={cls.overlay} onClick={closeModal}>
               <div className={classNames([cls.content, className])} onClick={onContentClick}>
@@ -77,6 +92,5 @@ export const Modal: FC<ModalProps> = (props) => {
               </div>
           </div>
       </div>
-  // </Portal>
   )
 }

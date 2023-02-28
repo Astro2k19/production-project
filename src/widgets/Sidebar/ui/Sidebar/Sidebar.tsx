@@ -8,7 +8,7 @@ import ToggleSidebarIcon from 'shared/assets/icons/sidebar-toggle.svg'
 import { AppLink, AppLinkVariants, Button, ButtonSizes, ButtonVariants } from 'shared/ui'
 import HomeIcon from 'shared/assets/icons/home_icon.svg'
 import AboutIcon from 'shared/assets/icons/about_icon.svg'
-import { appPaths, AppRoutes } from 'shared/config/routerConfig'
+import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
 
 interface SidebarProps {
   className?: string
