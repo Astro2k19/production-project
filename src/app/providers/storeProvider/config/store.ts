@@ -23,6 +23,7 @@ export const createReduxStore = (
       getDefaultMiddleware().prepend(authMiddleware.middleware)
   })
 
+  // @ts-expect-error: we added reducer manager
   store.reducerManager = reducerManager
 
   return store

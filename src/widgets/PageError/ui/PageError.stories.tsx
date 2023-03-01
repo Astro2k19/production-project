@@ -1,6 +1,5 @@
-import React, { type FC, useEffect } from 'react'
+import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ErrorDecorator } from 'shared/config/storybook/errorDecorator/errorDecorator'
 import { PageErrorTest } from './PageErrorTest'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

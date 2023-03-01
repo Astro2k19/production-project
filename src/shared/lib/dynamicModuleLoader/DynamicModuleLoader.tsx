@@ -1,5 +1,4 @@
 import { type FC, type ReactNode, useEffect } from 'react'
-import { authReducer } from 'features/auth/by-username'
 import { useDispatch, useStore } from 'react-redux'
 import { type ExtendedReducerManagerStore, type StoreSchemaKeys } from 'app/providers/storeProvider/config/StoreSchema'
 import { type Reducer } from '@reduxjs/toolkit'
@@ -40,7 +39,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         })
       }
     }
-  }, []) // eslint-ignore-line
+  }, []) // eslint-disable-line
 
   return (
       <>

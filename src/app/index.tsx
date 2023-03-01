@@ -17,7 +17,7 @@ export const App: React.FC = () => {
       console.log(JSON.parse(userData))
       dispatch(userActions.setAuthDate(JSON.parse(userData)))
     }
-  }, [])
+  }, []) // eslint-disable-line
 
   return (
       <div className={classNames(['app'])} >

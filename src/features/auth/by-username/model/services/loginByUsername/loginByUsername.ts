@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type User, userActions } from 'entities/User'
-import axios, { AxiosError } from 'axios'
-import i18n from 'shared/config/i18n/i18n'
-import { type AuthFormErrors } from '../../../ui/AuthForm/AuthForm'
+import axios from 'axios'
 
 interface loginByUsernameProps {
   username: string
