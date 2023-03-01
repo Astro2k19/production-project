@@ -1,6 +1,5 @@
 {
   "About": "Про сайт",
-  "Email or password is incorrect!": "Невірний пароль або логін!",
   "Home": "Головна",
   "Language": "EN",
   "Log In": "Увійти",
@@ -10,7 +9,8 @@
     " Please, try Again!": "",
     " Please, try again!": ""
   },
-  "Oops! Something went wrong. Please, try again!": "Ой! Щось пішло не так. Будь ласка спробуйте ще раз!",
+  "Oops! Something went wrong. Please, try Again!": "Ой! Щось пішло не так. Буль ласка спробуйте ще раз!",
+  "Password or username is wrong!": "Невірний пароль або логін!",
   "Try again": "Спробуйте ще раз",
   "decrement": "",
   "en": "en",

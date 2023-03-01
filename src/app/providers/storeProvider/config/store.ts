@@ -1,13 +1,15 @@
-import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { type Store } from 'redux'
 import { counterReducer } from 'entities/Counter'
 import { authMiddleware, userReducer } from 'entities/User'
-import { authReducer } from 'features/auth/by-username'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
 
-export const createReduxStore = (initialState?: StoreSchema): Store => {
+export const createReduxStore = (
+  initialState?: StoreSchema, asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>
+): Store => {
   const initialReducers: ReducersMapObject<StoreSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer
   }

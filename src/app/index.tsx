@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { classNames } from 'shared/lib'
-
 import 'app/styles/index.scss'
 import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'

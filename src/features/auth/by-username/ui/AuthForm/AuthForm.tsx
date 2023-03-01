@@ -1,10 +1,9 @@
 import cls from './AuthForm.module.scss'
 import { classNames } from 'shared/lib'
-import { useEffect, type FC, type FormEvent } from 'react'
-import { type ExtendedReducerManagerStore } from 'app/providers/storeProvider/config/StoreSchema'
+import { type FC, type FormEvent } from 'react'
 import { Button, ButtonVariants, Input, Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector, useStore } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { getAuthLoading } from '../../model/selectors/getAuthLoading/getAuthLoading'
@@ -53,30 +52,33 @@ const AuthForm: FC = ({ className }: AuthFormProps) => {
   }
 
   return (
-      <DynamicModuleLoader removeAfterUnmount={false} reducers={initialReducers} >
-          <form className={classNames([cls.authForm, className])} onSubmit={onSubmit} >
+      <DynamicModuleLoader
+          removeAfterUnmount
+          reducers={initialReducers}
+      >
+          <form className={classNames([cls.authForm, className])} onSubmit={onSubmit}>
               <Text title='Authorization form' className={cls.title} />
-              {error && <Text text={t(AuthFormErrors[error]) ?? t(AuthFormErrors.SERVER_ERROR)} variant={TextVariants.ERROR} />}
+              {error && <Text text={t(AuthFormErrors[error] ?? AuthFormErrors.SERVER_ERROR)} variant={TextVariants.ERROR} />}
               <Input
-          type='text'
-          onChange={setUsername}
-          value={username}
-          placeholder={'Username'}
-          autoFocus
-          className={cls.input}
-        />
+                type='text'
+                onChange={setUsername}
+                value={username}
+                placeholder={'Username'}
+                autoFocus
+                className={cls.input}
+              />
               <Input
-          type='text'
-          onChange={setPassword}
-          value={password}
-          placeholder={'Password'}
-        />
+                type='text'
+                onChange={setPassword}
+                value={password}
+                placeholder={'Password'}
+              />
               <Button
-          type='submit'
-          className={cls.button}
-          variant={ButtonVariants.OUTLINE}
-          onClick={onSubmit}
-          disabled={isLoading}
+                  type='submit'
+                  className={cls.button}
+                  variant={ButtonVariants.OUTLINE}
+                  onClick={onSubmit}
+                  disabled={isLoading}
         >
                   {t('Log In')}
               </Button>

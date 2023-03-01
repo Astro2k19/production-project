@@ -40,7 +40,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         })
       }
     }
-  }, [])
+  }, []) // eslint-ignore-line
 
   return (
       <>

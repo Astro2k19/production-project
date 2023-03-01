@@ -1,6 +1,6 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { AuthForm } from './AuthForm'
+import AuthForm from './AuthForm'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -39,6 +39,6 @@ export const Error = Template.bind({})
 Error.args = {}
 Error.decorators = [StoreDecorator({
   loginForm: {
-    error: 'Password or username is wrong!'
+    error: 'asdfasdfasdfasdf'
   }
 })]
