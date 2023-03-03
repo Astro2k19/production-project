@@ -13,7 +13,7 @@ export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, { re
     try {
       const response = await axios.post('http://localhost:8000/login', userData)
 
-      if (!response.data || response.status !== 200) {
+      if (!response.data) {
         return thunkAPI.rejectWithValue('SERVER_ERROR')
       }
 
