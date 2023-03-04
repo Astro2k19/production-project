@@ -1,7 +1,7 @@
-import React, { type FC } from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const HomePage: FC = () => {
+const HomePage = memo(() => {
   const { t } = useTranslation('home')
 
   return (
@@ -9,5 +9,5 @@ const HomePage: FC = () => {
           <h1>{t('Home page', { ns: 'home' })}</h1>
       </div>
   )
-}
+})
 export default HomePage

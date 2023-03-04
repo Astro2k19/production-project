@@ -1,14 +1,12 @@
 import cls from './Sidebar.module.scss'
 import { classNames } from 'shared/lib'
-import React, { type FC } from 'react'
+import React, { type FC, useMemo, useState } from 'react'
 import { ThemeSwitcher } from 'features/themeSwitcher'
 import { LangSwitcher } from 'features/langSwitcher'
-import { useTranslation } from 'react-i18next'
 import ToggleSidebarIcon from 'shared/assets/icons/sidebar-toggle.svg'
-import { AppLink, AppLinkVariants, Button, ButtonSizes, ButtonVariants } from 'shared/ui'
-import HomeIcon from 'shared/assets/icons/home_icon.svg'
-import AboutIcon from 'shared/assets/icons/about_icon.svg'
-import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
+import { Button, ButtonSizes, ButtonVariants } from 'shared/ui'
+import { sidebarItems } from '../../../Sidebar/model/items'
+import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
 
 interface SidebarProps {
   className?: string
@@ -16,7 +14,7 @@ interface SidebarProps {
 
 export const Sidebar: FC = ({ className = '' }: SidebarProps) => {
   const [collapsed, setCollapsed] = React.useState(false)
-  const { t } = useTranslation()
+  const [counter, setCounter] = useState(0)
 
   const toggleSidebar = (): void => {
     setCollapsed(prevState => !prevState)
@@ -24,6 +22,7 @@ export const Sidebar: FC = ({ className = '' }: SidebarProps) => {
 
   return (
       <div className={classNames([cls.sidebar, className], { [cls.collapsed]: collapsed })} data-testid='sidebar'>
+          <button onClick={() => { setCounter(counter + 1) }}>click</button>
           <Button
               onClick={toggleSidebar}
               className={cls.toggleBtn}
@@ -32,18 +31,13 @@ export const Sidebar: FC = ({ className = '' }: SidebarProps) => {
               data-testid='toggle-btn'
               square
           >
-              <ToggleSidebarIcon className={classNames([cls.toggleIcon], { [cls.collapsed]: collapsed })} />
+              <ToggleSidebarIcon className={classNames([cls.toggleIcon])} />
           </Button>
           <nav className={cls.navigation}>
               <div className={cls.items}>
-                  <AppLink to={appPaths[AppRoutes.MAIN]} className={cls.item} variant={AppLinkVariants.INVERTED}>
-                      <HomeIcon className={cls.itemIcon} />
-                      <span>{t('Home')}</span>
-                  </AppLink>
-                  <AppLink to={appPaths[AppRoutes.ABOUT]} className={cls.item} variant={AppLinkVariants.INVERTED}>
-                      <AboutIcon className={cls.itemIcon} />
-                      <span>{t('About')}</span>
-                  </AppLink>
+                  {sidebarItems.map(item => (
+                      <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+                  ))}
               </div>
           </nav>
           <div className={cls.switchers}>

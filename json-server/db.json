@@ -13,7 +13,16 @@
       "postId": 1
     }
   ],
-  "profile": {},
+  "profile": {
+    "first": "Artem",
+    "lastname": "Katrushchenko",
+    "age": 20,
+    "currency": "UAH",
+    "country": "Ukraine",
+    "city": "Poltava",
+    "username": "admin",
+    "avatar": "https://w7.pngwing.com/pngs/862/646/png-transparent-beard-hipster-male-man-avatars-xmas-giveaway-icon-thumbnail.png"
+  },
   "users": [
     {
       "id": 1,

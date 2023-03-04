@@ -1,9 +1,9 @@
 import cls from './AuthForm.module.scss'
 import { classNames } from 'shared/lib'
-import { type FC, type FormEvent } from 'react'
+import { type FC, type FormEvent, useCallback } from 'react'
 import { Button, ButtonVariants, Input, Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { getAuthLoading } from '../../model/selectors/getAuthLoading/getAuthLoading'
@@ -14,9 +14,11 @@ import {
   DynamicModuleLoader,
   type ReducersList
 } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 
-interface AuthFormProps {
+export interface AuthFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 export enum AuthFormErrors {
@@ -29,26 +31,37 @@ const initialReducers: ReducersList = {
   loginForm: authReducer
 }
 
-const AuthForm: FC = ({ className }: AuthFormProps) => {
+const AuthForm: FC = ({ className, onSuccess }: AuthFormProps) => {
   const { t } = useTranslation()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const username = useSelector(getAuthUsername)
   const password = useSelector(getAuthPassword)
   const isLoading = useSelector(getAuthLoading)
   const error = useSelector(getAuthError)
 
-  const setUsername = (value: string): void => {
-    dispatch(authActions.setUsername(value))
-  }
+  const setUsername = useCallback(
+    (value: string): void => {
+      dispatch(authActions.setUsername(value))
+    },
+    [dispatch]
+  )
 
-  const setPassword = (value: string): void => {
-    dispatch(authActions.setPassword(value))
-  }
+  const setPassword = useCallback(
+    (value: string): void => {
+      dispatch(authActions.setPassword(value))
+    },
+    [dispatch]
+  )
 
-  const onSubmit = (e: FormEvent): void => {
+  const onSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
-    dispatch(loginByUsername({ username, password }))
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const action = await dispatch(loginByUsername({ username, password }))
+    if (action.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
   }
 
   return (

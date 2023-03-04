@@ -1,7 +1,7 @@
 import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
 import { Button, ButtonVariants } from 'shared/ui'
-import { type FC, useCallback, useState } from 'react'
+import { type FC, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,7 +11,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: FC = ({ className = '' }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const dispatch = useDispatch()
@@ -60,4 +60,4 @@ export const Navbar: FC = ({ className = '' }: NavbarProps) => {
           </div>
       </div>
   )
-}
+})

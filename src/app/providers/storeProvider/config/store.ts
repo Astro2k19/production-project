@@ -16,10 +16,10 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(initialReducers)
 
-  const store = configureStore<StoreSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) =>
+    middleware: getDefaultMiddleware =>
       getDefaultMiddleware().prepend(authMiddleware.middleware)
   })
 
@@ -28,3 +28,5 @@ export const createReduxStore = (
 
   return store
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

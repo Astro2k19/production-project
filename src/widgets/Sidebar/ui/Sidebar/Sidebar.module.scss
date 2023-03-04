@@ -44,27 +44,6 @@
   row-gap: 20px;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  column-gap: 15px;
-  font-size: 17px;
-  text-decoration: none;
-
-  span {
-    display: none;
-  }
-}
-
-.itemIcon {
-  transform: scale(1.5);
-
-  path,
-  g {
-    fill: var(--inverted-primary-color);
-  }
-}
-
 .collapsed {
   .toggleIcon {
     transform: rotate(0deg);
@@ -72,11 +51,5 @@
 
   .switchers {
     flex-direction: row;
-  }
-
-  .item {
-    span {
-      display: block;
-    }
   }
 }

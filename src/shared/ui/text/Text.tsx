@@ -1,6 +1,6 @@
 import cls from './Text.module.scss'
 import { classNames } from 'shared/lib'
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 export enum TextVariants {
   PRIMARY = 'primary',
@@ -14,7 +14,7 @@ interface TextProps {
   variant?: TextVariants
 }
 
-export const Text: FC<TextProps> = (props) => {
+export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
@@ -28,4 +28,4 @@ export const Text: FC<TextProps> = (props) => {
           {text && <p className={cls.textContent}>{text}</p>}
       </div>
   )
-}
+})

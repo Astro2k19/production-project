@@ -1,7 +1,7 @@
-import React, { type FC, Suspense } from 'react'
+import React, { memo, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const AboutPage: FC = () => {
+const AboutPage = memo(() => {
   const { t } = useTranslation('about')
   return (
       <Suspense fallback={'Loading'}>
@@ -10,5 +10,5 @@ const AboutPage: FC = () => {
           </div>
       </Suspense>
   )
-}
+})
 export default AboutPage

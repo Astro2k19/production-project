@@ -2,13 +2,13 @@ import cls from './LangSwitcher.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonVariants } from 'shared/ui'
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 interface LangSwitcherProps {
   className?: string
 }
 
-export const LangSwitcher: FC = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const { t, i18n } = useTranslation()
 
   const toggleLanguage = async (): Promise<void> => {
@@ -20,4 +20,4 @@ export const LangSwitcher: FC = ({ className }: LangSwitcherProps) => {
           {t('Language', { ns: 'translation' })}
       </Button>
   )
-}
+})
