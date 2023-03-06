@@ -14,5 +14,7 @@ declare module '*.svg' {
 }
 
 declare const __IS_DEV__: boolean
+declare const __API_URL__: string
+
 // fix
 declare module 'storybook-addon-themes/react';

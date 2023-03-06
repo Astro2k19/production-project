@@ -1,5 +1,6 @@
 {
   "About": "About",
+  "Edit": "",
   "Home": "Home",
   "Language": "UA",
   "Log In": "Log In",
@@ -11,6 +12,7 @@
   },
   "Oops! Something went wrong. Please, try again!": "Oops! Something went wrong. Please, try Again!",
   "Password or username is wrong!": "Password or username is wrong!",
+  "Profile": "",
   "Toggle": "",
   "Try again": "Try again",
   "decrement": "",

@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof HomePage>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof HomePage> = (args) => <HomePage {...args} />
+const Template: ComponentStory<typeof HomePage> = () => <HomePage />
 
 export const Home = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

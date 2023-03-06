@@ -1,10 +1,10 @@
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type AsyncThunkConfig, type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { type AsyncThunkAction } from '@reduxjs/toolkit/src/createAsyncThunk'
 
 type AsyncActionCreator<
   Returned,
   ThunkArg,
-  ThunkApiConfig extends { rejectValue: string }>
+  ThunkApiConfig extends AsyncThunkConfig<string>>
   = (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
 
 export class TestAsyncThunk<Returned, ThunkArg, ThunkApiConfig extends { rejectValue: string }> {

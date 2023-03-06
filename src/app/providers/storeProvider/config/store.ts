@@ -4,6 +4,7 @@ import { type Store } from 'redux'
 import { counterReducer } from 'entities/Counter'
 import { authMiddleware, userReducer } from 'entities/User'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
+import { $api } from 'shared/api/api'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>
@@ -20,7 +21,13 @@ export const createReduxStore = (
     reducer: reducerManager.reduce,
     preloadedState: initialState,
     middleware: getDefaultMiddleware =>
-      getDefaultMiddleware().prepend(authMiddleware.middleware)
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api
+          }
+        }
+      }).prepend(authMiddleware.middleware)
   })
 
   // @ts-expect-error: we added reducer manager
@@ -30,3 +37,4 @@ export const createReduxStore = (
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type RootState = ReturnType<typeof createReduxStore>['getState']

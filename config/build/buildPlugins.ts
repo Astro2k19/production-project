@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-export const buildPlugins = ({ isDev, paths, analyze }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = ({ isDev, paths, analyze, apiUrl }: BuildOptions): WebpackPluginInstance[] => {
   return [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
@@ -16,7 +16,8 @@ export const buildPlugins = ({ isDev, paths, analyze }: BuildOptions): WebpackPl
       chunkFilename: 'css/[name].[contenthash].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: isDev
+      __IS_DEV__: JSON.stringify(isDev),
+      __API_URL__: JSON.stringify(apiUrl)
     }),
     // refresh react components without reloading
     ...(isDev

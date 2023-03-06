@@ -1,7 +1,8 @@
-import { type RuleSetRule, type Configuration } from 'webpack'
+import webpack, { type RuleSetRule, type Configuration } from 'webpack'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 export const buildStorybookConfig = async (config: Configuration): Promise<Configuration> => {
+  console.log('config.resolve.plugins', config?.resolve?.plugins)
   if (config?.resolve !== undefined) {
     config.resolve.plugins = [
       ...(config.resolve.plugins ?? []),
@@ -10,6 +11,13 @@ export const buildStorybookConfig = async (config: Configuration): Promise<Confi
       })
     ]
   }
+
+  config?.plugins?.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API_URL__: JSON.stringify(true)
+    })
+  )
 
   if ((config?.module) !== undefined) {
     config.module.rules = [

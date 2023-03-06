@@ -1,13 +1,12 @@
 import axios from 'axios'
 import { loginByUsername } from './loginByUsername'
-import { type Dispatch } from '@reduxjs/toolkit'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { userActions } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
+import { $api } from 'shared/api/api'
 
-jest.mock('axios')
+jest.mock('$api')
 
-const mockedAxios = jest.mocked(axios, true)
+const mockedAxios = jest.mocked($api, true)
 
 describe('loginByUsername', () => {
   // let dispatch: Dispatch
@@ -18,7 +17,7 @@ describe('loginByUsername', () => {
   //   getState = jest.fn()
   // })
 
-  test('succesfull request', async () => {
+  test('successful request', async () => {
     const userData = { id: 1, username: 'User' }
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: userData }))
     // const action = loginByUsername({ username: 'User', password: '123456789' })
