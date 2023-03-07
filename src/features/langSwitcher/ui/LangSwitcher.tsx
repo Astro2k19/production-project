@@ -2,7 +2,7 @@ import cls from './LangSwitcher.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonVariants } from 'shared/ui'
-import { type FC, memo } from 'react'
+import { memo } from 'react'
 
 interface LangSwitcherProps {
   className?: string

@@ -41,6 +41,7 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "react/display-name": "off",
     // only text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],

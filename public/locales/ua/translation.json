@@ -6,13 +6,9 @@
   "Log In": "Увійти",
   "Log Out": "Вийти",
   "Not found page": "Такої сторінки не існує! :(",
-  "Oops! Something went wrong": {
-    " Please, try Again!": "",
-    " Please, try again!": ""
-  },
   "Oops! Something went wrong. Please, try Again!": "Ой! Щось пішло не так. Буль ласка спробуйте ще раз!",
   "Password or username is wrong!": "Невірний пароль або логін!",
-  "Profile": "",
+  "Profile": "Профіль",
   "Try again": "Спробуйте ще раз",
   "decrement": "",
   "en": "en",

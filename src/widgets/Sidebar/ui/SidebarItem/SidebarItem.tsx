@@ -1,4 +1,4 @@
-import React, { type FC, memo } from 'react'
+import React, { memo } from 'react'
 import cls from './SidebarItem.module.scss'
 import { AppLink, AppLinkVariants } from 'shared/ui'
 import { type SidebarItemType } from '../../model/items'

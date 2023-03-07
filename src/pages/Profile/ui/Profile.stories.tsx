@@ -19,4 +19,11 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 export const Profile = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Profile.args = {}
-Profile.decorators = [StoreDecorator({})]
+Profile.decorators = [StoreDecorator({
+  profile: {
+    data: {
+      first: 'Artem',
+      lastname: 'Katr'
+    }
+  }
+})]

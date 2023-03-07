@@ -5,9 +5,7 @@ import { Button, Input, Loader, Text } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 
 interface ProfileCardProps {
   className?: string
@@ -15,10 +13,10 @@ interface ProfileCardProps {
 
 export const ProfileCard: FC<ProfileCardProps> = ({ className }) => {
   const { t } = useTranslation('profile')
-  const profileData = useSelector(getProfileData)
-  const isLoading = useSelector(getProfileIsLoading)
-  const error = useSelector(getProfileError)
-  const readonly = useSelector(getProfileReadonly)
+  const profileData = useAppSelector(getProfileData)
+  const isLoading = useAppSelector(getProfileIsLoading)
+  // const error = useAppSelector(getProfileError)
+  // const readonly = useAppSelector(getProfileReadonly)
 
   return (
       <div className={classNames([cls.profileCard, className])}>

@@ -1,6 +1,6 @@
 import cls from './Button.module.scss'
 import { classNames } from 'shared/lib'
-import { type ButtonHTMLAttributes, type FC, memo } from 'react'
+import { type ButtonHTMLAttributes, memo } from 'react'
 
 export enum ButtonVariants {
   DEFAULT = 'default',

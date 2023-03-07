@@ -1,8 +1,8 @@
 import { type CounterSchema } from 'entities/Counter'
 import { type UserSchema } from 'entities/User'
 import { type LoginFormSchema } from 'features/auth/by-username'
-import { type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type CombinedState, type Store } from 'redux'
+import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
+import { type CombinedState, type Dispatch } from 'redux'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 
@@ -22,15 +22,16 @@ export interface ReducerManager {
   remove: (key: StoreSchemaKeys) => void
 }
 
-export interface ExtendedReducerManagerStore extends Store {
+export interface ExtendedReducerManagerStore extends EnhancedStore<StoreSchema> {
   reducerManager: ReducerManager
 }
 
-export interface ThunkArgs {
+export interface ThunkExtraArgs {
   api: AxiosInstance
 }
 
 export interface AsyncThunkConfig<T> {
-  extra: ThunkArgs
+  extra: ThunkExtraArgs
   error: T
+  dispatch?: Dispatch
 }

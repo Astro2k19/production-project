@@ -1,11 +1,12 @@
 import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
 import { Button, ButtonVariants } from 'shared/ui'
-import { type FC, memo, useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
-import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthDate, userActions } from 'entities/User'
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 
 interface NavbarProps {
   className?: string
@@ -14,8 +15,8 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const dispatch = useDispatch()
-  const authDate = useSelector(getUserAuthDate)
+  const dispatch = useAppDispatch()
+  const authDate = useAppSelector(getUserAuthDate)
 
   const onClose = useCallback(
     () => {

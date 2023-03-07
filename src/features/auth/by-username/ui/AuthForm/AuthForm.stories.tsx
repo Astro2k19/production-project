@@ -39,6 +39,6 @@ export const Error = Template.bind({})
 Error.args = {}
 Error.decorators = [StoreDecorator({
   loginForm: {
-    error: 'asdfasdfasdfasdf'
+    error: 'SERVER_ERROR'
   }
 })]

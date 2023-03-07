@@ -2,7 +2,6 @@ import webpack, { type RuleSetRule, type Configuration } from 'webpack'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 export const buildStorybookConfig = async (config: Configuration): Promise<Configuration> => {
-  console.log('config.resolve.plugins', config?.resolve?.plugins)
   if (config?.resolve !== undefined) {
     config.resolve.plugins = [
       ...(config.resolve.plugins ?? []),
@@ -20,8 +19,10 @@ export const buildStorybookConfig = async (config: Configuration): Promise<Confi
   )
 
   if ((config?.module) !== undefined) {
+    const rules = config.module.rules as RuleSetRule[]
+
     config.module.rules = [
-      ...(config.module.rules?.map((rule: RuleSetRule) => {
+      ...(rules.map((rule) => {
       if (/svg/.test(rule.test as string)) { // eslint-disable-line
         // Silence the Storybook loaders for SVG files
           return { ...rule, exclude: /\.svg$/i }

@@ -7,9 +7,9 @@ describe('getAuthError', () => {
       loginForm: {
         error: 'Server error'
       }
-    } as StoreSchema
+    }
 
-    expect(getAuthError(result)).toBe('Server error')
+    expect(getAuthError(result as StoreSchema)).toBe('Server error')
   })
 
   test('should return empty error', () => {

@@ -17,11 +17,14 @@ export const AuthModal: FC<AuthModalProps> = (props) => {
     isOpen
   } = props
 
-  return (isOpen &&
-      <Modal className={classNames([cls.authModal, className])} onClose={onClose} isOpen={isOpen} lazy={true}>
-          <Suspense fallback={<Loader />}>
-              <AuthFormAsync onSuccess={onClose}/>
-          </Suspense>
-      </Modal>
+  return (
+      <>
+          {isOpen &&
+          <Modal className={classNames([cls.authModal, className])} onClose={onClose} isOpen={isOpen} lazy={true}>
+              <Suspense fallback={<Loader/>}>
+                  <AuthFormAsync onSuccess={onClose}/>
+              </Suspense>
+          </Modal>}
+      </>
   )
 }

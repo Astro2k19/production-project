@@ -1,14 +1,13 @@
-import { configureStore, type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
-import { type Store } from 'redux'
+import { type CombinedState, configureStore, type ReducersMapObject, type Reducer } from '@reduxjs/toolkit'
+import { type StoreSchema, type ThunkExtraArgs } from 'app/providers/storeProvider/config/StoreSchema'
 import { counterReducer } from 'entities/Counter'
 import { authMiddleware, userReducer } from 'entities/User'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
 import { $api } from 'shared/api/api'
 
 export const createReduxStore = (
-  initialState?: StoreSchema, asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>
-): Store => {
+  initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
+) => {
   const initialReducers: ReducersMapObject<StoreSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -17,24 +16,26 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(initialReducers)
 
+  const extraArgs: ThunkExtraArgs = {
+    api: $api
+  }
+
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({
-        thunk: {
-          extraArgument: {
-            api: $api
-          }
-        }
-      }).prepend(authMiddleware.middleware)
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+      thunk: {
+        extraArgument: extraArgs
+      }
+    }).prepend(authMiddleware.middleware)
   })
 
-  // @ts-expect-error: we added reducer manager
-  store.reducerManager = reducerManager
+  // @ts-expect-error eslint-disable-line
+  store.reducerManager = reducerManager //eslint-disable-line
 
   return store
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
-export type RootState = ReturnType<typeof createReduxStore>['getState']
+type ReduxStore = ReturnType<typeof createReduxStore>
+export type AppDispatch = ReduxStore['dispatch']
+export type RootState = ReturnType<ReduxStore['getState']>

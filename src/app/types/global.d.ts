@@ -18,3 +18,7 @@ declare const __API_URL__: string
 
 // fix
 declare module 'storybook-addon-themes/react';
+
+type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+} : T

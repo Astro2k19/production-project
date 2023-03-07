@@ -3,6 +3,7 @@ import { appPaths } from 'shared/config/routerConfig/routerConfig'
 import HomeIcon from 'shared/assets/icons/home_icon.svg'
 import AboutIcon from 'shared/assets/icons/about_icon.svg'
 import ProfileIcon from 'shared/assets/icons/profile_icon.svg'
+
 export interface SidebarItemType {
   text: string
   path: string
