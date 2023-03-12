@@ -1,5 +1,12 @@
 {
+  "Age": "Вік",
+  "Avatar": "Аватарка",
+  "Cancel": "",
   "Edit": "Редагувати",
-  "Profile": "",
-  "Profile page": "Сторінка профіля"
+  "First name": "Ім'я",
+  "Last name": "Прізвище",
+  "Profile": "Профіль",
+  "Profile page": "Сторінка профіля",
+  "Save": "Зберегти",
+  "Username": "Ім'я користувача"
 }

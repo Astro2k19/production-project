@@ -1,15 +1,25 @@
 .profileCard {
   padding: 25px;
   border: 2px solid var(--inverted-bg-color);
-}
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+  &.editing {
+    border: 2px solid var(--inverted-secondary-color);
+  }
 }
 
 .inputs {
   display: grid;
   row-gap: 15px;
 }
+
+.loading,
+.error {
+  display: grid;
+  place-items: center;
+  height: 300px;
+}
+
+.avatar {
+  margin-bottom: 15px;
+}
+

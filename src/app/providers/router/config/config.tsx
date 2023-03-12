@@ -5,7 +5,11 @@ import { NotFound } from 'pages/NotFound'
 import { Profile } from 'pages/Profile'
 import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
 
-export const routerConfig: RouteProps[] = [
+export type ProtectedRouteProps = RouteProps & {
+  isProtected?: boolean
+}
+
+export const routerConfig: ProtectedRouteProps[] = [
   {
     path: appPaths[AppRoutes.HOME],
     element: <HomePage/>
@@ -16,7 +20,8 @@ export const routerConfig: RouteProps[] = [
   },
   {
     path: appPaths[AppRoutes.PROFILE],
-    element: <Profile/>
+    element: <Profile/>,
+    isProtected: true
   },
   {
     path: appPaths[AppRoutes.NOT_FOUND],

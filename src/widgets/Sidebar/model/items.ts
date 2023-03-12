@@ -8,6 +8,7 @@ export interface SidebarItemType {
   text: string
   path: string
   Icon: FC<SVGAttributes<SVGElement>>
+  isProtected?: boolean
 }
 
 export const sidebarItems: SidebarItemType[] = [
@@ -24,6 +25,7 @@ export const sidebarItems: SidebarItemType[] = [
   {
     path: appPaths.profile,
     Icon: ProfileIcon,
-    text: 'Profile'
+    text: 'Profile',
+    isProtected: true
   }
 ]

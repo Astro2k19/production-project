@@ -34,4 +34,5 @@ export interface AsyncThunkConfig<T> {
   extra: ThunkExtraArgs
   error: T
   dispatch?: Dispatch
+  state: StoreSchema
 }
