@@ -8,5 +8,7 @@
   "Profile": "Профіль",
   "Profile page": "Сторінка профіля",
   "Save": "Зберегти",
-  "Username": "Ім'я користувача"
+  "Username": "Ім'я користувача",
+  "Firstname and Lastname are required!": "Ім'я та Прізвище обов'язкові!",
+  "Invalid age": "Невірний вік"
 }

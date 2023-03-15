@@ -19,8 +19,8 @@ interface ProfileCardProps {
   onChangeAge: (value: string) => void
   onChangeUsername: (value: string) => void
   onChangeAvatar: (value: string) => void
-  onChangeCurrency: (value: Currency) => void
-  onChangeCountry: (value: Country) => void
+  onChangeCurrency: (currency: Currency) => void
+  onChangeCountry: (country: Country) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -56,7 +56,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               text={'Try to reload the page!'}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
-          />
+            />
         </div>
     )
   }

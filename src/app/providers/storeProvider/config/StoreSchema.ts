@@ -32,7 +32,7 @@ export interface ThunkExtraArgs {
 
 export interface AsyncThunkConfig<T> {
   extra: ThunkExtraArgs
-  error: T
+  rejectValue: T
   dispatch?: Dispatch
   state: StoreSchema
 }

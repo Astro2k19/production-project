@@ -1,5 +1,5 @@
 import { type FC, useCallback } from 'react'
-import { ProfileCard } from 'entities/Profile'
+import { ProfileCard, ValidateProfileErrors } from 'entities/Profile'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
@@ -9,6 +9,10 @@ import { EditableProfileCardHeader } from './EditableProfileCardHeader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { profileActions } from 'features/editableProfileCard'
 import { type Currency } from 'entities/Currency'
+import { type Country } from 'entities/Country'
+import { Text, TextVariants } from 'shared/ui'
+import { useTranslation } from 'react-i18next'
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 
 interface EditableProfileCardProps {
   className?: string
@@ -18,8 +22,25 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   const formData = useAppSelector(getProfileFormData)
   const isLoading = useAppSelector(getProfileIsLoading)
   const error = useAppSelector(getProfileError)
+  const profileValidateErrors = useAppSelector(getProfileValidateErrors)
   const readonly = useAppSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
+  const { t } = useTranslation()
+
+  const profileErrorTranslations = {
+    [ValidateProfileErrors.SERVER_ERROR]: t('Oops! Something went wrong', {
+      ns: 'translation'
+    }),
+    [ValidateProfileErrors.INVALID_USER_DATA]: t('Firstname and Lastname are required!', {
+      ns: 'profile'
+    }),
+    [ValidateProfileErrors.INVALID_AGE]: t('Invalid age', {
+      ns: 'profile'
+    }),
+    [ValidateProfileErrors.INVALID_USERNAME]: t('Invalid username', {
+      ns: 'profile'
+    })
+  }
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(profileActions.setProfileData({ first: value }))
@@ -45,13 +66,20 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
     dispatch(profileActions.setProfileData({ currency }))
   }, [dispatch])
 
-  const onChangeCountry = useCallback((country: Currency) => {
+  const onChangeCountry = useCallback((country: Country) => {
     dispatch(profileActions.setProfileData({ country }))
   }, [dispatch])
 
   return (
       <>
           <EditableProfileCardHeader/>
+          {profileValidateErrors?.length && profileValidateErrors.map((err) => (
+              <Text
+                key={err}
+                variant={TextVariants.ERROR}
+                text={profileErrorTranslations[err]}
+            />
+          ))}
           <ProfileCard
             data={formData}
             isLoading={isLoading}

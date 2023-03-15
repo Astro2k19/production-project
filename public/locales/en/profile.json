@@ -8,5 +8,7 @@
   "Profile": "Profile",
   "Profile page": "Profile page",
   "Save": "Save",
-  "Username": "Username"
+  "Username": "Username",
+  "Firstname and Lastname are required!": "Firstname and Lastname are required!",
+  "Invalid age": "Invalid age"
 }

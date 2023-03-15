@@ -18,11 +18,13 @@ export interface ProfileSchema {
   isLoading: boolean
   readonly: boolean
   error?: string
+  validateProfileErrors?: ValidateProfileErrors[]
 }
 
 export enum ValidateProfileErrors {
-  INVALID_FIRSTNAME = 'INVALID_FIRSTNAME',
-  INVALID_LASTNAME = 'INVALID_LASTNAME',
+  NO_DATA = 'NO_DATA',
+  INVALID_USER_DATA = 'INVALID_USER_DATA',
   INVALID_AGE = 'INVALID_AGE',
-  INVALID_USERNAME = 'INVALID_USERNAME'
+  INVALID_USERNAME = 'INVALID_USERNAME',
+  SERVER_ERROR = 'SERVER_ERROR'
 }
