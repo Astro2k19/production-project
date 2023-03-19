@@ -3,8 +3,8 @@ import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { StoreProvider } from 'app/providers/storeProvider'
 import { authReducer } from 'features/auth/by-username/model/slice/loginByUsernameSlice'
-import { profileReducer } from 'entities/Profile'
 import { type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { profileReducer } from 'features/editableProfileCard'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,

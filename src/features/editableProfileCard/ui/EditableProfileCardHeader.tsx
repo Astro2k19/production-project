@@ -7,6 +7,10 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
+import {
+  getProfileIsLoading
+} from 'features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading'
+import { getProfileError } from 'features/editableProfileCard/model/selectors/getProfileError/getProfileError'
 
 interface EditableProfileCardHeaderProps {
   className?: string
@@ -15,6 +19,8 @@ interface EditableProfileCardHeaderProps {
 export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile')
   const readonly = useAppSelector(getProfileReadonly)
+  const isLoading = useAppSelector(getProfileIsLoading)
+  const error = useAppSelector(getProfileError)
   const dispatch = useAppDispatch()
 
   const onEdit = useCallback(() => {
@@ -32,20 +38,22 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
   return (
       <div className={cls.header}>
           <Text title={t('Profile', { ns: 'profile' })} />
-          {readonly
-            ? (
-                <Button onClick={onEdit}>{t('Edit', { ns: 'profile' })}</Button>
-              )
-            : (
-                <div className={cls.btnGroup}>
-                    <Button onClick={onSave} variant={ButtonVariants.OUTLINE}>
-                        {t('Save', { ns: 'profile' })}
-                    </Button>
-                    <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED}>
-                        {t('Cancel', { ns: 'profile' })}
-                    </Button>
-                </div>
-              )}
+          {!error && (
+            readonly
+              ? (
+                  <Button onClick={onEdit} disabled={isLoading}>{t('Edit', { ns: 'profile' })}</Button>
+                )
+              : (
+                  <div className={cls.btnGroup}>
+                      <Button onClick={onSave} variant={ButtonVariants.OUTLINE} disabled={isLoading}>
+                          {t('Save', { ns: 'profile' })}
+                      </Button>
+                      <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED} disabled={isLoading}>
+                          {t('Cancel', { ns: 'profile' })}
+                      </Button>
+                  </div>
+                )
+          )}
       </div>
   )
 }

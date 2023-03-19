@@ -1,7 +1,6 @@
 import { authReducer, authActions } from './loginByUsernameSlice'
 import { type LoginFormSchema } from '../types/loginSchema'
-import { type DeepPartial } from '@reduxjs/toolkit'
-import { loginByUsername } from 'features/auth/by-username/model/services/loginByUsername/loginByUsername'
+import { loginByUsername } from '../services/loginByUsername/loginByUsername'
 
 describe('loginSlice', () => {
   test('setUsername', () => {

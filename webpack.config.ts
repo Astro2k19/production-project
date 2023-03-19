@@ -9,6 +9,7 @@ export default (env: BuildEnv): webpack.Configuration => {
   const PORT = env.port ?? 3000
   const analyze = env.analyze ?? false
   const apiUrl = env.apiUrl || 'http://localhost:8000'
+  const project = 'frontend'
 
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -23,6 +24,7 @@ export default (env: BuildEnv): webpack.Configuration => {
     isDev,
     analyze,
     port: PORT,
-    apiUrl
+    apiUrl,
+    project
   })
 }

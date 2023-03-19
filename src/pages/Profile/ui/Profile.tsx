@@ -11,7 +11,10 @@ const ProfilePage = memo(() => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    console.log(__PROJECT__)
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData())
+    }
   }, [dispatch])
 
   return (

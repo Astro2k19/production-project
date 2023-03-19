@@ -48,7 +48,8 @@ export default {
   },
   // A set of global variables that need to be available in all test environments
   globals: {
-    __API_URL__: 'http://localhost:8000'
+    __API_URL__: 'http://localhost:8000',
+    __PROJECT__: 'jest'
   }
 
   // Indicates whether the coverage information should be collected while executing the test

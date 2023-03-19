@@ -14,7 +14,8 @@ export const buildStorybookConfig = async (config: Configuration): Promise<Confi
   config?.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API_URL__: JSON.stringify(true)
+      __API_URL__: JSON.stringify(true),
+      __PROJECT__: JSON.stringify('storybook')
     })
   )
 

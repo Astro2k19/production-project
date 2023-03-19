@@ -15,6 +15,6 @@ export const fetchProfileData = createAsyncThunk<Profile, undefined, AsyncThunkC
 
       return response.data
     } catch (e) {
-      return rejectWithValue('asdf')
+      return rejectWithValue('SERVER_ERROR')
     }
   })
