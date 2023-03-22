@@ -29,7 +29,8 @@ module.exports = {
     'react/jsx-indent': [2, 4],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/naming-convention': 'off',
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'off', 
+    "no-duplicate-case": "off",
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-floating-promises': 'off',
     "@typescript-eslint/no-misused-promises": [
