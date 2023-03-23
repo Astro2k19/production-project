@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from 'react'
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { PageLoader } from 'widgets/pageLoader'
 import { type ProtectedRouteProps, routerConfig } from '../config/config'

@@ -5,12 +5,16 @@ import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObjec
 import { type CombinedState, type Dispatch } from 'redux'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
+import { type ArticleDetailsSchema } from 'entities/Article'
 
 export interface StoreSchema {
   counter: CounterSchema
   user: UserSchema
+
+  // async reducers
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema

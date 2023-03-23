@@ -4,27 +4,25 @@ import 'app/styles/index.scss'
 import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { USER_AUTH_DATA_KEY } from 'shared/const/localStorage'
-import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserInited, userActions } from 'entities/User'
 
 export const App: React.FC = () => {
   const dispatch = useDispatch()
+  const inited = useSelector(getUserInited)
 
   useEffect(() => {
-    const userData = localStorage.getItem(USER_AUTH_DATA_KEY)
-    if (userData) {
-      console.log(JSON.parse(userData))
-      dispatch(userActions.setAuthDate(JSON.parse(userData)))
-    }
+    dispatch(userActions.initAuthData())
   }, []) // eslint-disable-line
+
+  console.log(inited, 'inited')
 
   return (
       <div className={classNames(['app'])} >
           <Navbar />
           <div className="page-content">
               <Sidebar />
-              <AppRouter />
+              {inited && <AppRouter/>}
           </div>
       </div>
   )

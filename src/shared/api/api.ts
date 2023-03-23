@@ -1,5 +1,12 @@
 import axios from 'axios'
 import { USER_AUTH_DATA_KEY } from 'shared/const/localStorage'
+import { type ReduxStore } from 'app/providers/storeProvider/config/store'
+
+let store: ReduxStore
+
+export const injectStore = (_store: any) => {
+  store = _store
+}
 
 // need fix for dynamic authorization header
 export const $api = axios.create({
@@ -8,4 +15,9 @@ export const $api = axios.create({
     authorization: localStorage.getItem(USER_AUTH_DATA_KEY)
   }
 })
-console.log(localStorage.getItem(USER_AUTH_DATA_KEY))
+
+$api.interceptors.request.use((config) => {
+  config.headers.authorization = store.getState().user.authData
+  console.log(config.headers.authorization, 'config.headers.authorization')
+  return config
+})

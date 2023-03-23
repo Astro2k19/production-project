@@ -74,7 +74,7 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
                 className={cls.input}
               />
               <Input
-                type='text'
+                type='password'
                 onChange={setPassword}
                 value={password}
                 placeholder={'Password'}

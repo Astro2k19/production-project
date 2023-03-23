@@ -1,7 +1,7 @@
 import { type CombinedState, configureStore, type ReducersMapObject, type Reducer } from '@reduxjs/toolkit'
 import { type StoreSchema, type ThunkExtraArgs } from 'app/providers/storeProvider/config/StoreSchema'
 import { counterReducer } from 'entities/Counter'
-import { authMiddleware, userReducer } from 'entities/User'
+import { authMiddleware, initUserDataMiddleware, userReducer } from 'entities/User'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
 import { $api } from 'shared/api/api'
 
@@ -27,7 +27,7 @@ export const createReduxStore = (
       thunk: {
         extraArgument: extraArgs
       }
-    }).prepend(authMiddleware.middleware)
+    }).prepend(authMiddleware.middleware, initUserDataMiddleware.middleware)
   })
 
   // @ts-expect-error eslint-disable-line
@@ -36,6 +36,6 @@ export const createReduxStore = (
   return store
 }
 
-type ReduxStore = ReturnType<typeof createReduxStore>
+export type ReduxStore = ReturnType<typeof createReduxStore>
 export type AppDispatch = ReduxStore['dispatch']
 export type RootState = ReturnType<ReduxStore['getState']>

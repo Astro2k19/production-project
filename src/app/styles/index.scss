@@ -24,10 +24,11 @@ body {
 
 .page-content {
   display: flex;
-  padding: 15px;
 }
 
 .page-wrapper {
   flex: 1;
-  padding: 15px;
+  padding: 15px 40px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
 }

@@ -33,6 +33,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
 
   const onSave = useCallback(() => {
     dispatch(updateProfileData())
+    dispatch(profileActions.setReadonly(true))
   }, [dispatch])
 
   return (

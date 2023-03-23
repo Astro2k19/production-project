@@ -3,6 +3,7 @@ import { type FC, type ReactNode } from 'react'
 import { createReduxStore } from '../config/store'
 import { type StoreSchema } from '../config/StoreSchema'
 import { type ReducersMapObject } from '@reduxjs/toolkit'
+import { injectStore } from 'shared/api/api'
 
 interface StoreProviderProps {
   children: ReactNode
@@ -15,6 +16,8 @@ export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState, 
     initialState,
     asyncReducers as ReducersMapObject<StoreSchema>
   )
+
+  injectStore(store)
 
   return (
       <Provider store={store}>

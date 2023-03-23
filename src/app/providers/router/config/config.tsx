@@ -4,6 +4,8 @@ import { AboutPage } from 'pages/About'
 import { NotFound } from 'pages/NotFound'
 import { Profile } from 'pages/Profile'
 import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
+import { ArticlesPage } from 'pages/Articles'
+import { ArticleSinglePage } from 'pages/ArticleSingle'
 
 export type ProtectedRouteProps = RouteProps & {
   isProtected?: boolean
@@ -21,6 +23,16 @@ export const routerConfig: ProtectedRouteProps[] = [
   {
     path: appPaths[AppRoutes.PROFILE],
     element: <Profile/>,
+    isProtected: true
+  },
+  {
+    path: appPaths[AppRoutes.ARTICLES],
+    element: <ArticlesPage/>,
+    isProtected: true
+  },
+  {
+    path: `${appPaths[AppRoutes.ARTICLE_SINGLE]}:id`,
+    element: <ArticleSinglePage/>,
     isProtected: true
   },
   {
