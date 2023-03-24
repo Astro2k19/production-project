@@ -40,6 +40,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   } = props
   const { t } = useTranslation('profile')
 
+  console.log(isLoading, 'isLoading')
+
   if (isLoading) {
     return (
         <div className={classNames([cls.profileCard, className, cls.loading])}>

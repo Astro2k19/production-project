@@ -39,11 +39,30 @@ server.post('/login', (req, res) => {
     }
 });
 
+server.get('/articles/:id', (req, res) => {
+    try {
+        const {id} = req.params
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const {articles = []} = db
+
+        const article = articles.find((item) => item.id === id)
+
+        if (article) {
+            return res.json(article)
+        }
+
+        return res.status(404).json({code: 'ARTICLE_NOT_FOUND'})
+
+    } catch (e) {
+        return res.status(500).json({ message: 'SERVER_ERROR' });
+    }
+})
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
-        return res.status(403).json({ message: 'AUTH ERROR2' });
+        return res.status(403).json({ message: 'AUTH ERROR' });
     }
 
     next();

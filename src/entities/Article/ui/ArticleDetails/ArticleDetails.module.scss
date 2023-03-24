@@ -1,5 +1,5 @@
 .articleDetails {
-  min-height: 100%;
+  height: 100%;
 }
 
 .avatar {
@@ -13,3 +13,20 @@
 .skeleton {
   margin-top: 28px;
 }
+
+.errorWrapper {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.avatarWrapper {
+  margin-inline: auto;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+

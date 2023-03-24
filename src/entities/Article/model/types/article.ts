@@ -5,7 +5,7 @@ enum ArticleType {
   SPORT = 'SPORT'
 }
 
-enum ArticleBlockType {
+export enum ArticleBlockType {
   CODE = 'CODE',
   TEXT = 'TEXT',
   IMAGE = 'IMAGE'
@@ -16,24 +16,24 @@ interface ArticleBaseBlock {
   type: ArticleBlockType
 }
 
-interface ArticleCodeBlock extends ArticleBaseBlock {
+export interface ArticleCodeBlock extends ArticleBaseBlock {
   type: ArticleBlockType.CODE
   code: string
 }
 
-interface ArticleImageBlock extends ArticleBaseBlock {
+export interface ArticleImageBlock extends ArticleBaseBlock {
   type: ArticleBlockType.IMAGE
   src: string
   title: string
 }
 
-interface ArticleTextBlock extends ArticleBaseBlock {
+export interface ArticleTextBlock extends ArticleBaseBlock {
   type: ArticleBlockType.TEXT
   title?: string
   paragraphs: string[]
 }
 
-type ArticleBlockTypes = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+export type ArticleBlockTypes = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
 
 export interface Article {
   id: string | number
@@ -44,4 +44,10 @@ export interface Article {
   createdAt: string
   type: ArticleType[]
   blocks: ArticleBlockTypes[]
+}
+
+export enum ArticleError {
+  NO_DATA = 'NO_DATA',
+  ARTICLE_NOT_FOUND = 'ARTICLE_NOT_FOUND',
+  SERVER_ERROR = 'SERVER_ERROR'
 }

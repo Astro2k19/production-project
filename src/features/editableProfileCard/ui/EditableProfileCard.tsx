@@ -1,5 +1,5 @@
 import { type FC, useCallback } from 'react'
-import { ProfileCard, ValidateProfileErrors } from 'entities/Profile'
+import { ProfileCard, ValidateProfileError } from 'entities/Profile'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
@@ -27,17 +27,19 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
 
+  console.log('EditableProfileCard', formData)
+
   const profileErrorTranslations = {
-    [ValidateProfileErrors.SERVER_ERROR]: t('Oops! Something went wrong', {
+    [ValidateProfileError.SERVER_ERROR]: t('Oops! Something went wrong', {
       ns: 'translation'
     }),
-    [ValidateProfileErrors.INVALID_USER_DATA]: t('Firstname and Lastname are required!', {
+    [ValidateProfileError.INVALID_USER_DATA]: t('Firstname and Lastname are required!', {
       ns: 'profile'
     }),
-    [ValidateProfileErrors.INVALID_AGE]: t('Invalid age', {
+    [ValidateProfileError.INVALID_AGE]: t('Invalid age', {
       ns: 'profile'
     }),
-    [ValidateProfileErrors.INVALID_USERNAME]: t('Invalid username', {
+    [ValidateProfileError.INVALID_USERNAME]: t('Invalid username', {
       ns: 'profile'
     })
   }

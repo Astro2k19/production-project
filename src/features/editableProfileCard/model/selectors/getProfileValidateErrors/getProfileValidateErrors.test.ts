@@ -1,11 +1,11 @@
 import { getProfileValidateErrors } from './getProfileValidateErrors'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
-import { ValidateProfileErrors } from 'entities/Profile'
+import { ValidateProfileError } from 'entities/Profile'
 
 describe('getProfileValidateErrors', () => {
   const errors = [
-    ValidateProfileErrors.SERVER_ERROR,
-    ValidateProfileErrors.INVALID_USERNAME
+    ValidateProfileError.SERVER_ERROR,
+    ValidateProfileError.INVALID_USERNAME
   ]
 
   test('should return validate errors', () => {

@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import { updateProfileData } from './updateProfileData'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { ValidateProfileErrors } from 'entities/Profile'
+import { ValidateProfileError } from 'entities/Profile'
 
 describe('updateProfileData', () => {
   const data = {
@@ -46,7 +46,7 @@ describe('updateProfileData', () => {
 
     expect(asyncThunk.api.put).not.toHaveBeenCalled()
     expect(result.payload).toEqual([
-      ValidateProfileErrors.INVALID_USER_DATA
+      ValidateProfileError.INVALID_USER_DATA
     ])
     expect(result.meta.requestStatus).toEqual('rejected')
   })
@@ -63,7 +63,7 @@ describe('updateProfileData', () => {
 
     expect(asyncThunk.api.put).toHaveBeenCalled()
     expect(result.payload).toEqual([
-      ValidateProfileErrors.SERVER_ERROR
+      ValidateProfileError.SERVER_ERROR
     ])
     expect(result.meta.requestStatus).toEqual('rejected')
   })

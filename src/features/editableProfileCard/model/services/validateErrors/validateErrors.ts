@@ -1,22 +1,22 @@
-import { type Profile, ValidateProfileErrors } from 'entities/Profile'
+import { type Profile, ValidateProfileError } from 'entities/Profile'
 
 export const validateErrors = (profile?: Profile) => {
   if (!profile) {
-    return [ValidateProfileErrors.NO_DATA]
+    return [ValidateProfileError.NO_DATA]
   }
 
-  const errors: ValidateProfileErrors[] = []
+  const errors: ValidateProfileError[] = []
 
   if (!profile.lastname || !profile.first) {
-    errors.push(ValidateProfileErrors.INVALID_USER_DATA)
+    errors.push(ValidateProfileError.INVALID_USER_DATA)
   }
 
   if (!profile.age || !Number.isInteger(+profile.age)) {
-    errors.push(ValidateProfileErrors.INVALID_AGE)
+    errors.push(ValidateProfileError.INVALID_AGE)
   }
 
   if (!profile.username) {
-    errors.push(ValidateProfileErrors.INVALID_USERNAME)
+    errors.push(ValidateProfileError.INVALID_USERNAME)
   }
 
   return errors
