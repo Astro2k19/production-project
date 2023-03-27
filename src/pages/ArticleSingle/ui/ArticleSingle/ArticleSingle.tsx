@@ -10,16 +10,16 @@ interface ArticleSingleProps {
   className?: string
 }
 
-const ArticleSingle: FC<ArticleSingleProps> = ({ className }) => {
+const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   const { t } = useTranslation('article')
   const { id } = useParams<{ id: string }>()
 
   if (!id) {
     return <Text
-      title={'Error'}
-      text={'Oopps! Some went wrong.'}
-      variant={TextVariants.ERROR}
-    />
+        title={'Error'}
+        text={'Oopps! Some went wrong.'}
+        variant={TextVariants.ERROR}
+        />
   }
 
   return (
@@ -29,4 +29,4 @@ const ArticleSingle: FC<ArticleSingleProps> = ({ className }) => {
   )
 }
 
-export default memo(ArticleSingle)
+export default memo(ArticleSinglePage)

@@ -6,6 +6,7 @@ i18n
   .init({
     lng: 'en',
     fallbackLng: 'en',
+    defaultNS: 'translation',
 
     resources: { en: { translations: {} } }
   })

@@ -2,10 +2,16 @@
   cursor: pointer;
   border: none;
   padding: 10px 15px;
+  transition: opacity 0.2s ease;
 
   &[disabled] {
     opacity: 0.5;
     cursor: auto;
+  }
+
+  &:hover {
+    opacity: 0.7;
+    fill-opacity: 0.7;
   }
 }
 

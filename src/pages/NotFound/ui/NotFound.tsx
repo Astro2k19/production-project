@@ -3,11 +3,11 @@ import cls from './NotFound.module.scss'
 import { useTranslation } from 'react-i18next'
 import { type FC } from 'react'
 
-interface NotFoundProps {
+interface NotFoundPageProps {
   className?: string
 }
 
-export const NotFound: FC = ({ className }: NotFoundProps) => {
+export const NotFoundPage: FC = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation()
 
   return (

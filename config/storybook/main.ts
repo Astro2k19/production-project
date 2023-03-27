@@ -11,7 +11,8 @@ export default {
     '@storybook/addon-interactions',
     '@storybook/preset-scss',
     'storybook-addon-themes',
-    'storybook-react-i18next'
+    'storybook-react-i18next',
+    'storybook-addon-react-router-v6'
   ],
   framework: '@storybook/react',
   core: {

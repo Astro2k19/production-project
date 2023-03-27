@@ -32,7 +32,10 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
   }, [dispatch])
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(updateProfileData())
+    }
+
     dispatch(profileActions.setReadonly(true))
   }, [dispatch])
 

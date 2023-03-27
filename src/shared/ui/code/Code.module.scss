@@ -1,10 +1,29 @@
 .code {
   position: relative;
+  padding: 18px 32px;
   background-color: var(--code-bg);
+  border: 1px solid var(--primary-color);
 }
 
 .copyBtn {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
+
+  span {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    right: 0;
+    width: 100px;
+    padding: 5px 12px;
+    background-color: #000000df;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    color: #fff;
+  }
+}
+
+.copyIcon path {
+  stroke: var(--primary-color);
 }

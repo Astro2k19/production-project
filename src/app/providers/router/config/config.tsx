@@ -1,7 +1,7 @@
 import { type RouteProps } from 'react-router-dom'
 import { HomePage } from 'pages/Home'
 import { AboutPage } from 'pages/About'
-import { NotFound } from 'pages/NotFound'
+import { NotFoundPage } from 'pages/NotFound'
 import { Profile } from 'pages/Profile'
 import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
 import { ArticlesPage } from 'pages/Articles'
@@ -37,6 +37,6 @@ export const routerConfig: ProtectedRouteProps[] = [
   },
   {
     path: appPaths[AppRoutes.NOT_FOUND],
-    element: <NotFound/>
+    element: <NotFoundPage/>
   }
 ]

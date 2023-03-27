@@ -2,7 +2,7 @@ import { addDecorator } from '@storybook/react'
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 
 import { withThemes } from 'storybook-addon-themes/react'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator'
+import { withRouter } from 'storybook-addon-react-router-v6'
 import i18n from './i18next'
 
 export const parameters = {
@@ -30,4 +30,4 @@ export const parameters = {
 
 addDecorator(StyleDecorator)
 addDecorator(withThemes)
-addDecorator(RouterDecorator)
+addDecorator(withRouter)

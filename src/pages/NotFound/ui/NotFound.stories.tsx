@@ -1,20 +1,18 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { NotFound } from './NotFound'
+import { NotFoundPage } from './NotFound'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'pages/NotFound',
-  component: NotFound,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  component: NotFoundPage,
+
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof NotFound>
+} as ComponentMeta<typeof NotFoundPage>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof NotFound> = (args) => <NotFound {...args} />
+const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />
 
-export const NotFoundPage = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-NotFoundPage.args = {}
+export const NotFound = Template.bind({})
+
+NotFound.args = {}

@@ -1,27 +1,23 @@
-import { type FC, useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import cls from './ArticleDetails.module.scss'
 import { classNames } from 'shared/lib'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { ArticleDetailsReducer } from '../../model/slice/ArticleDetailsSlice'
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById'
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading
-} from '../../model/selectors/article'
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 import { Text, TextAligns, TextSize, TextVariants } from 'shared/ui'
 import { ArticleBlockType, type ArticleBlockTypes, ArticleError } from '../../model/types/article'
 import { useTranslation } from 'react-i18next'
 import { Avatar } from 'shared/ui/avatar/Avatar'
-import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
-import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { Icon } from 'shared/ui/icon/Icon'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
+import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 
 interface ArticleDetailsProps {
   className?: string
@@ -29,10 +25,10 @@ interface ArticleDetailsProps {
 }
 
 const reducer: ReducersList = {
-  articleDetails: ArticleDetailsReducer
+  articleDetails: articleDetailsReducer
 }
 
-export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
+export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const dispatch = useAppDispatch()
   const article = useAppSelector(getArticleDetailsData)
   const isLoading = useAppSelector(getArticleDetailsIsLoading)
@@ -42,19 +38,21 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const renderBlock = (block: ArticleBlockTypes) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent block={block} />
+        return <ArticleCodeBlockComponent block={block} className={cls.block} />
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent block={block} />
+        return <ArticleImageBlockComponent block={block} className={cls.block} />
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent block={block} />
+        return <ArticleTextBlockComponent block={block} className={cls.block} />
       default:
         return null
     }
   }
 
   useEffect(() => {
-    console.log('useEffect in ArticleDetails')
-    dispatch(fetchArticleDetailsById(id))
+    if (__PROJECT__ !== 'storybook') {
+      console.log('useEffect in ArticleDetails')
+      dispatch(fetchArticleDetailsById(id))
+    }
   }, [dispatch, id])
 
   let content
@@ -88,7 +86,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
             <Text
               title={article?.title}
               text={article?.subtitle}
-              className={cls.description}
+              className={cls.title}
               size={TextSize.L}
             />
             <div className={cls.info}>
@@ -113,4 +111,4 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
           </div>
       </DynamicModuleLoader>
   )
-}
+})

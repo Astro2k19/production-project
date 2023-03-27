@@ -3,7 +3,7 @@
 }
 
 .avatar {
-  margin: 0 auto 36px auto;
+  margin: 0 auto 36px;
 }
 
 .title {
@@ -30,3 +30,10 @@
   column-gap: 10px;
 }
 
+.blocks {
+  padding-block: 25px;
+}
+
+.block:not(:last-child) {
+  margin-bottom: 23px;
+}

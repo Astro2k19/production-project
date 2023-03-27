@@ -8,7 +8,7 @@ interface ArticlesProps {
   className?: string
 }
 
-const Articles: FC<ArticlesProps> = ({ className }) => {
+const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   const { t } = useTranslation('article')
 
   return (
@@ -19,4 +19,4 @@ const Articles: FC<ArticlesProps> = ({ className }) => {
   )
 }
 
-export default memo(Articles)
+export default memo(ArticlesPage)

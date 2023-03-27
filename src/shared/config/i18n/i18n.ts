@@ -12,7 +12,13 @@ i18n
     fallbackLng: false,
     debug: __IS_DEV__,
     supportedLngs: ['en', 'ua'],
-    ns: ['translation', 'home', 'about'],
+    ns: [
+      'translation',
+      'home',
+      'about',
+      'article',
+      'profile'
+    ],
     defaultNS: 'translation',
 
     interpolation: {

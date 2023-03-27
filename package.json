@@ -81,6 +81,7 @@
     "reg-cli": "^0.17.7",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
+    "storybook-addon-react-router-v6": "^0.3.5",
     "storybook-addon-themes": "^6.1.0",
     "storybook-react-i18next": "^1.1.2",
     "style-loader": "^3.3.1",

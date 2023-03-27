@@ -1,5 +1,5 @@
 
-enum ArticleType {
+export enum ArticleType {
   IT = 'IT',
   POLITICS = 'POLITICS',
   SPORT = 'SPORT'
