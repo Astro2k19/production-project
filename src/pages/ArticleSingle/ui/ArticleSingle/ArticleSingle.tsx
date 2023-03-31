@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { ArticleDetails } from 'entities/Article'
 import { Text, TextVariants } from 'shared/ui'
+import { CommentsList } from 'entities/Comment'
 
 interface ArticleSingleProps {
   className?: string
@@ -25,6 +26,19 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   return (
       <div className={classNames([cls.articleSingle, className])}>
           <ArticleDetails id={id} />
+          <Text title={t('Comments')} className={cls.commentsTitle} />
+          <CommentsList comments={[
+            {
+              id: '1',
+              user: { id: 1, username: 'Artem', avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
+              text: 'comment 1'
+            },
+            {
+              id: '2',
+              user: { id: 1, username: 'Artem', avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
+              text: 'comment 2'
+            }
+          ]} isLoading={false} />
       </div>
   )
 }

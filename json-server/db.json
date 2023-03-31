@@ -112,13 +112,15 @@
       "id": 1,
       "username": "Admin",
       "password": "12341234",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     },
     {
       "id": 2,
       "username": "User",
       "password": "qwerqwer",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     }
   ]
 }

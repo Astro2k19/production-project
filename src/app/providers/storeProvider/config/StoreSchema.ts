@@ -6,6 +6,7 @@ import { type CombinedState, type Dispatch } from 'redux'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
+import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle'
 
 export interface StoreSchema {
   counter: CounterSchema
@@ -15,6 +16,7 @@ export interface StoreSchema {
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleSingleComments?: ArticleSingleCommentsSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema
