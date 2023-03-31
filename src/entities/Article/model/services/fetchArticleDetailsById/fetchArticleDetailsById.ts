@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type Article, ArticleError } from '../../types/article'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
-import { AxiosError, isAxiosError } from 'axios'
+import { isAxiosError } from 'axios'
 
 export const fetchArticleDetailsById = createAsyncThunk<Article, string, AsyncThunkConfig<ArticleError>>('article/fetchArticleDetailsData', async (id, thunkAPI) => {
   const { rejectWithValue, extra } = thunkAPI

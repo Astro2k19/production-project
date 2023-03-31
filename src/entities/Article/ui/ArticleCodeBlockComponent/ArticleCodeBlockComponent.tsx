@@ -1,4 +1,4 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
 import cls from './ArticleCodeBlockComponent.module.scss'
 import { classNames } from 'shared/lib'
 import { Code } from 'shared/ui'

@@ -1,4 +1,4 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
 import cls from './ArticleImageBlockComponent.module.scss'
 import { classNames } from 'shared/lib'
 import { type ArticleImageBlock } from 'entities/Article/model/types/article'

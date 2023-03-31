@@ -1,11 +1,15 @@
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import cls from './ArticleDetails.module.scss'
 import { classNames } from 'shared/lib'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById'
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails'
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading
+} from '../../model/selectors/articleDetails'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 import { Text, TextAligns, TextSize, TextVariants } from 'shared/ui'
@@ -18,6 +22,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
+import { useFetchData } from 'shared/lib/hooks/useFetchData'
 
 interface ArticleDetailsProps {
   className?: string
@@ -48,12 +53,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
   }
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      console.log('useEffect in ArticleDetails')
-      dispatch(fetchArticleDetailsById(id))
-    }
-  }, [dispatch, id])
+  useFetchData(() => {
+    dispatch(fetchArticleDetailsById(id))
+  })
 
   let content
 

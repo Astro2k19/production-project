@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo } from 'react'
 import cls from './CommentCard.module.scss'
 import { classNames } from 'shared/lib'
 import { type Comment } from '../../model/types/comment'
@@ -9,10 +9,10 @@ import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 interface CommentCardProps {
   className?: string
   comment: Comment
-  isLoading: boolean
+  isLoading?: boolean
 }
 
-export const CommentCard: FC<CommentCardProps> = ({ className, comment, isLoading }) => {
+export const CommentCard = memo(({ className, comment, isLoading }: CommentCardProps) => {
   if (isLoading) {
     return (
         <div className={classNames([cls.commentCard, className])}>
@@ -34,4 +34,4 @@ export const CommentCard: FC<CommentCardProps> = ({ className, comment, isLoadin
           <Text text={comment.text} />
       </div>
   )
-}
+})

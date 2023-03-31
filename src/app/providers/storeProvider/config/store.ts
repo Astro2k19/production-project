@@ -1,4 +1,4 @@
-import { type CombinedState, configureStore, type ReducersMapObject, type Reducer } from '@reduxjs/toolkit'
+import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoreSchema, type ThunkExtraArgs } from 'app/providers/storeProvider/config/StoreSchema'
 import { counterReducer } from 'entities/Counter'
 import { authMiddleware, initUserDataMiddleware, userReducer } from 'entities/User'

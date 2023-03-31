@@ -19,6 +19,7 @@ declare const __PROJECT__: 'frontend' | 'storybook' | 'jest'
 
 // fix
 declare module 'storybook-addon-themes/react';
+declare module 'storybook-addon-react-router-v6';
 
 type DeepPartial<T> = T extends object ? {
   [P in keyof T]?: DeepPartial<T[P]>;

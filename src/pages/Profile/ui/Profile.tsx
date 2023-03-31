@@ -1,8 +1,9 @@
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { fetchProfileData, EditableProfileCard } from 'features/editableProfileCard'
+import { EditableProfileCard, fetchProfileData } from 'features/editableProfileCard'
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
+import { useFetchData } from 'shared/lib/hooks/useFetchData'
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -11,12 +12,9 @@ const reducers: ReducersList = {
 const ProfilePage = memo(() => {
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    console.log('useEffect in ProfilePage')
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData())
-    }
-  }, [dispatch])
+  useFetchData(() => {
+    dispatch(fetchProfileData())
+  })
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

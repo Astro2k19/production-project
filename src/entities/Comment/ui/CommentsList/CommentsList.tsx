@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo } from 'react'
 import cls from './CommentsList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Comment } from '../../model/types/comment'
@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next'
 interface CommentsListProps {
   className?: string
   comments?: Comment[]
-  isLoading: boolean
+  isLoading?: boolean
 }
 
-export const CommentsList: FC<CommentsListProps> = ({ className, comments, isLoading }) => {
+export const CommentsList = memo(({ className, comments, isLoading }: CommentsListProps) => {
   const { t } = useTranslation('translation')
 
   return (
@@ -30,4 +30,4 @@ export const CommentsList: FC<CommentsListProps> = ({ className, comments, isLoa
           }
       </div>
   )
-}
+})
