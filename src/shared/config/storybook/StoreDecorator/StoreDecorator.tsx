@@ -8,11 +8,13 @@ import { type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleL
 import { authReducer } from 'features/auth/by-username/model/slice/loginByUsernameSlice'
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
+import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,
   profile: profileReducer,
-  articleDetails: articleDetailsReducer
+  articleDetails: articleDetailsReducer,
+  addCommentForm: addCommentFormReducer
 }
 
 export const StoreDecorator = (

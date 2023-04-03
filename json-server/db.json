@@ -14,7 +14,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -97,22 +99,138 @@
       "userId": 1
     },
     {
-      "id": 4,
-      "text": "some comment 44444",
-      "articleId": 1,
-      "userId": 2
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 7
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 8
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "",
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "asdfasdfasdfasdfasdf",
+      "id": 10
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "hello world",
+      "id": 11
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "qwerqwerqwer",
+      "id": 12
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "hello nigger",
+      "id": 13
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "asdfasdfasdfadf",
+      "id": 14
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "qqqq",
+      "id": 15
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "1234",
+      "id": 16
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "12341234",
+      "id": 17
+    },
+    {
+      "articleId": "1",
+      "userId": 2,
+      "text": "asdfasdfasdf",
+      "id": 18
+    },
+    {
+      "articleId": "1",
+      "userId": 2,
+      "text": "WASSUPPP",
+      "id": 19
+    },
+    {
+      "articleId": "1",
+      "userId": 2,
+      "text": "werwer",
+      "id": 20
+    },
+    {
+      "articleId": "1",
+      "userId": 2,
+      "text": "q",
+      "id": 21
     }
   ],
-  "profile": {
-    "first": "ARTEMasd",
-    "lastname": "ASTROasdfsfdfsadf",
-    "age": "12",
-    "currency": "UAH",
-    "country": "GERMANY",
-    "city": "Poltava",
-    "username": "werwertewr",
-    "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
-  },
+  "profile": [
+    {
+      "id": 1,
+      "first": "LMAOasdfasdfasdf",
+      "lastname": "ASTROasdfsfdfsadf",
+      "age": "12",
+      "currency": "USD",
+      "country": "UKRAINE",
+      "city": "Poltava",
+      "username": "werwertewr",
+      "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
+    },
+    {
+      "id": 2,
+      "first": "VANTON",
+      "lastname": "ASTROasdfsfdfsadf",
+      "age": "12",
+      "currency": "UAH",
+      "country": "GERMANY",
+      "city": "Poltava",
+      "username": "werwertewr",
+      "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
+    }
+  ],
   "users": [
     {
       "id": 1,

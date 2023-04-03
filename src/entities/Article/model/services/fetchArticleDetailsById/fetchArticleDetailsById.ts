@@ -15,7 +15,8 @@ export const fetchArticleDetailsById = createAsyncThunk<Article, string, AsyncTh
     return response.data
   } catch (e: unknown) {
     if (isAxiosError(e)) {
-      const errorMessage = e.response?.data.message as ArticleError
+      console.log(e, 'isAxiosError')
+      const errorMessage = e.response?.data.code as ArticleError
 
       return rejectWithValue(errorMessage)
     }

@@ -6,6 +6,7 @@ import { fetchProfileData } from '../services/fetchProfileData/fetctProfileData'
 
 describe('profileSlice', () => {
   const data = {
+    id: 1,
     first: 'Артем',
     lastname: 'Катрущенко',
     age: '22',

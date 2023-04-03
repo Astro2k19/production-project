@@ -13,19 +13,8 @@ export const articleSingleCommentsSlice = createSlice({
   name: 'articleSingleComments',
   initialState: commentsAdapter.getInitialState<ArticleSingleCommentsSchema>({
     isLoading: false,
-    ids: ['1', '2'],
-    entities: {
-      1: {
-        id: '1',
-        user: { id: 1, username: 'User', avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
-        text: 'comment 1'
-      },
-      2: {
-        id: '2',
-        user: { id: 1, username: 'User', avatar: 'https://www.w3schools.com/howto/img_avatar.png' },
-        text: 'comment 22'
-      }
-    }
+    ids: [],
+    entities: {}
   }),
   reducers: {},
   extraReducers: (builder) => {

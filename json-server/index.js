@@ -51,7 +51,7 @@ server.get('/articles/:id', (req, res) => {
             return res.json(article)
         }
 
-        return res.status(404).json({code: 'ARTICLE_NOT_FOUND'})
+        return res.status(404).json({message: 'ARTICLE_NOT_FOUND'})
 
     } catch (e) {
         return res.status(500).json({ message: 'SERVER_ERROR' });

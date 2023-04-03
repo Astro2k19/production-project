@@ -1,0 +1,12 @@
+.addComponentForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border: 1px solid var(--primary-color);
+  column-gap: 20px;
+}
+
+.input {
+  flex: 1;
+}

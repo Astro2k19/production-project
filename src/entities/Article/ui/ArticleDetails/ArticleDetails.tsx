@@ -59,6 +59,8 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   let content
 
+  console.log(error, 'error')
+
   if (isLoading) {
     content = (
         <div>

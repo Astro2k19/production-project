@@ -1,4 +1,4 @@
-import { type FC, memo } from 'react'
+import { type FC, memo, useCallback } from 'react'
 import cls from './ArticleSingle.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
@@ -17,6 +17,8 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModule
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleCommentsById } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
+import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
+import { AddCommentForm } from 'features/addCommentForm'
 
 interface ArticleSingleProps {
   className?: string
@@ -33,6 +35,10 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   const isLoading = useSelector(getArticleSingleCommentsIsLoading)
   const error = useSelector(getArticleSingleCommentsError)
   const dispatch = useAppDispatch()
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(sendCommentForArticle(text))
+  }, [dispatch])
 
   useFetchData(() => {
     dispatch(fetchArticleCommentsById(id))
@@ -51,6 +57,10 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
           <div className={classNames([cls.articleSingle, className])}>
               <ArticleDetails id={id}/>
               <Text title={t('Comments')} className={cls.commentsTitle}/>
+              <AddCommentForm
+                  className={cls.addCommentForm}
+                  onSendComment={onSendComment}
+              />
               <CommentsList comments={comments} isLoading={isLoading}/>
           </div>
       </DynamicModuleLoader>

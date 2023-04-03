@@ -21,7 +21,7 @@ export const routerConfig: ProtectedRouteProps[] = [
     element: <AboutPage/>
   },
   {
-    path: appPaths[AppRoutes.PROFILE],
+    path: `${appPaths[AppRoutes.PROFILE]}:id`,
     element: <Profile/>,
     isProtected: true
   },

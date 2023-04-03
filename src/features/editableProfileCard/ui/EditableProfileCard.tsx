@@ -13,6 +13,7 @@ import { type Country } from 'entities/Country'
 import { Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { getUserAuthDate } from 'entities/User'
 
 interface EditableProfileCardProps {
   className?: string
@@ -26,8 +27,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   const readonly = useAppSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
-
-  console.log('EditableProfileCard', formData)
 
   const profileErrorTranslations = {
     [ValidateProfileError.SERVER_ERROR]: t('Oops! Something went wrong', {
