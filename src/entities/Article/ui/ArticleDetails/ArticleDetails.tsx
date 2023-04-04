@@ -23,6 +23,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
 
 interface ArticleDetailsProps {
   className?: string
@@ -31,6 +32,11 @@ interface ArticleDetailsProps {
 
 const reducer: ReducersList = {
   articleDetails: articleDetailsReducer
+}
+
+const articleDetailsErrorCodeMappings = {
+  404: `fetch_error.${ArticleError.NOT_FOUND}`,
+  500: `fetch_error.${ArticleError.SERVER_ERROR}`
 }
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
@@ -53,13 +59,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
   }
 
-  useFetchData(() => {
-    dispatch(fetchArticleDetailsById(id))
-  })
-
   let content
 
-  console.log(error, 'error')
+  console.log(error, 'ArticleDetails error')
 
   if (isLoading) {
     content = (
@@ -75,7 +77,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = (
         <div className={cls.errorWrapper}>
             <Text
-              title={t(ArticleError[error])}
+              title={getErrorMessage(error, articleDetailsErrorCodeMappings, 'article.fetch_error')}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
             />

@@ -3,11 +3,12 @@ import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type Profile, ValidateProfileError } from 'entities/Profile'
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData'
 import { validateErrors } from '../validateErrors/validateErrors'
+import { profileActions } from '../../slice/profileSlice'
 
 export const updateProfileData = createAsyncThunk<Profile, undefined, AsyncThunkConfig<ValidateProfileError[]>>(
   'profile/updateProfileData',
   async (_, thunkAPI) => {
-    const { rejectWithValue, extra, getState } = thunkAPI
+    const { rejectWithValue, extra, getState, dispatch } = thunkAPI
 
     try {
       const formData = getProfileFormData(getState())
@@ -22,6 +23,8 @@ export const updateProfileData = createAsyncThunk<Profile, undefined, AsyncThunk
       if (!response.data) {
         return rejectWithValue([ValidateProfileError.SERVER_ERROR])
       }
+
+      dispatch(profileActions.setReadonly(true))
 
       return response.data
     } catch (e) {

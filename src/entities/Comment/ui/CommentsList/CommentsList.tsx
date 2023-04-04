@@ -3,16 +3,17 @@ import cls from './CommentsList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Comment } from '../../model/types/comment'
 import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard'
-import { Text } from 'shared/ui'
+import { Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 
 interface CommentsListProps {
   className?: string
   comments?: Comment[]
   isLoading?: boolean
+  error?: string
 }
 
-export const CommentsList = memo(({ className, comments, isLoading }: CommentsListProps) => {
+export const CommentsList = memo(({ className, comments, isLoading, error }: CommentsListProps) => {
   const { t } = useTranslation('translation')
 
   if (isLoading) {
@@ -20,6 +21,12 @@ export const CommentsList = memo(({ className, comments, isLoading }: CommentsLi
         <div className={classNames([cls.commentsList, className])}>
             {new Array(3).fill(null).map((_, index) => <CommentCard key={index} isLoading />)}
         </div>
+    )
+  }
+
+  if (error) {
+    return (
+        <Text text={error} variant={TextVariants.ERROR} />
     )
   }
 

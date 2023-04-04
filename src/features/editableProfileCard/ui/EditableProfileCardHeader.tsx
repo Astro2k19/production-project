@@ -37,8 +37,6 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
     if (__PROJECT__ !== 'storybook') {
       dispatch(updateProfileData())
     }
-
-    dispatch(profileActions.setReadonly(true))
   }, [dispatch])
 
   return (

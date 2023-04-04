@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { type AxiosError } from 'axios'
 import { USER_AUTH_DATA_KEY } from 'shared/const/localStorage'
 import { type ReduxStore } from 'app/providers/storeProvider/config/store'
 
@@ -21,3 +21,8 @@ $api.interceptors.request.use((config) => {
   console.log(config.headers.authorization, 'config.headers.authorization')
   return config
 })
+
+export interface ApiError {
+  code: string
+  message?: string
+}

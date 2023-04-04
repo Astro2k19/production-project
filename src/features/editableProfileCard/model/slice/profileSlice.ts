@@ -14,10 +14,10 @@ export const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setProfileData: (state, action: PayloadAction<Profile>) => {
+    setProfileData: (state, action: PayloadAction<DeepPartial<Profile>>) => {
       state.formData = {
         ...state.formData,
-        ...action.payload
+        ...action.payload as Profile
       }
     },
     setReadonly: (state, action: PayloadAction<boolean>) => {

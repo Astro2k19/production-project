@@ -1,5 +1,7 @@
 import { type Currency } from 'entities/Currency'
 import { type Country } from 'entities/Country'
+import { type AxiosError } from 'axios/index'
+import { type ApiError } from 'shared/api/api'
 
 export interface Profile {
   id: string | number
@@ -18,7 +20,7 @@ export interface ProfileSchema {
   formData?: Profile
   isLoading: boolean
   readonly: boolean
-  error?: string
+  error?: ApiError
   validateProfileErrors?: ValidateProfileError[]
 }
 
@@ -28,4 +30,10 @@ export enum ValidateProfileError {
   INVALID_AGE = 'INVALID_AGE',
   INVALID_USERNAME = 'INVALID_USERNAME',
   SERVER_ERROR = 'SERVER_ERROR'
+}
+
+export enum ProfileError {
+  NOT_FOUND = 'NOT_FOUND',
+  SERVER_ERROR = 'SERVER_ERROR',
+  NETWORK_ERROR = 'NETWORK_ERROR'
 }

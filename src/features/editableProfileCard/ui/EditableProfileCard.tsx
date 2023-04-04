@@ -26,22 +26,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   const profileValidateErrors = useAppSelector(getProfileValidateErrors)
   const readonly = useAppSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
-  const { t } = useTranslation()
-
-  const profileErrorTranslations = {
-    [ValidateProfileError.SERVER_ERROR]: t('Oops! Something went wrong', {
-      ns: 'translation'
-    }),
-    [ValidateProfileError.INVALID_USER_DATA]: t('Firstname and Lastname are required!', {
-      ns: 'profile'
-    }),
-    [ValidateProfileError.INVALID_AGE]: t('Invalid age', {
-      ns: 'profile'
-    }),
-    [ValidateProfileError.INVALID_USERNAME]: t('Invalid username', {
-      ns: 'profile'
-    })
-  }
+  const { t } = useTranslation('profile')
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(profileActions.setProfileData({ first: value }))
@@ -78,8 +63,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
               <Text
                 key={err}
                 variant={TextVariants.ERROR}
-                text={profileErrorTranslations[err]}
-            />
+                text={t(`validation_error.${ValidateProfileError[err]}`)}
+              />
           ))}
           <ProfileCard
             data={formData}

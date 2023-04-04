@@ -1,14 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type Comment } from 'entities/Comment'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
+import { type AxiosError as AxiosErrorType } from 'axios/index'
+import { type ApiError } from 'shared/api/api'
 
-export const fetchArticleCommentsById = createAsyncThunk<Comment[], number | string | undefined, AsyncThunkConfig<string>>(
+export const fetchArticleCommentsById = createAsyncThunk<Comment[], string | undefined, AsyncThunkConfig<ApiError>>(
   'articleSingle/fetchArticleCommentsById',
   async (id, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI
 
     if (!id) {
-      return rejectWithValue('NO_ID')
+      return rejectWithValue({
+        code: '404',
+        message: 'No id'
+      })
     }
 
     try {
@@ -20,11 +25,26 @@ export const fetchArticleCommentsById = createAsyncThunk<Comment[], number | str
       })
 
       if (!response.data) {
-        return rejectWithValue('NO_DATA')
+        return rejectWithValue({
+          code: '500',
+          message: 'No data'
+        })
       }
 
       return response.data
     } catch (e) {
-      return rejectWithValue('SERVER_ERROR')
+      const error = e as AxiosErrorType
+
+      if (error.response) {
+        return rejectWithValue({
+          code: error.response.status.toString(),
+          message: error.message
+        })
+      }
+
+      return rejectWithValue({
+        code: '500',
+        message: 'Server Error'
+      })
     }
   })

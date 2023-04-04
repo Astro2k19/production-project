@@ -1,5 +1,6 @@
 {
-  "ARTICLE_NOT_FOUND": "Such an article does not exist! :(",
-  "SERVER_ERROR": "Oops! Something went wrong while loading the article.",
-  "NO_DATA": "An error occurred while loading data. Try refreshing the page!"
+  "fetch_error": {
+    "NOT_FOUND": "Such an article does not exist! :(",
+    "SERVER_ERROR": "Oops! Something went wrong while loading the article.",
+  }
 }

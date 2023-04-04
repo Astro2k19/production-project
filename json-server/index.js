@@ -45,7 +45,7 @@ server.get('/articles/:id', (req, res) => {
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const {articles = []} = db
 
-        const article = articles.find((item) => item.id === id)
+        const article = articles.find((item) => item.id == id)
 
         if (article) {
             return res.json(article)
@@ -55,6 +55,25 @@ server.get('/articles/:id', (req, res) => {
 
     } catch (e) {
         return res.status(500).json({ message: 'SERVER_ERROR' });
+    }
+})
+
+server.get('/profile/:id', (req, res) => {
+    try {
+        const {id} = req.params
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const {profile = []} = db
+
+        const foundProfile = profile.find((item) => item.id == id)
+
+        if (foundProfile) {
+            return res.json(foundProfile)
+        }
+
+        return res.status(404).json({message: 'PROFILE_NOT_FOUND'})
+
+    } catch (e) {
+        return res.status(e.status).json({ message: e.message });
     }
 })
 

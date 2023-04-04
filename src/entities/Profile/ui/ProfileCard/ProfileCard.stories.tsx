@@ -15,6 +15,7 @@ export default {
 } as ComponentMeta<typeof ProfileCard>
 
 const data = {
+  id: 1,
   first: 'Артем',
   lastname: 'Катрущенко',
   age: '12',
@@ -33,9 +34,9 @@ Primary.args = {
   data
 }
 
-export const WithLoading = Template.bind({})
+export const Loading = Template.bind({})
 
-WithLoading.args = {
+Loading.args = {
   isLoading: true
 }
 
@@ -46,8 +47,8 @@ Readonly.args = {
   data
 }
 
-export const WithError = Template.bind({})
+export const Error = Template.bind({})
 
-WithError.args = {
+Error.args = {
   error: 'error'
 }

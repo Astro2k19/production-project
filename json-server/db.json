@@ -205,13 +205,25 @@
       "userId": 2,
       "text": "q",
       "id": 21
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "asdfasd",
+      "id": 22
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdfasdf",
+      "id": 23
     }
   ],
   "profile": [
     {
-      "id": 1,
-      "first": "LMAOasdfasdfasdf",
-      "lastname": "ASTROasdfsfdfsadf",
+      "id": "1",
+      "first": "йцукйцук",
+      "lastname": "asdfasdfasdf",
       "age": "12",
       "currency": "USD",
       "country": "UKRAINE",
@@ -220,7 +232,7 @@
       "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
     },
     {
-      "id": 2,
+      "id":"2",
       "first": "VANTON",
       "lastname": "ASTROasdfsfdfsadf",
       "age": "12",
@@ -233,14 +245,14 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Admin",
       "password": "12341234",
       "role": "ADMIN",
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "User",
       "password": "qwerqwer",
       "role": "USER",

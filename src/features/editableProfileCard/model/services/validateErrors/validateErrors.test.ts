@@ -1,10 +1,11 @@
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { ValidateProfileError } from 'entities/Profile'
+import { type Profile, ValidateProfileError } from 'entities/Profile'
 import { validateErrors } from './validateErrors'
 
 describe('validateErrors', () => {
-  const data = {
+  const data: Profile = {
+    id: 1,
     first: 'Artem',
     lastname: 'Katr',
     age: '21',
@@ -40,7 +41,7 @@ describe('validateErrors', () => {
   })
 
   test('invalid all', () => {
-    expect(validateErrors({})).toEqual([
+    expect(validateErrors({} as Profile)).toEqual([
       ValidateProfileError.INVALID_USER_DATA,
       ValidateProfileError.INVALID_AGE,
       ValidateProfileError.INVALID_USERNAME

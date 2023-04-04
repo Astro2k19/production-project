@@ -21,5 +21,8 @@
   "en": "en",
   "increment": "",
   "ua": "ua",
-  "value": ""
+  "value": "",
+  "fetch_error": {
+    "UNKNOWN_ERROR": "An error occurred, please try again later."
+  }
 }

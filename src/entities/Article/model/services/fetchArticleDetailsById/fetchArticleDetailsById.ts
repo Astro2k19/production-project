@@ -1,24 +1,43 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type Article, ArticleError } from '../../types/article'
+import { type Article } from '../../types/article'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
-import { isAxiosError } from 'axios'
+import { type AxiosError as AxiosErrorType, isAxiosError } from 'axios'
+import { type ApiError } from 'shared/api/api'
 
-export const fetchArticleDetailsById = createAsyncThunk<Article, string, AsyncThunkConfig<ArticleError>>('article/fetchArticleDetailsData', async (id, thunkAPI) => {
+export const fetchArticleDetailsById = createAsyncThunk<Article, string | undefined, AsyncThunkConfig<ApiError>>('article/fetchArticleDetailsData', async (id, thunkAPI) => {
   const { rejectWithValue, extra } = thunkAPI
+
+  if (!id) {
+    return rejectWithValue({
+      code: '404',
+      message: 'No id'
+    })
+  }
+
   try {
     const response = await extra.api.get(`/articles/${id}`)
 
     if (!response.data) {
-      return rejectWithValue(ArticleError.NO_DATA)
+      return rejectWithValue({
+        code: '500',
+        message: 'No data'
+      })
     }
 
     return response.data
   } catch (e: unknown) {
-    if (isAxiosError(e)) {
-      console.log(e, 'isAxiosError')
-      const errorMessage = e.response?.data.code as ArticleError
+    const error = e as AxiosErrorType
 
-      return rejectWithValue(errorMessage)
+    if (error.response) {
+      return rejectWithValue({
+        code: error.response.status.toString(),
+        message: error.message
+      })
     }
+
+    return rejectWithValue({
+      code: '500',
+      message: 'Server Error'
+    })
   }
 })

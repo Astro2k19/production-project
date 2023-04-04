@@ -3,7 +3,7 @@ import cls from './ArticleSingle.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails, fetchArticleDetailsById, getArticleDetailsError } from 'entities/Article'
 import { Text, TextVariants } from 'shared/ui'
 import { CommentsList } from 'entities/Comment'
 import { useSelector } from 'react-redux'
@@ -19,6 +19,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleCommentsById } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
 import { AddCommentForm } from 'features/addCommentForm'
+import {
+  getArticleCommentsErrorMessage
+} from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
 
 interface ArticleSingleProps {
   className?: string
@@ -33,23 +36,29 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>()
   const comments = useSelector(articleSingleCommentsSelectors.selectAll)
   const isLoading = useSelector(getArticleSingleCommentsIsLoading)
-  const error = useSelector(getArticleSingleCommentsError)
   const dispatch = useAppDispatch()
+
+  const commentsError = useSelector(getArticleSingleCommentsError)
+  const articleDetailsError = useSelector(getArticleDetailsError)
 
   const onSendComment = useCallback((text: string) => {
     dispatch(sendCommentForArticle(text))
   }, [dispatch])
 
   useFetchData(() => {
+    dispatch(fetchArticleDetailsById(id))
+  })
+
+  useFetchData(() => {
     dispatch(fetchArticleCommentsById(id))
   })
 
-  if (!id || error) {
+  if (!id || articleDetailsError) {
     return <Text
-      title={'Error'}
-      text={'Oopps! Some went wrong.'}
-      variant={TextVariants.ERROR}
-    />
+              title={'Error'}
+              text={'Oopps! Some went wrong.'}
+              variant={TextVariants.ERROR}
+            />
   }
 
   return (
@@ -61,7 +70,11 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
                   className={cls.addCommentForm}
                   onSendComment={onSendComment}
               />
-              <CommentsList comments={comments} isLoading={isLoading}/>
+              <CommentsList
+                comments={comments}
+                isLoading={isLoading}
+                error={getArticleCommentsErrorMessage(commentsError)}
+              />
           </div>
       </DynamicModuleLoader>
   )

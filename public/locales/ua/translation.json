@@ -20,5 +20,8 @@
   "en": "en",
   "increment": "",
   "ua": "ua",
-  "value": ""
+  "value": "",
+  "fetch_error": {
+    "UNKNOWN_ERROR": "Виникла помилка. Спробуйте, будь-ласка, пізніше."
+  }
 }

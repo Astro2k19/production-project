@@ -47,7 +47,7 @@ export interface Article {
 }
 
 export enum ArticleError {
-  NO_DATA = 'NO_DATA',
-  ARTICLE_NOT_FOUND = 'ARTICLE_NOT_FOUND',
-  SERVER_ERROR = 'SERVER_ERROR'
+  NOT_FOUND = 'NOT_FOUND',
+  SERVER_ERROR = 'SERVER_ERROR',
+  NETWORK_ERROR = 'NETWORK_ERROR'
 }

@@ -7,10 +7,12 @@ import { type Profile } from '../../model/types/profile'
 import { Avatar } from 'shared/ui/avatar/Avatar'
 import { type Currency, CurrencySelect } from 'entities/Currency'
 import { type Country, CountrySelect } from 'entities/Country'
+import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
+import { type ApiError } from 'shared/api/api'
 
 interface ProfileCardProps {
   isLoading?: boolean
-  error?: string
+  error?: ApiError
   data?: Profile
   className?: string
   readonly?: boolean
@@ -52,8 +54,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     return (
         <div className={classNames([cls.profileCard, className, cls.error])}>
             <Text
-              title={t('Oops! Something went wrong. Please, try again!', { ns: 'translation' })}
-              text={'Try to reload the page!'}
+              title={t(getProfileErrorMessage(error))}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
             />

@@ -18,7 +18,7 @@ describe('fetchProfileData', () => {
   test('successful request', async () => {
     const asyncThunk = new TestAsyncThunk(fetchProfileData)
     asyncThunk.api.get.mockReturnValue(Promise.resolve({ data }))
-    const result = await asyncThunk.callAction()
+    const result = await asyncThunk.callAction('1')
 
     expect(result.meta.requestStatus).toBe('fulfilled')
     expect(result.payload).toEqual(data)
@@ -27,9 +27,16 @@ describe('fetchProfileData', () => {
   test('rejected request', async () => {
     const asyncThunk = new TestAsyncThunk(fetchProfileData)
     asyncThunk.api.get.mockReturnValue(Promise.reject(new Error('Something went wrong')))
-    const result = await asyncThunk.callAction()
+    const result = await asyncThunk.callAction('1')
 
     expect(result.meta.requestStatus).toBe('rejected')
     expect(result.payload).toEqual('SERVER_ERROR')
   })
 })
+
+enum ErrorType {
+  NetworkError,
+  ServerError,
+  ValidationError,
+  // Add additional error types here as needed
+}

@@ -9,6 +9,15 @@
   "Profile page": "Profile page",
   "Save": "Save",
   "Username": "Username",
-  "Firstname and Lastname are required!": "Firstname and Lastname are required!",
-  "Invalid age": "Invalid age"
+  "validation_error": {
+    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
+    "INVALID_USER_DATA": "Firstname and Lastname are required!",
+    "INVALID_AGE": "Invalid age",
+    "INVALID_USERNAME": "Invalid username"
+  },
+  "fetch_error": {
+    "NOT_FOUND": "Such profile does not exist! :(",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
+    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again."
+  }
 }
