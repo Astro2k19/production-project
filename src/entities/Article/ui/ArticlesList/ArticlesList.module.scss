@@ -1,0 +1,11 @@
+.GRID {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 35px;
+}
+
+.LIST {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}

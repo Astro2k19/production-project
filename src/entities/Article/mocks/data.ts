@@ -1,19 +1,10 @@
-import { type FC, memo } from 'react'
-import cls from './Articles.module.scss'
-import { classNames } from 'shared/lib'
-import { ArticlesList } from 'entities/Article/ui/ArticlesList/ArticlesList'
 import { type Article, ArticleBlockType, ArticleType } from 'entities/Article'
-import { ArticlesListView } from 'entities/Article/model/types/article'
-
-interface ArticlesProps {
-  className?: string
-}
-
-const article: Article = {
+import avatar from 'shared/assets/images/tests/avatar.jpg'
+export const article: Article = {
   id: '1',
   user: {
     id: '1',
-    avatar: 'https://www.w3schools.com/howto/img_avatar.png',
+    avatar,
     username: 'Astro'
   },
   title: 'Javascript news',
@@ -21,7 +12,7 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: [ArticleType.IT, ArticleType.SPORT, ArticleType.POLITICS],
+  type: [ArticleType.IT],
   blocks: [
     {
       id: '1',
@@ -83,18 +74,3 @@ const article: Article = {
     }
   ]
 }
-
-const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
-  return (
-      <div className={classNames([cls.articles, className])}>
-          <ArticlesList
-            articles={
-            new Array(16)
-              .fill(0)
-              .map(() => article)
-          } view={ArticlesListView.LIST} />
-      </div>
-  )
-}
-
-export default memo(ArticlesPage)

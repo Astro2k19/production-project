@@ -1,3 +1,4 @@
+import { type User } from 'entities/User'
 
 export enum ArticleType {
   IT = 'IT',
@@ -44,6 +45,12 @@ export interface Article {
   createdAt: string
   type: ArticleType[]
   blocks: ArticleBlockTypes[]
+  user: User
+}
+
+export enum ArticlesListView {
+  GRID = 'GRID',
+  LIST = 'LIST'
 }
 
 export enum ArticleError {

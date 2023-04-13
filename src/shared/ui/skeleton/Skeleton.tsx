@@ -23,5 +23,5 @@ export const Skeleton: FC<SkeletonProps> = (props) => {
     borderRadius
   }
 
-  return <div style={styles} className={classNames([className, cls.skeleton])}></div>
+  return <div title={'Loading...'} style={styles} className={classNames([className, cls.skeleton])}></div>
 }
