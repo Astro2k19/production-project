@@ -11,7 +11,7 @@ const initialState: ArticleDetailsSchema = {
   data: undefined
 }
 
-export const ArticleDetailsSlice = createSlice({
+export const articleDetailsSlice = createSlice({
   name: 'articleDetails',
   initialState,
   reducers: {},
@@ -26,11 +26,12 @@ export const ArticleDetailsSlice = createSlice({
         state.data = action.payload
       })
       .addCase(fetchArticleDetailsById.rejected, (state, action) => {
+        console.log(action.payload, 'fetchArticleDetailsById action.payload!!!!!!!!')
         state.isLoading = false
         state.error = action.payload
       })
   }
 })
 
-export const { actions: articleDetailsActions } = ArticleDetailsSlice
-export const { reducer: articleDetailsReducer } = ArticleDetailsSlice
+export const { actions: articleDetailsActions } = articleDetailsSlice
+export const { reducer: articleDetailsReducer } = articleDetailsSlice

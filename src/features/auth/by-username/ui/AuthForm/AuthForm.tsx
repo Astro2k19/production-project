@@ -15,7 +15,7 @@ import {
 } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import { AuthFormErrors } from '../../model/types/loginSchema'
+import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
 
 export interface AuthFormProps {
   className?: string
@@ -64,7 +64,7 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
       >
           <form className={classNames([cls.authForm, className])} onSubmit={onSubmit}>
               <Text title='Authorization form' className={cls.title} />
-              {error && <Text text={t(AuthFormErrors[error] ?? AuthFormErrors.SERVER_ERROR)} variant={TextVariants.ERROR} />}
+              {error && <Text text={getAuthErrorMessage(error)} variant={TextVariants.ERROR} />}
               <Input
                 type='text'
                 onChange={setUsername}

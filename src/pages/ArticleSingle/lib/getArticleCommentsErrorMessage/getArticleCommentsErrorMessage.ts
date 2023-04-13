@@ -9,6 +9,5 @@ const articleSingleCommentsErrorCodeMappings = {
 
 export const getArticleCommentsErrorMessage = (error?: ApiError) => {
   if (!error) return
-
   return getErrorMessage(error, articleSingleCommentsErrorCodeMappings, 'article.fetch_error')
 }

@@ -20,6 +20,7 @@ i18n
       'profile'
     ],
     defaultNS: 'translation',
+    keySeparator: '.',
 
     interpolation: {
       escapeValue: false

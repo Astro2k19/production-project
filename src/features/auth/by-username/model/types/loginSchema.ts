@@ -1,15 +1,14 @@
+import { type ApiError } from 'shared/api/api'
 
 export interface LoginFormSchema {
   username: string
   password: string
   isLoading: boolean
-  error?: AuthFormErrorsIndex
+  error?: ApiError
 }
 
-export enum AuthFormErrors {
-  ERR_NETWORK = 'Oops! Something went wrong. Please, try again!',
-  SERVER_ERROR = 'Oops! Something went wrong. Please, try again!',
-  ERR_BAD_REQUEST = 'Email or password is incorrect!'
+export enum AuthFormError {
+  NETWORK_ERROR = 'NETWORK_ERROR',
+  SERVER_ERROR = 'SERVER_ERROR',
+  BAD_REQUEST_ERROR = 'BAD_REQUEST_ERROR'
 }
-
-export type AuthFormErrorsIndex = keyof typeof AuthFormErrors

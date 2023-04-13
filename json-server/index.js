@@ -33,9 +33,9 @@ server.post('/login', (req, res) => {
         }
 
         return res.status(403).json({ message: 'USER_NOT_EXIST' });
+
     } catch (e) {
-        console.log(e);
-        return res.status(500).json({ message: e.message });
+        return res.status(e.status).json({ message: e.message });
     }
 });
 
@@ -45,7 +45,7 @@ server.get('/articles/:id', (req, res) => {
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const {articles = []} = db
 
-        const article = articles.find((item) => item.id == id)
+        const article = articles.find((item) => item.id === id)
 
         if (article) {
             return res.json(article)
@@ -54,7 +54,7 @@ server.get('/articles/:id', (req, res) => {
         return res.status(404).json({message: 'ARTICLE_NOT_FOUND'})
 
     } catch (e) {
-        return res.status(500).json({ message: 'SERVER_ERROR' });
+        return res.status(e.status).json({ message: e.message });
     }
 })
 

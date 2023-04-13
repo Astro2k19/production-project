@@ -34,7 +34,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
   }, [dispatch, onSendComment, text])
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <form className={classNames([cls.addComponentForm, className])} onSubmit={onSubmitForm}>
               <Input
                   className={cls.input}

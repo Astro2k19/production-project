@@ -36,6 +36,7 @@ export const fetchArticleCommentsById = createAsyncThunk<Comment[], string | und
       const error = e as AxiosErrorType
 
       if (error.response) {
+        console.log(error.response, 'error.response')
         return rejectWithValue({
           code: error.response.status.toString(),
           message: error.message

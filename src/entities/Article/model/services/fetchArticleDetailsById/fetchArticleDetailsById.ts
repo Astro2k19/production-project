@@ -37,7 +37,7 @@ export const fetchArticleDetailsById = createAsyncThunk<Article, string | undefi
 
     return rejectWithValue({
       code: '500',
-      message: 'Server Error'
+      message: 'Server error'
     })
   }
 })

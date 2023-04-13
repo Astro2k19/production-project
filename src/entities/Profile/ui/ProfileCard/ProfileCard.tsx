@@ -54,7 +54,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     return (
         <div className={classNames([cls.profileCard, className, cls.error])}>
             <Text
-              title={t(getProfileErrorMessage(error))}
+              title={getProfileErrorMessage(error)}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
             />

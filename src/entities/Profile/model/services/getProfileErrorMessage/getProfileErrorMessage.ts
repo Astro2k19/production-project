@@ -1,13 +1,13 @@
 import { ProfileError } from '../../types/profile'
 import { type ApiError } from 'shared/api/api'
+import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
+
+const profileErrorCodeMappings = {
+  404: `${ProfileError.NOT_FOUND}`,
+  500: `${ProfileError.SERVER_ERROR}`
+}
 
 export const getProfileErrorMessage = (error: ApiError) => {
-  switch (error.code) {
-    case '404':
-      return `fetch_error.${ProfileError.NOT_FOUND}`
-    case '500':
-      return `fetch_error.${ProfileError.SERVER_ERROR}`
-    default:
-      return `fetch_error.${ProfileError.SERVER_ERROR}`
-  }
+  if (!error) return
+  return getErrorMessage(error, profileErrorCodeMappings, 'profile', ['fetch_error'])
 }

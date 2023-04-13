@@ -13,8 +13,7 @@ import {
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 import { Text, TextAligns, TextSize, TextVariants } from 'shared/ui'
-import { ArticleBlockType, type ArticleBlockTypes, ArticleError } from '../../model/types/article'
-import { useTranslation } from 'react-i18next'
+import { ArticleBlockType, type ArticleBlockTypes } from '../../model/types/article'
 import { Avatar } from 'shared/ui/avatar/Avatar'
 import { Icon } from 'shared/ui/icon/Icon'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
@@ -23,7 +22,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
-import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
+import { getArticleErrorMessage } from 'entities/Article'
 
 interface ArticleDetailsProps {
   className?: string
@@ -34,17 +33,11 @@ const reducer: ReducersList = {
   articleDetails: articleDetailsReducer
 }
 
-const articleDetailsErrorCodeMappings = {
-  404: `fetch_error.${ArticleError.NOT_FOUND}`,
-  500: `fetch_error.${ArticleError.SERVER_ERROR}`
-}
-
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const dispatch = useAppDispatch()
   const article = useAppSelector(getArticleDetailsData)
   const isLoading = useAppSelector(getArticleDetailsIsLoading)
   const error = useAppSelector(getArticleDetailsError)
-  const { t } = useTranslation('article')
 
   const renderBlock = (block: ArticleBlockTypes) => {
     switch (block.type) {
@@ -59,9 +52,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
   }
 
-  let content
+  useFetchData(() => {
+    dispatch(fetchArticleDetailsById(id))
+  })
 
-  console.log(error, 'ArticleDetails error')
+  let content
 
   if (isLoading) {
     content = (
@@ -77,7 +72,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = (
         <div className={cls.errorWrapper}>
             <Text
-              title={getErrorMessage(error, articleDetailsErrorCodeMappings, 'article.fetch_error')}
+              title={getArticleErrorMessage(error)}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
             />
@@ -111,7 +106,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }
 
   return (
-      <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
           <div className={classNames([cls.articleDetails, className])}>
               {content}
           </div>

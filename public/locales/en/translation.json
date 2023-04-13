@@ -23,6 +23,9 @@
   "ua": "ua",
   "value": "",
   "fetch_error": {
-    "UNKNOWN_ERROR": "An error occurred, please try again later."
+    "UNKNOWN_ERROR": "An error occurred, please try again later.",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
+    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
+    "BAD_REQUEST_ERROR": "Incorrect password or login!"
   }
 }

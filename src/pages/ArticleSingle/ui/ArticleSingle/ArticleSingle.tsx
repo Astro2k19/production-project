@@ -3,8 +3,8 @@ import cls from './ArticleSingle.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { ArticleDetails, fetchArticleDetailsById, getArticleDetailsError } from 'entities/Article'
-import { Text, TextVariants } from 'shared/ui'
+import { ArticleDetails, fetchArticleDetailsById, getArticleDetailsError, getArticleErrorMessage } from 'entities/Article'
+import { Text, TextAligns, TextVariants } from 'shared/ui'
 import { CommentsList } from 'entities/Comment'
 import { useSelector } from 'react-redux'
 import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
@@ -19,9 +19,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleCommentsById } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
 import { AddCommentForm } from 'features/addCommentForm'
-import {
-  getArticleCommentsErrorMessage
-} from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
+import { getArticleCommentsErrorMessage } from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
 
 interface ArticleSingleProps {
   className?: string
@@ -32,7 +30,7 @@ const reducers: ReducersList = {
 }
 
 const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
-  const { t } = useTranslation('article')
+  const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const comments = useSelector(articleSingleCommentsSelectors.selectAll)
   const isLoading = useSelector(getArticleSingleCommentsIsLoading)
@@ -46,38 +44,38 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   }, [dispatch])
 
   useFetchData(() => {
-    dispatch(fetchArticleDetailsById(id))
-  })
-
-  useFetchData(() => {
     dispatch(fetchArticleCommentsById(id))
   })
 
-  if (!id || articleDetailsError) {
-    return <Text
-              title={'Error'}
-              text={'Oopps! Some went wrong.'}
-              variant={TextVariants.ERROR}
-            />
+  if (!id) {
+    return <Text text={'Something went wrong!'} />
   }
 
-  return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <div className={classNames([cls.articleSingle, className])}>
-              <ArticleDetails id={id}/>
-              <Text title={t('Comments')} className={cls.commentsTitle}/>
-              <AddCommentForm
-                  className={cls.addCommentForm}
-                  onSendComment={onSendComment}
-              />
-              <CommentsList
-                comments={comments}
-                isLoading={isLoading}
-                error={getArticleCommentsErrorMessage(commentsError)}
-              />
-          </div>
-      </DynamicModuleLoader>
-  )
+  let content
+
+  if (articleDetailsError) {
+    content = (
+        <Text title={getArticleErrorMessage(articleDetailsError)} variant={TextVariants.ERROR} align={TextAligns.CENTER} />
+    )
+  } else {
+    content = (
+        <div className={classNames([cls.articleSingle, className])}>
+            <ArticleDetails id={id} />
+            <Text title={t('Comments')} className={cls.commentsTitle} />
+            <AddCommentForm
+                    className={cls.addCommentForm}
+                    onSendComment={onSendComment}
+                />
+            <CommentsList
+                    comments={comments}
+                    isLoading={isLoading}
+                    error={getArticleCommentsErrorMessage(commentsError)}
+            />
+        </div>
+    )
+  }
+
+  return <DynamicModuleLoader reducers={reducers}>{content}</DynamicModuleLoader>
 }
 
 export default memo(ArticleSinglePage)

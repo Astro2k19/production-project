@@ -5,8 +5,9 @@ import { ThemeSwitcher } from 'features/themeSwitcher'
 import { LangSwitcher } from 'features/langSwitcher'
 import ToggleSidebarIcon from 'shared/assets/icons/sidebar-toggle.svg'
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui'
-import { sidebarItems } from '../../../Sidebar/model/items'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
 
 interface SidebarProps {
   className?: string
@@ -14,6 +15,7 @@ interface SidebarProps {
 
 export const Sidebar: FC = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = React.useState(false)
+  const sidebarItems = useAppSelector(getSidebarItems)
 
   const toggleSidebar = (): void => {
     setCollapsed(prevState => !prevState)
