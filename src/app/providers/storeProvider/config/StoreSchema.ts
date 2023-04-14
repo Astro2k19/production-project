@@ -8,6 +8,7 @@ import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
+import { type ArticlesPageListSchema } from 'pages/Articles'
 
 export interface StoreSchema {
   counter: CounterSchema
@@ -19,6 +20,7 @@ export interface StoreSchema {
   articleDetails?: ArticleDetailsSchema
   articleSingleComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
+  articlesPageList?: ArticlesPageListSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema

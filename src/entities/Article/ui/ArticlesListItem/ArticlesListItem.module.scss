@@ -19,6 +19,7 @@
     position: relative;
     height: 200px;
     margin-bottom: 20px;
+
     &:not(.skeleton) {
       cursor: pointer;
       transition: transform 0.2s ease-out;

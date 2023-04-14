@@ -4,6 +4,10 @@ import { counterReducer } from 'entities/Counter'
 import { authMiddleware, initUserDataMiddleware, userReducer } from 'entities/User'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
 import { $api } from 'shared/api/api'
+import {
+  setArticlesListViewMiddleware
+} from 'pages/Articles/model/middlewares/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
+import { initArticlesListViewMiddleware } from 'pages/Articles/model/middlewares/init/init'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
@@ -27,7 +31,11 @@ export const createReduxStore = (
       thunk: {
         extraArgument: extraArgs
       }
-    }).prepend(authMiddleware.middleware, initUserDataMiddleware.middleware)
+    }).prepend(
+      authMiddleware.middleware,
+      initUserDataMiddleware.middleware,
+      setArticlesListViewMiddleware.middleware
+    )
   })
 
   // @ts-expect-error eslint-disable-line

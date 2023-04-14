@@ -26,8 +26,6 @@ export const ArticlesList: FC<ArticlesListProps> = (props) => {
       <ArticlesListItem article={article} view={view} key={article.id} />
   )
 
-  console.log(articles, 'articles')
-
   if (isLoading) {
     return (
         <div className={classNames([cls.articlesList, className, cls[view]])}>
