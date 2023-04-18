@@ -5,6 +5,7 @@ import { EditableProfileCard, fetchProfileData } from 'features/editableProfileC
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/page/Page'
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -22,7 +23,9 @@ const ProfilePage = memo(() => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <EditableProfileCard />
+          <Page>
+              <EditableProfileCard />
+          </Page>
       </DynamicModuleLoader>
   )
 })

@@ -1,1 +1,1 @@
-export {}
+export { ArticlesListViewSwitcher } from './ui/ArticlesListViewSwitcher'

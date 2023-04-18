@@ -1,13 +1,14 @@
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Page } from 'shared/ui/page/Page'
 
 const HomePage = memo(() => {
   const { t } = useTranslation('home')
 
   return (
-      <div>
+      <Page>
           <h1>{t('Home page', { ns: 'home' })}</h1>
-      </div>
+      </Page>
   )
 })
 export default HomePage

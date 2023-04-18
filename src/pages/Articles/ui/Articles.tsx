@@ -1,4 +1,4 @@
-import { type FC, memo, useCallback } from 'react'
+import { type FC, memo, useCallback, useEffect } from 'react'
 import cls from './Articles.module.scss'
 import { classNames } from 'shared/lib'
 import { ArticlesList } from 'entities/Article/ui/ArticlesList/ArticlesList'
@@ -6,15 +6,18 @@ import { type ArticlesListView } from 'entities/Article/model/types/article'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import {
-  articlesListSelectors,
-  getArticlesListError,
-  getArticlesListIsLoading, getArticlesListView
-} from '../model/selectors/articlesPageList'
+import { getArticlesListError, getArticlesListIsLoading, getArticlesListView } from '../model/selectors/articlesPageList'
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { articlesPageActions, articlesPageReducer } from '../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { ArticlesListViewSwitcher } from 'features/articlesListViewSwitcher/ui/ArticlesListViewSwitcher'
+import {
+  articlesListSelectors,
+  articlesPageActions,
+  articlesPageReducer
+} from '../model/slice/articlesPageListSlice/articlesPageListSlice'
+import { ArticlesListViewSwitcher } from 'features/articlesListViewSwitcher'
+import { Page } from 'shared/ui/page/Page'
+import { fetchNextArticlesPart } from '../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
+import { setInitialArticlesListState } from '../model/services/setInitialArticlesListState/setInitialArticlesListState'
 
 interface ArticlesProps {
   className?: string
@@ -35,18 +38,25 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
     dispatch(articlesPageActions.setArticlesView(view))
   }, [dispatch])
 
+  const loadNextArticles = useCallback(() => {
+    dispatch(fetchNextArticlesPart())
+  }, [dispatch])
+
   useFetchData(() => {
-    dispatch(fetchArticlesList())
+    dispatch(articlesPageActions.setInitial())
+    dispatch(fetchArticlesList({
+      page: 1
+    }))
   })
 
   return (
       // when a user leaves the page then reducer is removed after unmounting and VIEW is not saved,
       // when we go to this page again it uses the default value
       <DynamicModuleLoader reducers={reducer}>
-          <div className={classNames([cls.articles, className])}>
+          <Page className={classNames([cls.articles, className])} onScrollEnd={loadNextArticles}>
               <ArticlesListViewSwitcher view={view} onChangeView={onChangeListView} />
               <ArticlesList articles={articles} isLoading={isLoading} view={view} />
-          </div>
+          </Page>
       </DynamicModuleLoader>
   )
 }

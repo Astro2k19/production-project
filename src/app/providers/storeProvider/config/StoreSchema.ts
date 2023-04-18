@@ -40,9 +40,9 @@ export interface ThunkExtraArgs {
   api: AxiosInstance
 }
 
-export interface AsyncThunkConfig<T> {
+export interface AsyncThunkConfig<T = undefined> {
   extra: ThunkExtraArgs
-  rejectValue: T
+  rejectValue?: T
   dispatch?: Dispatch
   state: StoreSchema
 }

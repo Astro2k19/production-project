@@ -20,6 +20,7 @@ import { fetchArticleCommentsById } from '../../model/services/fetchArticleComme
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
 import { AddCommentForm } from 'features/addCommentForm'
 import { getArticleCommentsErrorMessage } from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
+import { Page } from 'shared/ui/page/Page'
 
 interface ArticleSingleProps {
   className?: string
@@ -59,7 +60,7 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
     )
   } else {
     content = (
-        <div className={classNames([cls.articleSingle, className])}>
+        <Page className={classNames([cls.articleSingle, className])}>
             <ArticleDetails id={id} />
             <Text title={t('Comments')} className={cls.commentsTitle} />
             <AddCommentForm
@@ -71,7 +72,7 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
                     isLoading={isLoading}
                     error={getArticleCommentsErrorMessage(commentsError)}
             />
-        </div>
+        </Page>
     )
   }
 

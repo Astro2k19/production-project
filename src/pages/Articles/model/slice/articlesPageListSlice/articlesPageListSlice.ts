@@ -1,18 +1,13 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type Article, ArticlesListView } from 'entities/Article'
 import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
-import { ARTICLES_LIST_VIEW_KEY } from 'shared/const/localStorage'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
+import { type StoreSchema } from 'app/providers/storeProvider'
+import { ARTICLES_LIST_VIEW_KEY } from 'shared/const/localStorage'
 
 export const articlesListAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
 })
-
-const initialView = JSON.parse(localStorage.getItem(
-  ARTICLES_LIST_VIEW_KEY) as ArticlesListView
-) || ArticlesListView.GRID
-
-console.log(initialView, 'initialView')
 
 export const articlesPageListSlice = createSlice({
   name: 'articlesPageList',
@@ -20,26 +15,45 @@ export const articlesPageListSlice = createSlice({
     isLoading: false,
     entities: {},
     ids: [],
-    view: initialView
+    view: ArticlesListView.GRID,
+    page: 1,
+    hasMore: true
   }),
   reducers: {
     setArticlesView: (state, action: PayloadAction<ArticlesListView>) => {
-      console.log('action', action.payload)
       state.view = action.payload
+      state.limit = action.payload === ArticlesListView.GRID ? 9 : 4
     },
-    initArticlesListView: () => {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload
+    },
+    setInitial: (state) => {
+      const initialView = JSON.parse(localStorage.getItem(
+        ARTICLES_LIST_VIEW_KEY) as ArticlesListView
+      ) || ArticlesListView.GRID
+      const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
 
+      state.view = initialView
+      state.limit = initialLimit
     }
   },
   extraReducers: (builder) => {
     builder
+      // .addCase(setInitialArticlesListState.fulfilled, (state, action) => {
+      //   console.log(action.payload.initialView, 'action.payload.initialView')
+      //   console.log(action.payload.initialLimit, 'action.payload.initialLimit')
+      //
+      //   state.view = action.payload.initialView
+      //   state.limit = action.payload.initialLimit
+      // })
       .addCase(fetchArticlesList.pending, (state) => {
         state.isLoading = true
         state.error = undefined
       })
       .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
         state.isLoading = false
-        articlesListAdapter.setAll(state, action.payload)
+        articlesListAdapter.addMany(state, action.payload)
+        state.hasMore = action.payload.length > 0
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false
@@ -50,3 +64,6 @@ export const articlesPageListSlice = createSlice({
 
 export const { actions: articlesPageActions } = articlesPageListSlice
 export const { reducer: articlesPageReducer } = articlesPageListSlice
+export const articlesListSelectors = articlesListAdapter.getSelectors<StoreSchema>(
+  state => state.articlesPageList ?? articlesPageListSlice.getInitialState()
+)

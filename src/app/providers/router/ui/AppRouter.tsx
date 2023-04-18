@@ -8,13 +8,13 @@ import { ProtectedRoute } from 'app/providers/router/ui/ProtectedRoute'
 
 export const AppRouter: React.FC = () => {
   const renderWithProtectedRoutes = (route: ProtectedRouteProps) => {
-    const element = <Suspense fallback={<PageLoader/>}>
-        <div className='page-wrapper'>
+    const element = (
+        <Suspense fallback={<PageLoader/>}>
             <ErrorBoundary FallbackComponent={PageError}>
                 {route.element}
             </ErrorBoundary>
-        </div>
-    </Suspense>
+        </Suspense>
+    )
 
     return <Route key={route.path} path={route.path} element={route.isProtected ? <ProtectedRoute>{element}</ProtectedRoute> : element}/>
   }

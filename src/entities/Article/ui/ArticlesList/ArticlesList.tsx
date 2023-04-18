@@ -26,20 +26,13 @@ export const ArticlesList: FC<ArticlesListProps> = (props) => {
       <ArticlesListItem article={article} view={view} key={article.id} />
   )
 
-  if (isLoading) {
-    return (
-        <div className={classNames([cls.articlesList, className, cls[view]])}>
-            {getElementSkeleton(view)}
-        </div>
-    )
-  }
-
   return (
       <div className={classNames([cls.articlesList, className, cls[view]])}>
           {articles.length
             ? articles.map(renderArticleItem)
-            : <Text text={'No articles'} />
+            : null
           }
+          {isLoading && getElementSkeleton(view)}
       </div>
   )
 }
