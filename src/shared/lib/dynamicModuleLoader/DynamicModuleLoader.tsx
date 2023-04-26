@@ -1,7 +1,11 @@
 import { type FC, type ReactNode, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
-import { type ExtendedReducerManagerStore, type StoreSchemaKeys } from 'app/providers/storeProvider/config/StoreSchema'
-import { type Reducer } from '@reduxjs/toolkit'
+import {
+  type ExtendedReducerManagerStore,
+  type StoreSchema,
+  type StoreSchemaKeys
+} from 'app/providers/storeProvider/config/StoreSchema'
+import { type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 
 export type ReducersList = {
   [name in StoreSchemaKeys]?: Reducer
@@ -21,14 +25,12 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   } = props
 
   const store = useStore() as ExtendedReducerManagerStore
-  const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('useEffect in DynamicModuleLoader')
-
     Object.entries(reducers).forEach(([name, reducer]) => {
       store.reducerManager.add(name as StoreSchemaKeys, reducer)
       // dispatch({ type: `@INIT ${name} reducer` })
+      console.log(`ADD REDUCER ${name}`)
     })
 
     return () => {
@@ -36,6 +38,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         Object.entries(reducers).forEach(([name]) => {
           store.reducerManager.remove(name as StoreSchemaKeys)
           // dispatch({ type: `@REMOVE ${name} reducer` })
+          console.log(`REMOVE REDUCER ${name}`)
         })
       }
     }

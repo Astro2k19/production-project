@@ -9,10 +9,12 @@ import { type ArticleDetailsSchema } from 'entities/Article'
 import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageListSchema } from 'pages/Articles'
+import { type SavePageScrollSchema } from 'features/savePageScroll'
 
 export interface StoreSchema {
   counter: CounterSchema
   user: UserSchema
+  savePageScroll: SavePageScrollSchema
 
   // async reducers
   loginForm?: LoginFormSchema

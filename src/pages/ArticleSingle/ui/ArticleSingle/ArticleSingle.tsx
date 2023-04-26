@@ -20,7 +20,7 @@ import { fetchArticleCommentsById } from '../../model/services/fetchArticleComme
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
 import { AddCommentForm } from 'features/addCommentForm'
 import { getArticleCommentsErrorMessage } from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
-import { Page } from 'shared/ui/page/Page'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticleSingleProps {
   className?: string

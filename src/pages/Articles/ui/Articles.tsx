@@ -15,7 +15,7 @@ import {
   articlesPageReducer
 } from '../model/slice/articlesPageListSlice/articlesPageListSlice'
 import { ArticlesListViewSwitcher } from 'features/articlesListViewSwitcher'
-import { Page } from 'shared/ui/page/Page'
+import { Page } from 'widgets/Page/Page'
 import { fetchNextArticlesPart } from '../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
 import { setInitialArticlesListState } from '../model/services/setInitialArticlesListState/setInitialArticlesListState'
 
@@ -43,16 +43,11 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   }, [dispatch])
 
   useFetchData(() => {
-    dispatch(articlesPageActions.setInitial())
-    dispatch(fetchArticlesList({
-      page: 1
-    }))
+    dispatch(setInitialArticlesListState())
   })
 
   return (
-      // when a user leaves the page then reducer is removed after unmounting and VIEW is not saved,
-      // when we go to this page again it uses the default value
-      <DynamicModuleLoader reducers={reducer}>
+      <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
           <Page className={classNames([cls.articles, className])} onScrollEnd={loadNextArticles}>
               <ArticlesListViewSwitcher view={view} onChangeView={onChangeListView} />
               <ArticlesList articles={articles} isLoading={isLoading} view={view} />

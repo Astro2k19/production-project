@@ -6,3 +6,5 @@ export const getArticlesListView = (state: StoreSchema) => state.articlesPageLis
 export const getArticlesListLimit = (state: StoreSchema) => state.articlesPageList?.limit ?? 9
 export const getArticlesListPage = (state: StoreSchema) => state.articlesPageList?.page ?? 1
 export const getArticlesListHasMore = (state: StoreSchema) => state.articlesPageList?.hasMore
+
+export const getArticlesInited = (state: StoreSchema) => state.articlesPageList?._inited

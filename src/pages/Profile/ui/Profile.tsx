@@ -5,7 +5,7 @@ import { EditableProfileCard, fetchProfileData } from 'features/editableProfileC
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { useParams } from 'react-router-dom'
-import { Page } from 'shared/ui/page/Page'
+import { Page } from 'widgets/Page/Page'
 
 const reducers: ReducersList = {
   profile: profileReducer

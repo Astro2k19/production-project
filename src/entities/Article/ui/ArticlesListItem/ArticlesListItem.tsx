@@ -78,7 +78,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
               </div>
               {description && <ArticleTextBlockComponent className={cls.description} block={description}/>}
               <div className={cls.footer}>
-                  <Button variant={ButtonVariants.OUTLINE}>{t('Read more...')}</Button>
+                  <Button variant={ButtonVariants.OUTLINE} onClick={navigateToArticle}>{t('Read more...')}</Button>
                   {views}
               </div>
           </Card>

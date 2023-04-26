@@ -7,7 +7,7 @@ import { $api } from 'shared/api/api'
 import {
   setArticlesListViewMiddleware
 } from 'pages/Articles/model/middlewares/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
-import { initArticlesListViewMiddleware } from 'pages/Articles/model/middlewares/init/init'
+import { savePageScrollReducer } from 'features/savePageScroll'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
@@ -15,7 +15,8 @@ export const createReduxStore = (
   const initialReducers: ReducersMapObject<StoreSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    savePageScroll: savePageScrollReducer
   }
 
   const reducerManager = createReducerManager(initialReducers)

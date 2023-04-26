@@ -3,7 +3,7 @@ import { type Article, ArticlesListView } from 'entities/Article'
 import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
 import { type StoreSchema } from 'app/providers/storeProvider'
-import { ARTICLES_LIST_VIEW_KEY } from 'shared/const/localStorage'
+import { type InitialArticlesListState } from '../../services/setInitialArticlesListState/setInitialArticlesListState'
 
 export const articlesListAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
@@ -17,7 +17,8 @@ export const articlesPageListSlice = createSlice({
     ids: [],
     view: ArticlesListView.GRID,
     page: 1,
-    hasMore: true
+    hasMore: true,
+    _inited: false
   }),
   reducers: {
     setArticlesView: (state, action: PayloadAction<ArticlesListView>) => {
@@ -27,25 +28,14 @@ export const articlesPageListSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload
     },
-    setInitial: (state) => {
-      const initialView = JSON.parse(localStorage.getItem(
-        ARTICLES_LIST_VIEW_KEY) as ArticlesListView
-      ) || ArticlesListView.GRID
-      const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
-
-      state.view = initialView
-      state.limit = initialLimit
+    setInitial: (state, action: PayloadAction<InitialArticlesListState>) => {
+      state.view = action.payload.initialView
+      state.limit = action.payload.initialLimit
+      state._inited = true
     }
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(setInitialArticlesListState.fulfilled, (state, action) => {
-      //   console.log(action.payload.initialView, 'action.payload.initialView')
-      //   console.log(action.payload.initialLimit, 'action.payload.initialLimit')
-      //
-      //   state.view = action.payload.initialView
-      //   state.limit = action.payload.initialLimit
-      // })
       .addCase(fetchArticlesList.pending, (state) => {
         state.isLoading = true
         state.error = undefined
