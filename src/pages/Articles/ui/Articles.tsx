@@ -33,7 +33,6 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   const error = useAppSelector(getArticlesListError)
   const articles = useAppSelector(articlesListSelectors.selectAll)
   const view = useAppSelector(getArticlesListView)
-  const urlParams = useSearchParams()
 
   const loadNextArticles = useCallback(() => {
     dispatch(fetchNextArticlesPart())

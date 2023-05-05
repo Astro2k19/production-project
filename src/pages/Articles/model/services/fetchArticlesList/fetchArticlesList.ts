@@ -39,7 +39,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListAr
           _sort: sort,
           _order: order,
           q: search,
-          ...(type === ArticleType.ALL ? {} : { type }),
+          ...(type === ArticleType.ALL ? {} : { type_like: type }),
           _expand: 'user' // comment is a child, user is a parent
         }
       })

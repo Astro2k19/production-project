@@ -8,7 +8,7 @@ import {
 import { type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 
 export type ReducersList = {
-  [name in StoreSchemaKeys]?: Reducer
+  [name in StoreSchemaKeys]?: Reducer<NonNullable<StoreSchema[name]>>
 }
 
 interface DynamicModuleLoaderProps {

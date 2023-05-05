@@ -62,6 +62,8 @@ export const ArticlesFilters = memo(({ className, view, onChangeListView }: Arti
     fetchPosts()
   }, [dispatch, fetchPosts])
 
+  const a: NonNullable<any>
+
   return (
       <div className={classNames([cls.articlesFilters, className])}>
           <div className={cls.sortWrapper}>

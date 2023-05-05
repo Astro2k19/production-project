@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Article, ArticlesListView } from '../../model/types/article'
@@ -12,6 +12,7 @@ interface ArticlesListProps {
   articles: Article[]
   view?: ArticlesListView
   isLoading?: boolean
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getElementSkeleton = (view: ArticlesListView) => {
@@ -21,12 +22,23 @@ const getElementSkeleton = (view: ArticlesListView) => {
 }
 
 export const ArticlesList: FC<ArticlesListProps> = (props) => {
-  const { className, articles, view = ArticlesListView.GRID, isLoading } = props
+  const { className, articles, view = ArticlesListView.GRID, isLoading, target } = props
   const { t } = useTranslation()
 
   const renderArticleItem = (article: Article) => (
-      <ArticlesListItem article={article} view={view} key={article.id} />
+      <ArticlesListItem
+        article={article}
+        view={view}
+        target={target}
+        key={article.id}
+      />
   )
+
+  if (!isLoading && articles.length === 0) {
+    return (
+        <Text title={t("Such articles doesn't exist")} />
+    )
+  }
 
   return (
       <div className={classNames([cls.articlesList, className, cls[view]])}>
@@ -35,7 +47,6 @@ export const ArticlesList: FC<ArticlesListProps> = (props) => {
             : null
           }
           {isLoading && getElementSkeleton(view)}
-          {!isLoading && articles.length === 0 ? <Text title={t("Such articles doesn't exist")} /> : null}
       </div>
   )
 }

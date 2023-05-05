@@ -1,4 +1,4 @@
-import { type FC, useCallback } from 'react'
+import { type FC, type HTMLAttributeAnchorTarget, useCallback } from 'react'
 import cls from './ArticlesListItem.module.scss'
 import { classNames } from 'shared/lib'
 import { type Article, ArticleBlockType, ArticlesListView, type ArticleTextBlock } from '../../model/types/article'
@@ -6,7 +6,7 @@ import { Button, ButtonVariants, Text } from 'shared/ui'
 import { Card } from 'shared/ui/card/Card'
 import { Icon } from 'shared/ui/icon/Icon'
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Avatar } from 'shared/ui/avatar/Avatar'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -16,14 +16,15 @@ interface ArticlesListItemProps {
   className?: string
   article: Article
   view: ArticlesListView
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticlesListItem: FC<ArticlesListItemProps> = ({
   className,
   view,
-  article
+  article,
+  target = '_self'
 }) => {
-  const navigate = useNavigate()
   const type = <Text className={cls.type} text={article.type.join(', ')} />
 
   const views = (
@@ -33,17 +34,15 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
       </div>
   )
 
-  const navigateToArticle = useCallback(() => {
-    navigate(`/${AppRoutes.ARTICLES}/${article.id}`)
-  }, [article.id, navigate])
+  const path = `/${AppRoutes.ARTICLES}/${article.id}`
 
   const { t } = useTranslation('article')
 
   if (view === ArticlesListView.GRID) {
     return (
-        <div className={classNames([cls.articlesListItem, className, cls[view]])}>
+        <Link to={path} target={target} className={classNames([cls.articlesListItem, className, cls[view]])}>
             <Card className={cls.card}>
-                <div className={cls.imageWrapper} onClick={navigateToArticle}>
+                <div className={cls.imageWrapper}>
                     <img src={article.img} alt={article.title} className={cls.image}/>
                     <Text text={article.createdAt} className={cls.date}/>
                 </div>
@@ -52,10 +51,12 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
                         {type}
                         {views}
                     </div>
-                    <Text title={article.title} className={cls.title} />
+                    <Link to={path} target={target}>
+                        <Text title={article.title} className={cls.title} />
+                    </Link>
                 </div>
             </Card>
-        </div>
+        </Link>
     )
   }
 
@@ -73,12 +74,14 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
               </div>
               <Text title={article.title} />
               {type}
-              <div className={cls.imageWrapper} onClick={navigateToArticle}>
+              <Link to={path} target={target} className={cls.imageWrapper}>
                   <img src={article.img} className={cls.image} alt={article.title}/>
-              </div>
+              </Link>
               {description && <ArticleTextBlockComponent className={cls.description} block={description}/>}
               <div className={cls.footer}>
-                  <Button variant={ButtonVariants.OUTLINE} onClick={navigateToArticle}>{t('Read more...')}</Button>
+                  <Link to={path} target={target}>
+                      <Button variant={ButtonVariants.OUTLINE}>{t('Read more...')}</Button>
+                  </Link>
                   {views}
               </div>
           </Card>

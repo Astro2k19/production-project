@@ -6,7 +6,7 @@ import { type CombinedState, type Dispatch } from 'redux'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
-import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle'
+import { type ArticleSingleCommentsSchema, type ArticleSinglePageSchema } from 'pages/ArticleSingle'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageListSchema } from 'pages/Articles'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
@@ -21,7 +21,7 @@ export interface StoreSchema {
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleSingleComments?: ArticleSingleCommentsSchema
+  articleSinglePage?: ArticleSinglePageSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema
   articlesFilters: ArticlesFiltersSchema
