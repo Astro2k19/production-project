@@ -7,7 +7,7 @@ export interface ArticlesPageListSchema extends EntityState<Article> {
   error?: ApiError
   view: ArticlesListView
   page: number
-  limit?: number
+  limit: number
   hasMore: boolean
   _inited: boolean
 }

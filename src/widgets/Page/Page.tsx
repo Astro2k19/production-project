@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getSavePageScrollByKey } from 'features/savePageScroll/model/selectors/getSavePageScroll'
 import { useThrottle } from 'shared/lib/hooks/useThrottle'
+import { useDebounce } from 'shared/lib/hooks/useDebounce'
 
 interface PageProps {
   className?: string
@@ -28,7 +29,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
     callback: onScrollEnd
   })
 
-  const onScroll = useThrottle((event: UIEvent<HTMLElement>) => {
+  const onScroll = useDebounce((event: UIEvent<HTMLElement>) => {
     dispatch(savePageScrollActions.setScrollPosition(
       {
         page: pathname, scroll: event.target.scrollTop

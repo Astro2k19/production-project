@@ -2,27 +2,44 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type AxiosError as AxiosErrorType } from 'axios/index'
 import { type ApiError } from 'shared/api/api'
-import { type Article } from 'entities/Article'
-import { getArticlesListLimit } from 'pages/Articles/model/selectors/articlesPageList'
+import { type Article, ArticleType } from 'entities/Article'
+import { getArticlesListLimit, getArticlesListPage } from '../../selectors/articlesPageList'
+import { getArticlesFiltersOrder, getArticlesFiltersSearch, getArticlesFiltersSort } from 'features/articlesFilters'
+import { addUrlQueryParams } from 'shared/lib'
+import { getArticlesFiltersType } from 'features/articlesFilters/model/selectors/articlesFiltersSelectors'
 
 interface FetchArticlesListArgs {
-  page: number
+  replace?: boolean
 }
 
 export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListArgs, AsyncThunkConfig<ApiError>>(
   'articlesPageList/fetchArticlesList',
   async (args, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI
-    const { page = 1 } = args
+    const page = getArticlesListPage(getState())
     const limit = getArticlesListLimit(getState())
-
-    console.log(limit, 'fetchArticlesList limit')
+    const sort = getArticlesFiltersSort(getState())
+    const order = getArticlesFiltersOrder(getState())
+    const search = getArticlesFiltersSearch(getState())
+    const type = getArticlesFiltersType(getState())
 
     try {
+      addUrlQueryParams({
+        page,
+        sort,
+        order,
+        search,
+        type
+      })
+
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _page: page,
           _limit: limit,
+          _sort: sort,
+          _order: order,
+          q: search,
+          ...(type === ArticleType.ALL ? {} : { type }),
           _expand: 'user' // comment is a child, user is a parent
         }
       })

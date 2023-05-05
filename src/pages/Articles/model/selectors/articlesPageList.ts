@@ -1,8 +1,9 @@
 import { type StoreSchema } from 'app/providers/storeProvider'
+import { ArticlesListView } from 'entities/Article'
 
 export const getArticlesListIsLoading = (state: StoreSchema) => state.articlesPageList?.isLoading
 export const getArticlesListError = (state: StoreSchema) => state.articlesPageList?.error
-export const getArticlesListView = (state: StoreSchema) => state.articlesPageList?.view
+export const getArticlesListView = (state: StoreSchema) => state.articlesPageList?.view ?? ArticlesListView.GRID
 export const getArticlesListLimit = (state: StoreSchema) => state.articlesPageList?.limit ?? 9
 export const getArticlesListPage = (state: StoreSchema) => state.articlesPageList?.page ?? 1
 export const getArticlesListHasMore = (state: StoreSchema) => state.articlesPageList?.hasMore

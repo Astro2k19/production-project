@@ -16,6 +16,7 @@ export const articlesPageListSlice = createSlice({
     entities: {},
     ids: [],
     view: ArticlesListView.GRID,
+    limit: 4,
     page: 1,
     hasMore: true,
     _inited: false
@@ -36,14 +37,23 @@ export const articlesPageListSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.isLoading = true
         state.error = undefined
+
+        if (action.meta.arg.replace) {
+          articlesListAdapter.removeAll(state)
+        }
       })
-      .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false
-        articlesListAdapter.addMany(state, action.payload)
-        state.hasMore = action.payload.length > 0
+        state.hasMore = state.limit <= action.payload.length
+
+        if (action.meta.arg.replace) {
+          articlesListAdapter.setAll(state, action.payload)
+        } else {
+          articlesListAdapter.addMany(state, action.payload)
+        }
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false

@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import cls from './articlesListViewSwitcher.module.scss'
+import cls from './ArticlesListViewSwitcher.module.scss'
 import { classNames } from 'shared/lib'
 import { ArticlesListView } from 'entities/Article'
 import ListView from 'shared/assets/icons/list_icon.svg'
@@ -31,14 +31,11 @@ export const ArticlesListViewSwitcher: FC<ArticlesListViewSwitcherProps> = ({ cl
 
   return (
       <div className={classNames([cls.articlesListViewSwitcher, className])}>
-          {viewList.map((item, index) => {
-            console.log(cls.selected)
-            return (
-                <Button key={index} onClick={onClick(item.view)}>
-                    <Icon Svg={item.icon} className={classNames([], { [cls.selected]: item.view === view })} />
-                </Button>
-            )
-          })}
+          {viewList.map((item, index) => (
+              <Button key={index} onClick={onClick(item.view)}>
+                  <Icon Svg={item.icon} className={classNames([], { [cls.selected]: item.view === view })} />
+              </Button>
+          ))}
       </div>
   )
 }

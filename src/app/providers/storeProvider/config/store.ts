@@ -8,6 +8,7 @@ import {
   setArticlesListViewMiddleware
 } from 'pages/Articles/model/middlewares/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
 import { savePageScrollReducer } from 'features/savePageScroll'
+import { articlesFiltersReducer } from 'features/articlesFilters/model/slice/articlesFiltersSlice'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
@@ -16,7 +17,8 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    savePageScroll: savePageScrollReducer
+    savePageScroll: savePageScrollReducer,
+    articlesFilters: articlesFiltersReducer
   }
 
   const reducerManager = createReducerManager(initialReducers)

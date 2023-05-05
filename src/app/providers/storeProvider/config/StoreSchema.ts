@@ -10,6 +10,7 @@ import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageListSchema } from 'pages/Articles'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
+import { type ArticlesFiltersSchema } from 'features/articlesFilters'
 
 export interface StoreSchema {
   counter: CounterSchema
@@ -23,6 +24,7 @@ export interface StoreSchema {
   articleSingleComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema
+  articlesFilters: ArticlesFiltersSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema

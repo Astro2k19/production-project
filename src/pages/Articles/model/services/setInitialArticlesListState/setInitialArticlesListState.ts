@@ -1,10 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
-import { ArticlesListView } from 'entities/Article'
+import { ArticlesListView, type ArticleType } from 'entities/Article'
 import { ARTICLES_LIST_VIEW_KEY } from 'shared/const/localStorage'
 import { getArticlesInited } from '../../selectors/articlesPageList'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
+import { articlesFiltersActions } from 'features/articlesFilters/model/slice/articlesFiltersSlice'
+import { type ArticlesSortFields } from 'features/articlesFilters/model/types/articleFilters'
+import { type SortOrder } from 'shared/types/sortOrder'
+import { getUrlQueryParams } from 'shared/lib'
 
 export interface InitialArticlesListState {
   initialView: ArticlesListView
@@ -23,10 +27,26 @@ export const setInitialArticlesListState = createAsyncThunk<undefined, undefined
         ARTICLES_LIST_VIEW_KEY) as ArticlesListView
       ) || ArticlesListView.GRID
       const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
+      const urlQueryParams = getUrlQueryParams(false) as URLSearchParams
+
+      urlQueryParams.forEach((value, key) => {
+        switch (key) {
+          case 'sort':
+            dispatch(articlesFiltersActions.setSort(value as ArticlesSortFields))
+            break
+          case 'order':
+            dispatch(articlesFiltersActions.setOrder(value as SortOrder))
+            break
+          case 'search':
+            dispatch(articlesFiltersActions.setSearch(value))
+            break
+          case 'type':
+            dispatch(articlesFiltersActions.setType(value as ArticleType))
+            break
+        }
+      })
 
       dispatch(articlesPageActions.setInitial({ initialView, initialLimit }))
-      dispatch(fetchArticlesList({
-        page: 1
-      }))
+      dispatch(fetchArticlesList({}))
     }
   })

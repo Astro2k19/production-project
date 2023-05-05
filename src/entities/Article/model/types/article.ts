@@ -1,9 +1,11 @@
 import { type User } from 'entities/User'
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   POLITICS = 'POLITICS',
-  SPORT = 'SPORT'
+  SPORT = 'SPORT',
+  ECONOMICS = 'ECONOMICS'
 }
 
 export enum ArticleBlockType {

@@ -9,7 +9,6 @@ interface InputProps extends InputOmittedAttributes {
   className?: string
   onChange?: (value: string) => void
   value?: string | number
-
 }
 
 export const Input = memo((props: InputProps) => {

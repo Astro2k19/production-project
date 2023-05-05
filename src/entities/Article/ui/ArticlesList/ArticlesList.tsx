@@ -2,9 +2,10 @@ import { type FC } from 'react'
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Article, ArticlesListView } from '../../model/types/article'
-import { ArticlesListItem } from 'entities/Article/ui/ArticlesListItem/ArticlesListItem'
+import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
+import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
 import { Text } from 'shared/ui'
-import { ArticlesListItemSkeleton } from 'entities/Article/ui/ArticlesListItem/ArticlesListItemSkeleton'
+import { useTranslation } from 'react-i18next'
 
 interface ArticlesListProps {
   className?: string
@@ -21,6 +22,7 @@ const getElementSkeleton = (view: ArticlesListView) => {
 
 export const ArticlesList: FC<ArticlesListProps> = (props) => {
   const { className, articles, view = ArticlesListView.GRID, isLoading } = props
+  const { t } = useTranslation()
 
   const renderArticleItem = (article: Article) => (
       <ArticlesListItem article={article} view={view} key={article.id} />
@@ -33,6 +35,7 @@ export const ArticlesList: FC<ArticlesListProps> = (props) => {
             : null
           }
           {isLoading && getElementSkeleton(view)}
+          {!isLoading && articles.length === 0 ? <Text title={t("Such articles doesn't exist")} /> : null}
       </div>
   )
 }
