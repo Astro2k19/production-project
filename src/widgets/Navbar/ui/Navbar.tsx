@@ -1,12 +1,14 @@
 import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
-import { Button, ButtonVariants } from 'shared/ui'
+import { AppLink, AppLinkVariants, Button, ButtonVariants } from 'shared/ui'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
 import { getUserAuthDate, userActions } from 'entities/User'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { appPaths } from 'shared/config/routerConfig/routerConfig'
+import { useNavigate } from 'react-router-dom'
 
 interface NavbarProps {
   className?: string
@@ -17,6 +19,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const dispatch = useAppDispatch()
   const authDate = useAppSelector(getUserAuthDate)
+  const navigate = useNavigate()
 
   const onClose = useCallback(
     () => {
@@ -36,12 +39,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     () => {
       dispatch(userActions.logOut())
     },
-    [dispatch]
-  )
+    [dispatch])
+
+  const onCreateNewArticle = useCallback(() => {
+    navigate(`${appPaths.article_new}`)
+  }, [navigate])
 
   if (authDate) {
     return (
         <div className={classNames([cls.navbar, className])}>
+            <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>Dev Site</AppLink>
+            <Button
+                  onClick={onCreateNewArticle}
+                  variant={ButtonVariants.CLEAR_INVERTED}
+            >
+                {t('Create new article')}
+            </Button>
             <div className={cls.links}>
                 <Button onClick={onLogOut} variant={ButtonVariants.CLEAR_INVERTED}>
                     {t('Log Out')}

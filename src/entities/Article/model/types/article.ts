@@ -48,6 +48,7 @@ export interface Article {
   type: ArticleType[]
   blocks: ArticleBlockTypes[]
   user: User
+  userId: string
 }
 
 export enum ArticlesListView {

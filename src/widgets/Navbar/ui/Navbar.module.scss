@@ -11,3 +11,9 @@
   margin-left: auto;
   gap: 15px;
 }
+
+.logo {
+  width: var(--sidebar-collapsed-width);
+  text-align: center;
+  font-size: 25px;
+}

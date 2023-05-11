@@ -4,6 +4,7 @@ import { memo } from 'react'
 
 export enum TextVariants {
   PRIMARY = 'primary',
+  INVERTED = 'inverted',
   ERROR = 'error'
 }
 

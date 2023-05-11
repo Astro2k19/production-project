@@ -28,6 +28,7 @@ import {
   articleSingleRecommendationsSelectors,
   getArticleSingleRecommendationsIsLoading
 } from '../../model/selectors/recommendations'
+import { ArticleSingleHeader } from 'pages/ArticleSingle/ui/ArticleSingleHeader/ArticleSingleHeader'
 
 interface ArticleSingleProps {
   className?: string
@@ -71,6 +72,7 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   } else {
     content = (
         <Page className={classNames([cls.articleSingle, className])}>
+            <ArticleSingleHeader />
             <ArticleDetails id={id} />
             <Text title={t('Comments')} className={cls.commentsTitle} />
             <AddCommentForm
