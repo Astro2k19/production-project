@@ -18,6 +18,7 @@ import { fetchNextArticlesPart } from '../model/services/fetchNextArticlesPart/f
 import { setInitialArticlesListState } from '../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import { ArticlesFilters } from 'features/articlesFilters/ui/ArticlesFilters/ArticlesFilters'
 import { useParams, useSearchParams } from 'react-router-dom'
+import React from 'react'
 
 interface ArticlesProps {
   className?: string
@@ -34,6 +35,8 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   const articles = useAppSelector(articlesListSelectors.selectAll)
   const view = useAppSelector(getArticlesListView)
 
+  console.log(view, 'view')
+
   const loadNextArticles = useCallback(() => {
     dispatch(fetchNextArticlesPart())
   }, [dispatch])
@@ -45,13 +48,14 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   useFetchData(() => {
     dispatch(setInitialArticlesListState())
   })
-
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
-          <Page className={classNames([cls.articles, className])} onScrollEnd={loadNextArticles}>
-              <ArticlesFilters view={view} onChangeListView={onChangeListView}/>
-              <ArticlesList articles={articles} isLoading={isLoading} view={view} />
-          </Page>
+          <ArticlesList
+              articles={articles}
+              isLoading={isLoading}
+              view={view}
+              onReachEnd={loadNextArticles}
+          />
       </DynamicModuleLoader>
   )
 }

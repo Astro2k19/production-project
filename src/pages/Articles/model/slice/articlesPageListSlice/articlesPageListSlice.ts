@@ -15,7 +15,7 @@ export const articlesPageListSlice = createSlice({
     isLoading: false,
     entities: {},
     ids: [],
-    view: ArticlesListView.GRID,
+    view: ArticlesListView.LIST,
     limit: 4,
     page: 1,
     hasMore: true,

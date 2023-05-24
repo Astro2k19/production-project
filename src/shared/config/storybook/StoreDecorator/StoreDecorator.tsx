@@ -9,12 +9,14 @@ import { authReducer } from 'features/auth/by-username/model/slice/loginByUserna
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
 import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice'
+import { articleSinglePageReducer } from 'pages/ArticleSingle/model/slice'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  addCommentForm: addCommentFormReducer
+  addCommentForm: addCommentFormReducer,
+  articleSinglePage: articleSinglePageReducer
 }
 
 export const StoreDecorator = (

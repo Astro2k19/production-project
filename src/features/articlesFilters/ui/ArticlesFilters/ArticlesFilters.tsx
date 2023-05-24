@@ -17,23 +17,31 @@ import {
   getArticlesFiltersSort, getArticlesFiltersType
 } from '../../model/selectors/articlesFiltersSelectors'
 import { fetchArticlesList } from 'pages/Articles/model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageActions } from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
+import {
+  articlesPageActions,
+  articlesPageReducer
+} from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { ArticleTabTypes } from '../ArticlesTabTypes/ArticleTabTypes'
+import { getArticlesListView } from 'pages/Articles/model/selectors/articlesPageList'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
 interface ArticlesFiltersProps {
   className?: string
-  view: ArticlesListView
-  onChangeListView: (view: ArticlesListView) => void
+  // view: ArticlesListView
+  // onChangeListView: (view: ArticlesListView) => void
 }
 
-export const ArticlesFilters = memo(({ className, view, onChangeListView }: ArticlesFiltersProps) => {
+export const ArticlesFilters = memo(({ className }: ArticlesFiltersProps) => {
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const sort = useAppSelector(getArticlesFiltersSort)
   const order = useAppSelector(getArticlesFiltersOrder)
   const search = useAppSelector(getArticlesFiltersSearch)
   const articleType = useAppSelector(getArticlesFiltersType)
+  const view = useAppSelector(getArticlesListView)
+
+  console.log(view, 'view')
 
   const fetchPosts = useCallback(() => {
     dispatch(articlesPageActions.setPage(1))
@@ -62,7 +70,9 @@ export const ArticlesFilters = memo(({ className, view, onChangeListView }: Arti
     fetchPosts()
   }, [dispatch, fetchPosts])
 
-  const a: NonNullable<any>
+  const onChangeListView = useCallback((view: ArticlesListView) => {
+    dispatch(articlesPageActions.setArticlesView(view))
+  }, [dispatch])
 
   return (
       <div className={classNames([cls.articlesFilters, className])}>
@@ -74,10 +84,10 @@ export const ArticlesFilters = memo(({ className, view, onChangeListView }: Arti
               <Input placeholder={t('Search')} value={search} onChange={onChangeSearch}/>
           </Card>
           <ArticleTabTypes
-              onChangeType={onChangeType}
-              articleType={articleType}
-              className={cls.tabs}
-          />
+                  onChangeType={onChangeType}
+                  articleType={articleType}
+                  className={cls.tabs}
+              />
       </div>
   )
 })

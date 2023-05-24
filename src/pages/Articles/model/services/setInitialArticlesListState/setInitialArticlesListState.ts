@@ -25,7 +25,7 @@ export const setInitialArticlesListState = createAsyncThunk<undefined, undefined
     if (!inited) {
       const initialView = JSON.parse(localStorage.getItem(
         ARTICLES_LIST_VIEW_KEY) as ArticlesListView
-      ) || ArticlesListView.GRID
+      ) || ArticlesListView.LIST
       const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
       const urlQueryParams = getUrlQueryParams(false) as URLSearchParams
 

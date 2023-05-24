@@ -10,7 +10,7 @@
     {
       "id": "1",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 1",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1231,
@@ -82,7 +82,7 @@
     {
       "id": "2",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news 2",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://assets.ithillel.ua/images/blog/cover/_transform_blogSplash_desktop_2x/Hillel-Blog-Cover-Python.jpg",
       "views": 12022,
@@ -154,7 +154,7 @@
     {
       "id": "3",
       "userId": "1",
-      "title": "React news",
+      "title": "React news 3",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/social/reactt-light_1200x628.png?sfvrsn=43eb5f2a_2",
       "views": 456,
@@ -226,7 +226,7 @@
     {
       "id": "4",
       "userId": "1",
-      "title": "Angular news",
+      "title": "Angular news 4",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nimapinfotech.com/wp-content/uploads/2023/01/como-comecar-com-angular.png",
       "views": 22211,
@@ -298,7 +298,7 @@
     {
       "id": "5",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 5",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 11234,
@@ -370,7 +370,7 @@
     {
       "id": "6",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news 6",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://assets.ithillel.ua/images/blog/cover/_transform_blogSplash_desktop_2x/Hillel-Blog-Cover-Python.jpg",
       "views": 1022,
@@ -442,7 +442,7 @@
     {
       "id": "7",
       "userId": "1",
-      "title": "React news",
+      "title": "React news 7",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/social/reactt-light_1200x628.png?sfvrsn=43eb5f2a_2",
       "views": 33331,
@@ -514,7 +514,7 @@
     {
       "id": "8",
       "userId": "1",
-      "title": "Angular news",
+      "title": "Angular news 8",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nimapinfotech.com/wp-content/uploads/2023/01/como-comecar-com-angular.png",
       "views": 1232,
@@ -586,7 +586,7 @@
     {
       "id": "9",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 9",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 9909,
@@ -658,7 +658,7 @@
     {
       "id": "10",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news 10",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://assets.ithillel.ua/images/blog/cover/_transform_blogSplash_desktop_2x/Hillel-Blog-Cover-Python.jpg",
       "views": 1233,
@@ -730,7 +730,7 @@
     {
       "id": "11",
       "userId": "1",
-      "title": "React news",
+      "title": "React news 11",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/social/reactt-light_1200x628.png?sfvrsn=43eb5f2a_2",
       "views": 1990,
@@ -802,7 +802,7 @@
     {
       "id": "12",
       "userId": "1",
-      "title": "Angular news",
+      "title": "Angular news 12",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nimapinfotech.com/wp-content/uploads/2023/01/como-comecar-com-angular.png",
       "views": 870,
@@ -874,7 +874,7 @@
     {
       "id": "13",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 13",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 564,
@@ -946,7 +946,7 @@
     {
       "id": "14",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news 14",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://assets.ithillel.ua/images/blog/cover/_transform_blogSplash_desktop_2x/Hillel-Blog-Cover-Python.jpg",
       "views": 134,
@@ -1018,7 +1018,7 @@
     {
       "id": "15",
       "userId": "1",
-      "title": "React news",
+      "title": "React news 15",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/social/reactt-light_1200x628.png?sfvrsn=43eb5f2a_2",
       "views": 9898,
@@ -1090,7 +1090,7 @@
     {
       "id": "16",
       "userId": "1",
-      "title": "Angular news",
+      "title": "Angular news 16",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nimapinfotech.com/wp-content/uploads/2023/01/como-comecar-com-angular.png",
       "views": 12312,
@@ -1162,7 +1162,7 @@
     {
       "id": "17",
       "userId": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 17",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 456,
@@ -1234,7 +1234,7 @@
     {
       "id": "18",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news 18",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://assets.ithillel.ua/images/blog/cover/_transform_blogSplash_desktop_2x/Hillel-Blog-Cover-Python.jpg",
       "views": 52318,
@@ -1306,7 +1306,7 @@
     {
       "id": "19",
       "userId": "1",
-      "title": "React news",
+      "title": "React news 19",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/social/reactt-light_1200x628.png?sfvrsn=43eb5f2a_2",
       "views": 999,
@@ -1378,7 +1378,7 @@
     {
       "id": "20",
       "userId": "1",
-      "title": "Angular news",
+      "title": "Angular news 20",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nimapinfotech.com/wp-content/uploads/2023/01/como-comecar-com-angular.png",
       "views": 1231,
@@ -1450,7 +1450,7 @@
     {
       "id": "21",
       "userId": "1",
-      "title": "TypeScript",
+      "title": "TypeScript 21",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo.png",
       "views": 1231,
