@@ -32,5 +32,5 @@ export const useInfiniteScroll = ({ rootTarget, triggerTarget, callback }: useIn
         observer.unobserve(target)
       }
     }
-  })
+  }, [])
 }

@@ -17,7 +17,6 @@ interface ArticlesListProps {
   target?: HTMLAttributeAnchorTarget
   onReachEnd?: () => void
   Header?: Components['Header']
-  isVirtuosoEnabled: boolean
 }
 
 export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
@@ -28,8 +27,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     isLoading,
     target,
     onReachEnd,
-    Header,
-    isVirtuosoEnabled = true
+    Header
   } = props
   const { t } = useTranslation()
   // const [initialArticleIndex, setInitialArticleIndex] = useState(0)
@@ -80,17 +78,21 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
 
     return new Array(length)
       .fill(0)
-      .map((item, index) => (
-          <ArticlesListItemSkeleton
-              view={view}
-              key={index}
-              className={classNames([cls.card, cls.skeleton])}
-          />
-      ))
+      .map((item, index) => {
+        const mods = {
+          [cls.gridListItem]: view === 'GRID'
+        }
+
+        return(<ArticlesListItemSkeleton
+          view={view}
+          key={index}
+          className={classNames([cls.card, cls.skeleton], mods)}
+        />)
+      })
   }
   const Footer = () => {
     if (isLoading) {
-      return <div>{getElementSkeleton(view)}</div>
+      return <div className={cls.gridList}>{getElementSkeleton(view)}</div>
     }
 
     return null
@@ -105,25 +107,12 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     )
   }
 
-  if (!isVirtuosoEnabled) {
-    return (
-        <div className={classNames([cls.articlesList, className, cls[view]])}>
-            {articles.length
-              ? (
-                  articles.map((article, index) => renderArticleItem(index, article))
-                )
-              : null}
-            {isLoading ? getElementSkeleton(view) : null}
-        </div>
-    )
-  }
-
   return (
       <div className={classNames([cls.articlesList, className, cls[view]])}>
           {view === ArticlesListView.LIST
             ? (
                 <Virtuoso
-                      style={{ height: '100%' }}
+                      style={{ height: '100%', overflowX: 'hidden' }}
                       data={articles}
                       itemContent={renderArticleItem}
                       endReached={onReachEnd}
@@ -143,19 +132,20 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
                       endReached={onReachEnd}
                       components={{
                         ...(Header ? { Header } : {}),
-                        ScrollSeekPlaceholder: () => (
-                            <ArticlesListItemSkeleton
-                                view={ArticlesListView.GRID}
-                                className={cls.gridListItem}
-                            />
-                        )
+                        Footer
+                        // ScrollSeekPlaceholder: () => (
+                        //     <ArticlesListItemSkeleton
+                        //         view={ArticlesListView.GRID}
+                        //         className={cls.gridListItem}
+                        //     />
+                        // )
                       }}
                       itemClassName={cls.gridListItem}
                       listClassName={cls.gridList}
-                      scrollSeekConfiguration={{
-                        enter: velocity => Math.abs(velocity) > 200,
-                        exit: velocity => Math.abs(velocity) < 30
-                      }}
+                      // scrollSeekConfiguration={{
+                      //   enter: (velocity: number) => Math.abs(velocity) > 200,
+                      //   exit: (velocity: number) => Math.abs(velocity) < 30
+                      // }}
                       ref={virtuosoGrid}
                   />
               )}

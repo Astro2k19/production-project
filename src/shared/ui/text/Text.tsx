@@ -20,9 +20,14 @@ export enum TextSize {
   XL = 'size_xl'
 }
 
+type TitleTextType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+type TextType = 'p'
+
 interface TextProps {
   className?: string
   title?: string
+  TitleTag?: TitleTextType
+  TextTag?: TextType
   text?: string
   variant?: TextVariants
   align?: TextAligns
@@ -36,13 +41,15 @@ export const Text = memo((props: TextProps) => {
     text,
     variant = TextVariants.PRIMARY,
     align = TextAligns.LEFT,
-    size = TextSize.M
+    size = TextSize.M,
+    TitleTag = 'h3',
+    TextTag = 'p',
   } = props
 
   return (
       <div className={classNames([cls.text, className, cls[variant], cls[align], cls[size]])}>
-          {title && <h3 className={cls.title}>{title}</h3>}
-          {text && <p className={cls.textContent}>{text}</p>}
+          {title && <TitleTag className={cls.title}>{title}</TitleTag>}
+          {text && <TextTag className={cls.textContent}>{text}</TextTag>}
       </div>
   )
 })
