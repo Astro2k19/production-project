@@ -9,6 +9,7 @@ import { type Currency, CurrencySelect } from 'entities/Currency'
 import { type Country, CountrySelect } from 'entities/Country'
 import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
 import { type ApiError } from 'shared/api/api'
+import { VStack } from 'shared/ui/stack'
 
 interface ProfileCardProps {
   isLoading?: boolean
@@ -67,9 +68,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   }
 
   return (
-      <div className={classNames([cls.profileCard, className], mods)}>
-          <Avatar src={data?.avatar} className={cls.avatar}/>
-          <div className={cls.inputs}>
+      <VStack className={classNames([cls.profileCard, className], mods)} gap={'16'}>
+          <Avatar src={data?.avatar} />
+          <VStack gap={'16'}>
               <Input
                   placeholder={t('First name')}
                   value={data?.first}
@@ -111,7 +112,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                   value={data?.country}
                   readonly={readonly}
                   />
-          </div>
-      </div>
+          </VStack>
+      </VStack>
   )
 }

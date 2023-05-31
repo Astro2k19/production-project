@@ -1,7 +1,7 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib'
 import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
-import { Portal } from 'shared/ui/portal/Portal'
+import { Portal } from '../portal/Portal'
 
 interface ModalProps {
   className?: string

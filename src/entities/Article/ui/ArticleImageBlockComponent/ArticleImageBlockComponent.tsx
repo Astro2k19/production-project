@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import cls from './ArticleImageBlockComponent.module.scss'
 import { classNames } from 'shared/lib'
-import { type ArticleImageBlock } from 'entities/Article/model/types/article'
+import { type ArticleImageBlock } from '../../model/types/article'
 import { Text, TextAligns } from 'shared/ui'
 
 interface ArticleImageBlockComponentProps {

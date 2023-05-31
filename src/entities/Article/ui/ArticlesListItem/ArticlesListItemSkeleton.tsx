@@ -1,18 +1,19 @@
 import { type FC } from 'react'
 import cls from './ArticlesListItem.module.scss'
 import { classNames } from 'shared/lib'
-import { ArticlesListView } from 'entities/Article/model/types/article'
+import { ArticlesListView } from '../../model/types/article'
 import { Card } from 'shared/ui/card/Card'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 
 interface ArticlesListItemSkeletonProps {
   view: ArticlesListView
+  className?: string
 }
 
-export const ArticlesListItemSkeleton: FC<ArticlesListItemSkeletonProps> = ({ view }) => {
+export const ArticlesListItemSkeleton: FC<ArticlesListItemSkeletonProps> = ({ view, className }) => {
   if (view === ArticlesListView.GRID) {
     return (
-        <div className={classNames([cls.articlesListItem, cls[view]])}>
+        <div className={classNames([cls.articlesListItem, cls[view], className])}>
             <Card className={cls.card}>
                 <div className={classNames([cls.imageWrapper, cls.skeleton])}>
                     <Skeleton width={'100%'} height={'100%'} />
@@ -29,7 +30,7 @@ export const ArticlesListItemSkeleton: FC<ArticlesListItemSkeletonProps> = ({ vi
   }
 
   return (
-      <div className={classNames([cls.articlesListItem, cls[view]])}>
+      <div className={classNames([cls.articlesListItem, cls[view], className])}>
           <Card>
               <div className={cls.header}>
                   <div className={cls.user}>

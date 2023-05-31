@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib'
 import { ArticlesListView } from 'entities/Article'
 import ListView from 'shared/assets/icons/list_icon.svg'
 import GridView from 'shared/assets/icons/grid_icon.svg'
-import { Button, ButtonVariants } from 'shared/ui'
+import { Button } from 'shared/ui'
 import { Icon } from 'shared/ui/icon/Icon'
 
 interface ArticlesListViewSwitcherProps {

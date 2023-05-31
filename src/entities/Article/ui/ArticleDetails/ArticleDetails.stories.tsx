@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ArticleDetails } from './ArticleDetails'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ArticleError } from '../../model/types/article'
-import { article } from 'entities/Article/mocks/data'
+import { article } from '../../mocks/data'
 
 export default {
   title: 'entities/ArticleDetails',

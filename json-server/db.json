@@ -1702,6 +1702,18 @@
       "userId": "1",
       "text": "asdfasdf",
       "id": 30
+    },
+    {
+      "articleId": "3",
+      "userId": "2",
+      "text": "uhuhuhuhuh",
+      "id": 31
+    },
+    {
+      "articleId": "3",
+      "userId": "2",
+      "text": "asdasdasd",
+      "id": 32
     }
   ],
   "profile": [

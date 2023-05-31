@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { addCommentFormActions, addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice'
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
 export interface AddCommentFormProps {

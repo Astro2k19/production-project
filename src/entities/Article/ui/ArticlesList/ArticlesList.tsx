@@ -1,4 +1,4 @@
-import { type FC, type HTMLAttributeAnchorTarget, type ReactNode, useState } from 'react'
+import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Article, ArticlesListView } from '../../model/types/article'
@@ -6,10 +6,6 @@ import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
 import { Text } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { Virtuoso, VirtuosoGrid } from 'react-virtuoso'
-import { ArticlesFilters } from 'features/articlesFilters/ui/ArticlesFilters/ArticlesFilters'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { articlesPageReducer } from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
 
 interface ArticlesListProps {
   className?: string
@@ -17,51 +13,52 @@ interface ArticlesListProps {
   view?: ArticlesListView
   isLoading?: boolean
   target?: HTMLAttributeAnchorTarget
-  onReachEnd: () => void
 }
-
-const reducer: ReducersList = {
-  articlesPageList: articlesPageReducer
-}
-
-const Header = () => <ArticlesFilters />
 
 export const ArticlesList: FC<ArticlesListProps> = (props) => {
   const {
     className,
     articles,
-    view = ArticlesListView.LIST,
+    view = ArticlesListView.GRID,
     isLoading,
-    target,
-    onReachEnd
+    target
   } = props
   const { t } = useTranslation()
-  const [initialArticleIndex, setInitialArticleIndex] = useState(1)
 
-  const renderArticleItem = (index: number, article: Article) => {
+  const renderArticleItem = (article: Article) => {
+    const mods = {
+      [cls.gridListItem]: view === 'GRID'
+    }
+
     return (
         <ArticlesListItem
-          article={article}
-          view={view}
-          target={target}
-          className={cls.card}
-          key={article.id}
+        article={article}
+        view={view}
+        target={target}
+        className={classNames([cls.card], mods)}
+        key={article.id}
     />
     )
   }
 
-  const getElementSkeleton = () => {
-    return new Array(3)
+  const getElementSkeleton = (view: ArticlesListView) => {
+    const length = 4
+
+    return new Array(length)
       .fill(0)
-      .map((item, index) => <ArticlesListItemSkeleton view={ArticlesListView.LIST} key={index} />)
-  }
+      .map((item, index) => {
+        const mods = {
+          [cls.gridListItem]: view === 'GRID'
+        }
 
-  const Footer = () => {
-    if (isLoading) {
-      return <div>{getElementSkeleton()}</div>
-    }
-
-    return null
+        return (
+            <ArticlesListItemSkeleton
+                view={view}
+                key={index}
+                className={classNames([cls.card, cls.skeleton], mods)}
+            />
+        )
+      })
   }
 
   if (!isLoading && articles.length === 0) {
@@ -70,50 +67,14 @@ export const ArticlesList: FC<ArticlesListProps> = (props) => {
     )
   }
 
-  console.log(articles)
-
   return (
-      <div className={classNames([cls.articlesList, className, cls[view]])}>
-
-          {view === ArticlesListView.LIST
+      <div className={classNames([cls.gridList, className, cls[view]])}>
+          {articles.length
             ? (
-                <Virtuoso
-                      style={{ height: '100%' }}
-                      totalCount={articles.length}
-                      data={articles}
-                      itemContent={renderArticleItem}
-                      initialTopMostItemIndex={initialArticleIndex}
-                      endReached={onReachEnd}
-                      components={{
-                        Header,
-                        Footer
-                        // Scroller
-                      }}
-                  />
+                articles.map(renderArticleItem)
               )
-            : (
-                <VirtuosoGrid
-                      style={{ height: '100%' }}
-                      totalCount={articles.length}
-                      components={{
-                        ScrollSeekPlaceholder: () => (
-                            <ArticlesListItemSkeleton view={ArticlesListView.GRID} />
-                        )
-                      }}
-                      itemContent={renderArticleItem}
-                      itemClassName={cls.gridListItem}
-                      listClassName={cls.gridList}
-                      scrollSeekConfiguration={{
-                        enter: velocity => Math.abs(velocity) > 200,
-                        exit: velocity => Math.abs(velocity) < 30
-                      }}
-                  />
-              )}
-          {/* {articles.length */}
-          {/*  ? articles.map(renderArticleItem) */}
-          {/*  : null */}
-          {/* } */}
-          {/* {isLoading && getElementSkeleton(view)} */}
+            : null}
+          {isLoading && getElementSkeleton(view)}
       </div>
   )
 }

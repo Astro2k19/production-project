@@ -1,35 +1,10 @@
-.avatar {
-  margin: 0 auto 36px;
-}
-
-.title {
-  margin-bottom: 16px;
-}
-
-.skeleton {
-  margin-top: 28px;
-}
-
 .errorWrapper {
   height: 100%;
   display: grid;
   place-items: center;
 }
 
-.avatarWrapper {
-  margin-inline: auto;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-}
-
 .blocks {
   padding-block: 25px;
 }
 
-.block:not(:last-child) {
-  margin-bottom: 23px;
-}

@@ -12,6 +12,7 @@ import {
 } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
 import { canEditProfile } from '../model/selectors/canEditProfile/canEditProfile'
+import { HStack } from 'shared/ui/stack'
 
 interface EditableProfileCardHeaderProps {
   className?: string
@@ -40,7 +41,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
   }, [dispatch])
 
   return (
-      <div className={cls.header}>
+      <HStack justify={'spaceBetween'} alignItems={'center'}>
           <Text title={t('Profile', { ns: 'profile' })} />
           {canEdit && (
             !error && (
@@ -49,17 +50,17 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
                     <Button onClick={onEdit} disabled={isLoading}>{t('Edit', { ns: 'profile' })}</Button>
                   )
                 : (
-                    <div className={cls.btnGroup}>
+                    <HStack gap={'8'}>
                         <Button onClick={onSave} variant={ButtonVariants.OUTLINE} disabled={isLoading}>
                             {t('Save', { ns: 'profile' })}
                         </Button>
                         <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED} disabled={isLoading}>
                             {t('Cancel', { ns: 'profile' })}
                         </Button>
-                    </div>
+                    </HStack>
                   )
             )
           )}
-      </div>
+      </HStack>
   )
 }

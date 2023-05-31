@@ -8,6 +8,7 @@ import { Button, ButtonSizes, ButtonVariants } from 'shared/ui'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
+import { HStack, VStack } from 'shared/ui/stack'
 
 interface SidebarProps {
   className?: string
@@ -34,16 +35,16 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
               <ToggleSidebarIcon className={classNames([cls.toggleIcon])} />
           </Button>
           <nav className={cls.navigation}>
-              <div className={cls.items}>
+              <VStack alignItems={'center'} gap={'16'}>
                   {sidebarItems.map(item => (
                       <SidebarItem item={item} key={item.path} collapsed={collapsed} />
                   ))}
-              </div>
+              </VStack>
           </nav>
-          <div className={cls.switchers}>
+          <VStack justify={'center'} alignItems={'center'} className={cls.switchers}>
               <ThemeSwitcher />
               <LangSwitcher />
-          </div>
+          </VStack>
       </div>
   )
 }

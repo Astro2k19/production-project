@@ -1,16 +1,6 @@
 .articlesList {
-  flex: 1;
-  margin-top: 25px;
-
-  [data-viewport-type="element"] {
-    padding: 15px 40px;
-  }
-}
-
-.GRID {
-  //display: flex;
-  //flex-wrap: wrap;
-  //gap: 15px 35px;
+  width: 100%;
+  height: 100%;
 }
 
 .LIST {
@@ -21,22 +11,18 @@
 
 .gridList {
   display: flex;
-  flex-direction: column;
-  row-gap: 25px;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
 .gridListItem {
   width: 250px;
-  //display: flex;
-  //flex: none;
-  //align-content: stretch;
-  //box-sizing: border-box;
 
   @media (max-width: 1024px) {
-    width: 50%;
+    width: calc(50% - 13px);
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 640px) {
     width: 100%;
   }
 }

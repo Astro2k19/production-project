@@ -1,7 +1,8 @@
 import { memo, useCallback } from 'react'
 import cls from './Tabs.module.scss'
 import { classNames } from 'shared/lib'
-import { Card } from 'shared/ui/card/Card'
+import { Card } from '../card/Card'
+import { HStack } from '../stack'
 
 export interface TabItem<T extends string> {
   value: T
@@ -23,16 +24,16 @@ export const Tabs = typedMemo(<T extends string>({ className, tabs, value, onCli
   }, [onClick])
 
   return (
-      <div className={classNames([cls.tabs, className])}>
+      <HStack gap={'16'} className={className}>
           {tabs.map(tabItem => (
               <Card
                     key={tabItem.value}
                     onClick={onClickHandler(tabItem.value)}
-                    className={classNames([className, cls.tabItem], { [cls.selected]: value === tabItem.value })}
+                    className={classNames([cls.tabItem], { [cls.selected]: value === tabItem.value })}
               >
                   {tabItem.label}
               </Card>
           ))}
-      </div>
+      </HStack>
   )
 })

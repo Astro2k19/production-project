@@ -1,7 +1,6 @@
-import { type FC, memo, useCallback } from 'react'
+import React, { type FC, memo, useCallback } from 'react'
 import cls from './Articles.module.scss'
-import { classNames } from 'shared/lib'
-import { ArticlesList } from 'entities/Article/ui/ArticlesList/ArticlesList'
+import { ArticlesListVirtualized } from 'entities/Article/ui/ArticlesList/ArticlesListVirtualized'
 import { type ArticlesListView } from 'entities/Article/model/types/article'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
@@ -13,12 +12,10 @@ import {
   articlesPageActions,
   articlesPageReducer
 } from '../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { Page } from 'widgets/Page/Page'
 import { fetchNextArticlesPart } from '../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
 import { setInitialArticlesListState } from '../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import { ArticlesFilters } from 'features/articlesFilters/ui/ArticlesFilters/ArticlesFilters'
-import { useParams, useSearchParams } from 'react-router-dom'
-import React from 'react'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticlesProps {
   className?: string
@@ -35,8 +32,6 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   const articles = useAppSelector(articlesListSelectors.selectAll)
   const view = useAppSelector(getArticlesListView)
 
-  console.log(view, 'view')
-
   const loadNextArticles = useCallback(() => {
     dispatch(fetchNextArticlesPart())
   }, [dispatch])
@@ -48,14 +43,28 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   useFetchData(() => {
     dispatch(setInitialArticlesListState())
   })
+
+  const Header = useCallback(() => {
+    return (
+        <ArticlesFilters
+            view={view}
+            onChangeListView={onChangeListView}
+            className={cls.articlesFilter}
+        />
+    )
+  }, [view, onChangeListView])
+
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
-          <ArticlesList
+          <Page>
+              <ArticlesListVirtualized
               articles={articles}
               isLoading={isLoading}
               view={view}
               onReachEnd={loadNextArticles}
+              Header={Header}
           />
+          </Page>
       </DynamicModuleLoader>
   )
 }

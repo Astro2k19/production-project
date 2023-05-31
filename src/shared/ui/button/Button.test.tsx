@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Button, ButtonVariants } from 'shared/ui'
+import { Button, ButtonVariants } from './Button'
 
 describe('Button component', function () {
   test('Default button', () => {

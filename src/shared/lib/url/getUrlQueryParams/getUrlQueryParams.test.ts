@@ -1,4 +1,4 @@
-import { getUrlQueryParams } from 'shared/lib'
+import { getUrlQueryParams } from './getUrlQueryParams'
 
 describe('getUrlQueryParams', () => {
   afterEach(() => {

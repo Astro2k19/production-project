@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import {
   setInitialArticlesListState
-} from 'pages/Articles/model/services/setInitialArticlesListState/setInitialArticlesListState'
+} from './setInitialArticlesListState'
 
 describe('setInitialArticlesListState', () => {
   test('inited state', async () => {

@@ -23,13 +23,14 @@ module.exports = {
   plugins: [
     'react',
     'i18next',
-    "react-hooks"
+    "react-hooks",
+      'authoring-project-plugin'
   ],
   rules: {
     'react/jsx-indent': [2, 4],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/naming-convention': 'off',
-    'no-unused-vars': 'off', 
+    'no-unused-vars': 'off',
     "no-duplicate-case": "off",
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-floating-promises': 'off',
@@ -48,6 +49,7 @@ module.exports = {
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error"
+    "react-hooks/exhaustive-deps": "error",
+    "authoring-project-plugin/relative-path-checker": "error",
   }
 }

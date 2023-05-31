@@ -22,7 +22,8 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
-import { getArticleErrorMessage } from 'entities/Article'
+import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
+import { HStack, VStack } from 'shared/ui/stack'
 
 interface ArticleDetailsProps {
   className?: string
@@ -42,11 +43,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const renderBlock = (block: ArticleBlockTypes) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent block={block} className={cls.block} />
+        return <ArticleCodeBlockComponent block={block} />
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent block={block} className={cls.block} />
+        return <ArticleImageBlockComponent block={block} />
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent block={block} className={cls.block} />
+        return <ArticleTextBlockComponent block={block} />
       default:
         return null
     }
@@ -60,13 +61,15 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   if (isLoading) {
     content = (
-        <div>
-            <Skeleton width={200} height={200} borderRadius={'50%'} className={cls.avatar} />
-            <Skeleton width={'60%'} height={30} className={cls.title} />
+        <VStack gap={'12'}>
+            <HStack justify={'center'}>
+                <Skeleton width={200} height={200} borderRadius={'50%'} />
+            </HStack>
+            <Skeleton width={'60%'} height={30} />
             <Skeleton width={'40%'} height={30} />
-            <Skeleton width={'100%'} height={230} className={cls.skeleton} />
-            <Skeleton width={'100%'} height={230} className={cls.skeleton} />
-        </div>
+            <Skeleton width={'100%'} height={230}/>
+            <Skeleton width={'100%'} height={230}/>
+        </VStack>
     )
   } else if (error) {
     content = (
@@ -81,26 +84,29 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   } else {
     content = (
         <article>
-            <div className={cls.avatarWrapper}>
-                <Avatar src={article?.img} className={cls.avatar} alt={article?.title} size={200} />
-            </div>
-            <Text
-              title={article?.title}
-              text={article?.subtitle}
-              className={cls.title}
-              size={TextSize.L}
-            />
-            <div className={cls.info}>
-                <Icon Svg={EyeIcon} />
-                <Text text={String(article?.views)} />
-            </div>
-            <div className={cls.info}>
-                <Icon Svg={DateIcon} />
-                <Text text={String(article?.createdAt)} />
-            </div>
-            <div className={cls.blocks}>
-                {article?.blocks.map(renderBlock)}
-            </div>
+            <VStack gap={'12'}>
+                <HStack justify={'center'}>
+                    <Avatar src={article?.img} alt={article?.title} size={200} />
+                </HStack>
+                <Text
+                    title={article?.title}
+                    text={article?.subtitle}
+                    size={TextSize.L}
+                />
+                <div>
+                    <HStack gap={'8'}>
+                        <Icon Svg={EyeIcon} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack gap={'8'}>
+                        <Icon Svg={DateIcon} />
+                        <Text text={String(article?.createdAt)} />
+                    </HStack>
+                </div>
+                <VStack gap={'32'}>
+                    {article?.blocks.map(renderBlock)}
+                </VStack>
+            </VStack>
         </article>
     )
   }

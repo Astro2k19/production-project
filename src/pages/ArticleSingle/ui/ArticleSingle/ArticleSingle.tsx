@@ -1,5 +1,4 @@
 import { type FC, memo, useCallback } from 'react'
-import cls from './ArticleSingle.module.scss'
 import { classNames } from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
@@ -28,7 +27,8 @@ import {
   articleSingleRecommendationsSelectors,
   getArticleSingleRecommendationsIsLoading
 } from '../../model/selectors/recommendations'
-import { ArticleSingleHeader } from 'pages/ArticleSingle/ui/ArticleSingleHeader/ArticleSingleHeader'
+import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
+import { VStack } from 'shared/ui/stack'
 
 interface ArticleSingleProps {
   className?: string
@@ -67,30 +67,34 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
 
   if (articleDetailsError) {
     content = (
-        <Text title={getArticleErrorMessage(articleDetailsError)} variant={TextVariants.ERROR} align={TextAligns.CENTER} />
+        <Text
+            title={getArticleErrorMessage(articleDetailsError)}
+            variant={TextVariants.ERROR}
+            align={TextAligns.CENTER}
+        />
     )
   } else {
     content = (
-        <Page className={classNames([cls.articleSingle, className])}>
-            <ArticleSingleHeader />
-            <ArticleDetails id={id} />
-            <Text title={t('Comments')} className={cls.commentsTitle} />
-            <AddCommentForm
-                    className={cls.addCommentForm}
+        <Page className={classNames([className])}>
+            <VStack gap={'32'}>
+                <ArticleSingleHeader />
+                <ArticleDetails id={id} />
+                <Text title={t('Recommendations')}/>
+                <ArticlesList
+                    articles={recommendations}
+                    isLoading={isLoadingRecommendations}
+                    target={'_blank'}
+                />
+                <Text title={t('Comments')}/>
+                <AddCommentForm
                     onSendComment={onSendComment}
-            />
-            <Text title={t('Recommendations')} className={cls.recommendationTitle} />
-            <ArticlesList
-              articles={recommendations}
-              isLoading={isLoadingRecommendations}
-              className={cls.recommendations}
-              target={'_blank'}
-            />
-            <CommentsList
+                />
+                <CommentsList
                     comments={comments}
                     isLoading={isLoading}
                     error={getArticleCommentsErrorMessage(commentsError)}
-            />
+                />
+            </VStack>
         </Page>
     )
   }

@@ -2,6 +2,7 @@ import React, { type InputHTMLAttributes, memo } from 'react'
 import cls from './Input.module.scss'
 import { classNames } from 'shared/lib'
 import { type Mods } from 'shared/lib/classNames/classNames'
+import { HStack } from 'shared/ui/stack'
 
 type InputOmittedAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
 
@@ -32,7 +33,7 @@ export const Input = memo((props: InputProps) => {
   }
 
   return (
-      <div className={classNames([cls.inputWrapper, className], mods)}>
+      <HStack gap={'4'} className={classNames([cls.inputWrapper, className], mods)}>
           {placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
           <input
           type={type}
@@ -43,6 +44,6 @@ export const Input = memo((props: InputProps) => {
           readOnly={readOnly}
           {...others}
         />
-      </div>
+      </HStack>
   )
 })

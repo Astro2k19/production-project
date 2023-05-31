@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from './classNames'
 
 describe('classNames', () => {
   test('with strings in classes array', () => {

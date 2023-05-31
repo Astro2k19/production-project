@@ -7,13 +7,14 @@ import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getPro
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData'
 import { EditableProfileCardHeader } from './EditableProfileCardHeader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { profileActions } from 'features/editableProfileCard'
+import { profileActions } from '../model/slice/profileSlice'
 import { type Currency } from 'entities/Currency'
 import { type Country } from 'entities/Country'
 import { Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { getUserAuthDate } from 'entities/User'
+import { VStack } from 'shared/ui/stack'
 
 interface EditableProfileCardProps {
   className?: string
@@ -57,7 +58,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   }, [dispatch])
 
   return (
-      <>
+      <VStack gap={'16'}>
           <EditableProfileCardHeader/>
           {profileValidateErrors?.length && profileValidateErrors.map((err) => (
               <Text
@@ -79,6 +80,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
             onChangeCurrency={onChangeCurrency}
             onChangeCountry={onChangeCountry}
           />
-      </>
+      </VStack>
   )
 }

@@ -1,19 +1,19 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ArticlesList } from './ArticlesList'
+import { ArticlesListVirtualized } from './ArticlesListVirtualized'
 import { article } from '../../mocks/data'
-import { ArticlesListView } from 'entities/Article/model/types/article'
+import { ArticlesListView } from '../../model/types/article'
 
 export default {
   title: 'entities/Article/ArticlesList',
-  component: ArticlesList,
+  component: ArticlesListVirtualized,
 
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof ArticlesList>
+} as ComponentMeta<typeof ArticlesListVirtualized>
 
-const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />
+const Template: ComponentStory<typeof ArticlesListVirtualized> = (args) => <ArticlesListVirtualized {...args} />
 
 export const Grid = Template.bind({})
 

@@ -7,18 +7,9 @@
   }
 }
 
-.inputs {
-  display: grid;
-  row-gap: 15px;
-}
-
 .loading,
 .error {
   display: grid;
   place-items: center;
   height: 300px;
-}
-
-.avatar {
-  margin-bottom: 15px;
 }

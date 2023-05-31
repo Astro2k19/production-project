@@ -1,4 +1,4 @@
-import { type Article, ArticleBlockType, ArticleType } from 'entities/Article'
+import { type Article, ArticleBlockType, ArticleType } from '../types/article'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
 import { ArticleError } from '../types/article'
