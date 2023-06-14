@@ -76,7 +76,7 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
   } else {
     content = (
         <Page className={classNames([className])}>
-            <VStack gap={'32'}>
+            <VStack gap={'32'} >
                 <ArticleSingleHeader />
                 <ArticleDetails id={id} />
                 <Text title={t('Recommendations')}/>

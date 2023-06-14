@@ -23,7 +23,7 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
   }
 
   return (
-      <div className={classNames([cls.sidebar, className], { [cls.collapsed]: collapsed })} data-testid='sidebar'>
+      <section className={classNames([cls.sidebar, className], { [cls.collapsed]: collapsed })} data-testid='sidebar'>
           <Button
               onClick={toggleSidebar}
               className={cls.toggleBtn}
@@ -45,6 +45,6 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
               <ThemeSwitcher />
               <LangSwitcher />
           </VStack>
-      </div>
+      </section>
   )
 }

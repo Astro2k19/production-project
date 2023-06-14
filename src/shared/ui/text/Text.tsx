@@ -15,6 +15,7 @@ export enum TextAligns {
 }
 
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
   XL = 'size_xl'
@@ -43,7 +44,7 @@ export const Text = memo((props: TextProps) => {
     align = TextAligns.LEFT,
     size = TextSize.M,
     TitleTag = 'h3',
-    TextTag = 'p',
+    TextTag = 'p'
   } = props
 
   return (

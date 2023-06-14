@@ -21,7 +21,7 @@ import { fetchArticlesList } from 'pages/Articles/model/services/fetchArticlesLi
 import { articlesPageActions } from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { ArticleTabTypes } from '../ArticlesTabTypes/ArticleTabTypes'
-import { HStack, VStack } from 'shared/ui/stack'
+import { Flex, HStack, VStack } from 'shared/ui/stack'
 
 interface ArticlesFiltersProps {
   className?: string
@@ -76,7 +76,7 @@ export const ArticlesFilters = memo(({ className, view, onChangeListView }: Arti
           <ArticleTabTypes
                   onChangeType={onChangeType}
                   articleType={articleType}
-              />
+          />
       </VStack>
   )
 })

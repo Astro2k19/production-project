@@ -23,7 +23,7 @@ import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
-import { HStack, VStack } from 'shared/ui/stack'
+import { Flex, HStack, VStack } from 'shared/ui/stack'
 
 interface ArticleDetailsProps {
   className?: string
@@ -83,39 +83,37 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     )
   } else {
     content = (
-        <article>
-            <VStack gap={'12'}>
-                <HStack justify={'center'}>
-                    <Avatar src={article?.img} alt={article?.title} size={200} />
-                </HStack>
-                <Text
+        <VStack gap={'12'} Tag={'div'} className={className}>
+            <HStack justify={'center'}>
+                <Avatar src={article?.img} alt={article?.title} size={200} />
+            </HStack>
+            <Text
                     title={article?.title}
+                    TitleTag={'h1'}
                     text={article?.subtitle}
+                    TextTag={'p'}
                     size={TextSize.L}
                 />
-                <div>
-                    <HStack gap={'8'}>
-                        <Icon Svg={EyeIcon} />
-                        <Text text={String(article?.views)} />
-                    </HStack>
-                    <HStack gap={'8'}>
-                        <Icon Svg={DateIcon} />
-                        <Text text={String(article?.createdAt)} />
-                    </HStack>
-                </div>
-                <VStack gap={'32'}>
-                    {article?.blocks.map(renderBlock)}
-                </VStack>
+            <div>
+                <HStack gap={'8'}>
+                    <Icon Svg={EyeIcon} />
+                    <Text text={String(article?.views)} />
+                </HStack>
+                <HStack gap={'8'}>
+                    <Icon Svg={DateIcon} />
+                    <Text text={String(article?.createdAt)} />
+                </HStack>
+            </div>
+            <VStack gap={'32'}>
+                {article?.blocks.map(renderBlock)}
             </VStack>
-        </article>
+        </VStack>
     )
   }
 
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
-          <div className={classNames([cls.articleDetails, className])}>
-              {content}
-          </div>
+          {content}
       </DynamicModuleLoader>
   )
 })

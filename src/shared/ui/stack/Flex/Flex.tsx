@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react'
+import { type ComponentPropsWithoutRef, type HTMLAttributes, type ReactNode } from 'react'
 import cls from './Flex.module.scss'
 import { classNames } from 'shared/lib'
 
@@ -7,15 +7,20 @@ type FlexJustifyOptions = 'start' | 'center' | 'end' | 'spaceBetween'
 type FlexAlignItemsOptions = 'start' | 'center' | 'end' | 'stretch'
 type FlexGapOptions = '4' | '8' | '12' | '16' | '32'
 
-export interface FlexProps {
+type ValidTags = keyof JSX.IntrinsicElements
+
+export type FlexProps<T extends ValidTags> = {
   children: ReactNode
+  tag?: T | ValidTags
   className?: string
   direction?: FlexDirectionOptions
   justify?: FlexJustifyOptions
   alignItems?: FlexAlignItemsOptions
   gap?: FlexGapOptions
   max?: boolean
-}
+} & (ComponentPropsWithoutRef<T> & HTMLAttributes<HTMLOrSVGElement>)
+
+const DEFAULT_TAG = 'div' as const
 
 const mappedDirection: Record<FlexDirectionOptions, string> = {
   row: cls.directionRow,
@@ -44,7 +49,7 @@ const mappedGap: Record<FlexGapOptions, string> = {
   32: cls.gap32
 }
 
-export const Flex: FC<FlexProps> = (props) => {
+export const Flex = <T extends ValidTags = typeof DEFAULT_TAG>(props: FlexProps<T>) => {
   const {
     children,
     direction = 'row',
@@ -52,7 +57,9 @@ export const Flex: FC<FlexProps> = (props) => {
     alignItems = 'stretch',
     gap,
     className,
-    max
+    max,
+    tag = 'div',
+    ...attributes
   } = props
 
   const classes = [
@@ -67,9 +74,13 @@ export const Flex: FC<FlexProps> = (props) => {
     [cls.max]: max
   }
 
+  const Tag: ValidTags = tag
+
   return (
-      <div className={classNames([cls.flex, ...classes], mods)}>
+      <Tag {...attributes}
+           className={classNames([cls.flex, ...classes], mods)}
+      >
           {children}
-      </div>
+      </Tag>
   )
 }
