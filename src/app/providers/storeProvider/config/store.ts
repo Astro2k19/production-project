@@ -9,6 +9,7 @@ import {
 } from 'pages/Articles/model/middlewares/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
 import { savePageScrollReducer } from 'features/savePageScroll'
 import { articlesFiltersReducer } from 'features/articlesFilters/model/slice/articlesFiltersSlice'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
@@ -18,7 +19,8 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     savePageScroll: savePageScrollReducer,
-    articlesFilters: articlesFiltersReducer
+    articlesFilters: articlesFiltersReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   }
 
   const reducerManager = createReducerManager(initialReducers)
@@ -38,6 +40,8 @@ export const createReduxStore = (
       authMiddleware.middleware,
       initUserDataMiddleware.middleware,
       setArticlesListViewMiddleware.middleware
+    ).concat(
+      rtkApi.middleware
     )
   })
 

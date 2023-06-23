@@ -7,7 +7,7 @@ import { type Profile } from '../../model/types/profile'
 import { Avatar } from 'shared/ui/avatar/Avatar'
 import { type Currency, CurrencySelect } from 'entities/Currency'
 import { type Country, CountrySelect } from 'entities/Country'
-import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
+import { getProfileErrorMessage } from '../../../../features/editableProfileCard/model/services/getProfileErrorMessage/getProfileErrorMessage'
 import { type ApiError } from 'shared/api/api'
 import { VStack } from 'shared/ui/stack'
 

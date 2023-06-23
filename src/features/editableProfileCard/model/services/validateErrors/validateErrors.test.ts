@@ -1,7 +1,8 @@
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { type Profile, ValidateProfileError } from 'entities/Profile'
+import { type Profile } from 'entities/Profile'
 import { validateErrors } from './validateErrors'
+import { ValidateProfileError } from 'features/editableProfileCard'
 
 describe('validateErrors', () => {
   const data: Profile = {

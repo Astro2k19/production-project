@@ -3,7 +3,6 @@ import { type UserSchema } from 'entities/User'
 import { type LoginFormSchema } from 'features/auth/by-username'
 import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type CombinedState, type Dispatch } from 'redux'
-import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type ArticleSinglePageSchema } from 'pages/ArticleSingle'
@@ -11,11 +10,14 @@ import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageListSchema } from 'pages/Articles'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
 import { type ArticlesFiltersSchema } from 'features/articlesFilters'
+import { type rtkApi } from 'shared/api/rtkApi'
+import { type ProfileSchema } from 'features/editableProfileCard'
 
 export interface StoreSchema {
   counter: CounterSchema
   user: UserSchema
   savePageScroll: SavePageScrollSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   loginForm?: LoginFormSchema

@@ -1,32 +1,24 @@
 import { memo } from 'react'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { EditableProfileCard, fetchProfileData } from 'features/editableProfileCard'
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
-import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { EditableProfileCard } from 'features/editableProfileCard'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page/Page'
-
-const reducers: ReducersList = {
-  profile: profileReducer
-}
+import { Text } from 'shared/ui'
+import { useTranslation } from 'react-i18next'
 
 const ProfilePage = memo(() => {
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation()
   const { id } = useParams<string>()
 
-  useFetchData(() => {
-    if (id) {
-      dispatch(fetchProfileData(id))
-    }
-  })
+  if (!id) {
+    return (
+        <Text title={t('Something went wrong!')} />
+    )
+  }
 
   return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <Page>
-              <EditableProfileCard />
-          </Page>
-      </DynamicModuleLoader>
+      <Page>
+          <EditableProfileCard id={id} />
+      </Page>
   )
 })
 

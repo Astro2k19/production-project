@@ -30,7 +30,7 @@ interface CurrencySelectProps {
 }
 
 export const CurrencySelect: FC<CurrencySelectProps> = (props) => {
-  const { className, onChange, readonly, value } = props
+  const { onChange, readonly, value } = props
   const onChangeHandler = (value: string) => {
     onChange(value as Currency)
   }
@@ -41,6 +41,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = (props) => {
           items={currencyOptions}
           value={value}
           onChange={onChangeHandler}
+          readonly={readonly}
       />
   )
 }

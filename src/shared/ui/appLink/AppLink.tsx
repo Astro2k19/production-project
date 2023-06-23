@@ -1,7 +1,7 @@
 import cls from './AppLink.module.scss'
 import { classNames } from 'shared/lib'
 import { Link, type LinkProps } from 'react-router-dom'
-import { memo } from 'react'
+import { type ForwardedRef, forwardRef } from 'react'
 
 export enum AppLinkVariants {
   PRIMARY = 'primary',
@@ -13,7 +13,7 @@ interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariants
 }
 
-export const AppLink = memo((props: AppLinkProps) => {
+export const AppLink = forwardRef((props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
   const {
     to,
     className,
@@ -24,8 +24,10 @@ export const AppLink = memo((props: AppLinkProps) => {
 
   return (
       <Link {...otherProps}
-              to={to}
-              className={classNames([className, cls[variant], cls.appLink])}>
+            to={to}
+            className={classNames([className, cls[variant], cls.appLink])}
+            ref={ref}
+      >
           {children}
       </Link>
   )

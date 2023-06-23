@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Select } from 'shared/ui/select/Select'
 import { Country } from '../../model/types/country'
+import { ListBox } from 'shared/ui/listBox/ListBox'
 
 const countryOptions = [
   {
@@ -35,13 +35,12 @@ export const CountrySelect: FC<CurrencySelectProps> = (props) => {
   }
 
   return (
-      <Select
-            label={'Country'}
-            options={countryOptions}
-            className={className}
-            onChange={onChangeHandler}
-            readonly={readonly}
-            value={value}
-        />
+      <ListBox
+      label={'Country'}
+      items={countryOptions}
+      value={value}
+      onChange={onChangeHandler}
+      readonly={readonly}
+  />
   )
 }

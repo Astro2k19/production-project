@@ -4,7 +4,7 @@ import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type AxiosError as AxiosErrorType } from 'axios/index'
 import { type ApiError } from 'shared/api/api'
 
-export const fetchArticleCommentsById = createAsyncThunk<Comment[], string | undefined, AsyncThunkConfig<ApiError>>(
+export const fetchArticleCommentsById = createAsyncThunk<Comment[], string | number | undefined, AsyncThunkConfig<ApiError>>(
   'articleSingle/fetchArticleCommentsById',
   async (id, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI

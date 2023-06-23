@@ -1,8 +1,8 @@
 import { profileActions, profileReducer } from './profileSlice'
-import { type ProfileSchema } from 'entities/Profile'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { fetchProfileData } from '../services/fetchProfileData/fetctProfileData'
+import { type ProfileSchema } from 'features/editableProfileCard'
 
 describe('profileSlice', () => {
   const data = {

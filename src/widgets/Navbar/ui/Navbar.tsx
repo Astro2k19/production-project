@@ -9,6 +9,8 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { appPaths } from 'shared/config/routerConfig/routerConfig'
 import { useNavigate } from 'react-router-dom'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/avatar/Avatar'
 
 interface NavbarProps {
   className?: string
@@ -56,9 +58,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Create new article')}
             </Button>
             <div className={cls.links}>
-                <Button onClick={onLogOut} variant={ButtonVariants.CLEAR_INVERTED}>
-                    {t('Log Out')}
-                </Button>
+                <Dropdown trigger={<Avatar src={authDate.avatar} size={30} />} items={
+                    [
+                      {
+                        content: t('Log Out'),
+                        onClick: onLogOut
+                      },
+                      {
+                        content: t('Profile', { ns: 'profile' }),
+                        href: `${appPaths.profile}${authDate.id}`
+                      }
+                    ]
+                }/>
             </div>
         </div>
     )

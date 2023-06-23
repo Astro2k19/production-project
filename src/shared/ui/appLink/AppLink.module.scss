@@ -2,11 +2,11 @@
   font-size: 20px;
   transition: opacity 0.2s ease;
 
-  &:hover {
-    opacity: 0.7;
-    fill-opacity: 0.7;
-    stroke-opacity: 0.7;
-  }
+  //&:hover {
+  //  opacity: 0.7;
+  //  fill-opacity: 0.7;
+  //  stroke-opacity: 0.7;
+  //}
 
   &.primary {
     color: var(--primary-color);

@@ -1,6 +1,6 @@
 import { getProfileValidateErrors } from './getProfileValidateErrors'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
-import { ValidateProfileError } from 'entities/Profile'
+import { ValidateProfileError } from 'features/editableProfileCard'
 
 describe('getProfileValidateErrors', () => {
   const errors = [

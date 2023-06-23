@@ -1,5 +1,5 @@
 import { type FC, useCallback } from 'react'
-import { ProfileCard, ValidateProfileError } from 'entities/Profile'
+import { ProfileCard } from 'entities/Profile'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
@@ -7,20 +7,28 @@ import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getPro
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData'
 import { EditableProfileCardHeader } from './EditableProfileCardHeader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { profileActions } from '../model/slice/profileSlice'
+import { profileActions, profileReducer } from '../model/slice/profileSlice'
 import { type Currency } from 'entities/Currency'
 import { type Country } from 'entities/Country'
 import { Text, TextVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-import { getUserAuthDate } from 'entities/User'
 import { VStack } from 'shared/ui/stack'
+import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { fetchProfileData } from '../model/services/fetchProfileData/fetctProfileData'
+import { ValidateProfileError } from '../model/types/editableProfileCard'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
 interface EditableProfileCardProps {
   className?: string
+  id: string
 }
 
-export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className }) => {
+const reducers: ReducersList = {
+  profile: profileReducer
+}
+
+export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, id }) => {
   const formData = useAppSelector(getProfileFormData)
   const isLoading = useAppSelector(getProfileIsLoading)
   const error = useAppSelector(getProfileError)
@@ -28,6 +36,10 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   const readonly = useAppSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
+
+  useFetchData(() => {
+    dispatch(fetchProfileData(id))
+  })
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(profileActions.setProfileData({ first: value }))
@@ -58,16 +70,17 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
   }, [dispatch])
 
   return (
-      <VStack gap={'16'}>
-          <EditableProfileCardHeader/>
-          {profileValidateErrors?.length && profileValidateErrors.map((err) => (
-              <Text
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+          <VStack gap={'16'}>
+              <EditableProfileCardHeader/>
+              {profileValidateErrors?.length && profileValidateErrors.map((err) => (
+                  <Text
                 key={err}
                 variant={TextVariants.ERROR}
                 text={t(`validation_error.${ValidateProfileError[err]}`)}
               />
-          ))}
-          <ProfileCard
+              ))}
+              <ProfileCard
             data={formData}
             isLoading={isLoading}
             error={error}
@@ -80,6 +93,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
             onChangeCurrency={onChangeCurrency}
             onChangeCountry={onChangeCountry}
           />
-      </VStack>
+          </VStack>
+      </DynamicModuleLoader>
   )
 }
