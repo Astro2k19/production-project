@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export const useDebounce = (callback: (...args: any[]) => void, delay: number) => {
   const timeoutId = useRef<ReturnType<typeof setTimeout>>()
@@ -16,7 +16,8 @@ export const useDebounce = (callback: (...args: any[]) => void, delay: number) =
       }
 
       timeoutId.current = setTimeout(() => {
-        callback(args)
+        // eslint-disable-next-line n/no-callback-literal
+        callback(...args)
       }, delay)
     },
     [callback, delay]

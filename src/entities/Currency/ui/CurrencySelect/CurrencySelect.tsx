@@ -1,5 +1,4 @@
 import { type FC } from 'react'
-import { Select } from 'shared/ui/select/Select'
 import { Currency } from '../../model/types/currency'
 import { ListBox } from 'shared/ui/listBox/ListBox'
 

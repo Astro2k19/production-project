@@ -50,7 +50,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authDate) {
     return (
         <div className={classNames([cls.navbar, className])}>
-            <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>Dev Site</AppLink>
+            <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>{t('Dev Site')}</AppLink>
             <Button
                   onClick={onCreateNewArticle}
                   variant={ButtonVariants.CLEAR_INVERTED}

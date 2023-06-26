@@ -5,13 +5,13 @@ import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObjec
 import { type CombinedState, type Dispatch } from 'redux'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
-import { type ArticleSinglePageSchema } from 'pages/ArticleSingle'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageListSchema } from 'pages/Articles'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
 import { type ArticlesFiltersSchema } from 'features/articlesFilters'
 import { type rtkApi } from 'shared/api/rtkApi'
 import { type ProfileSchema } from 'features/editableProfileCard'
+import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle/model/types/articleSingleComments'
 
 export interface StoreSchema {
   counter: CounterSchema
@@ -23,7 +23,7 @@ export interface StoreSchema {
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleSinglePage?: ArticleSinglePageSchema
+  articleSinglePageComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema
   articlesFilters: ArticlesFiltersSchema

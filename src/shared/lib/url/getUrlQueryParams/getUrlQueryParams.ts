@@ -5,7 +5,9 @@ export const addUrlQueryParams = (urlOptions?: OptionalRecord<string, string | n
   }
 }
 
-export const getUrlQueryParams = (toString: boolean = true, urlOptions?: OptionalRecord<string, string | number>): string | URLSearchParams => {
+type ValueType = number | string | undefined
+
+export const getUrlQueryParams = (toString: boolean = true, urlOptions?: OptionalRecord<string, ValueType>): string | URLSearchParams => {
   const urlParams = new URLSearchParams(window.location.search)
 
   if (urlOptions) {

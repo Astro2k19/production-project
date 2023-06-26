@@ -37,6 +37,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
 
+  console.log(isLoading, 'isLoading')
+
   useFetchData(() => {
     dispatch(fetchProfileData(id))
   })
@@ -75,23 +77,24 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
               <EditableProfileCardHeader/>
               {profileValidateErrors?.length && profileValidateErrors.map((err) => (
                   <Text
-                key={err}
-                variant={TextVariants.ERROR}
-                text={t(`validation_error.${ValidateProfileError[err]}`)}
-              />
+                    key={err}
+                    variant={TextVariants.ERROR}
+                    text={t(`validation_error.${ValidateProfileError[err]}`)}
+                    data-testid={'EditableProfileCard.Error'}
+                  />
               ))}
               <ProfileCard
-            data={formData}
-            isLoading={isLoading}
-            error={error}
-            readonly={readonly}
-            onChangeFirstname={onChangeFirstname}
-            onChangeLastname={onChangeLastname}
-            onChangeAge={onChangeAge}
-            onChangeUsername={onChangeUsername}
-            onChangeAvatar={onChangeAvatar}
-            onChangeCurrency={onChangeCurrency}
-            onChangeCountry={onChangeCountry}
+                data={formData}
+                isLoading={isLoading}
+                error={error}
+                readonly={readonly}
+                onChangeFirstname={onChangeFirstname}
+                onChangeLastname={onChangeLastname}
+                onChangeAge={onChangeAge}
+                onChangeUsername={onChangeUsername}
+                onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
           />
           </VStack>
       </DynamicModuleLoader>

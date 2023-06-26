@@ -4,8 +4,8 @@ import { type Profile } from 'entities/Profile'
 export interface ProfileSchema {
   data?: Profile
   formData?: Profile
-  isLoading: boolean
-  readonly: boolean
+  isLoading?: boolean
+  readonly?: boolean
   error?: ApiError
   validateProfileErrors?: ValidateProfileError[]
 }

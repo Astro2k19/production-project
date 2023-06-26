@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import img from 'shared/assets/images/tests/avatar.jpg'
-import { ValidateProfileError } from 'features/editableProfileCard'
+import { ValidateProfileError } from '../model/types/editableProfileCard'
 
 export default {
   title: 'features/EditableProfileCard',
@@ -15,7 +15,7 @@ export default {
   }
 } as ComponentMeta<typeof EditableProfileCard>
 
-const Template: ComponentStory<typeof EditableProfileCard> = () => <EditableProfileCard />
+const Template: ComponentStory<typeof EditableProfileCard> = (...args) => <EditableProfileCard id={'1'} {...args} />
 
 export const Primary = Template.bind({})
 

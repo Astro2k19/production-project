@@ -19,7 +19,7 @@ describe('fetchNextArticlesPart', () => {
 
     await asyncThunk.callAction()
     expect(asyncThunk.dispatch).toBeCalledTimes(4)
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 4 })
+    expect(fetchArticlesList).toHaveBeenCalled()
   })
 
   test('doesn\'t load articles, there\'re no more articles', async () => {

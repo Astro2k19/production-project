@@ -1,5 +1,4 @@
 import { type FC, useCallback } from 'react'
-import cls from './EditableProfileCardHeader.module.scss'
 import { Button, ButtonVariants, Text } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { profileActions } from '../model/slice/profileSlice'
@@ -47,14 +46,16 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
             !error && (
               readonly
                 ? (
-                    <Button onClick={onEdit} disabled={isLoading}>{t('Edit', { ns: 'profile' })}</Button>
+                    <Button onClick={onEdit} disabled={isLoading} data-testid={'EditableProfileCardHeader.EditButton'}>
+                        {t('Edit', { ns: 'profile' })}
+                    </Button>
                   )
                 : (
                     <HStack gap={'8'}>
-                        <Button onClick={onSave} variant={ButtonVariants.OUTLINE} disabled={isLoading}>
+                        <Button onClick={onSave} variant={ButtonVariants.OUTLINE} disabled={isLoading} data-testid={'EditableProfileCardHeader.SaveButton'}>
                             {t('Save', { ns: 'profile' })}
                         </Button>
-                        <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED} disabled={isLoading}>
+                        <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED} disabled={isLoading} data-testid={'EditableProfileCardHeader.CancelButton'}>
                             {t('Cancel', { ns: 'profile' })}
                         </Button>
                     </HStack>

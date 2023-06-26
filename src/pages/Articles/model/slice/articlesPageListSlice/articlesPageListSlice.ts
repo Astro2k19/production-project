@@ -4,6 +4,7 @@ import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
 import { type StoreSchema } from 'app/providers/storeProvider'
 import { type InitialArticlesListState } from '../../services/setInitialArticlesListState/setInitialArticlesListState'
+import { type ApiError } from 'shared/api/api'
 
 export const articlesListAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
@@ -41,7 +42,7 @@ export const articlesPageListSlice = createSlice({
         state.isLoading = true
         state.error = undefined
 
-        if (action.meta.arg.replace) {
+        if (action.meta.arg?.replace) {
           articlesListAdapter.removeAll(state)
         }
       })
@@ -49,7 +50,7 @@ export const articlesPageListSlice = createSlice({
         state.isLoading = false
         state.hasMore = state.limit <= action.payload.length
 
-        if (action.meta.arg.replace) {
+        if (action.meta.arg?.replace) {
           articlesListAdapter.setAll(state, action.payload)
         } else {
           articlesListAdapter.addMany(state, action.payload)
@@ -57,7 +58,7 @@ export const articlesPageListSlice = createSlice({
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false
-        state.error = action.payload
+        state.error = action.payload as ApiError
       })
   }
 })

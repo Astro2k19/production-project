@@ -1,10 +1,11 @@
 import { type Article, ArticleBlockType, ArticleType } from '../model/types/article'
-import avatar from 'shared/assets/images/tests/avatar.jpg'
+// import avatar from 'shared/assets/images/tests/avatar.jpg'
 export const article: Article = {
   id: '1',
+  userId: '1',
   user: {
     id: '1',
-    avatar,
+    avatar: '',
     username: 'Astro'
   },
   title: 'Javascript news',

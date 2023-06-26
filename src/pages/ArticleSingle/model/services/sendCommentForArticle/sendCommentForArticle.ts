@@ -26,6 +26,9 @@ export const sendCommentForArticle = createAsyncThunk<Comment, string, AsyncThun
         text
       })
 
+      console.log(response, 'response')
+      console.log(article, 'article')
+
       dispatch(fetchArticleCommentsById(article.id))
 
       return response.data

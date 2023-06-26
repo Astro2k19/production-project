@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type User, userActions } from 'entities/User'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type ApiError } from 'shared/api/api'
+import { type AxiosError } from 'axios'
 
 interface loginByUsernameProps {
   username: string
@@ -27,7 +28,7 @@ export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, Asyn
 
       return response.data
     } catch (e) {
-      const error = e as AxiosErrorType
+      const error = e as AxiosError
 
       if (error.response) {
         return rejectWithValue({

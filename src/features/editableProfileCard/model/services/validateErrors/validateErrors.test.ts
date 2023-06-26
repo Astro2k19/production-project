@@ -1,22 +1,9 @@
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
 import { type Profile } from 'entities/Profile'
 import { validateErrors } from './validateErrors'
-import { ValidateProfileError } from 'features/editableProfileCard'
+import { ValidateProfileError } from '../../types/editableProfileCard'
+import { profile as data } from 'entities/Profile'
 
 describe('validateErrors', () => {
-  const data: Profile = {
-    id: 1,
-    first: 'Artem',
-    lastname: 'Katr',
-    age: '21',
-    currency: Currency.EUR,
-    country: Country.USA,
-    city: 'Kyiv',
-    username: 'Astro2k23',
-    avatar: ''
-  }
-
   test('invalid user data', () => {
     expect(validateErrors({ ...data, first: undefined, lastname: undefined })).toEqual([
       ValidateProfileError.INVALID_USER_DATA

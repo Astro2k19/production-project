@@ -33,6 +33,7 @@ interface TextProps {
   variant?: TextVariants
   align?: TextAligns
   size?: TextSize
+  'data-testid'?: string
 }
 
 export const Text = memo((props: TextProps) => {
@@ -44,13 +45,30 @@ export const Text = memo((props: TextProps) => {
     align = TextAligns.LEFT,
     size = TextSize.M,
     TitleTag = 'h3',
-    TextTag = 'p'
+    TextTag = 'p',
+    'data-testid': dataTestId = 'Text'
   } = props
+
+  console.log(`${dataTestId}.Header`)
 
   return (
       <div className={classNames([cls.text, className, cls[variant], cls[align], cls[size]])}>
-          {title && <TitleTag className={cls.title}>{title}</TitleTag>}
-          {text && <TextTag className={cls.textContent}>{text}</TextTag>}
+          {title && (
+          <TitleTag
+              data-testid={`${dataTestId}.Header`}
+                className={cls.title}
+            >
+              {title}
+          </TitleTag>
+          )}
+          {text && (
+          <TextTag
+              data-testid={`${dataTestId}.Paragraph`}
+                className={cls.textContent}
+            >
+              {text}
+          </TextTag>
+          )}
       </div>
   )
 })

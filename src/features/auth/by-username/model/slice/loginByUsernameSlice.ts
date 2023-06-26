@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { type LoginFormSchema } from '../types/loginSchema'
 import { loginByUsername } from '../services/loginByUsername/loginByUsername'
+import { type ApiError } from 'shared/api/api'
 
 const initialState: LoginFormSchema = {
   username: '',
@@ -30,7 +31,7 @@ export const authSlice = createSlice({
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isLoading = false
-        state.error = action.payload
+        state.error = action.payload as ApiError
       })
   }
 })

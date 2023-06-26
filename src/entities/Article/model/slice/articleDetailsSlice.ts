@@ -1,9 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
-import {
-  fetchArticleDetailsById
-} from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
+import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
 import { type Article } from '../types/article'
+import { type ApiError } from 'shared/api/api'
 
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
@@ -26,9 +25,8 @@ export const articleDetailsSlice = createSlice({
         state.data = action.payload
       })
       .addCase(fetchArticleDetailsById.rejected, (state, action) => {
-        console.log(action.payload, 'fetchArticleDetailsById action.payload!!!!!!!!')
         state.isLoading = false
-        state.error = action.payload
+        state.error = action.payload as ApiError
       })
   }
 })

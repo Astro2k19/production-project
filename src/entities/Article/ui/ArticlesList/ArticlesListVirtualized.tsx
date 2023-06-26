@@ -52,6 +52,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     return () => {
       clearTimeout(timeout)
     }
+    // eslint-disable-next-line
   }, [])
 
   const scrollToElement = (virtuoso: MutableRefObject<VirtuosoHandle | VirtuosoGridHandle | null>, index: number) => {
@@ -83,7 +84,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
           [cls.gridListItem]: view === 'GRID'
         }
 
-        return(<ArticlesListItemSkeleton
+        return (<ArticlesListItemSkeleton
           view={view}
           key={index}
           className={classNames([cls.card, cls.skeleton], mods)}

@@ -7,12 +7,12 @@ jest.mock('axios')
 const mockedAxios = jest.mocked(axios, true)
 
 type AsyncActionCreator<
-  Returned,
-  ThunkArg,
+    Returned,
+    ThunkArg,
     Error,
-  ThunkApiConfig extends AsyncThunkConfig<Error>
+    ThunkApiConfig extends AsyncThunkConfig<Error>
 >
-  = (arg?: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
+    = (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
 
 export class TestAsyncThunk<Returned, ThunkArg, Error, ThunkApiConfig extends AsyncThunkConfig<Error>> {
   dispatch: jest.MockedFn<any>

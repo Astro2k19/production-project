@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib'
 import { Text } from 'shared/ui'
 import { ArticlesList } from 'entities/Article'
 import { useTranslation } from 'react-i18next'
-import { getArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
+import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
 
 interface ArticleSingleRecommendationsProps {
   className?: string
@@ -11,7 +11,7 @@ interface ArticleSingleRecommendationsProps {
 
 export const ArticleSingleRecommendations = memo(({ className }: ArticleSingleRecommendationsProps) => {
   const { t } = useTranslation()
-  const { data: articles = [], isLoading } = getArticleRecommendations()
+  const { data: articles = [], isLoading } = useGetArticleRecommendations(undefined)
 
   console.log(articles, 'articles')
 

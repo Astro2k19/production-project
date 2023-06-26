@@ -5,9 +5,7 @@ import { useParams } from 'react-router-dom'
 import { ArticleDetails, getArticleDetailsError, getArticleErrorMessage } from 'entities/Article'
 import { Text, TextAligns, TextVariants } from 'shared/ui'
 import { useSelector } from 'react-redux'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { Page } from 'widgets/Page/Page'
-import { articleSinglePageReducer } from '../../model/slice'
 import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
 import { VStack } from 'shared/ui/stack'
 import { ArticleSingleRecommendations } from 'features/articleSingleRecommendations'
@@ -15,10 +13,6 @@ import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleCom
 
 interface ArticleSingleProps {
   className?: string
-}
-
-const reducers: ReducersList = {
-  articleSinglePage: articleSinglePageReducer
 }
 
 const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
@@ -31,33 +25,27 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
     return <Text text={t('NO_ARTICLE')} />
   }
 
-  let content
-
   if (articleDetailsError) {
-    content = (
-        <Text
-            title={getArticleErrorMessage(articleDetailsError)}
-            variant={TextVariants.ERROR}
-            align={TextAligns.CENTER}
-        />
-    )
-  } else {
-    content = (
+    return (
         <Page className={classNames([className])}>
-            <VStack gap={'32'} >
-                <ArticleSingleHeader />
-                <ArticleDetails id={id} />
-                <ArticleSingleRecommendations />
-                <ArticleSingleComments id={id} />
-            </VStack>
+            <Text
+               title={getArticleErrorMessage(articleDetailsError)}
+               variant={TextVariants.ERROR}
+               align={TextAligns.CENTER}
+           />
         </Page>
     )
   }
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
-          {content}
-      </DynamicModuleLoader>
+      <Page className={classNames([className])}>
+          <VStack gap={'32'} >
+              <ArticleSingleHeader />
+              <ArticleDetails id={id} />
+              <ArticleSingleRecommendations />
+              <ArticleSingleComments id={id} />
+          </VStack>
+      </Page>
   )
 }
 

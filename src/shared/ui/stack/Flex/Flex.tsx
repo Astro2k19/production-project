@@ -9,7 +9,7 @@ type FlexGapOptions = '4' | '8' | '12' | '16' | '32'
 
 type ValidTags = keyof JSX.IntrinsicElements
 
-export type FlexProps<T extends ValidTags> = {
+export type FlexProps<T extends ValidTags = 'div'> = {
   children: ReactNode
   tag?: T | ValidTags
   className?: string

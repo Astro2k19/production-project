@@ -15,4 +15,4 @@ const articleSingleRecommendationsApi = rtkApi.injectEndpoints({
   })
 })
 
-export const { useGetArticleRecommendationsQuery: getArticleRecommendations } = articleSingleRecommendationsApi
+export const useGetArticleRecommendations = articleSingleRecommendationsApi.useGetArticleRecommendationsQuery

@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import { updateProfileData } from './updateProfileData'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { ValidateProfileError } from 'features/editableProfileCard'
+import { ValidateProfileError } from '../../types/editableProfileCard'
 
 describe('updateProfileData', () => {
   const data = {

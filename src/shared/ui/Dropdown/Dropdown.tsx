@@ -16,19 +16,18 @@ interface DropdownProps {
   trigger: ReactNode
   className?: string
   items: DropdownItem[]
-  disabled?: boolean
   direction?: Placement
 }
 
 export const Dropdown: FC<DropdownProps> = (props) => {
-  const { trigger, items, disabled, className, direction = 'bottom-start' } = props
+  const { trigger, items, className, direction = 'bottom-start' } = props
   const { refs, floatingStyles } = useFloating({
     placement: direction,
     middleware: [flip(), offset(4), shift()]
   })
 
   return (
-      <Menu as={'div'} className={classNames([cls.dropdown, className])} ref={refs.setReference}>
+      <Menu as={'div'} className={classNames([cls.dropdown, className])} ref={refs.setReference} >
           <Menu.Button className={cls.trigger}>{trigger}</Menu.Button>
           <Menu.Items ref={refs.setFloating} style={floatingStyles} className={cls.items}>
               {items.map((item, index) => {

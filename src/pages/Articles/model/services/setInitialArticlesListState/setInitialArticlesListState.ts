@@ -49,4 +49,6 @@ export const setInitialArticlesListState = createAsyncThunk<undefined, undefined
       dispatch(articlesPageActions.setInitial({ initialView, initialLimit }))
       dispatch(fetchArticlesList({}))
     }
+
+    return undefined
   })

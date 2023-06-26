@@ -30,13 +30,9 @@ describe('fetchProfileData', () => {
     const result = await asyncThunk.callAction('1')
 
     expect(result.meta.requestStatus).toBe('rejected')
-    expect(result.payload).toEqual('SERVER_ERROR')
+    expect(result.payload).toEqual({
+      code: '500',
+      message: 'Server Error'
+    })
   })
 })
-
-enum ErrorType {
-  NetworkError,
-  ServerError,
-  ValidationError,
-  // Add additional error types here as needed
-}

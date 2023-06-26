@@ -12,7 +12,7 @@ interface FetchArticlesListArgs {
   replace?: boolean
 }
 
-export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListArgs, AsyncThunkConfig<ApiError>>(
+export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListArgs | undefined, AsyncThunkConfig<ApiError>>(
   'articlesPageList/fetchArticlesList',
   async (args, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI

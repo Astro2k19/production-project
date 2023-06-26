@@ -7,3 +7,4 @@ export { type Article, ArticleType, ArticleBlockType } from './model/types/artic
 export { getArticleDetailsData, getArticleDetailsError } from './model/selectors/articleDetails'
 export { fetchArticleDetailsById } from './model/services/fetchArticleDetailsById/fetchArticleDetailsById'
 export { getArticleErrorMessage } from './lib/getArticleErrorMessage/getArticleErrorMessage'
+export { article } from './mocks/data'

@@ -1,4 +1,4 @@
-import { type StoryObj, type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type ComponentMeta, type StoryObj } from '@storybook/react'
 import { Flex } from './Flex'
 
 export default {
@@ -11,6 +11,7 @@ export default {
 
 type Story = StoryObj<typeof Flex>
 
+/* eslint-disable i18next/no-literal-string */
 const list = (
     <>
         <div>first</div>

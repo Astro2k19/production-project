@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type Profile } from 'entities/Profile'
-import { AxiosError, isAxiosError, type AxiosError as AxiosErrorType } from 'axios'
+import { type AxiosError as AxiosErrorType } from 'axios'
 import { type ApiError } from 'shared/api/api'
 
 export const fetchProfileData = createAsyncThunk<Profile, string, AsyncThunkConfig<ApiError>>(

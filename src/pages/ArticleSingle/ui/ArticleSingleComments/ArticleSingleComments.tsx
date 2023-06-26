@@ -18,16 +18,25 @@ import {
   fetchArticleCommentsById
 } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { useTranslation } from 'react-i18next'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
+import { VStack } from 'shared/ui/stack'
 
 interface ArticleSingleCommentsProps {
   id: string
   className?: string
 }
 
+const reducers: ReducersList = {
+  articleSinglePageComments: articleSingleCommentsReducer
+}
+
 export const ArticleSingleComments = memo(({ className, id }: ArticleSingleCommentsProps) => {
   const { t } = useTranslation()
   const comments = useSelector(articleSingleCommentsSelectors.selectAll)
+  console.log(comments, 'comments')
   const isLoading = useSelector(getArticleSingleCommentsIsLoading)
+  console.log(isLoading, 'isLoading')
   const dispatch = useAppDispatch()
 
   const commentsError = useSelector(getArticleSingleCommentsError)
@@ -40,16 +49,18 @@ export const ArticleSingleComments = memo(({ className, id }: ArticleSingleComme
   })
 
   return (
-      <div className={classNames([className])}>
-          <Text title={t('Comments')}/>
-          <AddCommentForm
-                onSendComment={onSendComment}
-            />
-          <CommentsList
-                comments={comments}
-                isLoading={isLoading}
-                error={getArticleCommentsErrorMessage(commentsError)}
-            />
-      </div>
+      <DynamicModuleLoader reducers={reducers}>
+          <VStack gap={'16'} className={classNames([className])}>
+              <Text title={t('Comments')}/>
+              <AddCommentForm
+                  onSendComment={onSendComment}
+              />
+              <CommentsList
+                  comments={comments}
+                  isLoading={isLoading}
+                  error={getArticleCommentsErrorMessage(commentsError)}
+              />
+          </VStack>
+      </DynamicModuleLoader>
   )
 })

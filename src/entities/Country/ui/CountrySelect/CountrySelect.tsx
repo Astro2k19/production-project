@@ -41,6 +41,7 @@ export const CountrySelect: FC<CurrencySelectProps> = (props) => {
       value={value}
       onChange={onChangeHandler}
       readonly={readonly}
+      className={className}
   />
   )
 }

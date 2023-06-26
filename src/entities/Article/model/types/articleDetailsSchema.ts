@@ -1,4 +1,4 @@
-import { type Article, type ArticleError } from './article'
+import { type Article } from './article'
 import { type ApiError } from 'shared/api/api'
 
 export interface ArticleDetailsSchema {

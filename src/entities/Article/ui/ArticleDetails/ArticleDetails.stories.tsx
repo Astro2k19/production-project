@@ -40,16 +40,22 @@ withNotFoundError.args = {}
 
 withNotFoundError.decorators = [StoreDecorator({
   articleDetails: {
-    error: ArticleError.ARTICLE_NOT_FOUND
+    error: {
+      code: '404',
+      message: ArticleError.NOT_FOUND
+    }
   }
 })]
 
-export const withError = Template.bind({})
+export const withServerError = Template.bind({})
 
-withError.args = {}
+withServerError.args = {}
 
-withError.decorators = [StoreDecorator({
+withServerError.decorators = [StoreDecorator({
   articleDetails: {
-    error: ArticleError.SERVER_ERROR
+    error: {
+      code: '404',
+      message: ArticleError.SERVER_ERROR
+    }
   }
 })]

@@ -2,7 +2,8 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { fetchProfileData } from '../services/fetchProfileData/fetctProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { type Profile } from 'entities/Profile'
-import { type ProfileSchema } from '../types/editableProfileCard'
+import { type ProfileSchema, type ValidateProfileError } from '../types/editableProfileCard'
+import { type ApiError } from 'shared/api/api'
 
 const initialState: ProfileSchema = {
   data: undefined,
@@ -30,7 +31,7 @@ export const profileSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProfileData.pending, (state, action) => {
+    builder.addCase(fetchProfileData.pending, (state) => {
       state.isLoading = true
     })
       .addCase(fetchProfileData.fulfilled, (state, action) => {
@@ -40,9 +41,9 @@ export const profileSlice = createSlice({
       })
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false
-        state.error = action.payload
+        state.error = action.payload as ApiError
       })
-      .addCase(updateProfileData.pending, (state, action) => {
+      .addCase(updateProfileData.pending, (state) => {
         state.isLoading = true
         state.validateProfileErrors = undefined
       })
@@ -54,7 +55,7 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false
-        state.validateProfileErrors = action.payload
+        state.validateProfileErrors = action.payload as ValidateProfileError[]
       })
   }
 })

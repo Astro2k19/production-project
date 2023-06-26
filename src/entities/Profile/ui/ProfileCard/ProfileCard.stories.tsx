@@ -4,6 +4,7 @@ import { ProfileCard } from './ProfileCard'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import img from 'shared/assets/images/tests/avatar.jpg'
+import { ProfileError } from 'features/editableProfileCard'
 
 export default {
   title: 'entities/ProfileCard',
@@ -50,5 +51,8 @@ Readonly.args = {
 export const Error = Template.bind({})
 
 Error.args = {
-  error: 'error'
+  error: {
+    code: '500',
+    message: ProfileError.SERVER_ERROR
+  }
 }

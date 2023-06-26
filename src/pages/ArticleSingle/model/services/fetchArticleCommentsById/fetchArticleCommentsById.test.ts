@@ -35,9 +35,12 @@ describe('fetchArticleCommentsById', () => {
 
   test('request failed - no id', async () => {
     const asyncThunk = new TestAsyncThunk(fetchArticleCommentsById)
-    const result = await asyncThunk.callAction()
+    const result = await asyncThunk.callAction(undefined)
 
-    expect(result.payload).toEqual('NO_ID')
+    expect(result.payload).toEqual({
+      code: '404',
+      message: 'No id'
+    })
     expect(result.meta.requestStatus).toBe('rejected')
   })
 
@@ -46,7 +49,10 @@ describe('fetchArticleCommentsById', () => {
     asyncThunk.api.get.mockReturnValue(Promise.resolve({ }))
     const result = await asyncThunk.callAction('1')
 
-    expect(result.payload).toEqual('NO_DATA')
+    expect(result.payload).toEqual({
+      code: '500',
+      message: 'No data'
+    })
     expect(result.meta.requestStatus).toBe('rejected')
   })
 })

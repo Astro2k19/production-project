@@ -53,8 +53,7 @@ const normalizdComments = {
 describe('articleSingleCommentsSlice', () => {
   test('extraReducers articleSingleCommentsSlice.pending', () => {
     const state: DeepPartial<ArticleSingleCommentsSchema> = {
-      isLoading: false,
-      error: 'Ops! something went wrong.'
+      isLoading: false
     }
 
     const action = {

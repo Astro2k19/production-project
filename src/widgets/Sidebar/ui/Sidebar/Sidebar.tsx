@@ -8,7 +8,7 @@ import { Button, ButtonSizes, ButtonVariants } from 'shared/ui'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
-import { HStack, VStack } from 'shared/ui/stack'
+import { VStack } from 'shared/ui/stack'
 
 interface SidebarProps {
   className?: string

@@ -1,10 +1,14 @@
 import { type StoreSchema } from 'app/providers/storeProvider'
 import { getArticleSingleCommentsError, getArticleSingleCommentsIsLoading } from './comments'
+import { ArticleSingleCommentsError } from '../types/articleSingleComments'
 
 const state: DeepPartial<StoreSchema> = {
-  articleSingleComments: {
+  articleSinglePageComments: {
     isLoading: true,
-    error: 'Ops! something went wrong.'
+    error: {
+      code: '500',
+      message: ArticleSingleCommentsError.SERVER_ERROR
+    }
   }
 }
 describe('getArticleSingleCommentsIsLoading', () => {
@@ -19,7 +23,10 @@ describe('getArticleSingleCommentsIsLoading', () => {
 
 describe('getArticleSingleCommentsError', () => {
   test('should return error', () => {
-    expect(getArticleSingleCommentsError(state as StoreSchema)).toBe('Ops! something went wrong.')
+    expect(getArticleSingleCommentsError(state as StoreSchema)).toEqual({
+      code: '500',
+      message: ArticleSingleCommentsError.SERVER_ERROR
+    })
   })
 
   test('should return undefined', () => {

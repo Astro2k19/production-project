@@ -1,6 +1,6 @@
 import cls from './Card.module.scss'
 import { classNames } from 'shared/lib'
-import { type HTMLAttributes, memo, type ReactNode } from 'react'
+import { type HTMLAttributes, type ReactNode } from 'react'
 
 enum CardVariants {
   Normal = 'normal',

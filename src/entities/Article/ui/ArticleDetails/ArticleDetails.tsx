@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import cls from './ArticleDetails.module.scss'
-import { classNames } from 'shared/lib'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
@@ -23,7 +22,7 @@ import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
-import { Flex, HStack, VStack } from 'shared/ui/stack'
+import { HStack, VStack } from 'shared/ui/stack'
 
 interface ArticleDetailsProps {
   className?: string
