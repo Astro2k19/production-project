@@ -3,13 +3,17 @@ import { HomePage } from 'pages/Home'
 import { AboutPage } from 'pages/About'
 import { NotFoundPage } from 'pages/NotFound'
 import { Profile } from 'pages/Profile'
-import { appPaths, AppRoutes } from 'shared/config/routerConfig/routerConfig'
+import { appPaths } from 'shared/config/routerConfig/routerConfig'
 import { ArticlesPage } from 'pages/Articles'
 import { ArticleSinglePage } from 'pages/ArticleSingle'
 import { ArticleEditPage } from 'pages/ArticleEditPage'
+import { AdminPanel } from 'pages/AdminPanel'
+import { ForbiddenPage } from 'pages/ForbiddenPage'
+import { UserRoles } from 'entities/User'
 
 export type ProtectedRouteProps = RouteProps & {
   isProtected?: boolean
+  requiredRoles?: UserRoles[]
 }
 
 export const routerConfig: ProtectedRouteProps[] = [
@@ -42,12 +46,23 @@ export const routerConfig: ProtectedRouteProps[] = [
     isProtected: true
   },
   {
-    path: `${appPaths[AppRoutes.ARTICLE_SINGLE]}:id`,
+    path: `${appPaths.article}:id`,
     element: <ArticleSinglePage/>,
     isProtected: true
   },
   {
-    path: appPaths[AppRoutes.NOT_FOUND],
+    path: appPaths.admin,
+    element: <AdminPanel/>,
+    isProtected: true,
+    requiredRoles: [UserRoles.ADMIN, UserRoles.MANAGER]
+  },
+  {
+    path: appPaths.forbidden_page,
+    element: <ForbiddenPage/>,
+    isProtected: true
+  },
+  {
+    path: appPaths.not_found,
     element: <NotFoundPage/>
   }
 ]

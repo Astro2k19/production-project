@@ -1,10 +1,10 @@
 import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
 import { AppLink, AppLinkVariants, Button, ButtonVariants } from 'shared/ui'
-import { memo, useCallback, useState } from 'react'
+import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
-import { getUserAuthDate, userActions } from 'entities/User'
+import { getUserAuthDate, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { appPaths } from 'shared/config/routerConfig/routerConfig'
@@ -22,6 +22,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const dispatch = useAppDispatch()
   const authDate = useAppSelector(getUserAuthDate)
   const navigate = useNavigate()
+  const isAdmin = useAppSelector(isUserAdmin)
+  const isManager = useAppSelector(isUserManager)
 
   const onClose = useCallback(
     () => {
@@ -47,7 +49,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     navigate(`${appPaths.article_new}`)
   }, [navigate])
 
+  const isAdminPanelAccessible = isManager || isAdmin
+
   if (authDate) {
+    const dropdownOptions = [
+      ...(isAdminPanelAccessible
+        ? [{
+            content: t('Admin profile', { ns: 'profile' }),
+            href: appPaths.admin
+          }]
+        : []),
+      {
+        content: t('Profile', { ns: 'profile' }),
+        href: `${appPaths.profile}${authDate.id}`
+      },
+      {
+        content: t('Log Out'),
+        onClick: onLogOut
+      }
+    ]
+
     return (
         <div className={classNames([cls.navbar, className])}>
             <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>{t('Dev Site')}</AppLink>
@@ -58,18 +79,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Create new article')}
             </Button>
             <div className={cls.links}>
-                <Dropdown trigger={<Avatar src={authDate.avatar} size={30} />} items={
-                    [
-                      {
-                        content: t('Log Out'),
-                        onClick: onLogOut
-                      },
-                      {
-                        content: t('Profile', { ns: 'profile' }),
-                        href: `${appPaths.profile}${authDate.id}`
-                      }
-                    ]
-                }/>
+                <Dropdown
+                  trigger={<Avatar src={authDate.avatar}
+                  size={30} />}
+                  items={dropdownOptions}
+                />
             </div>
         </div>
     )

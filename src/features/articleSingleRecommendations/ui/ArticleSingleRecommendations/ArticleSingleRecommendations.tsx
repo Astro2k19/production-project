@@ -13,8 +13,6 @@ export const ArticleSingleRecommendations = memo(({ className }: ArticleSingleRe
   const { t } = useTranslation()
   const { data: articles = [], isLoading } = useGetArticleRecommendations(undefined)
 
-  console.log(articles, 'articles')
-
   return (
       <div className={classNames([className])}>
           <Text title={t('Recommendations')}/>
