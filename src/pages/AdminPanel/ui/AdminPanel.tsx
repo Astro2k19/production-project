@@ -1,15 +1,18 @@
 import { type FC } from 'react'
 import cls from './AdminPanel.module.scss'
 import { classNames } from 'shared/lib'
+import { Page } from 'widgets/Page/Page'
 
 interface AdminPanelProps {
   className?: string
 }
 
-export const AdminPanel: FC<AdminPanelProps> = ({ className }) => {
+const AdminPanel: FC<AdminPanelProps> = ({ className }) => {
   return (
-      <div className={classNames([cls.adminPanel, className])}>
-          Admin panel
-      </div>
+      <Page className={classNames([cls.adminPanel, className])}>
+          <h1>Admin panel</h1>
+      </Page>
   )
 }
+
+export default AdminPanel

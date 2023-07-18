@@ -1860,7 +1860,7 @@
       "id": "2",
       "username": "User",
       "password": "qwerqwer",
-      "role": ["USER"],
+      "roles": ["USER"],
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     }
   ]

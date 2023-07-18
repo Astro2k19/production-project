@@ -1,15 +1,16 @@
 import { type FC } from 'react'
-import cls from './AdminPanel.module.scss'
-import { classNames } from 'shared/lib'
+import { Page } from 'widgets/Page/Page'
 
 interface AdminPanelProps {
   className?: string
 }
 
-export const ForbiddenPage: FC<AdminPanelProps> = ({ className }) => {
+const ForbiddenPage: FC<AdminPanelProps> = ({ className }) => {
   return (
-      <div className={classNames([cls.adminPanel, className])}>
-          This page is forbidden for you!
-      </div>
+      <Page>
+          <h1>This page is forbidden for you!</h1>
+      </Page>
   )
 }
+
+export default ForbiddenPage

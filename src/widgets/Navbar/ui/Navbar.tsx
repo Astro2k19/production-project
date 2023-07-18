@@ -24,7 +24,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const navigate = useNavigate()
   const isAdmin = useAppSelector(isUserAdmin)
   const isManager = useAppSelector(isUserManager)
+  const data = useAppSelector(getUserAuthDate)
 
+  console.log(data, 'data')
   const onClose = useCallback(
     () => {
       setIsOpen(false)
@@ -55,7 +57,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const dropdownOptions = [
       ...(isAdminPanelAccessible
         ? [{
-            content: t('Admin profile', { ns: 'profile' }),
+            content: t('Admin Panel', { ns: 'profile' }),
             href: appPaths.admin
           }]
         : []),

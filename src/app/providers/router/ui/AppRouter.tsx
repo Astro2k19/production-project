@@ -5,6 +5,7 @@ import { type ProtectedRouteProps, routerConfig } from '../config/config'
 import { PageError } from 'widgets/PageError'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ProtectedRoute } from 'app/providers/router/ui/ProtectedRoute'
+import { RoleGuard } from 'app/providers/router/ui/RoleGuard'
 
 export const AppRouter: React.FC = () => {
   const renderWithProtectedRoutes = (route: ProtectedRouteProps) => {
@@ -16,7 +17,23 @@ export const AppRouter: React.FC = () => {
         </Suspense>
     )
 
-    return <Route key={route.path} path={route.path} element={route.isProtected ? <ProtectedRoute>{element}</ProtectedRoute> : element}/>
+    return <Route
+        key={route.path}
+        path={route.path}
+        element={
+            route.isProtected
+              ? (
+                  <RoleGuard requiredRoles={route.requiredRoles}>
+                      <ProtectedRoute>
+                          {element}
+                      </ProtectedRoute>
+                  </RoleGuard>
+                )
+              : (
+                  element
+                )
+        }
+    />
   }
 
   return (
