@@ -29,6 +29,8 @@ export const ArticlesListItemSkeleton: FC<ArticlesListItemSkeletonProps> = ({ vi
     )
   }
 
+  console.log(view, 'ArticlesListItemSkeleton')
+
   return (
       <div className={classNames([cls.articlesListItem, cls[view], className])}>
           <Card>

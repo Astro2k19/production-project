@@ -1,5 +1,6 @@
 import React, { type FC, memo } from 'react'
 import { Page } from 'widgets/Page/Page'
+import cls from './Articles.module.scss'
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
 
 interface ArticlesProps {
@@ -8,7 +9,7 @@ interface ArticlesProps {
 
 const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   return (
-      <Page>
+      <Page className={cls.articlesPage}>
           <ArticlesInfiniteList />
       </Page>
   )

@@ -26,6 +26,10 @@ export const Code = memo(({ className, text }: CodeProps) => {
     })
   }
 
+  if (!text) {
+    return null
+  }
+
   return (
       <pre className={classNames([cls.code, className])}>
           <Button className={cls.copyBtn} variant={ButtonVariants.CLEAR} onClick={onCopy}>

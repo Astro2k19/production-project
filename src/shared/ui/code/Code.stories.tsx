@@ -14,3 +14,6 @@ export default {
 const Template: ComponentStory<typeof CodeComponent> = (args) => <CodeComponent {...args} />
 
 export const Code = Template.bind({})
+Code.args = {
+  text: 'test'
+}

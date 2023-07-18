@@ -30,7 +30,7 @@ const reducer: ReducersList = {
 
 export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProps) => {
   const dispatch = useAppDispatch()
-  const isLoading = useAppSelector(getArticlesListIsLoading)
+  const isLoading = true
   // eslint-disable-next-line
   const error = useAppSelector(getArticlesListError)
   const articles = useAppSelector(articlesListSelectors.selectAll)
