@@ -12,6 +12,6 @@ export type {
 export { getUserAuthDate } from './model/selectors/getUserAuthDate/getUserAuthDate'
 export { getUserInited } from './model/selectors/getUserInited/getUserInited'
 export { getUserRoles, isUserAdmin, isUserManager } from './model/selectors/getUserRoles/getUserRoles'
-export { UserRoles } from './model/types/userTypes'
+export { UserRoles } from './model/conts/userConst'
 export { authMiddleware } from './model/middlewares/authMiddleware/authMiddleware'
 export { initUserDataMiddleware } from './model/middlewares/initUserDataMiddleware/initUserDataMiddleware'

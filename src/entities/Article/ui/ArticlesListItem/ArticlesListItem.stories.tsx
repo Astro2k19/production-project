@@ -2,7 +2,7 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ArticlesListItem } from './ArticlesListItem'
 import { article } from '../../mocks/data'
-import { ArticlesListView } from '../../model/types/article'
+import { ArticlesListView } from '../../model/conts/articleConts'
 
 export default {
   title: 'entities/Article/ArticlesListItem',

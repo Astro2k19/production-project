@@ -2,13 +2,29 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import ArticleSinglePage from './ArticleSingle'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { article as data } from 'entities/Article'
+import { article, article as data } from 'entities/Article'
+import withMock from 'storybook-addon-mock'
 
 export default {
   title: 'pages/ArticleSingle',
   component: ArticleSinglePage,
   argTypes: {
     backgroundColor: { control: 'color' }
+  },
+  decorators: [withMock],
+  parameters: {
+    mockData: [
+      {
+        url: `${__API_URL__}/articles?_limit=4&_expand=user`,
+        method: 'GET',
+        status: 200,
+        response: [
+          { ...article, id: 1 },
+          { ...article, id: 2 },
+          { ...article, id: 3 }
+        ]
+      }
+    ]
   }
 } as ComponentMeta<typeof ArticleSinglePage>
 

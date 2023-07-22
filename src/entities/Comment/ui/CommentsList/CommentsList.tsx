@@ -33,7 +33,7 @@ export const CommentsList = memo(({ className, comments, isLoading, error }: Com
   return (
       <div className={classNames([cls.commentsList, className])}>
           {comments?.length
-            ? comments.map((comment, id) => (
+            ? comments?.map((comment, id) => (
                 <CommentCard
                     key={id}
                     comment={comment}

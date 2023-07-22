@@ -1,4 +1,5 @@
-import { type Article, ArticleBlockType, ArticleType } from '../model/types/article'
+import { type Article } from '../model/types/article'
+import { ArticleBlockType, ArticleType } from '../model/conts/articleConts'
 // import avatar from 'shared/assets/images/tests/avatar.jpg'
 export const article: Article = {
   id: '1',

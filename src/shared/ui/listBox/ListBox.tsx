@@ -29,7 +29,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     placement: 'bottom-start',
     middleware: [flip(), offset(4), shift()]
   })
-
+  console.log(value, 'value')
   return (
       <HStack gap={'12'} alignItems={'center'}>
           {label && <span className={cls.label}>{`${label}>`}</span>}

@@ -1,7 +1,7 @@
 import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import cls from './ArticlesListItem.module.scss'
 import { classNames } from 'shared/lib'
-import { type Article, ArticleBlockType, ArticlesListView, type ArticleTextBlock } from '../../model/types/article'
+import { type Article, type ArticleTextBlock } from '../../model/types/article'
 import { Button, ButtonVariants, Text } from 'shared/ui'
 import { Card } from 'shared/ui/card/Card'
 import { Icon } from 'shared/ui/icon/Icon'
@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { AppRoutes } from 'shared/config/routerConfig/routerConfig'
 import { INITIAL_TOP_ARTICLES_INDEX_KEY } from 'shared/const/localStorage'
+import { ArticleBlockType, ArticlesListView } from '../../model/conts/articleConts'
 
 interface ArticlesListItemProps {
   className?: string

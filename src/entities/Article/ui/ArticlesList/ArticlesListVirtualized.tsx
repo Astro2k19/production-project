@@ -1,12 +1,13 @@
 import { type FC, type HTMLAttributeAnchorTarget, useEffect, useRef, useState } from 'react'
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib'
-import { type Article, ArticlesListView } from '../../model/types/article'
+import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
 import { Text } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Components, Virtuoso, VirtuosoGrid, type VirtuosoGridHandle, type VirtuosoHandle } from 'react-virtuoso'
+import { ArticlesListView } from '../../model/conts/articleConts'
 
 interface ArticlesListProps {
   className?: string
@@ -154,7 +155,6 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
                             />
                         )
                       }}
-                      headerFooterTag={'div'}
                       itemClassName={cls.gridListItem}
                       listClassName={cls.gridList}
                       scrollSeekConfiguration={{

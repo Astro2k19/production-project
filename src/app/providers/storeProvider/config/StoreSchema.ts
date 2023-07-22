@@ -23,7 +23,7 @@ export interface StoreSchema {
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleSinglePageComments?: ArticleSingleCommentsSchema
+  articleSingleComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema
   articlesFilters: ArticlesFiltersSchema

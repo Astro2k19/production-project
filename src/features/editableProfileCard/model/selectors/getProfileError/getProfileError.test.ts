@@ -1,6 +1,6 @@
 import { getProfileError } from './getProfileError'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
-import { ProfileError } from '../../types/editableProfileCard'
+import { ProfileError } from '../../const/editableProfileCardConst'
 
 describe('getProfileError', () => {
   test('should return error text', () => {

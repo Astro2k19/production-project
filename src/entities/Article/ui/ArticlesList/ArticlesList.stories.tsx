@@ -1,19 +1,19 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ArticlesListVirtualized } from './ArticlesListVirtualized'
+import { ArticlesList } from './ArticlesList'
 import { article } from '../../mocks/data'
-import { ArticlesListView } from '../../model/types/article'
+import { ArticlesListView } from '../../model/conts/articleConts'
 
 export default {
   title: 'entities/Article/ArticlesList',
-  component: ArticlesListVirtualized,
+  component: ArticlesList,
 
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof ArticlesListVirtualized>
+} as ComponentMeta<typeof ArticlesList>
 
-const Template: ComponentStory<typeof ArticlesListVirtualized> = (args) => <ArticlesListVirtualized {...args} />
+const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />
 
 export const Grid = Template.bind({})
 
@@ -31,7 +31,8 @@ List.args = {
 export const IsLoadingGrid = Template.bind({})
 
 IsLoadingGrid.args = {
-  isLoading: true
+  isLoading: true,
+  view: ArticlesListView.GRID
 }
 
 export const IsLoadingList = Template.bind({})

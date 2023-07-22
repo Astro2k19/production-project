@@ -1,9 +1,9 @@
-import { addDecorator } from '@storybook/react'
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 
 import { withThemes } from 'storybook-addon-themes/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 import i18n from './i18next'
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -28,6 +28,9 @@ export const parameters = {
   }
 }
 
-addDecorator(StyleDecorator)
-addDecorator(withThemes)
-addDecorator(withRouter)
+// addDecorator(StyleDecorator)
+// addDecorator(withThemes)
+// addDecorator(withRouter)
+// addDecorator(SuspenseDecorator)
+
+export const decorators = [StyleDecorator, SuspenseDecorator, withThemes, withRouter]

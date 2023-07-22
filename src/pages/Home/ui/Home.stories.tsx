@@ -1,6 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import HomePage from './Home'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'pages/Home',
@@ -15,4 +16,6 @@ const Template: ComponentStory<typeof HomePage> = () => <HomePage />
 
 export const Home = Template.bind({})
 
-Home.args = {}
+Home.decorators = [
+  StoreDecorator({})
+]

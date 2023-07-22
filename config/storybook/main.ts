@@ -12,7 +12,8 @@ export default {
     '@storybook/preset-scss',
     'storybook-addon-themes',
     'storybook-react-i18next',
-    'storybook-addon-react-router-v6'
+    'storybook-addon-react-router-v6',
+    'storybook-addon-mock/register'
   ],
   framework: '@storybook/react',
   core: {

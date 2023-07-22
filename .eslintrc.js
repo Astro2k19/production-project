@@ -24,7 +24,7 @@ module.exports = {
     'react',
     'i18next',
     "react-hooks",
-      'authoring-project-plugin'
+    'authoring-project-plugin'
   ],
   rules: {
     'react/jsx-indent': [2, 4],

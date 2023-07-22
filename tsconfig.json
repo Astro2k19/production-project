@@ -20,6 +20,7 @@
       "*": ["./src/*"]
     },
     "strictBindCallApply": true,
+    "isolatedModules": true,
 //    "include": [
 //      "./config/jest/jest-setup.ts",
 //      "./src/**/*.ts",

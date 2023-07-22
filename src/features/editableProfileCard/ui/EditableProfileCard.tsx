@@ -16,8 +16,8 @@ import { getProfileValidateErrors } from '../model/selectors/getProfileValidateE
 import { VStack } from 'shared/ui/stack'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { fetchProfileData } from '../model/services/fetchProfileData/fetctProfileData'
-import { ValidateProfileError } from '../model/types/editableProfileCard'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { ValidateProfileError } from '../model/const/editableProfileCardConst'
 
 interface EditableProfileCardProps {
   className?: string
@@ -36,8 +36,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const readonly = useAppSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
-
-  console.log(isLoading, 'isLoading')
 
   useFetchData(() => {
     dispatch(fetchProfileData(id))

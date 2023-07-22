@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 import cls from './ArticlesListItem.module.scss'
 import { classNames } from 'shared/lib'
-import { ArticlesListView } from '../../model/types/article'
 import { Card } from 'shared/ui/card/Card'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
+import { ArticlesListView } from '../../model/conts/articleConts'
 
 interface ArticlesListItemSkeletonProps {
   view: ArticlesListView

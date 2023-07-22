@@ -29,6 +29,13 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 
 export const Profile = Template.bind({})
 
+Profile.parameters = {
+  reactRouter: {
+    routePath: '/profile/:id',
+    routeParams: { id: '1' }
+  }
+}
+
 Profile.decorators = [StoreDecorator({
   profile: {
     data,

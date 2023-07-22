@@ -1,6 +1,6 @@
 import { type ApiError } from 'shared/api/api'
 import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
-import { ProfileError } from '../../types/editableProfileCard'
+import { ProfileError } from '../../const/editableProfileCardConst'
 
 const profileErrorCodeMappings = {
   404: `${ProfileError.NOT_FOUND}`,

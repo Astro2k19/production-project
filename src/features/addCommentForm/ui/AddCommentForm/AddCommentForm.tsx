@@ -37,11 +37,11 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <form className={classNames([cls.addComponentForm, className])} onSubmit={onSubmitForm}>
               <Input
-                  className={cls.input}
-                  placeholder={t('Enter comment')}
-                  onChange={onChangeComment}
-                  value={text}
-              />
+                      className={cls.input}
+                      placeholder={t('Enter comment')}
+                      onChange={onChangeComment}
+                      value={text}
+                  />
               <Button type='submit' variant={ButtonVariants.OUTLINE}>{t('Send')}</Button>
           </form>
       </DynamicModuleLoader>

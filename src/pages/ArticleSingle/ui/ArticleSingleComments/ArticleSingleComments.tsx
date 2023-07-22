@@ -1,7 +1,6 @@
-import { memo, useCallback } from 'react'
+import { memo, Suspense, useCallback } from 'react'
 import { classNames } from 'shared/lib'
 import { Text } from 'shared/ui'
-import { AddCommentForm } from 'features/addCommentForm'
 import { CommentsList } from 'entities/Comment'
 import {
   getArticleCommentsErrorMessage
@@ -21,6 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
 import { VStack } from 'shared/ui/stack'
+import { AddCommentForm } from 'features/addCommentForm'
 
 interface ArticleSingleCommentsProps {
   id: string
@@ -28,15 +28,13 @@ interface ArticleSingleCommentsProps {
 }
 
 const reducers: ReducersList = {
-  articleSinglePageComments: articleSingleCommentsReducer
+  articleSingleComments: articleSingleCommentsReducer
 }
 
 export const ArticleSingleComments = memo(({ className, id }: ArticleSingleCommentsProps) => {
   const { t } = useTranslation()
   const comments = useSelector(articleSingleCommentsSelectors.selectAll)
-  console.log(comments, 'comments')
   const isLoading = useSelector(getArticleSingleCommentsIsLoading)
-  console.log(isLoading, 'isLoading')
   const dispatch = useAppDispatch()
 
   const commentsError = useSelector(getArticleSingleCommentsError)
@@ -52,9 +50,11 @@ export const ArticleSingleComments = memo(({ className, id }: ArticleSingleComme
       <DynamicModuleLoader reducers={reducers}>
           <VStack gap={'16'} className={classNames([className])}>
               <Text title={t('Comments')}/>
-              <AddCommentForm
-                  onSendComment={onSendComment}
-              />
+              <Suspense fallback={'Loading...'}>
+                  <AddCommentForm
+                      onSendComment={onSendComment}
+                  />
+              </Suspense>
               <CommentsList
                   comments={comments}
                   isLoading={isLoading}

@@ -1822,6 +1822,12 @@
       "userId": "1",
       "text": "sdasdf",
       "id": 50
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "asdfasdfasdf",
+      "id": 51
     }
   ],
   "profile": [
@@ -1853,14 +1859,19 @@
       "id": "1",
       "username": "Admin",
       "password": "12341234",
-      "roles": ["ADMIN", "MANAGER"],
+      "roles": [
+        "ADMIN",
+        "MANAGER"
+      ],
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     },
     {
       "id": "2",
       "username": "User",
       "password": "qwerqwer",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     }
   ]

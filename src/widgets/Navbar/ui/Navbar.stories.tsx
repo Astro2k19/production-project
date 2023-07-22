@@ -2,11 +2,11 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Navbar } from './Navbar'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import avatar from 'shared/assets/images/tests/avatar.jpg'
 
 export default {
   title: 'widgets/Navbar',
   component: Navbar,
-
   argTypes: {
     backgroundColor: { control: 'color' }
   }
@@ -24,6 +24,8 @@ export const Authorized = Template.bind({})
 Authorized.args = {}
 Authorized.decorators = [StoreDecorator({
   user: {
-    authData: {}
+    authData: {
+      avatar
+    }
   }
 })]

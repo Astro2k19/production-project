@@ -1,9 +1,9 @@
 import { type StoreSchema } from 'app/providers/storeProvider'
 import { getArticleSingleCommentsError, getArticleSingleCommentsIsLoading } from './comments'
-import { ArticleSingleCommentsError } from '../types/articleSingleComments'
+import { ArticleSingleCommentsError } from '../const/articleSingleConst'
 
 const state: DeepPartial<StoreSchema> = {
-  articleSinglePageComments: {
+  articleSingleComments: {
     isLoading: true,
     error: {
       code: '500',

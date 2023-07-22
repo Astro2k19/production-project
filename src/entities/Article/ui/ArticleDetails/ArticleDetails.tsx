@@ -12,7 +12,7 @@ import {
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { Skeleton } from 'shared/ui/skeleton/Skeleton'
 import { Text, TextAligns, TextSize, TextVariants } from 'shared/ui'
-import { ArticleBlockType, type ArticleBlockTypes } from '../../model/types/article'
+import { type ArticleBlockTypes } from '../../model/types/article'
 import { Avatar } from 'shared/ui/avatar/Avatar'
 import { Icon } from 'shared/ui/icon/Icon'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
@@ -23,6 +23,7 @@ import DateIcon from 'shared/assets/icons/clarity_date-line.svg'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
 import { HStack, VStack } from 'shared/ui/stack'
+import { ArticleBlockType } from '../../model/conts/articleConts'
 
 interface ArticleDetailsProps {
   className?: string
@@ -39,14 +40,14 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const isLoading = useAppSelector(getArticleDetailsIsLoading)
   const error = useAppSelector(getArticleDetailsError)
 
-  const renderBlock = (block: ArticleBlockTypes) => {
+  const renderBlock = (block: ArticleBlockTypes, index: number) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent block={block} />
+        return <ArticleCodeBlockComponent block={block} key={index} />
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent block={block} />
+        return <ArticleImageBlockComponent block={block} key={index} />
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent block={block} />
+        return <ArticleTextBlockComponent block={block} key={index} />
       default:
         return null
     }

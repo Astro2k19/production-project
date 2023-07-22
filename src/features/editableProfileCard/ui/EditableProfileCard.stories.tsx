@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import img from 'shared/assets/images/tests/avatar.jpg'
-import { ValidateProfileError } from '../model/types/editableProfileCard'
+import { ValidateProfileError } from '../model/const/editableProfileCardConst'
 
 export default {
   title: 'features/EditableProfileCard',

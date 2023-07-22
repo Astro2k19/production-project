@@ -2,7 +2,7 @@ import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import AuthForm from './AuthForm'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { AuthFormError } from '../../model/types/loginSchema'
+import { AuthFormError } from '../../model/const/authConst'
 
 export default {
   title: 'features/AuthForm',

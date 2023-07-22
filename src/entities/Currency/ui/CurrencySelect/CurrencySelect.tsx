@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Currency } from '../../model/types/currency'
+import { Currency } from '../../model/const/currencyConts'
 import { ListBox } from 'shared/ui/listBox/ListBox'
 
 const currencyOptions = [
@@ -44,12 +44,3 @@ export const CurrencySelect: FC<CurrencySelectProps> = (props) => {
       />
   )
 }
-
-// <Select
-//     label={'Currency'}
-//     options={currencyOptions}
-//     className={className}
-//     onChange={onChangeHandler}
-//     readonly={readonly}
-//     value={value}
-// />

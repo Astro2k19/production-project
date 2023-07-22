@@ -1,6 +1,5 @@
 export { EditableProfileCard } from './ui/EditableProfileCard'
 export { fetchProfileData } from './model/services/fetchProfileData/fetctProfileData'
 export { profileActions } from './model/slice/profileSlice'
-export { ProfileError } from 'features/editableProfileCard/model/types/editableProfileCard'
-export { ValidateProfileError } from 'features/editableProfileCard/model/types/editableProfileCard'
-export type { ProfileSchema } from 'features/editableProfileCard/model/types/editableProfileCard'
+export type { ProfileSchema } from './model/types/editableProfileCard'
+export { ValidateProfileError, ProfileError } from './model/const/editableProfileCardConst'

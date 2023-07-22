@@ -1,7 +1,7 @@
 import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
 import { AppLink, AppLinkVariants, Button, ButtonVariants } from 'shared/ui'
-import { memo, useCallback, useMemo, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
 import { getUserAuthDate, isUserAdmin, isUserManager, userActions } from 'entities/User'
@@ -51,7 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     navigate(`${appPaths.article_new}`)
   }, [navigate])
 
-  const isAdminPanelAccessible = isManager || isAdmin
+  const isAdminPanelAccessible = isManager ?? isAdmin
 
   if (authDate) {
     const dropdownOptions = [
@@ -75,17 +75,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <div className={classNames([cls.navbar, className])}>
             <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>{t('Dev Site')}</AppLink>
             <Button
-                  onClick={onCreateNewArticle}
-                  variant={ButtonVariants.CLEAR_INVERTED}
-            >
+                    onClick={onCreateNewArticle}
+                    variant={ButtonVariants.CLEAR_INVERTED}
+                >
                 {t('Create new article')}
             </Button>
             <div className={cls.links}>
                 <Dropdown
-                  trigger={<Avatar src={authDate.avatar}
-                  size={30} />}
-                  items={dropdownOptions}
-                />
+                        trigger={<Avatar src={authDate.avatar}
+                                         size={30}/>}
+                        items={dropdownOptions}
+                    />
             </div>
         </div>
     )
@@ -93,7 +93,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
       <div className={classNames([cls.navbar, className])}>
-          <AuthModal isOpen={isOpen} onClose={onClose} />
+          <AuthModal isOpen={isOpen} onClose={onClose}/>
           <div className={cls.links}>
               <Button onClick={onOpen} variant={ButtonVariants.CLEAR_INVERTED}>
                   {t('Log In')}

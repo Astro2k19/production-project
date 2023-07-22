@@ -15,4 +15,6 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
 
 export const CountrySelect = Template.bind({})
 
-CountrySelect.args = {}
+CountrySelect.args = {
+  value: 'Select'
+}
