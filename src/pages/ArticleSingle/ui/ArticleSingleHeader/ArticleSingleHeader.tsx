@@ -30,7 +30,7 @@ export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({ className })
   return (
       <div className={classNames([cls.articleSingleHeader, className])}>
           <Button
-            title={t('Click to go back')}
+            title={t('Go back to articles')}
             onClick={onGoBack}
             variant={ButtonVariants.OUTLINE}
           >

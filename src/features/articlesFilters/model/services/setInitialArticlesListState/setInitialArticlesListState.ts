@@ -5,10 +5,10 @@ import { ARTICLES_LIST_VIEW_KEY } from 'shared/const/localStorage'
 import { getArticlesInited } from '../../selectors/articlesPageList'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
-import { articlesFiltersActions } from 'features/articlesFilters/model/slice/articlesFiltersSlice'
-import { type ArticlesSortFields } from 'features/articlesFilters/model/types/articleFilters'
 import { type SortOrder } from 'shared/types/sortOrder'
 import { getUrlQueryParams } from 'shared/lib'
+import { type ArticlesSortFields } from '../../conts/articleFiltersConst'
+import { articlesFiltersActions } from '../../slice/articlesFiltersSlice'
 
 export interface InitialArticlesListState {
   initialView: ArticlesListView

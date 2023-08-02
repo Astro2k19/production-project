@@ -11,7 +11,7 @@ interface ArticleSingleRecommendationsProps {
 
 export const ArticleSingleRecommendations = memo(({ className }: ArticleSingleRecommendationsProps) => {
   const { t } = useTranslation()
-  const { data: articles = [], isLoading, error } = useGetArticleRecommendations({})
+  const { data: articles = [], isLoading, error } = useGetArticleRecommendations(undefined)
 
   console.log(error, 'error')
 

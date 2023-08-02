@@ -6,11 +6,12 @@ import { render, type RenderResult } from '@testing-library/react'
 import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { StoreProvider } from 'app/providers/storeProvider'
+import { type ReducersList } from '../../dynamicModuleLoader/DynamicModuleLoader'
 
 interface componentRenderOptions {
   route?: string
   initialState?: DeepPartial<StoreSchema>
-  asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>
+  asyncReducers?: ReducersList
 }
 
 export const componentRender = (component: ReactNode, options: componentRenderOptions = {}): RenderResult => {

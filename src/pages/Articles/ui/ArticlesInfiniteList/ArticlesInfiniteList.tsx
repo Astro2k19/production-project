@@ -3,22 +3,16 @@ import cls from './ArticlesInfinite.module.scss'
 import { type ArticlesListView, ArticlesListVirtualized } from 'entities/Article'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { useFetchData } from 'shared/lib/hooks/useFetchData'
+
 import {
+  ArticlesFilters,
   getArticlesListError,
   getArticlesListIsLoading,
   getArticlesListView
-} from '../../model/selectors/articlesPageList'
-import {
-  articlesListSelectors,
-  articlesPageActions, articlesPageReducer
-} from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
-import { useFetchData } from 'shared/lib/hooks/useFetchData'
-import {
-  setInitialArticlesListState
-} from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
-import { ArticlesFilters } from 'features/articlesFilters'
+} from 'features/articlesFilters'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { articlesPageReducer } from 'features/articlesFilters/model/slice/articlesPageListSlice/articlesPageListSlice'
 
 interface ArticleInfiniteListProps {
   className?: string
@@ -35,8 +29,6 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
   const error = useAppSelector(getArticlesListError)
   const articles = useAppSelector(articlesListSelectors.selectAll)
   const view = useAppSelector(getArticlesListView)
-
-  console.log(articles, 'articles')
 
   const loadNextArticles = useCallback(() => {
     dispatch(fetchNextArticlesPart())

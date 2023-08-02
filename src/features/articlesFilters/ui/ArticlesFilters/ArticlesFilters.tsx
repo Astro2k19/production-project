@@ -8,7 +8,7 @@ import { Card } from 'shared/ui/card/Card'
 import { Input } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { articlesFiltersActions } from '../../model/slice/articlesFiltersSlice'
-import { type ArticlesSortFields } from '../../model/types/articleFilters'
+import { type ArticlesSortFields } from '../../model/conts/articleFiltersConst'
 import { type SortOrder } from 'shared/types/sortOrder'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import {
@@ -17,11 +17,11 @@ import {
   getArticlesFiltersSort,
   getArticlesFiltersType
 } from '../../model/selectors/articlesFiltersSelectors'
-import { fetchArticlesList } from 'pages/Articles/model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageActions } from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { ArticleTabTypes } from '../ArticlesTabTypes/ArticleTabTypes'
 import { HStack, VStack } from 'shared/ui/stack'
+import { articlesPageActions } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 
 interface ArticlesFiltersProps {
   className?: string

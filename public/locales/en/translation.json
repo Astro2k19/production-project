@@ -1,31 +1,58 @@
 {
   "About": "About",
+  "Admin panel": "",
   "Age": "",
   "Avatar": "",
+  "Comments": "",
+  "Copied!": "",
+  "Create new article": "",
+  "Dev Site": "",
   "Edit": "",
+  "Enter comment": "",
+  "FORBIDDEN_PAGE": "",
   "First name": "",
   "Home": "Home",
   "Language": "UA",
   "Last name": "",
   "Log In": "Log In",
   "Log Out": "Log Out",
+  "NO_ARTICLE": "",
+  "No comments yet!": "",
   "Not found page": "Not found page! :(",
-  "Oops! Something went wrong. Please, try again!": "Oops! Something went wrong. Please, try Again!",
   "Oops! Something went wrong": "Oops! Something went wrong",
+  "Oops! Something went wrong. Please, try again!": "Oops! Something went wrong. Please, try Again!",
   "Password or username is wrong!": "Password or username is wrong!",
   "Profile": "Profile",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "Recommendations": "",
+  "Search": "",
+  "Send": "",
+  "Something went wrong!": "",
+  "Sort by": "",
+  "Sort order": "",
+  "Such articles doesn't exist": "",
   "Toggle": "",
   "Try again": "Try again",
   "Username": "",
+  "asdfasdf": "asdfasdf",
+  "ddddddddd": "ddddddddd",
+  "dddddddddd ddddddddddd ddddddddd ddDDDDDDDDDdddd dddddddd ddd": "dddddddddd ddddddddddd ddddddddd ddDDDDDDDDDdddd dddddddd ddd",
+  "ddddddddddddddddddddddddddddddddddddddddddddddd": "ddddddddddddddddddddddddddddddddddddddddddddddd",
   "decrement": "",
   "en": "en",
+  "fetch_error": {
+    "BAD_REQUEST_ERROR": "Incorrect password or login!",
+    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
+    "UNKNOWN_ERROR": "An error occurred, please try again later."
+  },
   "increment": "",
   "ua": "ua",
-  "value": "",
-  "fetch_error": {
-    "UNKNOWN_ERROR": "An error occurred, please try again later.",
-    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
-    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
-    "BAD_REQUEST_ERROR": "Incorrect password or login!"
-  }
+  "value": ""
 }

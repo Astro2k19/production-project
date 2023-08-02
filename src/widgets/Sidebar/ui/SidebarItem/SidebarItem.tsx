@@ -15,7 +15,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   return (
       <AppLink to={item.path} className={classNames([cls.item], { [cls.collapsed]: collapsed })} variant={AppLinkVariants.INVERTED}>
           <item.Icon className={cls.itemIcon} />
-          <span>{t(item.text)}</span>
+          <span>{t(item.text)}</span> {/* i18next-extract-disable-line */}
       </AppLink>
   )
 })

@@ -1,6 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { CurrencySelect as Select } from './CurrencySelect'
+import { Currency } from 'entities/Currency'
 
 export default {
   title: 'shared/CurrencySelect',
@@ -16,5 +17,5 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
 export const CurrencySelect = Template.bind({})
 
 CurrencySelect.args = {
-  value: 'Select'
+  value: Currency.UAH
 }

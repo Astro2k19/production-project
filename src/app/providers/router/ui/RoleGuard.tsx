@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom'
 import { appPaths } from 'shared/config/routerConfig/routerConfig'
 
 interface ProtectedWithRoleProps {
-  children?: ReactNode
+  children: JSX.Element
   requiredRoles?: UserRoles[]
 }
 

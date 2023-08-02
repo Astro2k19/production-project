@@ -6,6 +6,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyPlugin from 'copy-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 
 export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOptions): WebpackPluginInstance[] => {
   return [
@@ -32,6 +34,23 @@ export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOp
       patterns: [
         { from: paths.locales, to: paths.buildLocales }
       ]
-    })
+    }),
+    ...(isDev
+      ? [new ForkTsCheckerWebpackPlugin({
+          typescript: {
+            diagnosticOptions: {
+              semantic: true,
+              syntactic: true
+            }
+          }
+        })]
+      : []),
+    ...(isDev
+      ? [new CircularDependencyPlugin({
+          exclude: /node_modules/
+        })]
+      : [])
   ]
 }
+
+// TODO: fix circular dependencies, don't forget about Dependency cruiser

@@ -8,6 +8,8 @@ const HomePage = memo(() => {
   return (
       <Page>
           <h1>{t('Home page', { ns: 'home' })}</h1>
+          {t('asdfasdf', { ns: 'home' })}
+          asdfsadfasdasdasdasasdfasdfsadfasdasd
       </Page>
   )
 })

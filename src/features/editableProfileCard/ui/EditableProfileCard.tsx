@@ -77,7 +77,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
                   <Text
                     key={err}
                     variant={TextVariants.ERROR}
-                    text={t(`validation_error.${ValidateProfileError[err]}`)}
+                    text={t(`validation_error.${ValidateProfileError[err]}`)} /* i18next-extract-disable-line */
                     data-testid={'EditableProfileCard.Error'}
                   />
               ))}

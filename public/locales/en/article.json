@@ -1,14 +1,19 @@
 {
-  "fetch_error": {
-    "NOT_FOUND": "Such an article does not exist! :(",
-    "SERVER_ERROR": "An error occurred on the server. Please try again later.",
-    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again."
-  },
+  "Click to edit article": "",
+  "Click to go back": "Click to go back",
+  "Edit article": "",
+  "Go back to articles": "Go back to articles",
+  "Read more": "",
   "articles_type": {
     "ALL": "ALL",
+    "ECONOMICS": "ECONOMICS",
     "IT": "IT",
     "POLITICS": "POLITICS",
-    "SPORT": "SPORT",
-    "ECONOMICS": "ECONOMICS"
+    "SPORT": "SPORT"
+  },
+  "fetch_error": {
+    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
+    "NOT_FOUND": "Such an article does not exist! :(",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later."
   }
 }

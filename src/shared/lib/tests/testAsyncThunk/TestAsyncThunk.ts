@@ -31,7 +31,7 @@ export class TestAsyncThunk<Returned, ThunkArg, Error, ThunkApiConfig extends As
   }
 
   async callAction (args?: ThunkArg) {
-    const action = this.actionCreator(args)
+    const action = this.actionCreator(args as ThunkArg)
     // @ts-expect-error: have to add type as for dispatch function
     const result = await action(this.dispatch, this.getState, {
       api: this.api

@@ -4,9 +4,8 @@ import { type AxiosError as AxiosErrorType } from 'axios/index'
 import { type ApiError } from 'shared/api/api'
 import { type Article, ArticleType } from 'entities/Article'
 import { getArticlesListLimit, getArticlesListPage } from '../../selectors/articlesPageList'
-import { getArticlesFiltersOrder, getArticlesFiltersSearch, getArticlesFiltersSort } from 'features/articlesFilters'
+import { getArticlesFiltersOrder, getArticlesFiltersSearch, getArticlesFiltersSort, getArticlesFiltersType } from '../../selectors/articlesFiltersSelectors'
 import { addUrlQueryParams } from 'shared/lib'
-import { getArticlesFiltersType } from 'features/articlesFilters/model/selectors/articlesFiltersSelectors'
 
 interface FetchArticlesListArgs {
   replace?: boolean

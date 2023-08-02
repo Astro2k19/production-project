@@ -17,7 +17,7 @@ export const ArticleTabTypes = memo(
     const articleTypesOptions = useMemo<Array<TabItem<ArticleType>>>(() => {
       return Object.values(ArticleType).reduce((tabItems: Array<TabItem<ArticleType>>, item) => [
         ...tabItems,
-        { value: item, label: t(`articles_type.${item}`) }
+        { value: item, label: t(`articles_type.${item}`) } /* i18next-extract-disable-line */
       ], [])
     }, [t])
 

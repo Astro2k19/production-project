@@ -11,5 +11,5 @@ export const getErrorMessage = (
   const errorMessage = errorCodeMappings[error.code] || defaultErrorCode
   nested.push(errorMessage)
 
-  return i18n.t(`${nested.join('.')}`, { ns: namespace })
+  return i18n.t(`${nested.join('.')}`, { ns: namespace }) /* i18next-extract-disable-line */
 }

@@ -1,4 +1,3 @@
-import { type CounterSchema } from 'entities/Counter'
 import { type UserSchema } from 'entities/User'
 import { type LoginFormSchema } from 'features/auth/by-username'
 import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
@@ -6,15 +5,13 @@ import { type CombinedState, type Dispatch } from 'redux'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
-import { type ArticlesPageListSchema } from 'pages/Articles'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
-import { type ArticlesFiltersSchema } from 'features/articlesFilters'
+import { type ArticlesFiltersSchema, type ArticlesPageListSchema } from 'features/articlesFilters'
 import { type rtkApi } from 'shared/api/rtkApi'
 import { type ProfileSchema } from 'features/editableProfileCard'
 import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle/model/types/articleSingleComments'
 
 export interface StoreSchema {
-  counter: CounterSchema
   user: UserSchema
   savePageScroll: SavePageScrollSchema
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>

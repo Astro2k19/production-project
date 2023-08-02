@@ -46,7 +46,9 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
 
   const path = `/${AppRoutes.ARTICLES}/${article.id}`
 
-  const { t } = useTranslation('article')
+  const { t } = useTranslation()
+
+  //   article
 
   if (view === ArticlesListView.GRID) {
     return (
