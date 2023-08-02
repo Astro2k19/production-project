@@ -3,9 +3,15 @@ import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type AxiosError as AxiosErrorType } from 'axios/index'
 import { type ApiError } from 'shared/api/api'
 import { type Article, ArticleType } from 'entities/Article'
-import { getArticlesListLimit, getArticlesListPage } from '../../selectors/articlesPageList'
-import { getArticlesFiltersOrder, getArticlesFiltersSearch, getArticlesFiltersSort, getArticlesFiltersType } from '../../selectors/articlesFiltersSelectors'
 import { addUrlQueryParams } from 'shared/lib'
+import {
+  getArticlesFiltersOrder,
+  getArticlesFiltersPage,
+  getArticlesFiltersSearch,
+  getArticlesFiltersSort,
+  getArticlesFiltersType
+} from 'features/articlesFilters'
+import { getArticlesListLimit } from '../../selectors/articlesPageList'
 
 interface FetchArticlesListArgs {
   replace?: boolean
@@ -15,7 +21,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListAr
   'articlesPageList/fetchArticlesList',
   async (args, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI
-    const page = getArticlesListPage(getState())
+    const page = getArticlesFiltersPage(getState())
     const limit = getArticlesListLimit(getState())
     const sort = getArticlesFiltersSort(getState())
     const order = getArticlesFiltersOrder(getState())

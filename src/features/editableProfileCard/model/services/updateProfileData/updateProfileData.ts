@@ -3,7 +3,6 @@ import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { type Profile } from 'entities/Profile'
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData'
 import { validateErrors } from '../validateErrors/validateErrors'
-import { profileActions } from '../../slice/profileSlice'
 import { ValidateProfileError } from '../../const/editableProfileCardConst'
 
 export const updateProfileData = createAsyncThunk<Profile, undefined, AsyncThunkConfig<ValidateProfileError[]>>(
@@ -24,8 +23,6 @@ export const updateProfileData = createAsyncThunk<Profile, undefined, AsyncThunk
       if (!response.data) {
         return rejectWithValue([ValidateProfileError.SERVER_ERROR])
       }
-
-      dispatch(profileActions.setReadonly(true))
 
       return response.data
     } catch (e) {

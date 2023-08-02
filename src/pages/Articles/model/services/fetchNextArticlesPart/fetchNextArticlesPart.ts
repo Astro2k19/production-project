@@ -1,23 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   getArticlesListHasMore,
-  getArticlesListIsLoading,
-  getArticlesListPage
+  getArticlesListIsLoading
 } from '../../selectors/articlesPageList'
 import { type AsyncThunkConfig } from 'app/providers/storeProvider'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
-import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
+import { articlesFiltersActions, getArticlesFiltersPage } from 'features/articlesFilters'
 
 export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, AsyncThunkConfig>(
   'articlesPageList/fetchNextArticlesPart',
   async (_, thunkAPI) => {
     const { getState, dispatch } = thunkAPI
-    const page = getArticlesListPage(getState())
+    const page = getArticlesFiltersPage(getState())
     const hasMore = getArticlesListHasMore(getState())
     const isLoading = getArticlesListIsLoading(getState())
 
     if (hasMore && !isLoading) {
-      dispatch(articlesPageActions.setPage(page + 1))
+      dispatch(articlesFiltersActions.setPage(page + 1))
       dispatch(fetchArticlesList())
     }
 

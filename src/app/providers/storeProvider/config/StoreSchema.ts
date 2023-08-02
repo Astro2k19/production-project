@@ -6,10 +6,11 @@ import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type SavePageScrollSchema } from 'features/savePageScroll'
-import { type ArticlesFiltersSchema, type ArticlesPageListSchema } from 'features/articlesFilters'
 import { type rtkApi } from 'shared/api/rtkApi'
 import { type ProfileSchema } from 'features/editableProfileCard'
 import { type ArticleSingleCommentsSchema } from 'pages/ArticleSingle/model/types/articleSingleComments'
+import { type ArticlesPageListSchema } from 'pages/Articles'
+import { type ArticlesFiltersSchema } from 'features/articlesFilters'
 
 export interface StoreSchema {
   user: UserSchema

@@ -7,8 +7,7 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
 import { type SortOrder } from 'shared/types/sortOrder'
 import { getUrlQueryParams } from 'shared/lib'
-import { type ArticlesSortFields } from '../../conts/articleFiltersConst'
-import { articlesFiltersActions } from '../../slice/articlesFiltersSlice'
+import { articlesFiltersActions, type ArticlesSortFields } from 'features/articlesFilters'
 
 export interface InitialArticlesListState {
   initialView: ArticlesListView

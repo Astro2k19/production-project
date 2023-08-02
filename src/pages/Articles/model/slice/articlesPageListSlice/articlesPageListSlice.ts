@@ -18,7 +18,6 @@ export const articlesPageListSlice = createSlice({
     ids: [],
     view: ArticlesListView.LIST,
     limit: 4,
-    page: 1,
     hasMore: true,
     _inited: false
   }),
@@ -26,9 +25,6 @@ export const articlesPageListSlice = createSlice({
     setArticlesView: (state, action: PayloadAction<ArticlesListView>) => {
       state.view = action.payload
       state.limit = action.payload === ArticlesListView.GRID ? 9 : 4
-    },
-    setPage: (state, action: PayloadAction<number>) => {
-      state.page = action.payload
     },
     setInitial: (state, action: PayloadAction<InitialArticlesListState>) => {
       state.view = action.payload.initialView

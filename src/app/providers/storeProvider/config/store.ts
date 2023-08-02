@@ -3,12 +3,10 @@ import { type StoreSchema, type ThunkExtraArgs } from 'app/providers/storeProvid
 import { authMiddleware, initUserDataMiddleware, userReducer } from 'entities/User'
 import { createReducerManager } from 'app/providers/storeProvider/config/createReducerManager'
 import { $api } from 'shared/api/api'
-import {
-  setArticlesListViewMiddleware
-} from 'features/articlesFilters/model/middleware/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
 import { savePageScrollReducer } from 'features/savePageScroll'
 import { articlesFiltersReducer } from 'features/articlesFilters/model/slice/articlesFiltersSlice'
 import { rtkApi } from 'shared/api/rtkApi'
+import { setArticlesListViewMiddleware } from 'pages/Articles'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>

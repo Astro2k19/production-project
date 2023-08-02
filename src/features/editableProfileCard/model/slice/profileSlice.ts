@@ -50,6 +50,7 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfileData.fulfilled, (state, action) => {
         state.isLoading = false
+        state.readonly = true
         state.data = action.payload
         state.formData = action.payload
         state.validateProfileErrors = undefined

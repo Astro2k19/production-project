@@ -7,4 +7,5 @@ export interface ArticlesFiltersSchema {
   order: SortOrder
   search: string
   type: ArticleType
+  page: number
 }

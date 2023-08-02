@@ -8,13 +8,17 @@ const initialState: ArticlesFiltersSchema = {
   sort: ArticlesSortFields.VIEWS,
   order: 'asc',
   search: '',
-  type: ArticleType.ALL
+  type: ArticleType.ALL,
+  page: 1
 }
 
 export const articlesFiltersSlice = createSlice({
   name: 'articlesFiltersSlice',
   initialState,
   reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload
+    },
     setOrder: (state, action: PayloadAction<SortOrder>) => {
       state.order = action.payload
     },

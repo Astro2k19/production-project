@@ -11,7 +11,6 @@ describe('fetchNextArticlesPart', () => {
         limit: 5,
         entities: {},
         ids: [],
-        page: 3,
         hasMore: true,
         isLoading: false
       }
@@ -28,7 +27,6 @@ describe('fetchNextArticlesPart', () => {
         limit: 5,
         entities: {},
         ids: [],
-        page: 5,
         hasMore: false,
         isLoading: false
       }
@@ -45,7 +43,6 @@ describe('fetchNextArticlesPart', () => {
         limit: 5,
         entities: {},
         ids: [],
-        page: 5,
         hasMore: true,
         isLoading: true
       }

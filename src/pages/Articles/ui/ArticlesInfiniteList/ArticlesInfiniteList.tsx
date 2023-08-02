@@ -5,14 +5,22 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
 import { useFetchData } from 'shared/lib/hooks/useFetchData'
 
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import {
-  ArticlesFilters,
   getArticlesListError,
   getArticlesListIsLoading,
   getArticlesListView
-} from 'features/articlesFilters'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { articlesPageReducer } from 'features/articlesFilters/model/slice/articlesPageListSlice/articlesPageListSlice'
+} from '../../model/selectors/articlesPageList'
+import {
+  articlesListSelectors,
+  articlesPageActions, articlesPageReducer
+} from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
+import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
+import {
+  setInitialArticlesListState
+} from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
+import { ArticlesFilters } from 'features/articlesFilters'
 
 interface ArticleInfiniteListProps {
   className?: string
@@ -48,6 +56,7 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
                 view={view}
                 onChangeListView={onChangeListView}
                 className={cls.articlesFilter}
+                fetchArticlesList={fetchArticlesList}
             />
     )
   }, [view, onChangeListView])

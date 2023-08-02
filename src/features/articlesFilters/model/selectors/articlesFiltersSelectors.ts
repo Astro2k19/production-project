@@ -4,3 +4,4 @@ export const getArticlesFiltersSort = (state: StoreSchema) => state.articlesFilt
 export const getArticlesFiltersOrder = (state: StoreSchema) => state.articlesFilters.order
 export const getArticlesFiltersSearch = (state: StoreSchema) => state.articlesFilters.search
 export const getArticlesFiltersType = (state: StoreSchema) => state.articlesFilters.type
+export const getArticlesFiltersPage = (state: StoreSchema) => state.articlesFilters?.page ?? 1

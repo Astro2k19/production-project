@@ -10,7 +10,7 @@ import { profileReducer } from 'features/editableProfileCard/model/slice/profile
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
 import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice'
 import { articleSingleCommentsReducer } from 'pages/ArticleSingle/model/slice/articleSingleCommentsSlice'
-import { articlesPageReducer } from 'features/articlesFilters/model/slice/articlesPageListSlice/articlesPageListSlice'
+import { articlesPageReducer } from 'pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,

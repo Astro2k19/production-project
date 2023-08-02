@@ -120,6 +120,7 @@
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.2.1",
     "react-virtuoso": "^4.3.8",
+    "react-window": "^1.8.9",
     "storybook-addon-react-router-v6": "^0.3.6",
     "storybook-addon-themes": "^6.1.0",
     "whatwg-fetch": "^3.6.2"

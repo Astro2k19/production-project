@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib'
 import { ArticlesListViewSwitcher } from '../ArticlesListViewSwitcher/ArticlesListViewSwitcher'
-import { type ArticlesListView, type ArticleType } from 'entities/Article'
+import { type Article, type ArticlesListView, type ArticleType } from 'entities/Article'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ArticlesFiltersSelectors } from '../ArticlesFiltersSelectors/ArticlesFiltersSelectors'
 import { Card } from 'shared/ui/card/Card'
@@ -20,16 +20,16 @@ import {
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { ArticleTabTypes } from '../ArticlesTabTypes/ArticleTabTypes'
 import { HStack, VStack } from 'shared/ui/stack'
-import { articlesPageActions } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
+import { type AsyncThunk } from '@reduxjs/toolkit'
 
 interface ArticlesFiltersProps {
   className?: string
   view: ArticlesListView
   onChangeListView: (view: ArticlesListView) => void
+  fetchArticlesList: AsyncThunk<any, any, any>
 }
 
-export const ArticlesFilters = memo(({ className, view, onChangeListView }: ArticlesFiltersProps) => {
+export const ArticlesFilters = memo(({ className, view, onChangeListView, fetchArticlesList }: ArticlesFiltersProps) => {
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const sort = useAppSelector(getArticlesFiltersSort)
@@ -38,9 +38,9 @@ export const ArticlesFilters = memo(({ className, view, onChangeListView }: Arti
   const articleType = useAppSelector(getArticlesFiltersType)
 
   const fetchPosts = useCallback(() => {
-    dispatch(articlesPageActions.setPage(1))
+    dispatch(articlesFiltersActions.setPage(1))
     dispatch(fetchArticlesList({ replace: true }))
-  }, [dispatch])
+  }, [dispatch, fetchArticlesList])
 
   const debouncedFetchData = useDebounce(fetchPosts, 500)
 
