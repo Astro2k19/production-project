@@ -49,6 +49,7 @@ export const articlesPageListSlice = createSlice({
         if (action.meta.arg?.replace) {
           articlesListAdapter.setAll(state, action.payload)
         } else {
+          console.log(action.payload, 'action.payload')
           articlesListAdapter.addMany(state, action.payload)
         }
       })

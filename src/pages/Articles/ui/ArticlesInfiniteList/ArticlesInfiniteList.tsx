@@ -7,7 +7,7 @@ import { useFetchData } from 'shared/lib/hooks/useFetchData'
 
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import {
-  getArticlesListError,
+  getArticlesListError, getArticlesListHasMore,
   getArticlesListIsLoading,
   getArticlesListView
 } from '../../model/selectors/articlesPageList'
@@ -20,7 +20,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import {
   setInitialArticlesListState
 } from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
-import { ArticlesFilters } from 'features/articlesFilters'
+import { ArticlesFilters, getArticlesFiltersType } from 'features/articlesFilters'
 
 interface ArticleInfiniteListProps {
   className?: string
@@ -37,8 +37,11 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
   const error = useAppSelector(getArticlesListError)
   const articles = useAppSelector(articlesListSelectors.selectAll)
   const view = useAppSelector(getArticlesListView)
+  const hasMore = useAppSelector(getArticlesListHasMore)
+  const articlesType = useAppSelector(getArticlesFiltersType)
 
   const loadNextArticles = useCallback(() => {
+    console.log('end reached')
     dispatch(fetchNextArticlesPart())
   }, [dispatch])
 
@@ -61,11 +64,15 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
     )
   }, [view, onChangeListView])
 
+  console.log(articles, 'articles')
+
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
           <ArticlesListVirtualized
               articles={articles}
               isLoading={isLoading}
+              articlesType={articlesType}
+              hasMore={hasMore}
               view={view}
               onReachEnd={loadNextArticles}
               Header={Header}

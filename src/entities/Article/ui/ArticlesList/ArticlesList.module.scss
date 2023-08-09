@@ -14,7 +14,6 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 25px;
-  height: 100%;
 }
 
 .gridListItem {
@@ -27,4 +26,8 @@
   @media (max-width: 640px) {
     width: 100%;
   }
+}
+
+.loadMoreWrapper {
+  padding-block: 25px;
 }

@@ -4,16 +4,19 @@ import { classNames } from 'shared/lib'
 import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
-import { Text } from 'shared/ui'
+import { Button, ButtonVariants, Loader, Text } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Components, Virtuoso, VirtuosoGrid, type VirtuosoGridHandle, type VirtuosoHandle } from 'react-virtuoso'
-import { ArticlesListView } from '../../model/conts/articleConts'
+import { ArticlesListView, type ArticleType } from '../../model/conts/articleConts'
+import { HStack } from 'shared/ui/stack'
 
 interface ArticlesListProps {
   className?: string
   articles: Article[]
+  articlesType: ArticleType
   view?: ArticlesListView
   isLoading?: boolean
+  hasMore?: boolean
   target?: HTMLAttributeAnchorTarget
   onReachEnd?: () => void
   Header?: Components['Header']
@@ -25,6 +28,8 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     articles,
     view = ArticlesListView.GRID,
     isLoading,
+    hasMore,
+    articlesType,
     target,
     onReachEnd,
     Header
@@ -35,8 +40,6 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
   const virtuoso = useRef<VirtuosoHandle>(null)
   const virtuosoGrid = useRef<VirtuosoGridHandle>(null)
   const [inited, setInited] = useState(false)
-
-  console.log(view, 'view')
 
   // useEffect(() => {
   //   const index = sessionStorage.getItem(INITIAL_TOP_ARTICLES_INDEX_KEY) ?? 1
@@ -67,8 +70,10 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
   // }
 
   useEffect(() => {
-    setInited(true)
-  }, [])
+    if (inited) {
+      setInited(false)
+    }
+  }, [articlesType])
 
   const renderArticleItem = (index: number, article: Article) => (
       <ArticlesListItem
@@ -81,9 +86,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
       />
   )
 
-  console.log(inited, 'inited')
-
-  const getElementSkeleton = (view: ArticlesListView) => {
+  const getElementSkeleton = (view: ArticlesListView): JSX.Element[] => {
     // const length = view === 'LIST' ? 3 : 9
     const length = 3
 
@@ -104,12 +107,34 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
       })
   }
 
-  console.log('view', view)
+  const onClickButton = () => {
+    if (onReachEnd) {
+      onReachEnd()
+      setInited(true)
+    }
+  }
 
   const Footer = () => {
+    if (!inited && !isLoading && hasMore) {
+      return (
+          <HStack justify={'center'} className={cls.loadMoreWrapper}>
+              <Button variant={ButtonVariants.OUTLINE} onClick={onClickButton}>
+                  {t('Load more')}
+              </Button>
+          </HStack>
+      )
+    }
+
     if (isLoading) {
-      console.log('footer')
-      return <div>{getElementSkeleton(ArticlesListView.LIST)}</div>
+      return view === ArticlesListView.LIST
+        ? (
+            <div>
+                {getElementSkeleton(view)}
+            </div>
+          )
+        : (
+            <Loader />
+          )
     }
 
     return null
@@ -124,6 +149,8 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     )
   }
 
+  console.log(inited, 'inited')
+
   return (
       <div className={classNames([cls.articlesList, className, cls[view]])}>
           {view === ArticlesListView.LIST
@@ -132,7 +159,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
                       style={{ height: '100%', overflowX: 'hidden' }}
                       data={articles}
                       itemContent={renderArticleItem}
-                      endReached={onReachEnd}
+                      endReached={inited ? onReachEnd : undefined}
                       components={{
                         ...(Header ? { Header } : {}),
                         Footer
@@ -142,25 +169,16 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
               )
             : (
                 <VirtuosoGrid
-                      style={{ height: '100%' }}
                       data={articles}
                       itemContent={renderArticleItem}
-                      endReached={onReachEnd}
+                      endReached={inited ? onReachEnd : undefined}
                       components={{
                         ...(Header ? { Header } : {}),
-                        ScrollSeekPlaceholder: () => (
-                            <ArticlesListItemSkeleton
-                                view={ArticlesListView.GRID}
-                                className={cls.gridListItem}
-                            />
-                        )
+                        Footer
                       }}
+                      // overscan={200}
                       itemClassName={cls.gridListItem}
                       listClassName={cls.gridList}
-                      scrollSeekConfiguration={{
-                        enter: (velocity: number) => Math.abs(velocity) > 200,
-                        exit: (velocity: number) => Math.abs(velocity) < 30
-                      }}
                       ref={virtuosoGrid}
                   />
               )}
