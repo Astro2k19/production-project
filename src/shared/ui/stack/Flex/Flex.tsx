@@ -17,6 +17,7 @@ export type FlexProps<T extends ValidTags = 'div'> = {
   justify?: FlexJustifyOptions
   alignItems?: FlexAlignItemsOptions
   gap?: FlexGapOptions
+  noShrink?: boolean
   max?: boolean
 } & (ComponentPropsWithoutRef<T> & HTMLAttributes<HTMLOrSVGElement>)
 
@@ -58,6 +59,7 @@ export const Flex = <T extends ValidTags = typeof DEFAULT_TAG>(props: FlexProps<
     gap,
     className,
     max,
+    noShrink = false,
     tag = 'div',
     ...attributes
   } = props
@@ -71,7 +73,8 @@ export const Flex = <T extends ValidTags = typeof DEFAULT_TAG>(props: FlexProps<
   ]
 
   const mods = {
-    [cls.max]: max
+    [cls.max]: max,
+    [cls.noShrink]: noShrink
   }
 
   const Tag: ValidTags = tag

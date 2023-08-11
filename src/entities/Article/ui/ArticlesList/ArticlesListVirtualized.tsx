@@ -1,4 +1,4 @@
-import { type FC, type HTMLAttributeAnchorTarget, useEffect, useRef, useState } from 'react'
+import React, { type FC, type HTMLAttributeAnchorTarget, type MutableRefObject, useEffect, useRef, useState } from 'react'
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib'
 import { type Article } from '../../model/types/article'
@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { type Components, Virtuoso, VirtuosoGrid, type VirtuosoGridHandle, type VirtuosoHandle } from 'react-virtuoso'
 import { ArticlesListView, type ArticleType } from '../../model/conts/articleConts'
 import { HStack } from 'shared/ui/stack'
+import { INITIAL_TOP_ARTICLES_INDEX_KEY } from 'shared/const/localStorage'
 
 interface ArticlesListProps {
   className?: string
@@ -35,87 +36,85 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     Header
   } = props
   const { t } = useTranslation()
-  // const [initialArticleIndex, setInitialArticleIndex] = useState(0)
-  // const [initialArticleIndex, setInitialArticleIndex] = useState()
   const virtuoso = useRef<VirtuosoHandle>(null)
   const virtuosoGrid = useRef<VirtuosoGridHandle>(null)
-  const [inited, setInited] = useState(false)
+  const [hasInitialized, setHasInitialized] = useState(false)
 
-  // useEffect(() => {
-  //   const index = sessionStorage.getItem(INITIAL_TOP_ARTICLES_INDEX_KEY) ?? 1
-  //   let timeout: NodeJS.Timeout
-  //
-  //   if (view === 'LIST' && virtuoso.current) {
-  //     timeout = setTimeout(() => {
-  //       scrollToElement(virtuoso, +index)
-  //     }, 300)
-  //   } else if (view === 'GRID' && virtuosoGrid.current) {
-  //     timeout = setTimeout(() => {
-  //       scrollToElement(virtuosoGrid, +index)
-  //     }, 300)
-  //   }
-  //
-  //   return () => {
-  //     clearTimeout(timeout)
-  //   }
-  //   // eslint-disable-next-line
-  // }, [])
-  //
-  // const scrollToElement = (virtuoso: MutableRefObject<VirtuosoHandle | VirtuosoGridHandle | null>, index: number) => {
-  //   virtuoso.current?.scrollToIndex({
-  //     index,
-  //     align: 'center',
-  //     behavior: 'smooth'
-  //   })
-  // }
+  const isLargeResolution = window.innerHeight > 1050
+  const shouldShowLoadingButton =
+    !hasInitialized &&
+    !isLoading &&
+    hasMore &&
+    isLargeResolution &&
+    view !== ArticlesListView.LIST
+  const loadMoreCallback = hasInitialized || !isLargeResolution || view === ArticlesListView.LIST ? onReachEnd : undefined
 
   useEffect(() => {
-    if (inited) {
-      setInited(false)
+    if (hasInitialized) {
+      setHasInitialized(false)
     }
-  }, [articlesType])
+    /* eslint-disable */
+  }, [articlesType, isLargeResolution])
+
+  useEffect(() => {
+    const index = sessionStorage.getItem(INITIAL_TOP_ARTICLES_INDEX_KEY) ?? 1
+    let timeout: NodeJS.Timeout
+
+    if (view === 'LIST' && virtuoso.current) {
+      timeout = setTimeout(() => {
+        scrollToElement(virtuoso, +index)
+      }, 300)
+    } else if (view === 'GRID' && virtuosoGrid.current) {
+      timeout = setTimeout(() => {
+        scrollToElement(virtuosoGrid, +index)
+      }, 300)
+    }
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [view])
+
+  const scrollToElement = (virtuoso: MutableRefObject<VirtuosoHandle | VirtuosoGridHandle | null>, index: number) => {
+    virtuoso.current?.scrollToIndex({
+      index,
+      align: 'center',
+      behavior: 'smooth'
+    })
+  }
 
   const renderArticleItem = (index: number, article: Article) => (
       <ArticlesListItem
-          article={article}
-          view={view}
-          target={target}
-          className={cls.card}
-          key={article.id}
-          index={index}
-      />
+      article={article}
+      view={view}
+      target={target}
+      className={cls.card}
+      key={article.id}
+      index={index}
+    />
   )
 
   const getElementSkeleton = (view: ArticlesListView): JSX.Element[] => {
-    // const length = view === 'LIST' ? 3 : 9
     const length = 3
 
-    return new Array(length)
-      .fill(0)
-      .map((item, index) => {
-        // const mods = {
-        //   [cls.gridListItem]: view === 'GRID'
-        // }
-
-        return (
-            <ArticlesListItemSkeleton
-            view={view}
-            key={index}
-            className={classNames([cls.card, cls.skeleton])}
-          />
-        )
-      })
+    return new Array(length).fill(0).map((item, index) => (
+        <ArticlesListItemSkeleton
+        view={view}
+        key={index}
+        className={classNames([cls.card, cls.skeleton])}
+      />
+    ))
   }
 
   const onClickButton = () => {
     if (onReachEnd) {
       onReachEnd()
-      setInited(true)
+      setHasInitialized(true)
     }
   }
 
   const Footer = () => {
-    if (!inited && !isLoading && hasMore) {
+    if (shouldShowLoadingButton) {
       return (
           <HStack justify={'center'} className={cls.loadMoreWrapper}>
               <Button variant={ButtonVariants.OUTLINE} onClick={onClickButton}>
@@ -128,9 +127,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     if (isLoading) {
       return view === ArticlesListView.LIST
         ? (
-            <div>
-                {getElementSkeleton(view)}
-            </div>
+            <div>{getElementSkeleton(view)}</div>
           )
         : (
             <Loader />
@@ -144,43 +141,41 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
     return (
         <>
             {Header && <Header />}
-            <Text title={t("Such articles doesn't exist")} />
+            <Text title={t("Such articles don't exist")} />
         </>
     )
   }
-
-  console.log(inited, 'inited')
 
   return (
       <div className={classNames([cls.articlesList, className, cls[view]])}>
           {view === ArticlesListView.LIST
             ? (
                 <Virtuoso
-                      style={{ height: '100%', overflowX: 'hidden' }}
-                      data={articles}
-                      itemContent={renderArticleItem}
-                      endReached={inited ? onReachEnd : undefined}
-                      components={{
-                        ...(Header ? { Header } : {}),
-                        Footer
-                      }}
-                      ref={virtuoso}
-                  />
+                  style={{ height: '100%', overflowX: 'hidden' }}
+                  data={articles}
+                  itemContent={renderArticleItem}
+                  endReached={loadMoreCallback}
+                  components={{
+                    ...(Header ? { Header } : {}),
+                    Footer
+                  }}
+                  ref={virtuoso}
+                />
               )
             : (
                 <VirtuosoGrid
-                      data={articles}
-                      itemContent={renderArticleItem}
-                      endReached={inited ? onReachEnd : undefined}
-                      components={{
-                        ...(Header ? { Header } : {}),
-                        Footer
-                      }}
-                      // overscan={200}
-                      itemClassName={cls.gridListItem}
-                      listClassName={cls.gridList}
-                      ref={virtuosoGrid}
-                  />
+                  data={articles}
+                  itemContent={renderArticleItem}
+                  className={cls.virtuosoGrid}
+                  endReached={loadMoreCallback}
+                  components={{
+                    ...(Header ? { Header } : {}),
+                    Footer
+                  }}
+                  itemClassName={cls.gridListItem}
+                  listClassName={cls.gridList}
+                  ref={virtuosoGrid}
+                />
               )}
       </div>
   )

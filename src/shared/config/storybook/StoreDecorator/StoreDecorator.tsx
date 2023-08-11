@@ -1,5 +1,4 @@
 import { type DecoratorFn, type Story } from '@storybook/react'
-import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
 import { StoreProvider } from 'app/providers/storeProvider'
 import { type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'

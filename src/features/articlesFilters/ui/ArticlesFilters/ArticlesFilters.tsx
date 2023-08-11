@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib'
 import { ArticlesListViewSwitcher } from '../ArticlesListViewSwitcher/ArticlesListViewSwitcher'
-import { type Article, type ArticlesListView, type ArticleType } from 'entities/Article'
+import { type ArticlesListView, type ArticleType } from 'entities/Article'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ArticlesFiltersSelectors } from '../ArticlesFiltersSelectors/ArticlesFiltersSelectors'
 import { Card } from 'shared/ui/card/Card'

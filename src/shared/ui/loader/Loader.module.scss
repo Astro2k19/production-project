@@ -11,6 +11,7 @@ $width: 100px;
   position: relative;
   margin: 0 auto;
   width: $width;
+  overflow: hidden;
   &:before {
     content: '';
     display: block;

@@ -233,7 +233,7 @@ module.exports = {
        true: also detect dependencies that only exist before typescript-to-javascript compilation
        "specify": for each dependency identify whether it only exists before compilation or also after
      */
-    tsPreCompilationDeps: true,
+    // tsPreCompilationDeps: false,
     
     /* 
        list of extensions to scan that aren't javascript or compile-to-javascript. 
@@ -446,4 +446,4 @@ module.exports = {
     }
   }
 };
-// generated: dependency-cruiser@13.1.1 on 2023-07-23T08:05:04.908Z
+// generated: dependency-cruiser@13.1.1 on 2023-08-02T09:59:05.612Z

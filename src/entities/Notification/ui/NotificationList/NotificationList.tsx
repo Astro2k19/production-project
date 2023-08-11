@@ -14,16 +14,16 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     pollingInterval: 5000
   })
 
-  if (true) {
+  if (isLoading) {
     return (
-        <VStack className={classNames([className])} gap={'4'}>
+        <VStack className={classNames([className])} gap={'12'} noShrink>
             {new Array(3).fill(null).map((_, index) => <Skeleton key={index} width={'100%'} height={140} />)}
         </VStack>
     )
   }
 
   return (
-      <VStack className={classNames([className])} gap={'4'}>
+      <VStack className={classNames([className])} gap={'12'} noShrink>
           {notifications?.map(item => (
               <NotificationItem key={item.id} item={item} />
           ))}

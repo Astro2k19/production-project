@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { CurrencySelect as Select } from './CurrencySelect'
-import { Currency } from 'entities/Currency'
+import { Currency } from '../../model/const/currencyConts'
 
 export default {
   title: 'shared/CurrencySelect',

@@ -11,7 +11,7 @@ import {
   getArticlesFiltersSort,
   getArticlesFiltersType
 } from 'features/articlesFilters'
-import { getArticlesListLimit } from '../../selectors/articlesPageList'
+// import { getArticlesListLimit } from '../../selectors/articlesPageList'
 
 interface FetchArticlesListArgs {
   replace?: boolean
@@ -22,7 +22,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListAr
   async (args, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI
     const page = getArticlesFiltersPage(getState())
-    const limit = getArticlesListLimit(getState())
+    // const limit = getArticlesListLimit(getState())
     const sort = getArticlesFiltersSort(getState())
     const order = getArticlesFiltersOrder(getState())
     const search = getArticlesFiltersSearch(getState())

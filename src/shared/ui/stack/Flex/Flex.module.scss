@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.noShrink > * {
+  flex-shrink: 0;
+}
+
 .directionRow {
   flex-direction: row;
 }

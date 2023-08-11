@@ -14,10 +14,11 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 25px;
+  flex: 1;
 }
 
 .gridListItem {
-  width: 250px;
+  width: 340px;
 
   @media (max-width: 1024px) {
     width: calc(50% - 13px);
@@ -30,4 +31,9 @@
 
 .loadMoreWrapper {
   padding-block: 25px;
+}
+
+.virtuosoGrid > div {
+  display: flex;
+  flex-direction: column;
 }

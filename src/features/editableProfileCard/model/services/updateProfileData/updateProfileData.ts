@@ -8,7 +8,7 @@ import { ValidateProfileError } from '../../const/editableProfileCardConst'
 export const updateProfileData = createAsyncThunk<Profile, undefined, AsyncThunkConfig<ValidateProfileError[]>>(
   'profile/updateProfileData',
   async (_, thunkAPI) => {
-    const { rejectWithValue, extra, getState, dispatch } = thunkAPI
+    const { rejectWithValue, extra, getState } = thunkAPI
 
     try {
       const formData = getProfileFormData(getState())
