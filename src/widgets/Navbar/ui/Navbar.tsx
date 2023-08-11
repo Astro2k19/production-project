@@ -4,13 +4,12 @@ import { AppLink, AppLinkVariants, Button, ButtonVariants } from 'shared/ui'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AuthModal } from 'features/auth/by-username'
-import { getUserAuthDate, isUserAdmin, isUserManager, userActions } from 'entities/User'
+import { getUserAuthDate } from 'entities/User'
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { appPaths } from 'shared/config/routerConfig/routerConfig'
 import { useNavigate } from 'react-router-dom'
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
-import { Avatar } from 'shared/ui/avatar/Avatar'
+import { NotificationsButton } from 'features/NotificationButton'
+import { AvatarDropdown } from 'features/AvatarDropdown'
 
 interface NavbarProps {
   className?: string
@@ -19,14 +18,9 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const dispatch = useAppDispatch()
   const authDate = useAppSelector(getUserAuthDate)
   const navigate = useNavigate()
-  const isAdmin = useAppSelector(isUserAdmin)
-  const isManager = useAppSelector(isUserManager)
-  const data = useAppSelector(getUserAuthDate)
 
-  console.log(data, 'data')
   const onClose = useCallback(
     () => {
       setIsOpen(false)
@@ -41,39 +35,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     []
   )
 
-  const onLogOut = useCallback(
-    () => {
-      dispatch(userActions.logOut())
-    },
-    [dispatch])
-
   const onCreateNewArticle = useCallback(() => {
     navigate(`${appPaths.article_new}`)
   }, [navigate])
 
-  const isAdminPanelAccessible = isManager ?? isAdmin
-
   if (authDate) {
-    const dropdownOptions = [
-      ...(isAdminPanelAccessible
-        ? [{
-            content: t('Admin Panel', { ns: 'profile' }),
-            href: appPaths.admin
-          }]
-        : []),
-      {
-        content: t('Profile', { ns: 'profile' }),
-        href: `${appPaths.profile}${authDate.id}`
-      },
-      {
-        content: t('Log Out'),
-        onClick: onLogOut
-      }
-    ]
-
     return (
         <div className={classNames([cls.navbar, className])}>
-            <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>{t('Dev Site')}</AppLink>
+            <AppLink to={'/'} variant={AppLinkVariants.INVERTED} className={cls.logo}>
+                {t('Dev Site')}
+            </AppLink>
             <Button
                     onClick={onCreateNewArticle}
                     variant={ButtonVariants.CLEAR_INVERTED}
@@ -81,11 +52,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Create new article')}
             </Button>
             <div className={cls.links}>
-                <Dropdown
-                        trigger={<Avatar src={authDate.avatar}
-                                         size={30}/>}
-                        items={dropdownOptions}
-                    />
+                <NotificationsButton />
+                <AvatarDropdown authDate={authDate} />
             </div>
         </div>
     )
@@ -93,7 +61,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
       <div className={classNames([cls.navbar, className])}>
-          <AuthModal isOpen={isOpen} onClose={onClose}/>
+          <AuthModal isOpen={isOpen} onClose={onClose} />
           <div className={cls.links}>
               <Button onClick={onOpen} variant={ButtonVariants.CLEAR_INVERTED}>
                   {t('Log In')}

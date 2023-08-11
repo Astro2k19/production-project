@@ -3,8 +3,16 @@
   align-items: center;
   fill: var(--primary-color);
 
-  svg {
+  svg, path {
     fill: var(--primary-color);
+  }
+}
+
+.inverted {
+  fill: var(--inverted-primary-color);
+
+  svg, path {
+    fill: var(--inverted-primary-color);
   }
 }
 

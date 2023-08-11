@@ -7,11 +7,11 @@
   cursor: pointer;
   font-size: var(--font-size-m);
   color: var(--primary-color);
-  background-color: var(--listbox-bg);
+  background-color: transparent;
 }
 
 .items {
-  z-index: 999;
+  z-index: var(--modal-z-index);
   display: flex;
   flex-direction: column;
   max-width: 300px;
