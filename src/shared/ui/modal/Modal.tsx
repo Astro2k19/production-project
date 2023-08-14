@@ -1,7 +1,8 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib'
-import { type MouseEvent, type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
+import { type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
 import { Portal } from '../portal/Portal'
+import { Overlay } from '../overlay/Overlay'
 
 interface ModalProps {
   className?: string
@@ -23,10 +24,6 @@ export const Modal: FC<ModalProps> = (props) => {
   } = props
 
   const [isMounted, setIsMounted] = useState(false)
-
-  const onContentClick = (e: MouseEvent<HTMLDivElement>): void => {
-    e.stopPropagation()
-  }
 
   const closeModal = useCallback(
     () => {
@@ -74,10 +71,9 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames([cls.modal], mods)}>
-                <div className={cls.overlay} onClick={closeModal}>
-                    <div className={classNames([cls.content, className])} onClick={onContentClick}>
-                        {children}
-                    </div>
+                <Overlay onClick={closeModal} />
+                <div className={classNames([cls.content, className])}>
+                    {children}
                 </div>
             </div>
         </Portal>
@@ -86,10 +82,9 @@ export const Modal: FC<ModalProps> = (props) => {
 
   return (
       <div className={classNames([cls.modal], mods)}>
-          <div className={cls.overlay} onClick={closeModal}>
-              <div className={classNames([cls.content, className])} onClick={onContentClick}>
-                  {children}
-              </div>
+          <Overlay onClick={closeModal} />
+          <div className={classNames([cls.content, className])}>
+              {children}
           </div>
       </div>
   )

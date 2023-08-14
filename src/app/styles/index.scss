@@ -9,6 +9,7 @@ body {
   height: 100vh;
   font: var(--font-m);
   color: var(--primary-color);
+  overflow: hidden;
 }
 
 #root {
@@ -20,6 +21,9 @@ body {
   color: var(--primary-color);
   min-height: 100vh;
   height: 100%;
+}
+.app_drawer {
+  color: var(--inverted-primary-color);
 }
 
 .page-content {

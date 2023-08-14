@@ -1,4 +1,4 @@
-import { memo, type ReactNode } from 'react'
+import { Fragment, memo, type ReactNode } from 'react'
 import cls from './Popover.module.scss'
 import { Popover as HPopover } from '@headlessui/react'
 import { flip, offset, type Placement, shift, useFloating } from '@floating-ui/react'
@@ -18,7 +18,7 @@ export const Popover = memo(({ className, trigger, children, direction = 'bottom
 
   return (
       <HPopover ref={refs.setReference} className={className}>
-          <HPopover.Button className={cls.trigger}>
+          <HPopover.Button as={Fragment}>
               {trigger}
           </HPopover.Button>
           <HPopover.Panel

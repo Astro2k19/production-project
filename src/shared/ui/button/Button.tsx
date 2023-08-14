@@ -1,6 +1,6 @@
 import cls from './Button.module.scss'
 import { classNames } from 'shared/lib'
-import { type ButtonHTMLAttributes, memo } from 'react'
+import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef, memo } from 'react'
 
 export enum ButtonVariants {
   DEFAULT = 'default',
@@ -25,7 +25,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset'
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
   const {
     className,
     children,
@@ -44,9 +44,8 @@ export const Button = memo((props: ButtonProps) => {
       <button
           {...othersProps}
           type={type}
-          className={
-        classNames([cls.button, cls[variant], cls[size], className], mods
-        )}
+          className={classNames([cls.button, cls[variant], cls[size], className], mods)}
+          ref={ref}
       >
           {children}
       </button>
