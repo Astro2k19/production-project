@@ -34,6 +34,7 @@ module.exports = {
     "no-duplicate-case": "off",
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/consistent-type-imports': 'off',
     "@typescript-eslint/no-misused-promises": [
       "error",
       {
