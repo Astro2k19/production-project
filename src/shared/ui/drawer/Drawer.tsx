@@ -3,7 +3,7 @@ import cls from './Drawer.module.scss'
 import { classNames } from '@/shared/lib'
 import { Portal } from '../portal/Portal'
 import { Overlay } from '../overlay/Overlay'
-import { useAnimLibs } from '@/shared/lib/AnimationProvider'
+import { AnimationProvider, useAnimLibs } from '@/shared/lib/AnimationProvider'
 
 interface DrawerProps {
   className?: string
@@ -72,7 +72,7 @@ export const DrawerContent = memo(({ className, onClose, isOpen, children }: Dra
   )
 })
 
-export const Drawer = ({ children, ...props }: DrawerProps) => {
+const DrawerAsync = ({ children, ...props }: DrawerProps) => {
   const { isLoaded } = useAnimLibs()
 
   if (!isLoaded) {
@@ -83,5 +83,15 @@ export const Drawer = ({ children, ...props }: DrawerProps) => {
       <DrawerContent {...props}>
           {children}
       </DrawerContent>
+  )
+}
+
+export const Drawer = ({ children, ...props }: DrawerProps) => {
+  return (
+      <AnimationProvider>
+          <DrawerAsync {...props}>
+              {children}
+          </DrawerAsync>
+      </AnimationProvider>
   )
 }
