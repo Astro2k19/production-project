@@ -1,10 +1,10 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ProfileCard } from './ProfileCard'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
-import img from 'shared/assets/images/tests/avatar.jpg'
-import { ProfileError } from 'features/editableProfileCard'
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
+import img from '@/shared/assets/images/tests/avatar.jpg'
+import { ProfileError } from '@/features/editableProfileCard'
 
 export default {
   title: 'entities/ProfileCard',

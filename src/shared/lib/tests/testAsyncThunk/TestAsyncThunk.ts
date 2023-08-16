@@ -1,4 +1,4 @@
-import { type AsyncThunkConfig, type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type AsyncThunkConfig, type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 import { type AsyncThunkAction } from '@reduxjs/toolkit/src/createAsyncThunk'
 import axios, { type AxiosStatic } from 'axios'
 

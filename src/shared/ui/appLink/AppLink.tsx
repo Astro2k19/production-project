@@ -1,5 +1,5 @@
 import cls from './AppLink.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { Link, type LinkProps } from 'react-router-dom'
 import { type ForwardedRef, forwardRef } from 'react'
 

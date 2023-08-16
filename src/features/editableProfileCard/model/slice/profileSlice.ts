@@ -1,9 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { fetchProfileData } from '../services/fetchProfileData/fetctProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
-import { type Profile } from 'entities/Profile'
+import { type Profile } from '@/entities/Profile'
 import { type ProfileSchema } from '../types/editableProfileCard'
-import { type ApiError } from 'shared/api/api'
+import { type ApiError } from '@/shared/api/api'
 import { type ValidateProfileError } from '../const/editableProfileCardConst'
 
 const initialState: ProfileSchema = {

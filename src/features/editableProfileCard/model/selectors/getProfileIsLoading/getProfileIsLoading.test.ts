@@ -1,5 +1,5 @@
 import { getProfileIsLoading } from './getProfileIsLoading'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 
 describe('getProfileIsLoading', () => {
   test('should return isLoading status', () => {

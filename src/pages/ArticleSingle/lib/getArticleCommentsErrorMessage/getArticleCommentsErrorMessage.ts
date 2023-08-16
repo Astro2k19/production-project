@@ -1,5 +1,5 @@
-import { type ApiError } from 'shared/api/api'
-import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
+import { type ApiError } from '@/shared/api/api'
+import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'
 import { ArticleSingleCommentsError } from '../../model/const/articleSingleConst'
 
 const articleSingleCommentsErrorCodeMappings = {

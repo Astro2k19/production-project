@@ -1,3 +1,3 @@
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 
 export const getAuthPassword = (state: StoreSchema): string => state?.loginForm?.password ?? ''

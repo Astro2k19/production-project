@@ -1,5 +1,5 @@
 import cls from './Button.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef, memo } from 'react'
 
 export enum ButtonVariants {

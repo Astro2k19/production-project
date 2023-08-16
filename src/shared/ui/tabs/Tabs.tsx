@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react'
 import cls from './Tabs.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { Card } from '../card/Card'
 import { HStack } from '../stack'
 

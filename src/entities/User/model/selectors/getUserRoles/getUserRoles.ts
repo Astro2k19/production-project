@@ -1,4 +1,4 @@
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { createSelector } from '@reduxjs/toolkit'
 import { UserRoles } from '../../conts/userConst'
 

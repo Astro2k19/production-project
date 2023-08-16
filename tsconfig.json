@@ -17,7 +17,7 @@
     // Для абсолютного импорта
     "baseUrl": "./",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "strictBindCallApply": true,
     "isolatedModules": true,

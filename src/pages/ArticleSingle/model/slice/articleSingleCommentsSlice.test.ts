@@ -3,7 +3,7 @@ import {
   fetchArticleCommentsById
 } from '../services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { articleSingleCommentsReducer } from './articleSingleCommentsSlice'
-import { type Comment } from 'entities/Comment'
+import { type Comment } from '@/entities/Comment'
 import { type ArticleSingleCommentsSchema } from '../types/articleSingleComments'
 
 const comments: Comment[] = [

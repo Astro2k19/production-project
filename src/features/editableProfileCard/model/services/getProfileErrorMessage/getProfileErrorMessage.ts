@@ -1,5 +1,5 @@
-import { type ApiError } from 'shared/api/api'
-import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
+import { type ApiError } from '@/shared/api/api'
+import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'
 import { ProfileError } from '../../const/editableProfileCardConst'
 
 const profileErrorCodeMappings = {

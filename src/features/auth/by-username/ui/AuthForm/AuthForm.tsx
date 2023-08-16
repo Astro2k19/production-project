@@ -1,7 +1,7 @@
 import cls from './AuthForm.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { type FC, type FormEvent, useCallback } from 'react'
-import { Button, ButtonVariants, Input, Text, TextVariants } from 'shared/ui'
+import { Button, ButtonVariants, Input, Text, TextVariants } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
@@ -12,9 +12,9 @@ import { getAuthUsername } from '../../model/selectors/getAuthUsername/getAuthUs
 import {
   DynamicModuleLoader,
   type ReducersList
-} from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+} from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
 
 export interface AuthFormProps {

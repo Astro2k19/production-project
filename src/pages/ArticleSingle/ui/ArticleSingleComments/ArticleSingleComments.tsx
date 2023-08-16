@@ -1,7 +1,7 @@
 import { memo, Suspense, useCallback } from 'react'
-import { classNames } from 'shared/lib'
-import { Text } from 'shared/ui'
-import { CommentsList } from 'entities/Comment'
+import { classNames } from '@/shared/lib'
+import { Text } from '@/shared/ui'
+import { CommentsList } from '@/entities/Comment'
 import {
   getArticleCommentsErrorMessage
 } from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
@@ -10,17 +10,17 @@ import {
   articleSingleCommentsSelectors, getArticleSingleCommentsError,
   getArticleSingleCommentsIsLoading
 } from '../../model/selectors/comments'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
-import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData'
 import {
   fetchArticleCommentsById
 } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { useTranslation } from 'react-i18next'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
-import { VStack } from 'shared/ui/stack'
-import { AddCommentForm } from 'features/addCommentForm'
+import { VStack } from '@/shared/ui/stack'
+import { AddCommentForm } from '@/features/addCommentForm'
 
 interface ArticleSingleCommentsProps {
   id: string

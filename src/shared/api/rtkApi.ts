@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 export const rtkApi = createApi({
   reducerPath: 'rtkApi',

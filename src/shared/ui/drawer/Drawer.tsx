@@ -1,9 +1,9 @@
 import { memo, type ReactNode, useCallback, useEffect } from 'react'
 import cls from './Drawer.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { Portal } from '../portal/Portal'
 import { Overlay } from '../overlay/Overlay'
-import { useAnimLibs } from 'shared/lib/AnimationProvider'
+import { useAnimLibs } from '@/shared/lib/AnimationProvider'
 
 interface DrawerProps {
   className?: string
@@ -12,7 +12,7 @@ interface DrawerProps {
   onClose: () => void
 }
 
-const height = window.innerHeight - 100
+const height = window.innerHeight - 300
 
 export const DrawerContent = memo(({ className, onClose, isOpen, children }: DrawerProps) => {
   const { Gesture, Spring } = useAnimLibs()
@@ -23,9 +23,9 @@ export const DrawerContent = memo(({ className, onClose, isOpen, children }: Dra
     api.start({ y: 0, immediate: false, config: canceled ? Spring.config.wobbly : Spring.config.stiff })
   }, [Spring.config.stiff, Spring.config.wobbly, api])
 
-  const close = (velocity = 0) => {
+  const close = useCallback((velocity = 0) => {
     api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity }, onResolve: onClose })
-  }
+  }, [Spring.config.stiff, api, onClose])
 
   const bind = Gesture.useDrag(
     ({ last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel, canceled }) => {
@@ -37,10 +37,11 @@ export const DrawerContent = memo(({ className, onClose, isOpen, children }: Dra
       // the threshold for it to close, or if we reset it to its open positino
       if (last) {
         oy > height * 0.5 || (vy > 0.5 && dy > 0) ? close(vy) : open({ canceled })
+      } else {
+        // when the user keeps dragging, we just move the sheet according to
+        // the cursor position
+        api.start({ y: oy, immediate: true })
       }
-      // when the user keeps dragging, we just move the sheet according to
-      // the cursor position
-      else api.start({ y: oy, immediate: true })
     },
     { from: () => [0, y.get()], bounds: { top: 0 }, rubberband: true }
   )
@@ -59,10 +60,12 @@ export const DrawerContent = memo(({ className, onClose, isOpen, children }: Dra
 
   return (
       <Portal>
-          <div className={classNames([cls.drawer, className, 'app_drawer'])} >
-              <Overlay onClick={() => { close() }} />
-              <Spring.a.div className={cls.content} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}>
-                  {children}
+          <div className={classNames([cls.drawer, 'app_drawer'])} >
+              <Overlay onClick={() => { close() }} as={Spring.a.div} style={{ display, opacity: y.to([0, height], [1, 0], 'clamp') }} />
+              <Spring.a.div className={cls.sheet} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}>
+                  <div className={classNames([cls.content, className])}>
+                      {children}
+                  </div>
               </Spring.a.div>
           </div>
       </Portal>

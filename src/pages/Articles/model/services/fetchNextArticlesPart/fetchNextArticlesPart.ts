@@ -3,9 +3,9 @@ import {
   getArticlesListHasMore,
   getArticlesListIsLoading
 } from '../../selectors/articlesPageList'
-import { type AsyncThunkConfig } from 'app/providers/storeProvider'
+import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
-import { articlesFiltersActions, getArticlesFiltersPage } from 'features/articlesFilters'
+import { articlesFiltersActions, getArticlesFiltersPage } from '@/features/articlesFilters'
 
 export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, AsyncThunkConfig>(
   'articlesPageList/fetchNextArticlesPart',

@@ -1,5 +1,5 @@
 import { getAuthLoading } from './getAuthLoading'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 
 describe('getAuthLoading', () => {
   test('should return true', () => {

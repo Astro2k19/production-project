@@ -1,4 +1,4 @@
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { createSelector } from '@reduxjs/toolkit'
 
 const getSavePageScroll = (state: StoreSchema) => state.savePageScroll.scroll

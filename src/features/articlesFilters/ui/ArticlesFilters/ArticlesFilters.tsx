@@ -1,25 +1,25 @@
 import { memo, useCallback } from 'react'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { ArticlesListViewSwitcher } from '../ArticlesListViewSwitcher/ArticlesListViewSwitcher'
-import { type ArticlesListView, type ArticleType } from 'entities/Article'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { type ArticlesListView, type ArticleType } from '@/entities/Article'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { ArticlesFiltersSelectors } from '../ArticlesFiltersSelectors/ArticlesFiltersSelectors'
-import { Card } from 'shared/ui/card/Card'
-import { Input } from 'shared/ui'
+import { Card } from '@/shared/ui/card/Card'
+import { Input } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { articlesFiltersActions } from '../../model/slice/articlesFiltersSlice'
 import { type ArticlesSortFields } from '../../model/conts/articleFiltersConst'
-import { type SortOrder } from 'shared/types/sortOrder'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { type SortOrder } from '@/shared/types/sortOrder'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import {
   getArticlesFiltersOrder,
   getArticlesFiltersSearch,
   getArticlesFiltersSort,
   getArticlesFiltersType
 } from '../../model/selectors/articlesFiltersSelectors'
-import { useDebounce } from 'shared/lib/hooks/useDebounce'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce'
 import { ArticleTabTypes } from '../ArticlesTabTypes/ArticleTabTypes'
-import { HStack, VStack } from 'shared/ui/stack'
+import { HStack, VStack } from '@/shared/ui/stack'
 import { type AsyncThunk } from '@reduxjs/toolkit'
 
 interface ArticlesFiltersProps {

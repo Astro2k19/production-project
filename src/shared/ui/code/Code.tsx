@@ -1,8 +1,8 @@
 import { memo, useState } from 'react'
 import cls from './Code.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { Button, ButtonVariants } from '../button/Button'
-import CopyIcon from 'shared/assets/icons/copy_icon.svg'
+import CopyIcon from '@/shared/assets/icons/copy_icon.svg'
 import { useTranslation } from 'react-i18next'
 
 interface CodeProps {

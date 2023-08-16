@@ -1,5 +1,5 @@
-import { type ApiError } from 'shared/api/api'
-import { getErrorMessage } from 'shared/lib/getErrorMessage/getErrorMessage'
+import { type ApiError } from '@/shared/api/api'
+import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'
 import { AuthFormError } from '../../model/const/authConst'
 
 const profileErrorCodeMappings = {

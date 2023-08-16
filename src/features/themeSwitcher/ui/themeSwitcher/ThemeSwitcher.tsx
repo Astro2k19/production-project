@@ -1,7 +1,7 @@
 // import cls from './ThemeSwitcher.module.scss'
-import { classNames, useTheme } from 'shared/lib'
-import { Button, ButtonVariants } from 'shared/ui'
-import ThemeSwitcherIcon from 'shared/assets/icons/theme-light.svg'
+import { classNames, useTheme } from '@/shared/lib'
+import { Button, ButtonVariants } from '@/shared/ui'
+import ThemeSwitcherIcon from '@/shared/assets/icons/theme-light.svg'
 import { memo } from 'react'
 import cls from './ThemeSwitcher.module.scss'
 

@@ -1,8 +1,8 @@
 import { type FC, type ReactElement } from 'react'
 import { useSelector } from 'react-redux'
-import { getUserAuthDate } from 'entities/User'
+import { getUserAuthDate } from '@/entities/User'
 import { Navigate, useLocation } from 'react-router-dom'
-import { appPaths } from 'shared/config/routerConfig/routerConfig'
+import { appPaths } from '@/shared/config/routerConfig/routerConfig'
 
 interface ProtectedRouteProps {
   children: ReactElement

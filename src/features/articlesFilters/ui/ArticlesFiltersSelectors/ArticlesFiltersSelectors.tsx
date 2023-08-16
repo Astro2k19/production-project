@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react'
 import cls from './ArticlesFiltersSelectors.module.scss'
-import { classNames } from 'shared/lib'
-import { Select, type SelectOption } from 'shared/ui'
+import { classNames } from '@/shared/lib'
+import { Select, type SelectOption } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
-import { type SortOrder } from 'shared/types/sortOrder'
+import { type SortOrder } from '@/shared/types/sortOrder'
 import { ArticlesSortFields } from '../../model/conts/articleFiltersConst'
 
 interface ArticlesFiltersSelectorsProps {

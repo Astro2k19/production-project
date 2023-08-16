@@ -1,5 +1,5 @@
 import { getAuthPassword } from './getAuthPassword'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 
 describe('getAuthPassword', () => {
   test('should return password', () => {

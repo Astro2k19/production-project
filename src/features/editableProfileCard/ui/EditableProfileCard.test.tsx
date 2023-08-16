@@ -1,10 +1,10 @@
 import { act, screen } from '@testing-library/react'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { EditableProfileCard } from './EditableProfileCard'
-import { profile } from 'entities/Profile'
+import { profile } from '@/entities/Profile'
 import userEvent from '@testing-library/user-event'
 import { profileReducer } from '../model/slice/profileSlice'
-import { $api } from 'shared/api/api'
+import { $api } from '@/shared/api/api'
 
 jest.spyOn($api, 'put')
 describe('features/EditableProfileCard', function () {

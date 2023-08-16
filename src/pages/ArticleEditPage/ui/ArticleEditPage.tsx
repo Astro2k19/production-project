@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 // import cls from './ArticleEditPage.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { useParams } from 'react-router-dom'
 
 interface ArticleEditPageProps {

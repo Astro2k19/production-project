@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
-import { App } from 'app/index'
+import { App } from '@/app/index'
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from 'app/providers/themeProvider'
+import { ThemeProvider } from '@/app/providers/themeProvider'
 import { ErrorBoundary } from 'react-error-boundary'
-import { PageError } from 'widgets/PageError'
-import { StoreProvider } from 'app/providers/storeProvider'
-import 'shared/config/i18n/i18n'
+import { PageError } from '@/widgets/PageError'
+import { StoreProvider } from '@/app/providers/storeProvider'
+import '@/shared/config/i18n/i18n'
 
 createRoot(document.querySelector('#root') as HTMLDivElement).render(
     <StoreProvider>

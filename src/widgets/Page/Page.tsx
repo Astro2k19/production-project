@@ -1,14 +1,14 @@
 import { type MutableRefObject, type ReactNode, type UIEvent, useRef } from 'react'
 import cls from './Page.module.scss'
-import { classNames } from 'shared/lib'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { savePageScrollActions } from 'features/savePageScroll'
+import { classNames } from '@/shared/lib'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { savePageScrollActions } from '@/features/savePageScroll'
 import { useLocation } from 'react-router-dom'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import { getSavePageScrollByKey } from 'features/savePageScroll/model/selectors/getSavePageScroll'
-import { useDebounce } from 'shared/lib/hooks/useDebounce'
-import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { getSavePageScrollByKey } from '@/features/savePageScroll/model/selectors/getSavePageScroll'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData'
 
 interface PageProps {
   className?: string

@@ -10,6 +10,8 @@ export const buildResolvers = (options: BuildOptions): ResolveOptions => {
     // The filename to be used while resolving directories. (we use re-export in index.ts as public api)
     mainFiles: ['index'],
     preferAbsolute: true,
-    alias: {}
+    alias: {
+      '@': options.paths.src
+    }
   }
 }

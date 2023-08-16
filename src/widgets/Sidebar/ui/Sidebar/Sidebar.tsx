@@ -1,14 +1,14 @@
 import cls from './Sidebar.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import React, { type FC } from 'react'
-import { ThemeSwitcher } from 'features/themeSwitcher'
-import { LangSwitcher } from 'features/langSwitcher'
-import ToggleSidebarIcon from 'shared/assets/icons/sidebar-toggle.svg'
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui'
+import { ThemeSwitcher } from '@/features/themeSwitcher'
+import { LangSwitcher } from '@/features/langSwitcher'
+import ToggleSidebarIcon from '@/shared/assets/icons/sidebar-toggle.svg'
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
-import { VStack } from 'shared/ui/stack'
+import { VStack } from '@/shared/ui/stack'
 
 interface SidebarProps {
   className?: string

@@ -4,7 +4,7 @@ import {
   type ExtendedReducerManagerStore,
   type StoreSchema,
   type StoreSchemaKeys
-} from 'app/providers/storeProvider/config/StoreSchema'
+} from '@/app/providers/storeProvider/config/StoreSchema'
 import { type Reducer } from '@reduxjs/toolkit'
 
 export type ReducersList = {

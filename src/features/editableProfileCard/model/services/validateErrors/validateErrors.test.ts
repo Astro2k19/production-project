@@ -1,6 +1,6 @@
-import { type Profile } from 'entities/Profile'
+import { type Profile } from '@/entities/Profile'
 import { validateErrors } from './validateErrors'
-import { profile as data } from 'entities/Profile'
+import { profile as data } from '@/entities/Profile'
 import { ValidateProfileError } from '../../const/editableProfileCardConst'
 
 describe('validateErrors', () => {

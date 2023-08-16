@@ -1,6 +1,6 @@
 import { type ComponentPropsWithoutRef, type HTMLAttributes, type ReactNode } from 'react'
 import cls from './Flex.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 
 type FlexDirectionOptions = 'row' | 'column'
 type FlexJustifyOptions = 'start' | 'center' | 'end' | 'spaceBetween'

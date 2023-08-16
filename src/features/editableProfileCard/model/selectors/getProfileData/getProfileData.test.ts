@@ -1,7 +1,7 @@
 import { getProfileData } from './getProfileData'
-import { type StoreSchema } from 'app/providers/storeProvider/config/StoreSchema'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
+import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
 
 describe('getProfileData', () => {
   const data = {

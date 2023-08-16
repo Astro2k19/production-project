@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import { EditableProfileCard } from 'features/editableProfileCard'
+import { EditableProfileCard } from '@/features/editableProfileCard'
 import { useParams } from 'react-router-dom'
-import { Page } from 'widgets/Page/Page'
-import { Text } from 'shared/ui'
+import { Page } from '@/widgets/Page/Page'
+import { Text } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 
 const ProfilePage = memo(() => {

@@ -1,15 +1,15 @@
 import React, { type FC, type HTMLAttributeAnchorTarget, type MutableRefObject, useEffect, useRef, useState } from 'react'
 import cls from './ArticlesList.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
-import { Button, ButtonVariants, Loader, Text } from 'shared/ui'
+import { Button, ButtonVariants, Loader, Text } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Components, Virtuoso, VirtuosoGrid, type VirtuosoGridHandle, type VirtuosoHandle } from 'react-virtuoso'
 import { ArticlesListView, type ArticleType } from '../../model/conts/articleConts'
-import { HStack } from 'shared/ui/stack'
-import { INITIAL_TOP_ARTICLES_INDEX_KEY } from 'shared/const/localStorage'
+import { HStack } from '@/shared/ui/stack'
+import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
 
 interface ArticlesListProps {
   className?: string

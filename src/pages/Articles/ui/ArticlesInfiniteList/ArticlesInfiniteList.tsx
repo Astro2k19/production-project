@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react'
 import cls from './ArticlesInfinite.module.scss'
-import { type ArticlesListView, ArticlesListVirtualized } from 'entities/Article'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import { useFetchData } from 'shared/lib/hooks/useFetchData'
+import { type ArticlesListView, ArticlesListVirtualized } from '@/entities/Article'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData'
 
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import {
   getArticlesListError, getArticlesListHasMore,
   getArticlesListIsLoading,
@@ -20,7 +20,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import {
   setInitialArticlesListState
 } from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
-import { ArticlesFilters, getArticlesFiltersType } from 'features/articlesFilters'
+import { ArticlesFilters, getArticlesFiltersType } from '@/features/articlesFilters'
 
 interface ArticleInfiniteListProps {
   className?: string

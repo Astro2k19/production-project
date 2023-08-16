@@ -1,9 +1,9 @@
 import { type FC, useCallback } from 'react'
-import { Button, ButtonVariants, Text } from 'shared/ui'
+import { Button, ButtonVariants, Text } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { profileActions } from '../model/slice/profileSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
 import {
@@ -11,7 +11,7 @@ import {
 } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
 import { canEditProfile } from '../model/selectors/canEditProfile/canEditProfile'
-import { HStack } from 'shared/ui/stack'
+import { HStack } from '@/shared/ui/stack'
 
 interface EditableProfileCardHeaderProps {
   className?: string

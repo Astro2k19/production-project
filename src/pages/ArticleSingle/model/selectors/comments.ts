@@ -1,4 +1,4 @@
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { articleSingleCommentsSlice, commentsAdapter } from '../slice/articleSingleCommentsSlice'
 
 export const getArticleSingleCommentsIsLoading = (state: StoreSchema) => state.articleSingleComments?.isLoading

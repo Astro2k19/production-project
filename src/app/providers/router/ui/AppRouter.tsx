@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { PageLoader } from 'widgets/pageLoader'
+import { PageLoader } from '@/widgets/pageLoader'
 import { type ProtectedRouteProps, routerConfig } from '../config/config'
-import { PageError } from 'widgets/PageError'
+import { PageError } from '@/widgets/PageError'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ProtectedRoute } from 'app/providers/router/ui/ProtectedRoute'
-import { RoleGuard } from 'app/providers/router/ui/RoleGuard'
+import { ProtectedRoute } from '@/app/providers/router/ui/ProtectedRoute'
+import { RoleGuard } from '@/app/providers/router/ui/RoleGuard'
 
 export const AppRouter: React.FC = () => {
   const renderWithProtectedRoutes = (route: ProtectedRouteProps) => {

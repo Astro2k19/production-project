@@ -1,4 +1,4 @@
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import {
   getAddCommentFormError,
   getAddCommentFormIsLoading,

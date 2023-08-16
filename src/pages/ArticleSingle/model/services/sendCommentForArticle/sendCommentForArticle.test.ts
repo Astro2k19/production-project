@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import { sendCommentForArticle } from './sendCommentForArticle'
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('sendCommentForArticle', () => {
   const state: DeepPartial<StoreSchema> = {

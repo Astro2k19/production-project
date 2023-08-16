@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector'
-import { getUserRoles, type UserRoles } from 'entities/User'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { getUserRoles, type UserRoles } from '@/entities/User'
 import { Navigate } from 'react-router-dom'
-import { appPaths } from 'shared/config/routerConfig/routerConfig'
+import { appPaths } from '@/shared/config/routerConfig/routerConfig'
 
 interface ProtectedWithRoleProps {
   children: JSX.Element

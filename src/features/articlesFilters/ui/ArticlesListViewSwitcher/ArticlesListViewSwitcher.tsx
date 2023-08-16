@@ -1,11 +1,11 @@
 import { type FC } from 'react'
 import cls from './ArticlesListViewSwitcher.module.scss'
-import { classNames } from 'shared/lib'
-import { ArticlesListView } from 'entities/Article'
-import ListView from 'shared/assets/icons/list_icon.svg'
-import GridView from 'shared/assets/icons/grid_icon.svg'
-import { Button } from 'shared/ui'
-import { Icon } from 'shared/ui/icon/Icon'
+import { classNames } from '@/shared/lib'
+import { ArticlesListView } from '@/entities/Article'
+import ListView from '@/shared/assets/icons/list_icon.svg'
+import GridView from '@/shared/assets/icons/grid_icon.svg'
+import { Button } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon/Icon'
 
 interface ArticlesListViewSwitcherProps {
   className?: string

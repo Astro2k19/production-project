@@ -1,4 +1,4 @@
-import { type ApiError } from 'shared/api/api'
+import { type ApiError } from '@/shared/api/api'
 
 export interface LoginFormSchema {
   username: string

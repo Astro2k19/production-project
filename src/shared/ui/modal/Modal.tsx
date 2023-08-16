@@ -1,5 +1,5 @@
 import cls from './Modal.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { type ReactNode, useEffect, useCallback, type FC, useState } from 'react'
 import { Portal } from '../portal/Portal'
 import { Overlay } from '../overlay/Overlay'

@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
-import { USER_AUTH_DATA_KEY } from 'shared/const/localStorage'
+import { USER_AUTH_DATA_KEY } from '@/shared/const/localStorage'
 import { userActions } from '../../slice/userSlice'
 
 export const initUserDataMiddleware = createListenerMiddleware()

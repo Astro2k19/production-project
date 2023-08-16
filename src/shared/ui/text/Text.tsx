@@ -1,5 +1,5 @@
 import cls from './Text.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { memo } from 'react'
 
 export enum TextVariants {

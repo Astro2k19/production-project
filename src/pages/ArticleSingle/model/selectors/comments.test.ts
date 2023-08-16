@@ -1,4 +1,4 @@
-import { type StoreSchema } from 'app/providers/storeProvider'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { getArticleSingleCommentsError, getArticleSingleCommentsIsLoading } from './comments'
 import { ArticleSingleCommentsError } from '../const/articleSingleConst'
 

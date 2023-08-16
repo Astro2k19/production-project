@@ -1,5 +1,5 @@
 import cls from './Card.module.scss'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { type HTMLAttributes, type ReactNode } from 'react'
 
 enum CardVariants {

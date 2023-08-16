@@ -1,5 +1,5 @@
-import { type ApiError } from 'shared/api/api'
-import i18n from 'shared/config/i18n/i18n'
+import { type ApiError } from '@/shared/api/api'
+import i18n from '@/shared/config/i18n/i18n'
 
 export const getErrorMessage = (
   error: ApiError,

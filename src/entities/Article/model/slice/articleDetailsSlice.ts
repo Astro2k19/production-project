@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
 import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
 import { type Article } from '../types/article'
-import { type ApiError } from 'shared/api/api'
+import { type ApiError } from '@/shared/api/api'
 
 const initialState: ArticleDetailsSchema = {
   isLoading: false,

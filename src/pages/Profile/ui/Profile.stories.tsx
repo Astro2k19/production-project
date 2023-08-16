@@ -1,10 +1,10 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import ProfilePage from './Profile'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
-import img from 'shared/assets/images/tests/avatar.jpg'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
+import img from '@/shared/assets/images/tests/avatar.jpg'
 
 export default {
   title: 'pages/Profile',
