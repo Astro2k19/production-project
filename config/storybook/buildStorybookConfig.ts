@@ -1,5 +1,6 @@
 import webpack, { type RuleSetRule, type Configuration } from 'webpack'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import path from 'path'
 
 export const buildStorybookConfig = async (config: Configuration): Promise<Configuration> => {
   if (config?.resolve !== undefined) {
@@ -9,6 +10,10 @@ export const buildStorybookConfig = async (config: Configuration): Promise<Confi
         extensions: config.resolve.extensions
       })
     ]
+
+    config.resolve.alias = {
+      '@': path.resolve('..', '..', 'src')
+    }
   }
 
   config?.plugins?.push(

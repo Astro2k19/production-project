@@ -1,17 +1,17 @@
 .icon {
-  display: flex;
-  align-items: center;
+  //display: flex;
+  //align-items: center;
   fill: var(--primary-color);
 
-  svg, path {
-    fill: var(--primary-color);
+  path {
+    fill: inherit;
   }
 }
 
 .inverted {
   fill: var(--inverted-primary-color);
 
-  svg, path {
-    fill: var(--inverted-primary-color);
+  path {
+    fill: inherit;
   }
 }

@@ -1,0 +1,13 @@
+.hovered {
+  cursor: pointer;
+  fill: var(--inverted-primary-color);
+}
+
+.hovered.selected {
+  cursor: default;
+}
+.star {
+  cursor: pointer;
+}
+
+
