@@ -20,7 +20,6 @@ export const NotificationsButton = memo(({ className }: NotificationButtonProps)
 
   const onDrawerOpen = useCallback(
     () => {
-      console.log('drawer')
       setIsDrawerOpen(true)
     },
     []

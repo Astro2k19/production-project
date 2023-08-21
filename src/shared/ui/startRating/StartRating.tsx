@@ -38,9 +38,11 @@ export const StartRating: FC<StartRatingProps> =
     }
 
     const onClick = (starCount: number) => () => {
-      setCurrentStarsCount(starCount)
-      setIsSelected(true)
-      onSelect?.(starCount)
+      if (!isSelected) {
+        setCurrentStarsCount(starCount)
+        setIsSelected(true)
+        onSelect?.(starCount)
+      }
     }
 
     return (

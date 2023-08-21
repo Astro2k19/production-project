@@ -2500,5 +2500,14 @@
       ],
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "rate": 3,
+      "userId": 1,
+      "articleId": 5,
+      "feedback": ""
+    }
   ]
 }
