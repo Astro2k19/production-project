@@ -14,6 +14,7 @@ interface RatingCardProps {
   hasFeedback?: boolean
   onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback: string) => void
+  rate?: number
 }
 
 export const RatingCard: FC<RatingCardProps> =
@@ -23,13 +24,15 @@ export const RatingCard: FC<RatingCardProps> =
   hasFeedback = true,
   feedbackTitle,
   onCancel,
-  onAccept
+  onAccept,
+  rate
 }) => {
   const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [feedbackText, setFeedbackText] = useState('')
   const [currentStarsCount, setCurrentStarsCount] = useState(0)
   const isMobile = useDevice()
+
   const onSelectRating = useCallback((starsCount: number) => {
     setCurrentStarsCount(starsCount)
     if (hasFeedback) {
@@ -66,7 +69,11 @@ export const RatingCard: FC<RatingCardProps> =
       <Card >
           <VStack alignItems={'center'} gap={'8'}>
               <Text title={title} />
-              <StartRating onSelect={onSelectRating} size={50} />
+              <StartRating
+                onSelect={onSelectRating}
+                size={50}
+                selectedStarsCount={rate}
+              />
           </VStack>
           {isMobile
             ? (

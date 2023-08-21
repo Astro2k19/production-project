@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { Page } from '@/widgets/Page/Page'
 import { Text } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
+import { ProfileRating } from '@/features/ProfileRating'
 
 const ProfilePage = memo(() => {
   const { t } = useTranslation()
@@ -18,6 +19,7 @@ const ProfilePage = memo(() => {
   return (
       <Page>
           <EditableProfileCard id={id} />
+          <ProfileRating profileId={id} />
       </Page>
   )
 })

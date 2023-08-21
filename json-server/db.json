@@ -2501,13 +2501,45 @@
       "avatar": "https://www.w3schools.com/howto/img_avatar.png"
     }
   ],
-  "article-rating": [
+  "articles-rating": [
     {
-      "id": "1",
+      "userId": "2",
+      "articleId": "14",
       "rate": 3,
-      "userId": 1,
-      "articleId": 5,
-      "feedback": ""
+      "feedback": "asdasd",
+      "id": 1
+    },
+    {
+      "userId": "2",
+      "articleId": "3",
+      "rate": 5,
+      "id": 2
+    },
+    {
+      "userId": "2",
+      "articleId": "17",
+      "rate": 3,
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "rate": 3,
+      "id": 4
+    }
+  ],
+  "profiles-rating": [
+    {
+      "profileId": "1",
+      "userId": "2",
+      "rate": 3,
+      "id": 1
+    },
+    {
+      "profileId": "2",
+      "userId": "1",
+      "rate": 3,
+      "id": 2
     }
   ]
 }

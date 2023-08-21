@@ -30,7 +30,7 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
     ...(isAdminPanelAccessible
       ? [
           {
-            content: t('Admin Panel', { ns: 'profile' }),
+            content: t('Admin Panel'),
             href: appPaths.admin
           }
         ]

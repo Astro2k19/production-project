@@ -10,6 +10,7 @@ import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
 import { VStack } from '@/shared/ui/stack'
 import { ArticleSingleRecommendations } from '@/features/articleSingleRecommendations'
 import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleComments'
+import { ArticleRating } from '@/features/ArticleRating'
 
 interface ArticleSingleProps {
   className?: string
@@ -43,6 +44,7 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
               <ArticleSingleHeader />
               <ArticleDetails id={id} />
               <ArticleSingleRecommendations />
+              <ArticleRating articleId={id} />
               <ArticleSingleComments id={id} />
           </VStack>
       </Page>

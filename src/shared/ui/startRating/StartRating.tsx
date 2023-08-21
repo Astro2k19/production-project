@@ -8,7 +8,6 @@ interface StartRatingProps {
   className?: string
   onSelect?: (starsCount: number) => void
   selectedStarsCount?: number
-  isStarsSelected?: boolean
   size?: number
 }
 
@@ -18,12 +17,11 @@ export const StartRating: FC<StartRatingProps> =
   ({
     className,
     selectedStarsCount = 0,
-    isStarsSelected = false,
     onSelect,
     size = 24
   }) => {
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStarsCount)
-    const [isSelected, setIsSelected] = useState(isStarsSelected)
+    const [isSelected, setIsSelected] = useState(selectedStarsCount > 0)
 
     const onMouseEnter = (starCount: number) => () => {
       if (!isSelected) {

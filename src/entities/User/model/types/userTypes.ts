@@ -1,7 +1,7 @@
 import { type UserRoles } from '../conts/userConst'
 
 export interface User {
-  id: number | string
+  id: string
   username: string
   avatar?: string
   roles?: UserRoles[]

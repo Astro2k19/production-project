@@ -1,20 +1,52 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 import { RatingCard } from '@/entities/Rating'
 import { useTranslation } from 'react-i18next'
+import { useGetArticleRating, usePostArticleRating } from '../../api/articleRatingApi'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { Skeleton } from '@/shared/ui/skeleton/Skeleton'
+import { getUserAuthDate } from '@/entities/User'
 
-interface ArticleRatingProps {
+export interface ArticleRatingProps {
   className?: string
+  articleId: string
 }
 
-export const ArticleRating = memo(({ className }: ArticleRatingProps) => {
+const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
   const { t } = useTranslation()
+  const userData = useAppSelector(getUserAuthDate)
+  const { data, isLoading } = useGetArticleRating({
+    userId: userData?.id ?? '',
+    articleId
+  })
+  const [postArticleRating] = usePostArticleRating()
 
-  const onAccept = (num: number, text: string) => {
-    console.log(num, text, 'accept')
-  }
+  const rating = data?.at(0)
 
-  const onCancel = (num: number) => {
-    console.log(num, 'cancel')
+  const handleRateArticle = useCallback((rate: number, feedback?: string) => {
+    try {
+      postArticleRating({
+        userId: userData?.id ?? '',
+        articleId,
+        rate,
+        feedback
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }, [articleId, postArticleRating, userData?.id])
+
+  const onAccept = useCallback((rate: number, feedback: string) => {
+    handleRateArticle(rate, feedback)
+  }, [handleRateArticle])
+
+  const onCancel = useCallback((rate: number) => {
+    handleRateArticle(rate)
+  }, [handleRateArticle])
+
+  if (isLoading) {
+    return (
+        <Skeleton width={'100%'} height={126} />
+    )
   }
 
   return (
@@ -24,6 +56,9 @@ export const ArticleRating = memo(({ className }: ArticleRatingProps) => {
           onAccept={onAccept}
           onCancel={onCancel}
           className={className}
+          rate={rating?.rate}
       />
   )
 })
+
+export default ArticleRating

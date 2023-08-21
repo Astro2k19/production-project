@@ -47,16 +47,16 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ 
               readonly
                 ? (
                     <Button onClick={onEdit} disabled={isLoading} data-testid={'EditableProfileCardHeader.EditButton'}>
-                        {t('Edit', { ns: 'profile' })}
+                        {t('Edit')}
                     </Button>
                   )
                 : (
                     <HStack gap={'8'}>
                         <Button onClick={onSave} variant={ButtonVariants.OUTLINE} disabled={isLoading} data-testid={'EditableProfileCardHeader.SaveButton'}>
-                            {t('Save', { ns: 'profile' })}
+                            {t('Save')}
                         </Button>
                         <Button onClick={onCancel} variant={ButtonVariants.OUTLINE_RED} disabled={isLoading} data-testid={'EditableProfileCardHeader.CancelButton'}>
-                            {t('Cancel', { ns: 'profile' })}
+                            {t('Cancel')}
                         </Button>
                     </HStack>
                   )

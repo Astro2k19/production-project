@@ -40,7 +40,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
 
   const onCardClick = () => {
     if (index) {
-      sessionStorage.setItem(INITIAL_TOP_ARTICLES_INDEX_KEY, JSON.stringify(index))
+      sessionStorage.setItem(INITIAL_TOP_ARTICLES_INDEX_KEY, JSON.stringify(index + 1))
     }
   }
 

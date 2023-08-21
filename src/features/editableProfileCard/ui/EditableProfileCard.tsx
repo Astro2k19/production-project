@@ -1,4 +1,4 @@
-import { type FC, useCallback } from 'react'
+import { type FC, useCallback, useEffect } from 'react'
 import { ProfileCard } from '@/entities/Profile'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
@@ -37,9 +37,11 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
 
-  useFetchData(() => {
-    dispatch(fetchProfileData(id))
-  })
+  useEffect(() => {
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData(id))
+    }
+  }, [dispatch, id])
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(profileActions.setProfileData({ first: value }))
