@@ -1,5 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Dropdown } from './Dropdown'
+import { Button, ButtonVariants } from '@/shared/ui'
 
 export default {
   title: 'shared/Dropdown',
@@ -24,18 +25,21 @@ const items = [
   { content: 'license license license license', disabled: true }
 ]
 
+// eslint-disable-next-line i18next/no-literal-string
+const trigger = <Button variant={ButtonVariants.OUTLINE}>Trigger</Button>
+
 export const Normal = Template.bind({})
 
 Normal.args = {
   items,
-  trigger: 'Trigger'
+  trigger
 }
 
 export const BottomLeftPosition = Template.bind({})
 
 BottomLeftPosition.args = {
   items,
-  trigger: 'Trigger',
+  trigger,
   direction: 'bottom-end'
 }
 
@@ -43,7 +47,7 @@ export const TopLeftPosition = Template.bind({})
 
 TopLeftPosition.args = {
   items,
-  trigger: 'Trigger',
+  trigger,
   direction: 'top-end'
 }
 
@@ -51,6 +55,6 @@ export const TopRightPosition = Template.bind({})
 
 TopRightPosition.args = {
   items,
-  trigger: 'Trigger',
+  trigger,
   direction: 'top-start'
 }

@@ -17,8 +17,8 @@ export const Popover = memo(({ className, trigger, children, direction = 'bottom
   })
 
   return (
-      <HPopover ref={refs.setReference} className={className}>
-          <HPopover.Button as={Fragment}>
+      <HPopover className={className}>
+          <HPopover.Button as={Fragment} ref={refs.setReference}>
               {trigger}
           </HPopover.Button>
           <HPopover.Panel

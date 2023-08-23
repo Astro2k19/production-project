@@ -11,7 +11,7 @@ interface NotificationItemProps {
 
 export const NotificationItem = memo(({ className, item }: NotificationItemProps) => {
   const text = item.title.length > 15 ? `${item.title.slice(1, 30)}...` : item.title
-  const content = item.title.length > 50 ? `${item.title.slice(1, 80)}...` : item.title
+  const content = item.description.length > 50 ? `${item.description.slice(1, 80)}...` : item.description
 
   if (item.href) {
     return (

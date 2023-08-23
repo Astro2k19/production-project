@@ -10,11 +10,19 @@ interface DrawerProps {
   children: ReactNode
   isOpen: boolean
   onClose: () => void
+  withPortal?: boolean
 }
 
 const height = window.innerHeight - 300
 
-export const DrawerContent = memo(({ className, onClose, isOpen, children }: DrawerProps) => {
+export const DrawerContent = memo((props: DrawerProps) => {
+  const {
+    className,
+    onClose,
+    isOpen,
+    children,
+    withPortal = false
+  } = props
   const { Gesture, Spring } = useAnimLibs()
   // const contentRef = useRef<HTMLDivElement>(null)
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
@@ -58,17 +66,29 @@ export const DrawerContent = memo(({ className, onClose, isOpen, children }: Dra
     return null
   }
 
+  const content = (
+      <div className={classNames([cls.drawer, 'app_drawer'])} >
+          <Overlay onClick={() => { close() }} as={Spring.a.div} style={{ display, opacity: y.to([0, height], [1, 0], 'clamp') }} />
+          <Spring.a.div className={cls.sheet} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 300}px)`, y }}>
+              <div className={classNames([cls.content, className])}>
+                  {children}
+              </div>
+          </Spring.a.div>
+      </div>
+  )
+
+  if (withPortal) {
+    return (
+        <Portal>
+            {content}
+        </Portal>
+    )
+  }
+
   return (
-      <Portal>
-          <div className={classNames([cls.drawer, 'app_drawer'])} >
-              <Overlay onClick={() => { close() }} as={Spring.a.div} style={{ display, opacity: y.to([0, height], [1, 0], 'clamp') }} />
-              <Spring.a.div className={cls.sheet} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}>
-                  <div className={classNames([cls.content, className])}>
-                      {children}
-                  </div>
-              </Spring.a.div>
-          </div>
-      </Portal>
+      <div className={classNames([cls.drawer, 'app_drawer'])} >
+          {content}
+      </div>
   )
 })
 

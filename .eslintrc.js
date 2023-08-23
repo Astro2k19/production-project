@@ -26,6 +26,9 @@ module.exports = {
     "react-hooks",
     'authoring-project-plugin'
   ],
+  "ignorePatterns": [
+    "**/*.stories.{ts,tsx}"
+  ],
   rules: {
     'react/jsx-indent': [2, 4],
     'react/react-in-jsx-scope': 'off',
@@ -47,7 +50,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/display-name": "off",
     // only text in react files
-    'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''], ignoreFiles: ["**/*.stories.{ts,tsx}"] }],
+    'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''], ignoreFiles: ["**/*.stories.{ts,tsx}"], exclude: ['"**/*.stories.{ts,tsx}"'] }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
