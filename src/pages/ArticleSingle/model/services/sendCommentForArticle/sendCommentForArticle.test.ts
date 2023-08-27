@@ -11,7 +11,7 @@ describe('sendCommentForArticle', () => {
     },
     user: {
       authData: {
-        id: 1
+        id: '1'
       }
     }
   }

@@ -3,6 +3,7 @@ import { classNames } from '@/shared/lib'
 import { AppLink, AppLinkVariants, Button, ButtonVariants } from '@/shared/ui'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+// eslint-disable-next-line authoring-project-plugin/public-api-import-checker
 import { AuthModal } from '@/features/auth/by-username'
 import { getUserAuthDate } from '@/entities/User'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'

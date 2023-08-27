@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { EditableProfileCard } from '@/features/editableProfileCard'
 import { useParams } from 'react-router-dom'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { Text } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { ProfileRating } from '@/features/ProfileRating'

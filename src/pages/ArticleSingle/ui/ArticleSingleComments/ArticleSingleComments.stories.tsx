@@ -2,7 +2,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ArticleSingleComments } from './ArticleSingleComments'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import avatar from '@/shared/assets/images/tests/avatar.jpg'
-import { article } from '@/entities/Article'
+import { article } from '@/entities/Article/testing'
 
 export default {
   title: 'pages/ArticleSingle/ArticleSingleComments',

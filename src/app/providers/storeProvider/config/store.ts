@@ -4,7 +4,7 @@ import { authMiddleware, initUserDataMiddleware, userReducer } from '@/entities/
 import { createReducerManager } from '@/app/providers/storeProvider/config/createReducerManager'
 import { $api } from '@/shared/api/api'
 import { savePageScrollReducer } from '@/features/savePageScroll'
-import { articlesFiltersReducer } from '@/features/articlesFilters/model/slice/articlesFiltersSlice'
+import { articlesFiltersReducer } from '@/features/articlesFilters'
 import { rtkApi } from '@/shared/api/rtkApi'
 import { setArticlesListViewMiddleware } from '@/pages/Articles'
 

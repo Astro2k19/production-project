@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import cls from './AdminPanel.module.scss'
 import { classNames } from '@/shared/lib'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { useTranslation } from 'react-i18next'
 
 interface AdminPanelProps {

@@ -1,6 +1,6 @@
 import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
-import { article as data } from '../../mocks/data'
+import { article as data } from '../../mocks/data.mock'
 import { ArticleError } from '../conts/articleConts'
 
 describe('getArticleDetailsData', () => {

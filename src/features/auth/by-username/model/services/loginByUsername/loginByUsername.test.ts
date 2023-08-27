@@ -12,7 +12,7 @@ describe('loginByUsername', () => {
   // })
 
   test('successful request', async () => {
-    const userData = { id: 1, username: 'User' }
+    const userData = { id: '1', username: 'User' }
     const asyncThunk = new TestAsyncThunk(loginByUsername)
     asyncThunk.api.post.mockReturnValue(Promise.resolve({ data: userData }))
     // const action = loginByUsername({ username: 'User', password: '123456789' })
@@ -26,7 +26,7 @@ describe('loginByUsername', () => {
   })
 
   test('rejected request', async () => {
-    const userData = { id: 1, username: 'User' }
+    const userData = { id: '1', username: 'User' }
     const asyncThunk = new TestAsyncThunk(loginByUsername)
     asyncThunk.api.post.mockReturnValue(Promise.resolve({}))
     // const action = loginByUsername({ username: 'Astro', password: '123456789' })

@@ -1,5 +1,5 @@
 export { ArticlesFilters } from './ui/ArticlesFilters/ArticlesFilters'
-export { articlesFiltersActions } from './model/slice/articlesFiltersSlice'
+export { articlesFiltersActions, articlesFiltersReducer } from './model/slice/articlesFiltersSlice'
 export type { ArticlesFiltersSchema } from './model/types/articleFilters'
 export { ArticlesSortFields } from './model/conts/articleFiltersConst'
 export {

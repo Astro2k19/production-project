@@ -8,7 +8,7 @@ describe('fetchArticleCommentsById', () => {
       id: 1,
       text: 'hello world 1 !',
       user: {
-        id: 1,
+        id: '1',
         username: 'Artem',
         avatar: ''
       }
@@ -17,7 +17,7 @@ describe('fetchArticleCommentsById', () => {
       id: 2,
       text: 'hello world 2 !',
       user: {
-        id: 1,
+        id: '1',
         username: 'Artem',
         avatar: ''
       }

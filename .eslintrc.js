@@ -56,5 +56,11 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "authoring-project-plugin/relative-path-checker": ["error", {alias: '@'}],
+    "authoring-project-plugin/public-api-import-checker": ["error",
+      {
+        alias: '@',
+        testFilePatterns: ['**/*.stories.*', '**/*.mock.*', '**/*.test.*', '**/StoreDecorator.tsx']
+      }
+    ],
   }
 }

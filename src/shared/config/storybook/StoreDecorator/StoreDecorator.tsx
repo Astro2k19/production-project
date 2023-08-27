@@ -4,12 +4,14 @@ import { StoreProvider } from '@/app/providers/storeProvider'
 import { type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
 // we use such path for imports because these are async reducers, and they can't be in the public api
-import { authReducer } from '@/features/auth/by-username/model/slice/loginByUsernameSlice'
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice'
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice'
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slice/addCommentFormSlice'
-import { articleSingleCommentsReducer } from '@/pages/ArticleSingle/model/slice/articleSingleCommentsSlice'
-import { articlesPageReducer } from '@/pages/Articles/model/slice/articlesPageListSlice/articlesPageListSlice'
+// TODO: FIX
+// eslint-disable-next-line authoring-project-plugin/public-api-import-checker
+import { authReducer } from '@/features/auth/by-username/testing'
+import { profileReducer } from '@/features/editableProfileCard/testing'
+import { articleDetailsReducer } from '@/entities/Article/testing'
+import { addCommentFormReducer } from '@/features/addCommentForm/testing'
+import { articleSingleCommentsReducer } from '@/pages/ArticleSingle/testing'
+import { articlesPageReducer } from '@/pages/Articles/testing'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,

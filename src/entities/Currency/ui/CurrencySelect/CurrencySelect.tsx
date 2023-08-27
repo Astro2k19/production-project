@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Currency } from '../../model/const/currencyConts'
+import { Currency } from '../../model/const/currencyConst'
 import { ListBox } from '@/shared/ui/listBox/ListBox'
 
 const currencyOptions = [

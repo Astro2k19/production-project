@@ -43,7 +43,7 @@ export const NotificationsButton = memo(({ className }: NotificationButtonProps)
             ? (
                 <>
                     {trigger}
-                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
+                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose} withPortal={true}>
                         <NotificationList className={cls.drawerNotificationList} />
                     </Drawer>
                 </>

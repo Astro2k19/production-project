@@ -11,7 +11,7 @@ const comments: Comment[] = [
     id: 1,
     text: 'comment 1',
     user: {
-      id: 1,
+      id: '1',
       avatar: '',
       username: 'Artem'
     }
@@ -20,7 +20,7 @@ const comments: Comment[] = [
     id: 2,
     text: 'comment 2',
     user: {
-      id: 1,
+      id: '1',
       avatar: '',
       username: 'Artem'
     }
