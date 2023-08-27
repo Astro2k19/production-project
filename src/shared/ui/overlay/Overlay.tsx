@@ -2,7 +2,7 @@ import { memo, ElementType, ComponentType } from 'react'
 import cls from './Overlay.module.scss'
 import { classNames } from '@/shared/lib'
 
-type ComponentWithAsProp<T extends ElementType = ElementType, P = {}> = {
+type ComponentWithAsProp<T extends ElementType = ElementType, P = Record<string, unknown>> = {
   as?: T | keyof JSX.IntrinsicElements
 } & Omit<P, 'as'>
 

@@ -2,7 +2,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ArticlesFiltersSelectors } from './ArticlesFiltersSelectors'
 
 export default {
-  title: 'shared/ArticlesFiltersSelectors',
+  title: 'features/ArticleFilters/ArticlesFiltersSelectors',
   component: ArticlesFiltersSelectors,
   argTypes: {
     backgroundColor: { control: 'color' }

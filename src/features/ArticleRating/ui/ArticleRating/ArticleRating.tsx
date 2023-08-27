@@ -9,9 +9,10 @@ import { getUserAuthDate } from '@/entities/User'
 export interface ArticleRatingProps {
   className?: string
   articleId: string
+  withPortal?: boolean
 }
 
-const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
+const ArticleRating = memo(({ className, articleId, withPortal = true }: ArticleRatingProps) => {
   const { t } = useTranslation()
   const userData = useAppSelector(getUserAuthDate)
   const { data, isLoading } = useGetArticleRating({
@@ -57,6 +58,7 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
           onCancel={onCancel}
           className={className}
           rate={rating?.rate}
+          withPortal={withPortal}
       />
   )
 })

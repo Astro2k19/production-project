@@ -2526,6 +2526,12 @@
       "articleId": "14",
       "rate": 3,
       "id": 4
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rate": 3,
+      "id": 5
     }
   ],
   "profiles-rating": [
@@ -2540,6 +2546,19 @@
       "userId": "1",
       "rate": 3,
       "id": 2
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 4,
+      "id": 3
+    },
+    {
+      "profileId": "1",
+      "userId": "3",
+      "rate": 1,
+      "feedback": "deded",
+      "id": 4
     }
   ]
 }

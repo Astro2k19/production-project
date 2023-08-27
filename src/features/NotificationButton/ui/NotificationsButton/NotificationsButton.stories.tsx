@@ -1,11 +1,17 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { NotificationsButton } from './NotificationsButton'
+import { mockResponse } from '@/entities/Notification'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import withMock from 'storybook-addon-mock'
 
 export default {
   title: 'features/NotificationsButton',
   component: NotificationsButton,
-  argTypes: {
-    backgroundColor: { control: 'color' }
+  decorators: [withMock, StoreDecorator({})],
+  parameters: {
+    mockData: [
+      { ...mockResponse, delay: 2000 }
+    ]
   }
 } as ComponentMeta<typeof NotificationsButton>
 

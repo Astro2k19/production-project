@@ -17,14 +17,14 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 
   if (isLoading) {
     return (
-        <VStack className={classNames([className, cls.skeletons])} gap={'12'} noShrink>
+        <VStack className={classNames([className, cls.list])} gap={'12'} noShrink>
             {new Array(4).fill(null).map((_, index) => <Skeleton key={index} width={'100%'} height={140} />)}
         </VStack>
     )
   }
 
   return (
-      <VStack className={classNames([className])} gap={'12'} noShrink>
+      <VStack className={classNames([className, cls.list])} gap={'12'} noShrink>
           {notifications?.map(item => (
               <NotificationItem key={item.id} item={item} />
           ))}

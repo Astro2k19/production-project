@@ -15,6 +15,7 @@ interface RatingCardProps {
   onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback: string) => void
   rate?: number
+  withPortal?: boolean
 }
 
 export const RatingCard: FC<RatingCardProps> =
@@ -25,7 +26,8 @@ export const RatingCard: FC<RatingCardProps> =
   feedbackTitle,
   onCancel,
   onAccept,
-  rate
+  rate,
+  withPortal = true
 }) => {
   const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -92,7 +94,7 @@ export const RatingCard: FC<RatingCardProps> =
                 </Drawer>
               )
             : (
-                <Modal isOpen={isModalOpen} lazy>
+                <Modal isOpen={isModalOpen} lazy withPortal={withPortal}>
                     <VStack gap={'12'}>
                         {modalContent}
                         <VStack gap={'8'}>

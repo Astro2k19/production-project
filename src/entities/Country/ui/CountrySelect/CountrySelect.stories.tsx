@@ -4,7 +4,7 @@ import { CountrySelect as Select } from './CountrySelect'
 import { Country } from '../../model/const/countryConts'
 
 export default {
-  title: 'shared/CountrySelect',
+  title: 'entities/CountrySelect',
   component: Select,
 
   argTypes: {

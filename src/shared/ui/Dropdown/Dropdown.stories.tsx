@@ -1,7 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Dropdown } from './Dropdown'
-import { Button, ButtonVariants } from '@/shared/ui'
-
+import { Button, ButtonVariants } from '../button/Button'
 export default {
   title: 'shared/Dropdown',
   component: Dropdown,

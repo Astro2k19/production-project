@@ -34,7 +34,8 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating 
 export const Normal = Template.bind({})
 
 Normal.args = {
-  articleId: '1'
+  articleId: '1',
+  withPortal: false
 }
 // export const withLoading = Template.bind({})
 //

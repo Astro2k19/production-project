@@ -19,7 +19,7 @@ Normal.args = {
     text: 'comment 1',
     id: 1,
     user: {
-      id: 1,
+      id: '1',
       avatar,
       username: 'Artem'
     }

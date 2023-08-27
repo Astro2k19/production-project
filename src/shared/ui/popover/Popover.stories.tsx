@@ -1,9 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Popover } from './Popover'
-import { classNames } from '@/shared/lib'
-import { NotificationList } from '@/entities/Notification'
-import cls from '@/features/NotificationButton/ui/NotificationsButton/NotificationButton.module.scss'
-import { Button, ButtonVariants, Text } from '@/shared/ui'
+import { Button, ButtonVariants } from '../button/Button'
+import { Text } from '../text/Text'
 
 export default {
   title: 'shared/Popover',

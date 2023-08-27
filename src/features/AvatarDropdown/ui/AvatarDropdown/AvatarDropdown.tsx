@@ -6,7 +6,6 @@ import { appPaths } from '@/shared/config/routerConfig/routerConfig'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
 import { isUserAdmin, isUserManager, type User, userActions } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-
 interface AvatarDropdownProps {
   className?: string
   authDate: User
@@ -16,9 +15,9 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
   const { t } = useTranslation()
   const isAdmin = useAppSelector(isUserAdmin)
   const isManager = useAppSelector(isUserManager)
-  const isAdminPanelAccessible = isManager ?? isAdmin
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+  const isAdminPanelAccessible = isManager || isAdmin
   const dispatch = useAppDispatch()
-
   const onLogOut = useCallback(
     () => {
       dispatch(userActions.logOut())

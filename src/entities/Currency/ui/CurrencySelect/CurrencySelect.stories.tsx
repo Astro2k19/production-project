@@ -4,7 +4,7 @@ import { CurrencySelect as Select } from './CurrencySelect'
 import { Currency } from '../../model/const/currencyConts'
 
 export default {
-  title: 'shared/CurrencySelect',
+  title: 'entities/CurrencySelect',
   component: Select,
 
   argTypes: {

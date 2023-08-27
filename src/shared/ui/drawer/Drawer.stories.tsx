@@ -1,6 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Drawer } from './Drawer'
-import { Text } from '@/shared/ui'
+import { Text } from '../text/Text'
 
 export default {
   title: 'shared/Drawer',

@@ -9,9 +9,10 @@ import { Skeleton } from '@/shared/ui/skeleton/Skeleton'
 export interface ProfileRatingProps {
   className?: string
   profileId: string
+  withPortal?: boolean
 }
 
-const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {
+const ProfileRating = memo(({ className, profileId, withPortal = true }: ProfileRatingProps) => {
   const { t } = useTranslation()
   const userData = useAppSelector(getUserAuthDate)
   const { data, isLoading } = useGetProfileRating({
@@ -43,9 +44,9 @@ const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {
     handleProfileRating(rate)
   }, [handleProfileRating])
 
-  if (userData?.id === profileId) {
-    return null
-  }
+  // if (userData?.id === profileId) {
+  //   return null
+  // }
 
   if (isLoading) {
     return (
@@ -60,6 +61,7 @@ const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {
          onAccept={onAccept}
          onCancel={onCancel}
          rate={profileRating?.rate}
+         withPortal={withPortal}
        />
   )
 })

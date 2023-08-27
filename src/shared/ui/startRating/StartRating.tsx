@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import cls from './StartRating.module.scss'
 import { classNames } from '@/shared/lib'
-import { Icon } from '@/shared/ui/icon/Icon'
+import { Icon } from '../icon/Icon'
 import Star from '@/shared/assets/icons/star.svg'
 
 interface StartRatingProps {

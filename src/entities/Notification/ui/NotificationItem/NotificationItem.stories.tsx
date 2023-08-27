@@ -3,7 +3,7 @@ import { NotificationItem } from './NotificationItem'
 import { notification } from '../../mocks/data'
 
 export default {
-  title: 'shared/Notification/NotificationItem',
+  title: 'entities/Notification/NotificationItem',
   component: NotificationItem,
   argTypes: {
     backgroundColor: { control: 'color' }

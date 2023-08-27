@@ -69,7 +69,8 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const content = (
       <div className={classNames([cls.drawer, 'app_drawer'])} >
           <Overlay onClick={() => { close() }} as={Spring.a.div} style={{ display, opacity: y.to([0, height], [1, 0], 'clamp') }} />
-          <Spring.a.div className={cls.sheet} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 300}px)`, y }}>
+          <Spring.a.div className={cls.sheet} style={{ display, bottom: `calc(-100vh + ${height - 300}px)`, y }}>
+              <div className={cls.dragger} {...bind()}></div>
               <div className={classNames([cls.content, className])}>
                   {children}
               </div>

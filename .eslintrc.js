@@ -48,12 +48,13 @@ module.exports = {
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
     "react/display-name": "off",
     // only text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''], ignoreFiles: ["**/*.stories.{ts,tsx}"], exclude: ['"**/*.stories.{ts,tsx}"'] }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "authoring-project-plugin/relative-path-checker": "error",
+    "authoring-project-plugin/relative-path-checker": ["error", {alias: '@'}],
   }
 }

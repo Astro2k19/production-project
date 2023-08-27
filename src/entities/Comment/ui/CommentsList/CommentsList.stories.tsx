@@ -20,7 +20,7 @@ Normal.args = {
       text: 'comment 1',
       id: 1,
       user: {
-        id: 1,
+        id: '1',
         avatar,
         username: 'Artem'
       }
@@ -29,7 +29,7 @@ Normal.args = {
       text: 'comment 2',
       id: 2,
       user: {
-        id: 1,
+        id: '1',
         avatar,
         username: 'Artem'
       }
@@ -38,7 +38,7 @@ Normal.args = {
       text: 'comment 3',
       id: 3,
       user: {
-        id: 1,
+        id: '1',
         avatar,
         username: 'Artem'
       }

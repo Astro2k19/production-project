@@ -13,9 +13,9 @@ export default {
 
 const Template: ComponentStory<typeof SelectComponent> = (args) => <SelectComponent {...args} />
 
-export const Select = Template.bind({})
+export const Normal = Template.bind({})
 
-Select.args = {
+Normal.args = {
   label: 'Label',
   options: [
     { value: '1', label: 'one' },
