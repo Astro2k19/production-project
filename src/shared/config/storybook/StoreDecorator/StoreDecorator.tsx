@@ -1,12 +1,9 @@
 import { type DecoratorFn, type Story } from '@storybook/react'
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { StoreProvider } from '@/app/providers/storeProvider'
 import { type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
-// we use such path for imports because these are async reducers, and they can't be in the public api
-// TODO: FIX
-// eslint-disable-next-line authoring-project-plugin/public-api-import-checker
-import { authReducer } from '@/features/auth/by-username/testing'
+import { authReducer } from '@/features/auth/testing'
 import { profileReducer } from '@/features/editableProfileCard/testing'
 import { articleDetailsReducer } from '@/entities/Article/testing'
 import { addCommentFormReducer } from '@/features/addCommentForm/testing'

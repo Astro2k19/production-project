@@ -4,11 +4,11 @@ import React, { type FC } from 'react'
 import { ThemeSwitcher } from '@/features/themeSwitcher'
 import { LangSwitcher } from '@/features/langSwitcher'
 import ToggleSidebarIcon from '@/shared/assets/icons/sidebar-toggle.svg'
-import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui'
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/Button'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
-import { VStack } from '@/shared/ui/stack'
+import { VStack } from '@/shared/ui/Stack'
 
 interface SidebarProps {
   className?: string

@@ -72,7 +72,7 @@
     "dependency-cruiser": "^13.1.1",
     "eslint": "^8.10.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
-    "eslint-plugin-authoring-project-plugin": "^0.0.8",
+    "eslint-plugin-authoring-project-plugin": "^1.0.0",
     "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",

@@ -1,4 +1,4 @@
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 export const getArticleDetailsData = (state: StoreSchema) => state.articleDetails?.data
 export const getArticleDetailsIsLoading = (state: StoreSchema) => state.articleDetails?.isLoading

@@ -9,7 +9,7 @@ export const buildBabelLoader = ({ isTSX, isDev }: BuildBabelLoaderOptions) => (
   test: isTSX ? /(jsx|tsx)$/ : /(js|ts)$/,
   exclude: /node_modules/,
   use: {
-    loader: 'babel-loader',
+    loader: 'babel-Loader',
     options: {
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
       plugins: [

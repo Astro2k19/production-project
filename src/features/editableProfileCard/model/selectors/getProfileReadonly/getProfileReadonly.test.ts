@@ -1,5 +1,5 @@
 import { getProfileReadonly } from './getProfileReadonly'
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getProfileReadonly', () => {
   test('should return readonly status', () => {

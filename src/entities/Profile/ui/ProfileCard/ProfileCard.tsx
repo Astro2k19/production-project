@@ -1,15 +1,17 @@
 import { type FC } from 'react'
 import cls from './ProfileCard.module.scss'
 import { classNames } from '@/shared/lib'
-import { Input, Loader, Text, TextAligns, TextVariants } from '@/shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Profile } from '../../model/types/profile'
-import { Avatar } from '@/shared/ui/avatar/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import { type Currency, CurrencySelect } from '@/entities/Currency'
 import { type Country, CountrySelect } from '@/entities/Country'
 import { getProfileErrorMessage } from '../../../../features/editableProfileCard/model/services/getProfileErrorMessage/getProfileErrorMessage'
 import { type ApiError } from '@/shared/api/api'
-import { VStack } from '@/shared/ui/stack'
+import { VStack } from '@/shared/ui/Stack'
+import { TextAligns, TextVariants, Text } from '@/shared/ui/Text'
+import { Input } from '@/shared/ui/Input'
+import { Loader } from '@/shared/ui/Loader'
 
 interface ProfileCardProps {
   isLoading?: boolean

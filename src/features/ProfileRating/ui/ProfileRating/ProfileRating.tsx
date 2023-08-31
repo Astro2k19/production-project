@@ -2,9 +2,9 @@ import React, { memo, useCallback } from 'react'
 import { RatingCard } from '@/entities/Rating'
 import { useTranslation } from 'react-i18next'
 import { useGetProfileRating, usePostProfileRating } from '../../api/profileRatingApi'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { getUserAuthDate } from '@/entities/User'
-import { Skeleton } from '@/shared/ui/skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 
 export interface ProfileRatingProps {
   className?: string

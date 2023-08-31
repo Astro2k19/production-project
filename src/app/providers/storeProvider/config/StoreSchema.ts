@@ -1,6 +1,6 @@
 import { type UserSchema } from '@/entities/User'
 // eslint-disable-next-line authoring-project-plugin/public-api-import-checker
-import { type LoginFormSchema } from '@/features/auth/by-username'
+import { type LoginFormSchema } from '@/features/auth'
 import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type CombinedState, type Dispatch } from 'redux'
 import { type AxiosInstance } from 'axios'

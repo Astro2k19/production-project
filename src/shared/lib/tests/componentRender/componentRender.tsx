@@ -4,7 +4,7 @@ import i18nForTests from '@/shared/config/i18n/i18nForTests'
 import { I18nextProvider } from 'react-i18next'
 import { render, type RenderResult } from '@testing-library/react'
 import { type DeepPartial } from '@reduxjs/toolkit'
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { StoreProvider } from '@/app/providers/storeProvider'
 import { type ReducersList } from '../../dynamicModuleLoader/DynamicModuleLoader'
 

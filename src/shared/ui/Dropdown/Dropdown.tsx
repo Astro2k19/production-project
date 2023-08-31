@@ -3,7 +3,7 @@ import cls from './Dropdown.module.scss'
 import { classNames } from '@/shared/lib'
 import { type FC, type ReactNode } from 'react'
 import { flip, offset, type Placement, shift, useFloating } from '@floating-ui/react'
-import { AppLink } from '../appLink/AppLink'
+import { AppLink } from '../AppLink'
 
 interface DropdownItem {
   content: ReactNode

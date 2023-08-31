@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { USER_AUTH_DATA_KEY } from '@/shared/const/localStorage'
-import { type ReduxStore } from '@/app/providers/storeProvider/config/store'
+import { type ReduxStore } from '../../app/providers/storeProvider/config/store'
 
 let store: ReduxStore
 

@@ -6,7 +6,7 @@ import {
 } from './addCommentFormSelectors'
 
 describe('getAddCommentFormText', () => {
-  test('should return text', () => {
+  test('should return Text', () => {
     const state: DeepPartial<StoreSchema> = {
       addCommentForm: {
         text: 'hello world!'
@@ -38,13 +38,13 @@ describe('getAddCommentFormIsLoading', () => {
 })
 
 describe('getAddCommentFormError', () => {
-  test('should return text', () => {
+  test('should return Text', () => {
     const state: DeepPartial<StoreSchema> = {
       addCommentForm: {
-        error: 'error text'
+        error: 'error Text'
       }
     }
-    expect(getAddCommentFormError(state as StoreSchema)).toBe('error text')
+    expect(getAddCommentFormError(state as StoreSchema)).toBe('error Text')
   })
 
   test('should return undefined', () => {

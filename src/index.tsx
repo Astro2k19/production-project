@@ -18,3 +18,6 @@ createRoot(document.querySelector('#root') as HTMLDivElement).render(
         </BrowserRouter>
     </StoreProvider>
 )
+export { Theme } from '@/shared/const/theme'
+export { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
+export { ThemeContext } from '@/shared/context/theme'

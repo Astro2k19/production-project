@@ -129,7 +129,7 @@ module.exports = {
     {
       name: 'not-to-spec',
       comment:
-        'This module depends on a spec (test) file. The sole responsibility of a spec file is to test code. ' +
+        'This module depends on a spec (test) file. The sole responsibility of a spec file is to test Code. ' +
         "If there's something in a spec that's of use to other modules, it doesn't have that single " +
         'responsibility anymore. Factor it out into (e.g.) a separate utility/ helper or a mock.',
       severity: 'error',
@@ -225,7 +225,7 @@ module.exports = {
 
     /* prefix for links in html and svg output (e.g. 'https://github.com/you/yourrepo/blob/develop/'
        to open it on your online repo or `vscode://file/${process.cwd()}/` to 
-       open it in visual studio code),
+       open it in visual studio Code),
      */
     // prefix: '',
 
@@ -281,7 +281,7 @@ module.exports = {
 
     /* Babel config ('.babelrc', '.babelrc.json', '.babelrc.json5', ...) to use
       for compilation (and whatever other naughty things babel plugins do to
-      source code). This feature is well tested and usable, but might change
+      source Code). This feature is well tested and usable, but might change
       behavior a bit over time (e.g. more precise results for used module 
       systems) without dependency-cruiser getting a major version bump.
      */

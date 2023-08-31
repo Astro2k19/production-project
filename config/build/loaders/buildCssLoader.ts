@@ -5,11 +5,11 @@ export const buildCssLoader = ({ isDev, paths }: BuildOptions) => ({
   test: /\.s[ac]ss$/i,
   use: [
     // Creates `style` nodes from JS strings
-    // "style-loader",
-    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+    // "style-Loader",
+    isDev ? 'style-Loader' : MiniCssExtractPlugin.loader,
     // Translates CSS into CommonJS
     {
-      loader: 'css-loader',
+      loader: 'css-Loader',
       options: {
         modules: {
           localIdentName: isDev
@@ -22,7 +22,7 @@ export const buildCssLoader = ({ isDev, paths }: BuildOptions) => ({
     },
     // Compiles Sass to CSS
     {
-      loader: 'sass-loader',
+      loader: 'sass-Loader',
       options: {
         sassOptions: {
           includePaths: [paths.src]

@@ -1,6 +1,6 @@
 import { memo, Suspense, useCallback } from 'react'
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui'
+import { Text } from '@/shared/ui/Text'
 import { CommentsList } from '@/entities/Comment'
 import {
   getArticleCommentsErrorMessage
@@ -10,16 +10,16 @@ import {
   articleSingleCommentsSelectors, getArticleSingleCommentsError,
   getArticleSingleCommentsIsLoading
 } from '../../model/selectors/comments'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
-import { useFetchData } from '@/shared/lib/hooks/useFetchData'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
 import {
   fetchArticleCommentsById
 } from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { useTranslation } from 'react-i18next'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
-import { VStack } from '@/shared/ui/stack'
+import { VStack } from '@/shared/ui/Stack'
 import { AddCommentForm } from '@/features/addCommentForm'
 
 interface ArticleSingleCommentsProps {

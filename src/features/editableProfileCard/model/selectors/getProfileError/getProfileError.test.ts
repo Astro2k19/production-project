@@ -1,9 +1,9 @@
 import { getProfileError } from './getProfileError'
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 import { ProfileError } from '../../const/editableProfileCardConst'
 
 describe('getProfileError', () => {
-  test('should return error text', () => {
+  test('should return error Text', () => {
     const result: DeepPartial<StoreSchema> = {
       profile: {
         error: {

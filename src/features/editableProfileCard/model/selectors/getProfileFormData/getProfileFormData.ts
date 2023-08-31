@@ -1,3 +1,3 @@
-import { type StoreSchema } from '@/app/providers/storeProvider/config/StoreSchema'
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 export const getProfileFormData = (state: StoreSchema) => state.profile?.formData

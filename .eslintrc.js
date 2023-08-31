@@ -48,9 +48,10 @@ module.exports = {
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "warn",
     "react/display-name": "off",
-    // only text in react files
+    // only Text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''], ignoreFiles: ["**/*.stories.{ts,tsx}"], exclude: ['"**/*.stories.{ts,tsx}"'] }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     "react-hooks/rules-of-hooks": "error",
@@ -60,6 +61,12 @@ module.exports = {
       {
         alias: '@',
         testFilePatterns: ['**/*.stories.*', '**/*.mock.*', '**/*.test.*', '**/StoreDecorator.tsx']
+      }
+    ],
+    "authoring-project-plugin/import-layer-checker": ["error",
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/storeProvider', '**/testing', '**/index.scss']
       }
     ],
   }

@@ -38,7 +38,7 @@ export default {
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
+  // A list of paths to modules that run some Code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -71,13 +71,13 @@ export default {
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,
 
-  // Indicates which provider should be used to instrument code for coverage
+  // Indicates which provider should be used to instrument Code for coverage
   // coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
   //   "json",
-  //   "text",
+  //   "Text",
   //   "lcov",
   //   "clover"
   // ],
@@ -106,7 +106,7 @@ export default {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
 
-  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module Loader
   // modulePathIgnorePatterns: [],
 
   // Activates notifications for test results
@@ -141,7 +141,7 @@ export default {
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
+  // The paths to modules that run some Code to configure or set up the testing environment before each test
   // setupFiles: [],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -187,7 +187,7 @@ export default {
   //   "\\.pnp\\.[^\\\\]+$"
   // ],
 
-  // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
+  // An array of regexp pattern strings that are matched against all modules before the module Loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run

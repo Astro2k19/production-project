@@ -1,9 +1,9 @@
 import React, { memo, useCallback } from 'react'
 import cls from './ArticlesInfinite.module.scss'
 import { type ArticlesListView, ArticlesListVirtualized } from '@/entities/Article'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
-import { useFetchData } from '@/shared/lib/hooks/useFetchData'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
 
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import {

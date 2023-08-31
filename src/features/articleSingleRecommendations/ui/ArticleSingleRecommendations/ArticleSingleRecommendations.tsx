@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui'
+import { Text } from '@/shared/ui/Text'
 import { ArticlesList } from '@/entities/Article'
 import { useTranslation } from 'react-i18next'
 import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'

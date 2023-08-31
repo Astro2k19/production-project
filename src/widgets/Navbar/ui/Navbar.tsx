@@ -1,16 +1,17 @@
 import cls from './Navbar.module.scss'
 import { classNames } from '@/shared/lib'
-import { AppLink, AppLinkVariants, Button, ButtonVariants } from '@/shared/ui'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+import { AppLink, AppLinkVariants } from '@/shared/ui/AppLink'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 // eslint-disable-next-line authoring-project-plugin/public-api-import-checker
-import { AuthModal } from '@/features/auth/by-username'
+import { AuthModal } from '@/features/auth'
 import { getUserAuthDate } from '@/entities/User'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector'
-import { appPaths } from '@/shared/config/routerConfig/routerConfig'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useNavigate } from 'react-router-dom'
 import { NotificationsButton } from '@/features/NotificationButton'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
+import { appPaths } from '@/shared/types/router'
 
 interface NavbarProps {
   className?: string
