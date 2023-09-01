@@ -1,14 +1,15 @@
 import { FC, useCallback, useState } from 'react'
-import { Card } from '@/shared/ui/Card'
-import { StartRating } from '@/shared/ui/StartRating'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { VStack } from '@/shared/ui/Stack'
 import { useTranslation } from 'react-i18next'
+
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+import { Card } from '@/shared/ui/Card'
 import { Drawer } from '@/shared/ui/Drawer'
-import { TextVariants, Text } from '@/shared/ui/Text'
 import { Input } from '@/shared/ui/Input'
 import { Modal } from '@/shared/ui/Modal'
+import { VStack } from '@/shared/ui/Stack'
+import { StartRating } from '@/shared/ui/StartRating'
+import { TextVariants, Text } from '@/shared/ui/Text'
 
 interface RatingCardProps {
   className?: string

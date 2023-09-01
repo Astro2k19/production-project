@@ -1,6 +1,8 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
-import { fetchArticleDetailsById } from './fetchArticleDetailsById'
 import { article as data } from '../../../mocks/data.mock'
+
+import { fetchArticleDetailsById } from './fetchArticleDetailsById'
+
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 describe('fetchArticleDetailsById', () => {
   test('successful request', async () => {

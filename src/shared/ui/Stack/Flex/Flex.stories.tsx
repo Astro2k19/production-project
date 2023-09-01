@@ -1,4 +1,5 @@
 import { type ComponentMeta, type StoryObj } from '@storybook/react'
+
 import { Flex } from './Flex'
 
 export default {

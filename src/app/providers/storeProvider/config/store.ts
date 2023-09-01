@@ -1,12 +1,14 @@
 import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
+
 import { type StoreSchema, type ThunkExtraArgs } from './StoreSchema'
-import { authMiddleware, initUserDataMiddleware, userReducer } from '@/entities/User'
 import { createReducerManager } from './createReducerManager'
-import { $api } from '@/shared/api/api'
-import { savePageScrollReducer } from '@/features/savePageScroll'
+
+import { authMiddleware, initUserDataMiddleware, userReducer } from '@/entities/User'
 import { articlesFiltersReducer } from '@/features/articlesFilters'
-import { rtkApi } from '@/shared/api/rtkApi'
+import { savePageScrollReducer } from '@/features/savePageScroll'
 import { setArticlesListViewMiddleware } from '@/pages/Articles'
+import { $api } from '@/shared/api/api'
+import { rtkApi } from '@/shared/api/rtkApi'
 
 export const createReduxStore = (
   initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>

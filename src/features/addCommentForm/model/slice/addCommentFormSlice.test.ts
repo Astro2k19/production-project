@@ -1,5 +1,6 @@
-import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
 import { type AddCommentFormSchema } from '../types/addCommentForm'
+
+import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
 
 describe('addCommentFormSlice', () => {
   const state: DeepPartial<AddCommentFormSchema> = {

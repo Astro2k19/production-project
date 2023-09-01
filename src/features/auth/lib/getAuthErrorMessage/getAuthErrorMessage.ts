@@ -1,6 +1,7 @@
+import { AuthFormError } from '../../model/const/authConst'
+
 import { type ApiError } from '@/shared/api/api'
 import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'
-import { AuthFormError } from '../../model/const/authConst'
 
 const profileErrorCodeMappings = {
   403: `${AuthFormError.BAD_REQUEST_ERROR}`,

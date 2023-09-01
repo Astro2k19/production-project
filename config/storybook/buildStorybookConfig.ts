@@ -1,6 +1,7 @@
-import webpack, { type RuleSetRule, type Configuration } from 'webpack'
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import path from 'path'
+
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import webpack, { type RuleSetRule, type Configuration } from 'webpack'
 
 export const buildStorybookConfig = async (config: Configuration): Promise<Configuration> => {
   if (config?.resolve !== undefined) {

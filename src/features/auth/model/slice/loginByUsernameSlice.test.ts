@@ -1,6 +1,7 @@
-import { authReducer, authActions } from './loginByUsernameSlice'
-import { type LoginFormSchema } from '../types/loginSchema'
 import { loginByUsername } from '../services/loginByUsername/loginByUsername'
+import { type LoginFormSchema } from '../types/loginSchema'
+
+import { authReducer, authActions } from './loginByUsernameSlice'
 
 describe('loginSlice', () => {
   test('setUsername', () => {

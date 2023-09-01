@@ -1,5 +1,5 @@
-import { type BuildOptions } from '../types/config'
 import babelRemovePropsPlugin from '../babel/babelRemovePropsPlugin'
+import { type BuildOptions } from '../types/config'
 
 interface BuildBabelLoaderOptions extends BuildOptions {
   isTSX: boolean

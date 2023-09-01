@@ -1,9 +1,11 @@
 import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
+
+import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
+
+import { ArticlesList } from '@/entities/Article'
 import { classNames } from '@/shared/lib'
 import { Text } from '@/shared/ui/Text'
-import { ArticlesList } from '@/entities/Article'
-import { useTranslation } from 'react-i18next'
-import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
 
 interface ArticleSingleRecommendationsProps {
   className?: string

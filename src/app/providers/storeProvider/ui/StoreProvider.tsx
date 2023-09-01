@@ -1,8 +1,10 @@
-import { Provider } from 'react-redux'
-import { type FC, type ReactNode } from 'react'
-import { createReduxStore } from '../config/store'
-import { type StoreSchema } from '../config/StoreSchema'
 import { type ReducersMapObject } from '@reduxjs/toolkit'
+import { type FC, type ReactNode } from 'react'
+import { Provider } from 'react-redux'
+
+import { type StoreSchema } from '../config/StoreSchema'
+import { createReduxStore } from '../config/store'
+
 import { injectStore } from '@/shared/api/api'
 
 interface StoreProviderProps {

@@ -1,7 +1,9 @@
-import { type StoreSchema } from '@/app/providers/storeProvider'
 import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit'
-import { USER_AUTH_DATA_KEY } from '@/shared/const/localStorage'
+
 import { userActions } from '../../slice/userSlice'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
+import { USER_AUTH_DATA_KEY } from '@/shared/const/localStorage'
 
 export const authMiddleware = createListenerMiddleware()
 authMiddleware.startListening({

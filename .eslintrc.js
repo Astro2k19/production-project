@@ -24,7 +24,8 @@ module.exports = {
     'react',
     'i18next',
     "react-hooks",
-    'authoring-project-plugin'
+    'authoring-project-plugin',
+      'unused-imports'
   ],
   "ignorePatterns": [
     "**/*.stories.{ts,tsx}"
@@ -67,6 +68,24 @@ module.exports = {
       {
         alias: '@',
         ignoreImportPatterns: ['**/storeProvider', '**/testing', '**/index.scss']
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            pattern: './**.module.*',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        }
       }
     ],
   }

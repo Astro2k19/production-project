@@ -1,18 +1,20 @@
 import { type FC, useCallback } from 'react'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Text } from '@/shared/ui/Text'
 import { useTranslation } from 'react-i18next'
-import { profileActions } from '../model/slice/profileSlice'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
+
+import { canEditProfile } from '../model/selectors/canEditProfile/canEditProfile'
+import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
 import {
   getProfileIsLoading
 } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
-import { canEditProfile } from '../model/selectors/canEditProfile/canEditProfile'
+import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
+import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
+import { profileActions } from '../model/slice/profileSlice'
+
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
+import { Text } from '@/shared/ui/Text'
 
 interface EditableProfileCardHeaderProps {
   className?: string

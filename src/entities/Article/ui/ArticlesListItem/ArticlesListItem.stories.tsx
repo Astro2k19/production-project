@@ -1,8 +1,10 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ArticlesListItem } from './ArticlesListItem'
+import React from 'react'
+
 import { article } from '../../mocks/data.mock'
 import { ArticlesListView } from '../../model/conts/articleConts'
+
+import { ArticlesListItem } from './ArticlesListItem'
 
 export default {
   title: 'entities/Article/ArticlesListItem',

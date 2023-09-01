@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 import { type AxiosError as AxiosErrorType } from 'axios/index'
-import { type ApiError } from '@/shared/api/api'
+
+import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 import { type Article, ArticleType } from '@/entities/Article'
-import { addUrlQueryParams } from '@/shared/lib'
 import {
   getArticlesFiltersOrder,
   getArticlesFiltersPage,
@@ -11,6 +10,8 @@ import {
   getArticlesFiltersSort,
   getArticlesFiltersType
 } from '@/features/articlesFilters'
+import { type ApiError } from '@/shared/api/api'
+import { addUrlQueryParams } from '@/shared/lib'
 // import { getArticlesListLimit } from '../../selectors/articlesPageList'
 
 interface FetchArticlesListArgs {

@@ -1,7 +1,9 @@
-import { type StoreSchema } from '@/app/providers/storeProvider'
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
 import { article as data } from '../../mocks/data.mock'
 import { ArticleError } from '../conts/articleConts'
+
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getArticleDetailsData', () => {
   test('should return data', () => {

@@ -1,5 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+
 import { CommentsList } from './CommentsList'
+
 import avatar from '@/shared/assets/images/tests/avatar.jpg'
 
 export default {

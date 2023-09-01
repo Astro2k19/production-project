@@ -1,6 +1,8 @@
-import { getAuthError } from './getAuthError'
-import { type StoreSchema } from '@/app/providers/storeProvider'
 import { AuthFormError } from '../../const/authConst'
+
+import { getAuthError } from './getAuthError'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getAuthError', () => {
   test('should return error', () => {

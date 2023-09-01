@@ -1,8 +1,10 @@
 import { memo } from 'react'
+
+import { type Notification } from '../../model/types/NotificationType'
+
 import { classNames } from '@/shared/lib'
 import { Card } from '@/shared/ui/Card'
 import { Text } from '@/shared/ui/Text'
-import { type Notification } from '../../model/types/NotificationType'
 
 interface NotificationItemProps {
   className?: string

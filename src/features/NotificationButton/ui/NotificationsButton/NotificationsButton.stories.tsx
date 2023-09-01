@@ -1,8 +1,10 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import withMock from 'storybook-addon-mock'
+
 import { NotificationsButton } from './NotificationsButton'
+
 import { mockResponse } from '@/entities/Notification'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import withMock from 'storybook-addon-mock'
 
 export default {
   title: 'features/NotificationsButton',

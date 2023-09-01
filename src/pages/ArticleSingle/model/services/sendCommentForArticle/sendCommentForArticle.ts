@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type Comment } from '@/entities/Comment'
-import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
-import { getArticleDetailsData } from '@/entities/Article'
-import { getUserAuthDate } from '@/entities/User'
+
 import {
   fetchArticleCommentsById
 } from '../fetchArticleCommentsById/fetchArticleCommentsById'
+
+import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
+import { getArticleDetailsData } from '@/entities/Article'
+import { type Comment } from '@/entities/Comment'
+import { getUserAuthDate } from '@/entities/User'
 
 export const sendCommentForArticle = createAsyncThunk<Comment, string, AsyncThunkConfig<string>>(
   'articleSingle/sendCommentForArticle',

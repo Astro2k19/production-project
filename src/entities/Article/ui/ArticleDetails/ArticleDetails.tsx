@@ -1,29 +1,32 @@
 import { memo } from 'react'
-import cls from './ArticleDetails.module.scss'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById'
+
+import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
+import { ArticleBlockType } from '../../model/conts/articleConts'
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from '../../model/selectors/articleDetails'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Text, TextAligns, TextSize, TextVariants } from '@/shared/ui/Text'
+import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById'
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { type ArticleBlockTypes } from '../../model/types/article'
-import { Avatar } from '@/shared/ui/Avatar'
-import { Icon } from '@/shared/ui/icon'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+
 import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from '@/shared/assets/icons/clarity_date-line.svg'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
-import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { HStack, VStack } from '@/shared/ui/Stack'
-import { ArticleBlockType } from '../../model/conts/articleConts'
+import { Text, TextAligns, TextSize, TextVariants } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/icon'
+
+import cls from './ArticleDetails.module.scss'
 
 interface ArticleDetailsProps {
   className?: string

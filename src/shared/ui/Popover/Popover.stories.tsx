@@ -1,7 +1,9 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Popover } from './Popover'
+
 import { Button, ButtonVariants } from '../Button'
 import { Text } from '../Text'
+
+import { Popover } from './Popover'
 
 export default {
   title: 'shared/Popover',

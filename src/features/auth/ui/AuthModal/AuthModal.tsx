@@ -1,9 +1,12 @@
-import cls from './AuthModal.module.scss'
-import { classNames } from '@/shared/lib'
-import { Modal } from '@/shared/ui/Modal'
-import { Loader } from '@/shared/ui/Loader'
 import { type FC, Suspense } from 'react'
+
 import { AuthFormAsync } from '../AuthForm/AuthFormAsync'
+
+import { classNames } from '@/shared/lib'
+import { Loader } from '@/shared/ui/Loader'
+import { Modal } from '@/shared/ui/Modal'
+
+import cls from './AuthModal.module.scss'
 
 interface AuthModalProps {
   className?: string

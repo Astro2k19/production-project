@@ -1,26 +1,28 @@
 import React, { memo, useCallback } from 'react'
-import cls from './ArticlesInfinite.module.scss'
-import { type ArticlesListView, ArticlesListVirtualized } from '@/entities/Article'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
 
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import {
   getArticlesListError, getArticlesListHasMore,
   getArticlesListIsLoading,
   getArticlesListView
 } from '../../model/selectors/articlesPageList'
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
+import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
+import {
+  setInitialArticlesListState
+} from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import {
   articlesListSelectors,
   articlesPageActions, articlesPageReducer
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import {
-  setInitialArticlesListState
-} from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
+
+import { type ArticlesListView, ArticlesListVirtualized } from '@/entities/Article'
 import { ArticlesFilters, getArticlesFiltersType } from '@/features/articlesFilters'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
+
+import cls from './ArticlesInfinite.module.scss'
 
 interface ArticleInfiniteListProps {
   className?: string

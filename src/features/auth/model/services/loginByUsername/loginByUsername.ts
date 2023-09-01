@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type User, userActions } from '@/entities/User'
-import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
-import { type ApiError } from '@/shared/api/api'
 import { type AxiosError } from 'axios'
+
+import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
+import { type User, userActions } from '@/entities/User'
+import { type ApiError } from '@/shared/api/api'
 
 interface loginByUsernameProps {
   username: string

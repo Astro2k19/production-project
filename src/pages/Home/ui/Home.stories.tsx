@@ -1,6 +1,8 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import React from 'react'
+
 import HomePage from './Home'
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {

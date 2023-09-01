@@ -1,6 +1,8 @@
-import cls from './Text.module.scss'
-import { classNames } from '@/shared/lib'
 import { memo } from 'react'
+
+import { classNames } from '@/shared/lib'
+
+import cls from './Text.module.scss'
 
 export enum TextVariants {
   PRIMARY = 'primary',

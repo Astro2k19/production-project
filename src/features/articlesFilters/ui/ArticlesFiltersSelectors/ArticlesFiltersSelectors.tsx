@@ -1,10 +1,13 @@
 import { memo, useMemo } from 'react'
-import cls from './ArticlesFiltersSelectors.module.scss'
-import { classNames } from '@/shared/lib'
-import { Select, type SelectOption } from '@/shared/ui/Select'
 import { useTranslation } from 'react-i18next'
-import { type SortOrder } from '@/shared/types/sortOrder'
+
 import { ArticlesSortFields } from '../../model/conts/articleFiltersConst'
+
+import { classNames } from '@/shared/lib'
+import { type SortOrder } from '@/shared/types/sortOrder'
+import { Select, type SelectOption } from '@/shared/ui/Select'
+
+import cls from './ArticlesFiltersSelectors.module.scss'
 
 interface ArticlesFiltersSelectorsProps {
   className?: string

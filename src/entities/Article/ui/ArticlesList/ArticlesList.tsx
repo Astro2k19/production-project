@@ -1,12 +1,15 @@
 import { type FC, type HTMLAttributeAnchorTarget } from 'react'
-import cls from './ArticlesList.module.scss'
-import { classNames } from '@/shared/lib'
+import { useTranslation } from 'react-i18next'
+
+import { ArticlesListView } from '../../model/conts/articleConts'
 import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'
+
+import { classNames } from '@/shared/lib'
 import { Text } from '@/shared/ui/Text'
-import { useTranslation } from 'react-i18next'
-import { ArticlesListView } from '../../model/conts/articleConts'
+
+import cls from './ArticlesList.module.scss'
 
 interface ArticlesListProps {
   className?: string

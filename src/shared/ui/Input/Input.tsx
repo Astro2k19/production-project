@@ -1,8 +1,11 @@
 import React, { type InputHTMLAttributes, memo } from 'react'
-import cls from './Input.module.scss'
+
+import { HStack } from '../Stack'
+
 import { classNames } from '@/shared/lib'
 import { type Mods } from '@/shared/lib/classNames/classNames'
-import { HStack } from '../Stack'
+
+import cls from './Input.module.scss'
 
 type InputOmittedAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
 

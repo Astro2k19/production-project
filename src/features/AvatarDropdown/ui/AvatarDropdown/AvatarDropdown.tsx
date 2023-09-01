@@ -1,11 +1,12 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Dropdown } from '@/shared/ui/Dropdown'
-import { Avatar } from '@/shared/ui/Avatar'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+
 import { isUserAdmin, isUserManager, type User, userActions } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { appPaths } from '@/shared/types/router'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Dropdown } from '@/shared/ui/Dropdown'
 interface AvatarDropdownProps {
   className?: string
   authDate: User

@@ -1,11 +1,12 @@
+import { type Reducer } from '@reduxjs/toolkit'
 import { type FC, type ReactNode, useEffect } from 'react'
 import { useStore } from 'react-redux'
+
 import {
   type ExtendedReducerManagerStore,
   type StoreSchema,
   type StoreSchemaKeys
 } from '../../../app/providers/storeProvider/config/StoreSchema'
-import { type Reducer } from '@reduxjs/toolkit'
 
 export type ReducersList = {
   [name in StoreSchemaKeys]?: Reducer<NonNullable<StoreSchema[name]>>

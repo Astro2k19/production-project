@@ -1,4 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+
 import { StartRating } from './StartRating'
 
 export default {

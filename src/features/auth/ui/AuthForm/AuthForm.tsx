@@ -1,23 +1,26 @@
-import cls from './AuthForm.module.scss'
-import { classNames } from '@/shared/lib'
 import { type FC, type FormEvent, useCallback } from 'react'
-import { Text, TextVariants } from '@/shared/ui/Text'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input'
 import { useTranslation } from 'react-i18next'
-import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
+
+import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
+import { getAuthError } from '../../model/selectors/getAuthError/getAuthError'
 import { getAuthLoading } from '../../model/selectors/getAuthLoading/getAuthLoading'
 import { getAuthPassword } from '../../model/selectors/getAuthPassword/getAuthPassword'
-import { getAuthError } from '../../model/selectors/getAuthError/getAuthError'
 import { getAuthUsername } from '../../model/selectors/getAuthUsername/getAuthUsername'
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
+import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
+
+import { classNames } from '@/shared/lib'
 import {
   DynamicModuleLoader,
   type ReducersList
 } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input'
+import { Text, TextVariants } from '@/shared/ui/Text'
+
+import cls from './AuthForm.module.scss'
 
 export interface AuthFormProps {
   className?: string

@@ -1,7 +1,8 @@
-import { Currency } from '@/entities/Currency'
-import { Country } from '@/entities/Country'
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import { fetchProfileData } from './fetctProfileData'
+
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 describe('fetchProfileData', () => {
   const data = {

@@ -1,7 +1,9 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { CountrySelect as Select } from './CountrySelect'
+import React from 'react'
+
 import { Country } from '../../model/const/countryConts'
+
+import { CountrySelect as Select } from './CountrySelect'
 
 export default {
   title: 'entities/CountrySelect',

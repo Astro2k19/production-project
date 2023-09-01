@@ -1,12 +1,15 @@
 import { type FC, useCallback } from 'react'
-import cls from './ArticleSingleHeader.module.scss'
-import { classNames } from '@/shared/lib'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { generatePath, useNavigate, useParams } from 'react-router-dom'
+
 import { getCanEditArticle } from '../../model/selectors/article'
+
+import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { appPaths } from '@/shared/types/router'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+
+import cls from './ArticleSingleHeader.module.scss'
 
 interface ArticleSingleHeaderProps {
   className?: string

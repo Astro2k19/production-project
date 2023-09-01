@@ -1,9 +1,11 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import ArticleSinglePage from './ArticleSingle'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import { article, article as data } from '@/entities/Article/testing'
+import React from 'react'
 import withMock from 'storybook-addon-mock'
+
+import ArticleSinglePage from './ArticleSingle'
+
+import { article, article as data } from '@/entities/Article/testing'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'pages/ArticleSingle',

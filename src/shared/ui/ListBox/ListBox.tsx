@@ -1,11 +1,14 @@
-import { Fragment, type ReactNode } from 'react'
-import { Listbox } from '@headlessui/react'
-import cls from './ListBox.module.scss'
-import { classNames } from '@/shared/lib'
-import { HStack } from '../Stack'
-import CheckedIcon from '@/shared/assets/icons/icon-checked.svg'
-import CaretDown from '@/shared/assets/icons/caret-down.svg'
 import { flip, offset, shift, useFloating } from '@floating-ui/react'
+import { Listbox } from '@headlessui/react'
+import { Fragment, type ReactNode } from 'react'
+
+import { HStack } from '../Stack'
+
+import CaretDown from '@/shared/assets/icons/caret-down.svg'
+import CheckedIcon from '@/shared/assets/icons/icon-checked.svg'
+import { classNames } from '@/shared/lib'
+
+import cls from './ListBox.module.scss'
 
 interface ListBoxItem<T extends string> {
   value: T

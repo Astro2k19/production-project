@@ -1,9 +1,11 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type Article, ArticlesListView } from '@/entities/Article'
-import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
+
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
-import { type StoreSchema } from '@/app/providers/storeProvider'
 import { type InitialArticlesListState } from '../../services/setInitialArticlesListState/setInitialArticlesListState'
+import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
+import { type Article, ArticlesListView } from '@/entities/Article'
 import { type ApiError } from '@/shared/api/api'
 
 export const articlesListAdapter = createEntityAdapter<Article>({

@@ -1,14 +1,14 @@
 import { type DecoratorFn, type Story } from '@storybook/react'
+
 import { type StoreSchema } from '@/app/providers/storeProvider'
 import { StoreProvider } from '@/app/providers/storeProvider'
-import { type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
-
-import { authReducer } from '@/features/auth/testing'
-import { profileReducer } from '@/features/editableProfileCard/testing'
 import { articleDetailsReducer } from '@/entities/Article/testing'
 import { addCommentFormReducer } from '@/features/addCommentForm/testing'
+import { authReducer } from '@/features/auth/testing'
+import { profileReducer } from '@/features/editableProfileCard/testing'
 import { articleSingleCommentsReducer } from '@/pages/ArticleSingle/testing'
 import { articlesPageReducer } from '@/pages/Articles/testing'
+import { type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,

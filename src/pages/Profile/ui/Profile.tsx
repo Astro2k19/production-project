@@ -1,10 +1,11 @@
 import { memo } from 'react'
-import { EditableProfileCard } from '@/features/editableProfileCard'
-import { useParams } from 'react-router-dom'
-import { Page } from '@/widgets/Page'
-import { Text } from '@/shared/ui/Text'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+
 import { ProfileRating } from '@/features/ProfileRating'
+import { EditableProfileCard } from '@/features/editableProfileCard'
+import { Text } from '@/shared/ui/Text'
+import { Page } from '@/widgets/Page'
 
 const ProfilePage = memo(() => {
   const { t } = useTranslation()

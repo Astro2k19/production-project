@@ -1,6 +1,7 @@
 import { type Profile } from '../types/profile'
-import { Currency } from '@/entities/Currency'
+
 import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
 
 export const profile: Profile = {
   id: 1,

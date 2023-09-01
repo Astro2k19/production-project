@@ -1,5 +1,7 @@
 import { type FC } from 'react'
+
 import { Country } from '../../model/const/countryConts'
+
 import { ListBox } from '@/shared/ui/ListBox'
 
 const countryOptions = [

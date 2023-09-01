@@ -1,5 +1,6 @@
-import { type BuildOptions } from './types/config'
 import type { Configuration as ConfigWebpackDevServer } from 'webpack-dev-server'
+
+import { type BuildOptions } from './types/config'
 
 export const buildDevServer = (options: BuildOptions): ConfigWebpackDevServer => {
   return {

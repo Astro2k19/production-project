@@ -1,8 +1,10 @@
-import cls from './PageError.module.scss'
-import { classNames } from '@/shared/lib'
-import { useTranslation } from 'react-i18next'
 import { type FC } from 'react'
 import { type FallbackProps } from 'react-error-boundary'
+import { useTranslation } from 'react-i18next'
+
+import { classNames } from '@/shared/lib'
+
+import cls from './PageError.module.scss'
 
 export const PageError: FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
   const { t } = useTranslation('home')

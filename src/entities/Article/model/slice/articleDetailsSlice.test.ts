@@ -1,7 +1,8 @@
-import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
-import { articleDetailsReducer } from './articleDetailsSlice'
-import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
 import { ArticleType } from '../conts/articleConts'
+import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
+import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
+
+import { articleDetailsReducer } from './articleDetailsSlice'
 
 describe('ArticleDetailsSlice', () => {
   const data = {

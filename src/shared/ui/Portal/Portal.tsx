@@ -1,5 +1,5 @@
-import { createPortal } from 'react-dom'
 import { type ReactNode, type ReactPortal } from 'react'
+import { createPortal } from 'react-dom'
 
 interface PortalProps {
   children: ReactNode

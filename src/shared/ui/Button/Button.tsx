@@ -1,6 +1,8 @@
-import cls from './Button.module.scss'
-import { classNames } from '@/shared/lib'
 import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef } from 'react'
+
+import { classNames } from '@/shared/lib'
+
+import cls from './Button.module.scss'
 
 export enum ButtonVariants {
   DEFAULT = 'default',

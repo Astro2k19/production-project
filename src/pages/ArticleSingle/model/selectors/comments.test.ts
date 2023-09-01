@@ -1,6 +1,8 @@
-import { type StoreSchema } from '@/app/providers/storeProvider'
-import { getArticleSingleCommentsError, getArticleSingleCommentsIsLoading } from './comments'
 import { ArticleSingleCommentsError } from '../const/articleSingleConst'
+
+import { getArticleSingleCommentsError, getArticleSingleCommentsIsLoading } from './comments'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 const state: DeepPartial<StoreSchema> = {
   articleSingleComments: {

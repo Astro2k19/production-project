@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+
 import { type SavePageScrollSchema } from '../types/savePageScroll'
 
 const initialState: SavePageScrollSchema = {

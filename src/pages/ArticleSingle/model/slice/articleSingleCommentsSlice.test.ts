@@ -2,9 +2,11 @@
 import {
   fetchArticleCommentsById
 } from '../services/fetchArticleCommentsById/fetchArticleCommentsById'
-import { articleSingleCommentsReducer } from './articleSingleCommentsSlice'
-import { type Comment } from '@/entities/Comment'
 import { type ArticleSingleCommentsSchema } from '../types/articleSingleComments'
+
+import { articleSingleCommentsReducer } from './articleSingleCommentsSlice'
+
+import { type Comment } from '@/entities/Comment'
 
 const comments: Comment[] = [
   {

@@ -1,5 +1,6 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import React from 'react'
+
 import { Button, ButtonSizes, ButtonVariants } from './Button'
 
 export default {

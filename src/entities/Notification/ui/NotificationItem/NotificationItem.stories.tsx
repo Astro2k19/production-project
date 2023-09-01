@@ -1,6 +1,8 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { NotificationItem } from './NotificationItem'
+
 import { notification } from '../../mocks/data'
+
+import { NotificationItem } from './NotificationItem'
 
 export default {
   title: 'entities/Notification/NotificationItem',

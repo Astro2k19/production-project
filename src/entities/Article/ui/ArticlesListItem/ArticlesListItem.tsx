@@ -1,19 +1,22 @@
 import { type FC, type HTMLAttributeAnchorTarget } from 'react'
-import cls from './ArticlesListItem.module.scss'
-import { classNames } from '@/shared/lib'
-import { type Article, type ArticleTextBlock } from '../../model/types/article'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Text } from '@/shared/ui/Text'
-import { Card } from '@/shared/ui/Card'
-import { Icon } from '@/shared/ui/icon'
-import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
-import { Link } from 'react-router-dom'
-import { Avatar } from '@/shared/ui/Avatar'
 import { useTranslation } from 'react-i18next'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
+import { Link } from 'react-router-dom'
+
 import { ArticleBlockType, ArticlesListView } from '../../model/conts/articleConts'
+import { type Article, type ArticleTextBlock } from '../../model/types/article'
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+
+import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
+import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
+import { classNames } from '@/shared/lib'
 import { AppRoutes } from '@/shared/types/router'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+import { Card } from '@/shared/ui/Card'
+import { Text } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/icon'
+
+import cls from './ArticlesListItem.module.scss'
 
 interface ArticlesListItemProps {
   className?: string

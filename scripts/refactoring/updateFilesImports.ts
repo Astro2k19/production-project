@@ -1,4 +1,5 @@
 import { Project } from 'ts-morph'
+
 import { isAbsoluteImport } from './helpers'
 
 const project = new Project()

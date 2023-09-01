@@ -1,14 +1,15 @@
 import { type RouteProps } from 'react-router-dom'
-import { HomePage } from '@/pages/Home'
+
+import { UserRoles } from '@/entities/User'
 import { AboutPage } from '@/pages/About'
+import { AdminPanel } from '@/pages/AdminPanel'
+import { ArticleEditPage } from '@/pages/ArticleEditPage'
+import { ArticleSinglePage } from '@/pages/ArticleSingle'
+import { ArticlesPage } from '@/pages/Articles'
+import { ForbiddenPage } from '@/pages/ForbiddenPage'
+import { HomePage } from '@/pages/Home'
 import { NotFoundPage } from '@/pages/NotFound'
 import { Profile } from '@/pages/Profile'
-import { ArticlesPage } from '@/pages/Articles'
-import { ArticleSinglePage } from '@/pages/ArticleSingle'
-import { ArticleEditPage } from '@/pages/ArticleEditPage'
-import { AdminPanel } from '@/pages/AdminPanel'
-import { ForbiddenPage } from '@/pages/ForbiddenPage'
-import { UserRoles } from '@/entities/User'
 import { appPaths } from '@/shared/types/router'
 
 export type ProtectedRouteProps = RouteProps & {

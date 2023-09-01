@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
-import { classNames } from '@/shared/lib'
-import './styles/index.scss'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { AppRouter } from './providers/router/ui/AppRouter'
+
+import { getUserInited, userActions } from '@/entities/User'
+import { classNames } from '@/shared/lib'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserInited, userActions } from '@/entities/User'
+
+import './styles/index.scss'
 
 export const App: React.FC = () => {
   const dispatch = useDispatch()

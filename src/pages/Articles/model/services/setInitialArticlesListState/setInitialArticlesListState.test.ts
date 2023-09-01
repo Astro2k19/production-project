@@ -1,7 +1,8 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import {
   setInitialArticlesListState
 } from './setInitialArticlesListState'
+
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 describe('setInitialArticlesListState', () => {
   test('inited state', async () => {

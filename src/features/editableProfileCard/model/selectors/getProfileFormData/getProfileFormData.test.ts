@@ -1,7 +1,8 @@
 import { getProfileFormData } from './getProfileFormData'
+
 import { type StoreSchema } from '@/app/providers/storeProvider'
-import { Currency } from '@/entities/Currency'
 import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
 
 describe('getProfileData', () => {
   const data = {

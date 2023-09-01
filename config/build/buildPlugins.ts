@@ -1,13 +1,14 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import webpack from 'webpack'
-import { type BuildOptions } from './types/config'
-import type { WebpackPluginInstance } from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import CircularDependencyPlugin from 'circular-dependency-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import webpack from 'webpack'
+import type { WebpackPluginInstance } from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
+import { type BuildOptions } from './types/config'
 
 export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOptions): WebpackPluginInstance[] => {
   return [

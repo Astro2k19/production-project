@@ -1,10 +1,12 @@
 import React, { memo, useCallback } from 'react'
-import { RatingCard } from '@/entities/Rating'
 import { useTranslation } from 'react-i18next'
+
 import { useGetArticleRating, usePostArticleRating } from '../../api/articleRatingApi'
+
+import { RatingCard } from '@/entities/Rating'
+import { getUserAuthDate } from '@/entities/User'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Skeleton } from '@/shared/ui/Skeleton'
-import { getUserAuthDate } from '@/entities/User'
 
 export interface ArticleRatingProps {
   className?: string

@@ -1,16 +1,18 @@
 import { type FC, memo } from 'react'
-import { classNames } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
-import { ArticleDetails, getArticleDetailsError, getArticleErrorMessage } from '@/entities/Article'
-import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
 import { useSelector } from 'react-redux'
-import { Page } from '@/widgets/Page'
-import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
-import { VStack } from '@/shared/ui/Stack'
-import { ArticleSingleRecommendations } from '@/features/articleSingleRecommendations'
+import { useParams } from 'react-router-dom'
+
 import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleComments'
+import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
+
+import { ArticleDetails, getArticleDetailsError, getArticleErrorMessage } from '@/entities/Article'
 import { ArticleRating } from '@/features/ArticleRating'
+import { ArticleSingleRecommendations } from '@/features/articleSingleRecommendations'
+import { classNames } from '@/shared/lib'
+import { VStack } from '@/shared/ui/Stack'
+import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
+import { Page } from '@/widgets/Page'
 
 interface ArticleSingleProps {
   className?: string

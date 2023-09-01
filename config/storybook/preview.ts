@@ -1,7 +1,9 @@
+import { withRouter } from 'storybook-addon-react-router-v6'
+import { withThemes } from 'storybook-addon-themes/react'
+
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
-import { withThemes } from 'storybook-addon-themes/react'
-import { withRouter } from 'storybook-addon-react-router-v6'
+
 import i18n from './i18next'
 
 export const parameters = {

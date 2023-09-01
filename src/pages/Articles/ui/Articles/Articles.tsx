@@ -1,7 +1,10 @@
 import React, { type FC, memo } from 'react'
-import { Page } from '@/widgets/Page'
-import cls from './Articles.module.scss'
+
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
+
+import { Page } from '@/widgets/Page'
+
+import cls from './Articles.module.scss'
 
 interface ArticlesProps {
   className?: string

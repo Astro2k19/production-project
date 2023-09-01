@@ -1,7 +1,9 @@
-import { type Profile } from '@/entities/Profile'
-import { validateErrors } from './validateErrors'
-import { profile as data } from '@/entities/Profile'
 import { ValidateProfileError } from '../../const/editableProfileCardConst'
+
+import { validateErrors } from './validateErrors'
+
+import { type Profile } from '@/entities/Profile'
+import { profile as data } from '@/entities/Profile'
 
 describe('validateErrors', () => {
   test('invalid user data', () => {

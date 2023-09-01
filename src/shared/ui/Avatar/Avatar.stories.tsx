@@ -1,6 +1,8 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import React from 'react'
+
 import { Avatar } from './Avatar'
+
 import img from '@/shared/assets/images/tests/avatar.jpg'
 
 export default {

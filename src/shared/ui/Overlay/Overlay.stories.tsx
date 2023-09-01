@@ -1,4 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+
 import { Overlay } from './Overlay'
 
 export default {

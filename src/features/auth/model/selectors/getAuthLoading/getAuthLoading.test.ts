@@ -1,4 +1,5 @@
 import { getAuthLoading } from './getAuthLoading'
+
 import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getAuthLoading', () => {

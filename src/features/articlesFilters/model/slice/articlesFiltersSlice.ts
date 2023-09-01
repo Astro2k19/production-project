@@ -1,8 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type ArticlesFiltersSchema } from '../types/articleFilters'
-import { type SortOrder } from '@/shared/types/sortOrder'
-import { ArticleType } from '@/entities/Article'
+
 import { ArticlesSortFields } from '../conts/articleFiltersConst'
+import { type ArticlesFiltersSchema } from '../types/articleFilters'
+
+import { ArticleType } from '@/entities/Article'
+import { type SortOrder } from '@/shared/types/sortOrder'
 
 const initialState: ArticlesFiltersSchema = {
   sort: ArticlesSortFields.VIEWS,

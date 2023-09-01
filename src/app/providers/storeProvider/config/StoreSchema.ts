@@ -1,17 +1,18 @@
-import { type UserSchema } from '@/entities/User'
 // eslint-disable-next-line authoring-project-plugin/public-api-import-checker
-import { type LoginFormSchema } from '@/features/auth'
 import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type CombinedState, type Dispatch } from 'redux'
 import { type AxiosInstance } from 'axios'
+import { type CombinedState, type Dispatch } from 'redux'
+
 import { type ArticleDetailsSchema } from '@/entities/Article'
+import { type UserSchema } from '@/entities/User'
 import { type AddCommentFormSchema } from '@/features/addCommentForm'
-import { type SavePageScrollSchema } from '@/features/savePageScroll'
-import { type rtkApi } from '@/shared/api/rtkApi'
+import { type ArticlesFiltersSchema } from '@/features/articlesFilters'
+import { type LoginFormSchema } from '@/features/auth'
 import { type ProfileSchema } from '@/features/editableProfileCard'
+import { type SavePageScrollSchema } from '@/features/savePageScroll'
 import { type ArticleSingleCommentsSchema } from '@/pages/ArticleSingle'
 import { type ArticlesPageListSchema } from '@/pages/Articles'
-import { type ArticlesFiltersSchema } from '@/features/articlesFilters'
+import { type rtkApi } from '@/shared/api/rtkApi'
 
 export interface StoreSchema {
   user: UserSchema

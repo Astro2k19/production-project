@@ -1,9 +1,12 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { ArticleDetails } from './ArticleDetails'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import React from 'react'
+
 import { article } from '../../mocks/data.mock'
 import { ArticleError } from '../../model/conts/articleConts'
+
+import { ArticleDetails } from './ArticleDetails'
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'entities/ArticleDetails',

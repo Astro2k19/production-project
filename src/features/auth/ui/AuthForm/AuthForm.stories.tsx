@@ -1,8 +1,11 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import AuthForm from './AuthForm'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import React from 'react'
+
 import { AuthFormError } from '../../model/const/authConst'
+
+import AuthForm from './AuthForm'
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'features/AuthForm',

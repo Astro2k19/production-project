@@ -1,7 +1,8 @@
-import { Fragment, memo, type ReactNode } from 'react'
-import cls from './Popover.module.scss'
-import { Popover as HPopover } from '@headlessui/react'
 import { flip, offset, type Placement, shift, useFloating } from '@floating-ui/react'
+import { Popover as HPopover } from '@headlessui/react'
+import { Fragment, memo, type ReactNode } from 'react'
+
+import cls from './Popover.module.scss'
 
 interface PopoverProps {
   className?: string

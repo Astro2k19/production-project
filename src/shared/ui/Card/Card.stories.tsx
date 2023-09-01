@@ -1,7 +1,9 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Card as CardComponent } from './Card'
+import React from 'react'
+
 import { Text } from '../Text'
+
+import { Card as CardComponent } from './Card'
 
 export default {
   title: 'shared/Card',

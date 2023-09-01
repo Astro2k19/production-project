@@ -1,6 +1,7 @@
+import { ArticleSingleCommentsError } from '../../model/const/articleSingleConst'
+
 import { type ApiError } from '@/shared/api/api'
 import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'
-import { ArticleSingleCommentsError } from '../../model/const/articleSingleConst'
 
 const articleSingleCommentsErrorCodeMappings = {
   404: `${ArticleSingleCommentsError.NOT_FOUND}`,

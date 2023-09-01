@@ -1,9 +1,10 @@
-import { type StoreSchema } from '@/app/providers/storeProvider'
 import {
   getAddCommentFormError,
   getAddCommentFormIsLoading,
   getAddCommentFormText
 } from './addCommentFormSelectors'
+
+import { type StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getAddCommentFormText', () => {
   test('should return Text', () => {
