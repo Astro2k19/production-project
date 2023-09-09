@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { articlesFiltersActions, type ArticlesSortFields } from 'src/features/ArticlesFilters'
 
 import { getArticlesInited } from '../../selectors/articlesPageList'
 import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
@@ -6,7 +7,6 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 import { ArticlesListView, type ArticleType } from '@/entities/Article'
-import { articlesFiltersActions, type ArticlesSortFields } from '@/features/articlesFilters'
 import { ARTICLES_LIST_VIEW_KEY } from '@/shared/const/localStorage'
 import { getUrlQueryParams } from '@/shared/lib'
 import { type SortOrder } from '@/shared/types/sortOrder'

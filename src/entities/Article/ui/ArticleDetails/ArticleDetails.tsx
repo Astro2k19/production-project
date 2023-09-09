@@ -16,7 +16,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from '@/shared/assets/icons/clarity_date-line.svg'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'

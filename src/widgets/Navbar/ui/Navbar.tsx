@@ -1,11 +1,11 @@
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { AuthModal } from 'src/features/Auth'
 
 import { getUserAuthDate } from '@/entities/User'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationsButton } from '@/features/NotificationButton'
-import { AuthModal } from '@/features/auth'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { appPaths } from '@/shared/types/router'

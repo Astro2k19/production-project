@@ -21,12 +21,13 @@
     "test:ui": "loki test",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "test:ui:approve": "npx loki approve",
-    "visual:report": "npm run visual:report:json && npm run visual:report:html",
-    "visual:report:json": "node scripts/generate-visual-json-report.js",
-    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run visual:report:json && npm run visual:report:html",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "ts-node scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",

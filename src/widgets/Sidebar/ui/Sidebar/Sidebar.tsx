@@ -1,10 +1,10 @@
 import React, { type FC } from 'react'
+import { LangSwitcher } from 'src/features/LangSwitcher'
+import { ThemeSwitcher } from 'src/features/ThemeSwitcher'
 
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
 import { SidebarItem } from '../../ui/SidebarItem/SidebarItem'
 
-import { LangSwitcher } from '@/features/langSwitcher'
-import { ThemeSwitcher } from '@/features/themeSwitcher'
 import ToggleSidebarIcon from '@/shared/assets/icons/sidebar-toggle.svg'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'

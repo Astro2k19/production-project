@@ -4,7 +4,7 @@ import { type ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { MemoryRouter } from 'react-router-dom'
 
-import { type ReducersList } from '../../dynamicModuleLoader/DynamicModuleLoader'
+import { type ReducersList } from '../../DynamicModuleLoader/DynamicModuleLoader'
 
 import { type StoreSchema } from '@/app/providers/storeProvider'
 import { StoreProvider } from '@/app/providers/storeProvider'
