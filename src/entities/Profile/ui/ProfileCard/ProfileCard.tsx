@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { getProfileErrorMessage } from '../..'
+import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
 import { type Profile } from '../../model/types/profile'
 
 import { type Country, CountrySelect } from '@/entities/Country'

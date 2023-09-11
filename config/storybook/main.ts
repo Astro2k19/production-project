@@ -16,6 +16,9 @@ export default {
     'storybook-addon-mock/register'
   ],
   framework: '@storybook/react',
+  docs: {
+    autodocs: 'tag'
+  },
   core: {
     builder: '@storybook/builder-webpack5'
   },

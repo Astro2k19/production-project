@@ -1,7 +1,6 @@
 import { memo, Suspense, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { AddCommentForm } from 'src/features/AddCommentForm'
 
 import {
   getArticleCommentsErrorMessage
@@ -17,6 +16,7 @@ import { sendCommentForArticle } from '../../model/services/sendCommentForArticl
 import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
 
 import { CommentsList } from '@/entities/Comment'
+import { AddCommentForm } from '@/features/AddCommentForm'
 import { classNames } from '@/shared/lib'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'

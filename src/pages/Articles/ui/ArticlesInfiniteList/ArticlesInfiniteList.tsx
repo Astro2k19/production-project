@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from 'react'
-import { ArticlesFilters, getArticlesFiltersType } from 'src/features/ArticlesFilters'
 
 import {
   getArticlesListError, getArticlesListHasMore,
@@ -17,6 +16,7 @@ import {
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
 
 import { type ArticlesListView, ArticlesListVirtualized } from '@/entities/Article'
+import { ArticlesFilters, getArticlesFiltersType } from '@/features/ArticlesFilters'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'

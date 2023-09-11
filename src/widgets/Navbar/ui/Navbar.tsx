@@ -1,9 +1,9 @@
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { AuthModal } from 'src/features/Auth'
 
 import { getUserAuthDate } from '@/entities/User'
+import { AuthModal } from '@/features/Auth'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationsButton } from '@/features/NotificationButton'
 import { classNames } from '@/shared/lib'

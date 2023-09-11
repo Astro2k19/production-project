@@ -14,15 +14,15 @@ npm run start:dev - server start + frontend project in development mode
 - `npm run start:dev:vite` - Running a frontend project on vite + backend
 - `npm run build:prod` - Build in production mode
 - `npm run build:dev` - Build in development mode (not minimized)
-- - `analyze:dev` - Create bundle analyzer in development mode
-- `analyze:prod` - Create bundle analyzer in production mode
+- `npm run analyze:dev` - Create bundle analyzer in development mode
+- `npm run analyze:prod` - Create bundle analyzer in production mode
 - `npm run lint:ts` -  Ts file linter check
 - `npm run lint:ts:fix` - Ts file linter fix
 - `npm run lint:scss` - Scss file linter check
 - `npm run lint:scss:fix` - Scss file linter fix
 - `npm run test:unit` - Unit test start with jest
 - `npm run test:ui` - Start screenshots tests with loki
-- `npm run test:ui:ok` - Approval screenshot tests with loki
+- `npm run test:ui:approve` - Approval screenshot tests with loki
 - `npm run test:ui:ci` - Start screenshot tests with CI
 - `npm run test:ui:report` - Generation full report about screenshot tests
 - `npm run test:ui:json` - Generation json report about screenshot tests
@@ -31,8 +31,7 @@ npm run start:dev - server start + frontend project in development mode
 - `npm run build:storybook` - Storybook build
 - `npm run prepare` - Precommit husky
 - `npm run generate:slice` - Script to generate FSD slices
-- `postinstall` - Command to delete the .cache folder inside the node_modules folder of the project.
-- `remove-feature` - Command to remove feature flag with unused component/function declared in on or off.
+
 
 ## Project architecture
 The project was written in accordance with the methodology FEATURE SLICED DESIGN
@@ -49,7 +48,7 @@ The project uses 3 types of tests:
 1. Unit test on jest `npm run test:unit`
 2. Tests for components with React testing library `npm run test:unit`
 3. Screenshot testing with Loki `npm run test:ui`
-4. e2e testing with Cypress `npm run test:e2e` ***
+4. e2e testing with Cypress `npm run test:e2e`
 
 More about tests - [tests documentation](/docs/tests.md)
 
@@ -78,7 +77,7 @@ We create story files next to the component files with the extension .stories.ts
 
 - `npm run storybook` - Storybook run
 
-Learn more about [Storybook](/docs/storybook.md)
+Learn more about [Storybook](https://storybook.js.org/docs/react/get-started/why-storybook)
 
 Example:
 

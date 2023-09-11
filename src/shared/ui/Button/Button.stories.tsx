@@ -6,7 +6,6 @@ import { Button, ButtonSizes, ButtonVariants } from './Button'
 export default {
   title: 'shared/Button',
   component: Button,
-
   argTypes: {
     backgroundColor: { control: 'color' }
   }

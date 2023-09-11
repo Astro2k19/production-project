@@ -1,11 +1,11 @@
 import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
-import { articlesFiltersReducer } from 'src/features/ArticlesFilters'
-import { savePageScrollReducer } from 'src/features/SavePageScroll'
 
 import { type StoreSchema, type ThunkExtraArgs } from './StoreSchema'
 import { createReducerManager } from './createReducerManager'
 
 import { authMiddleware, initUserDataMiddleware, userReducer } from '@/entities/User'
+import { articlesFiltersReducer } from '@/features/ArticlesFilters'
+import { savePageScrollReducer } from '@/features/SavePageScroll'
 import { setArticlesListViewMiddleware } from '@/pages/Articles'
 import { $api } from '@/shared/api/api'
 import { rtkApi } from '@/shared/api/rtkApi'

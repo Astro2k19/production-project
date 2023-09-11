@@ -1,7 +1,7 @@
 import { type MutableRefObject, type ReactNode, type UIEvent, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { savePageScrollActions, getSavePageScrollByKey } from 'src/features/SavePageScroll'
 
+import { savePageScrollActions, getSavePageScrollByKey } from '@/features/SavePageScroll'
 import { classNames } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'

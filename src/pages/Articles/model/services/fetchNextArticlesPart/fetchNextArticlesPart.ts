@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { articlesFiltersActions, getArticlesFiltersPage } from 'src/features/ArticlesFilters'
 
 import {
   getArticlesListHasMore,
@@ -8,6 +7,7 @@ import {
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
+import { articlesFiltersActions, getArticlesFiltersPage } from '@/features/ArticlesFilters'
 
 export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, AsyncThunkConfig>(
   'articlesPageList/fetchNextArticlesPart',
