@@ -2,7 +2,7 @@ import { type AsyncThunk } from '@reduxjs/toolkit'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { type ArticlesSortFields } from '../../model/conts/articleFiltersConst'
+import { type ArticlesSortFields } from '../../model/const/articleFiltersConst'
 import {
   getArticlesFiltersOrder,
   getArticlesFiltersSearch,

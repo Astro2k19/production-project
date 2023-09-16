@@ -2,7 +2,7 @@ import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { ArticleBlockType, ArticlesListView } from '../../model/conts/articleConts'
+import { ArticleBlockType, ArticlesListView } from '../../model/const/articleConst'
 import { type Article, type ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 

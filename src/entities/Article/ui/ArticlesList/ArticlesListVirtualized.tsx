@@ -2,7 +2,7 @@ import React, { type FC, type HTMLAttributeAnchorTarget, type MutableRefObject, 
 import { useTranslation } from 'react-i18next'
 import { type Components, Virtuoso, VirtuosoGrid, type VirtuosoGridHandle, type VirtuosoHandle } from 'react-virtuoso'
 
-import { ArticlesListView, type ArticleType } from '../../model/conts/articleConts'
+import { ArticlesListView, type ArticleType } from '../../model/const/articleConst'
 import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'

@@ -1,1 +1,10 @@
-## Feature AvatarDropdown is for ...
+## Features AvatarDropdown
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`AvatarDropdown` - ...
+

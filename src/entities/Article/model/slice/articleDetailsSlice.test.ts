@@ -1,4 +1,4 @@
-import { ArticleType } from '../conts/articleConts'
+import { ArticleType } from '../const/articleConst'
 import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById'
 import { type ArticleDetailsSchema } from '../types/articleDetailsSchema'
 

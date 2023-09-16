@@ -1,1 +1,10 @@
-## Feature ProfileRating is for ...
+## Features ProfileRating
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`ProfileRatingAsync` - ...
+

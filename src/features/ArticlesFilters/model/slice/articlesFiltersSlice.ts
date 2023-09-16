@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { ArticlesSortFields } from '../conts/articleFiltersConst'
+import { ArticlesSortFields } from '../const/articleFiltersConst'
 import { type ArticlesFiltersSchema } from '../types/articleFilters'
 
 import { ArticleType } from '@/entities/Article'

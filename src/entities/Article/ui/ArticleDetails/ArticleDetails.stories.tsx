@@ -2,7 +2,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
 import { article } from '../../mocks/data.mock'
-import { ArticleError } from '../../model/conts/articleConts'
+import { ArticleError } from '../../model/const/articleConst'
 
 import { ArticleDetails } from './ArticleDetails'
 

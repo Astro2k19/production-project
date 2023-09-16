@@ -1,1 +1,10 @@
-## Feature langSwitcher is for ...
+## Features LangSwitcher
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`LangSwitcher` - ...
+

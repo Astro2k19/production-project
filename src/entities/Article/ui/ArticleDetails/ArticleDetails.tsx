@@ -1,7 +1,7 @@
 import { memo } from 'react'
 
 import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
-import { ArticleBlockType } from '../../model/conts/articleConts'
+import { ArticleBlockType } from '../../model/const/articleConst'
 import {
   getArticleDetailsData,
   getArticleDetailsError,

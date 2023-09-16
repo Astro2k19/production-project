@@ -1,4 +1,4 @@
-import { ArticleError } from '../../model/conts/articleConts'
+import { ArticleError } from '../../model/const/articleConst'
 
 import { type ApiError } from '@/shared/api/api'
 import { getErrorMessage } from '@/shared/lib/getErrorMessage/getErrorMessage'

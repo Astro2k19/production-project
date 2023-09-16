@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { ArticlesListView } from '../../model/conts/articleConts'
+import { ArticlesListView } from '../../model/const/articleConst'
 
 import { classNames } from '@/shared/lib'
 import { Card } from '@/shared/ui/Card'

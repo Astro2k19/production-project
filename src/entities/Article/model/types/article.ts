@@ -1,4 +1,4 @@
-import { type ArticleBlockType, type ArticleType } from '../conts/articleConts'
+import { type ArticleBlockType, type ArticleType } from '../const/articleConst'
 
 import { type User } from '@/entities/User'
 

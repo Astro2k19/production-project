@@ -1,1 +1,14 @@
-## Entity Currency is for ...
+## Entities Currency
+
+Description: ...
+
+#### Public api
+
+- const
+
+`currencyConst` - ...
+
+- ui
+
+`CurrencySelect` - ...
+

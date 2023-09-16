@@ -1,7 +1,7 @@
 import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ArticlesListView } from '../../model/conts/articleConts'
+import { ArticlesListView } from '../../model/const/articleConst'
 import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton'

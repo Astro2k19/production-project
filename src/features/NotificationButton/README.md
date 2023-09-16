@@ -1,1 +1,10 @@
-## Feature NotificationButton is for ...
+## Features NotificationButton
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`NotificationsButton` - ...
+

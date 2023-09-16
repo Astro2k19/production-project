@@ -1,1 +1,10 @@
-## Feature articleSingleRecommendations is for ...
+## Features ArticleSingleRecommendations
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`ArticleSingleRecommendations` - ...
+

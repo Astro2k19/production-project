@@ -1,1 +1,10 @@
-## Entity Notification is for ...
+## Entities Notification
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`NotificationList` - ...
+

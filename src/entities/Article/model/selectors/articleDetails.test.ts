@@ -1,5 +1,5 @@
 import { article as data } from '../../mocks/data.mock'
-import { ArticleError } from '../conts/articleConts'
+import { ArticleError } from '../const/articleConst'
 
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
 

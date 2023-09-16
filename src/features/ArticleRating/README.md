@@ -1,1 +1,10 @@
-## Feature ArticleRating is for ...
+## Features ArticleRating
+
+Description: ...
+
+#### Public api
+
+- ui
+
+`ArticleRatingAsync` - ...
+
