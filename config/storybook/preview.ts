@@ -3,6 +3,7 @@ import { withThemes } from 'storybook-addon-themes/react'
 
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
+import { Theme } from '../../src/shared/const/theme'
 
 import i18n from './i18next'
 
@@ -18,8 +19,9 @@ export const parameters = {
   themes: {
     default: 'Light',
     list: [
-      { name: 'Light', class: ['app', 'app_light_theme'], color: '#e8e8ea' },
-      { name: 'Dark', class: ['app', 'app_dark_theme'], color: '#090949' }
+      { name: 'Light', class: ['app', Theme.LIGHT], color: '#e8e8ea' },
+      { name: 'Dark', class: ['app', Theme.DARK], color: '#090949' },
+      { name: 'Dusk', class: ['app', Theme.DUSK], color: '#4b4e71' }
     ]
   },
   i18n,
