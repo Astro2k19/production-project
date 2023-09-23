@@ -1,4 +1,6 @@
-import { type ChangeEvent, memo, useMemo } from 'react'
+import { type ChangeEvent, useMemo } from 'react'
+
+import { typedMemo } from '../../const/typedMemo'
 
 import { classNames } from '@/shared/lib'
 
@@ -18,7 +20,6 @@ interface SelectProps<T extends string> {
   value?: string
 }
 
-const typedMemo: <T>(c: T) => T = memo
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
   const {
     className,

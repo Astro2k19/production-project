@@ -8,8 +8,8 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
+import { getRouteArticleSingle } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
-import { AppRoutes } from '@/shared/types/router'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 import { Card } from '@/shared/ui/Card'
@@ -48,11 +48,9 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
     }
   }
 
-  const path = `/${AppRoutes.ARTICLES}/${article.id}`
+  const path = getRouteArticleSingle(article.id)
 
   const { t } = useTranslation()
-
-  //   article
 
   if (view === ArticlesListView.GRID) {
     return (

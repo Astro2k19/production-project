@@ -1,5 +1,6 @@
-import { memo, useCallback } from 'react'
+import { useCallback } from 'react'
 
+import { typedMemo } from '../../const/typedMemo'
 import { Card } from '../Card'
 import { HStack } from '../Stack'
 
@@ -18,8 +19,6 @@ interface TabsProps<T extends string> {
   value: T
   onClick: (newValue: T) => void
 }
-
-const typedMemo: <T>(c: T) => T = memo
 
 export const Tabs = typedMemo(<T extends string>({ className, tabs, value, onClick }: TabsProps<T>) => {
   const onClickHandler = useCallback((newValue: T) => () => {

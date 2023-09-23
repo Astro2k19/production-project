@@ -10,7 +10,14 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage'
 import { HomePage } from '@/pages/Home'
 import { NotFoundPage } from '@/pages/NotFound'
 import { Profile } from '@/pages/Profile'
-import { appPaths } from '@/shared/types/router'
+import {
+  getRouteAdminPanel,
+  getRouteArticleEdit,
+  getRouteArticleNew,
+  getRouteArticles, getRouteArticleSingle, getRouteForbidden,
+  getRouteMain, getRouteNotFound,
+  getRouteProfile
+} from '@/shared/const/router'
 
 export type ProtectedRouteProps = RouteProps & {
   isProtected?: boolean
@@ -19,51 +26,51 @@ export type ProtectedRouteProps = RouteProps & {
 
 export const routerConfig: ProtectedRouteProps[] = [
   {
-    path: appPaths.home,
+    path: getRouteMain(),
     element: <HomePage/>
   },
   {
-    path: appPaths.about,
+    path: getRouteMain(),
     element: <AboutPage/>
   },
   {
-    path: `${appPaths.profile}:id`,
+    path: getRouteProfile(':id'),
     element: <Profile/>,
     isProtected: true
   },
   {
-    path: appPaths.articles,
+    path: getRouteArticles(),
     element: <ArticlesPage/>,
     isProtected: true
   },
   {
-    path: appPaths.article_edit,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage/>,
     isProtected: true
   },
   {
-    path: appPaths.article_new,
+    path: getRouteArticleNew(),
     element: <ArticleEditPage/>,
     isProtected: true
   },
   {
-    path: `${appPaths.article}:id`,
+    path: getRouteArticleSingle(':id'),
     element: <ArticleSinglePage/>,
     isProtected: true
   },
   {
-    path: appPaths.admin,
+    path: getRouteAdminPanel(),
     element: <AdminPanel/>,
     isProtected: true,
     requiredRoles: [UserRoles.ADMIN, UserRoles.MANAGER]
   },
   {
-    path: appPaths.forbidden_page,
+    path: getRouteForbidden(),
     element: <ForbiddenPage/>,
     isProtected: true
   },
   {
-    path: appPaths.not_found,
+    path: getRouteNotFound(),
     element: <NotFoundPage/>
   }
 ]

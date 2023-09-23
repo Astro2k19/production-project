@@ -2420,6 +2420,12 @@
       "userId": "1",
       "text": "asdfasdfasdf",
       "id": 51
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "test",
+      "id": 52
     }
   ],
   "notifications": [

@@ -6,9 +6,9 @@ import { getUserAuthDate } from '@/entities/User'
 import { AuthModal } from '@/features/Auth'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationsButton } from '@/features/NotificationButton'
+import { getRouteArticleNew } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { appPaths } from '@/shared/types/router'
 import { AppLink, AppLinkVariants } from '@/shared/ui/AppLink'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   )
 
   const onCreateNewArticle = useCallback(() => {
-    navigate(`${appPaths.article_new}`)
+    navigate(getRouteArticleNew())
   }, [navigate])
 
   if (authDate) {

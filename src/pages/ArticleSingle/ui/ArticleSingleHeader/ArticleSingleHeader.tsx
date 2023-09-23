@@ -1,12 +1,12 @@
 import { type FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { generatePath, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { getCanEditArticle } from '../../model/selectors/article'
 
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { appPaths } from '@/shared/types/router'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 
 import cls from './ArticleSingleHeader.module.scss'
@@ -22,12 +22,11 @@ export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({ className })
   const canEdit = useAppSelector(getCanEditArticle)
 
   const onGoBack = useCallback(() => {
-    navigate(appPaths.articles)
+    navigate(getRouteArticles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    const path = generatePath(appPaths.article_edit, { id })
-    navigate(path)
+    navigate(getRouteArticleEdit(id as string))
   }, [id, navigate])
 
   return (

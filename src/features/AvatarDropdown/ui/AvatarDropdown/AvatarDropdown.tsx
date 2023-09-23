@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { isUserAdmin, isUserManager, type User, userActions } from '@/entities/User'
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { appPaths } from '@/shared/types/router'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Dropdown'
 interface AvatarDropdownProps {
@@ -31,13 +31,13 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
       ? [
           {
             content: t('Admin Panel'),
-            href: appPaths.admin
+            href: getRouteAdminPanel()
           }
         ]
       : []),
     {
       content: t('Profile', { ns: 'profile' }),
-      href: `${appPaths.profile}${authDate.id}`
+      href: getRouteProfile(authDate.id)
     },
     {
       content: t('Log Out'),
