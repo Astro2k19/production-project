@@ -12,6 +12,7 @@ export const buildBabelLoader = ({ isTSX, isDev }: BuildBabelLoaderOptions) => (
     loader: 'babel-Loader',
     options: {
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
+      cacheDirectory: true,
       plugins: [
         // ['i18next-extract',
         //   {

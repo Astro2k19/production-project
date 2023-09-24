@@ -11,14 +11,17 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { type BuildOptions } from './types/config'
 
 export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOptions): WebpackPluginInstance[] => {
+  const isProd = !isDev
   return [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
     // This plugin extracts CSS into separate files
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[name].[contenthash].css'
-    }),
+    ...(isProd
+      ? [new MiniCssExtractPlugin({
+          filename: 'css/[name].[contenthash].css',
+          chunkFilename: 'css/[name].[contenthash].css'
+        })]
+      : []),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_URL__: JSON.stringify(apiUrl),
@@ -31,11 +34,13 @@ export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOp
         })]
       : []),
     ...(analyze ? [new BundleAnalyzerPlugin()] : []),
-    new CopyPlugin({
-      patterns: [
-        { from: paths.locales, to: paths.buildLocales }
-      ]
-    }),
+    ...(isProd
+      ? [new CopyPlugin({
+          patterns: [
+            { from: paths.locales, to: paths.buildLocales }
+          ]
+        })]
+      : []),
     ...(isDev
       ? [new ForkTsCheckerWebpackPlugin({
           typescript: {
