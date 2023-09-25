@@ -92,7 +92,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
               {description && <ArticleTextBlockComponent className={cls.description} block={description}/>}
               <div className={cls.footer}>
                   <Link to={path} target={target} onClick={onCardClick}>
-                      <Button variant={ButtonVariants.OUTLINE}>{t('Read more...')}</Button>
+                      <Button variant={ButtonVariants.OUTLINE}>{t('Read more', { ns: 'translation' })}</Button>
                   </Link>
                   {views}
               </div>
