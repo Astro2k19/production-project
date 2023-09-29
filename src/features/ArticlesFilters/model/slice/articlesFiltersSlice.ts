@@ -5,6 +5,7 @@ import { type ArticlesFiltersSchema } from '../types/articleFilters'
 
 import { ArticleType } from '@/entities/Article'
 import { type SortOrder } from '@/shared/types/sortOrder'
+import {buildSlice} from "@/shared/lib/store/buildSlice";
 
 const initialState: ArticlesFiltersSchema = {
   sort: ArticlesSortFields.VIEWS,
@@ -14,7 +15,7 @@ const initialState: ArticlesFiltersSchema = {
   page: 1
 }
 
-export const articlesFiltersSlice = createSlice({
+export const articlesFiltersSlice = buildSlice({
   name: 'articlesFiltersSlice',
   initialState,
   reducers: {
@@ -36,5 +37,5 @@ export const articlesFiltersSlice = createSlice({
   }
 })
 
-export const { actions: articlesFiltersActions } = articlesFiltersSlice
+export const { useActions: useArticlesFiltersActions, actions : articlesFiltersActions } = articlesFiltersSlice
 export const { reducer: articlesFiltersReducer } = articlesFiltersSlice

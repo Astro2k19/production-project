@@ -5,33 +5,34 @@ import {
 } from '../fetchArticleCommentsById/fetchArticleCommentsById'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
-import { getArticleDetailsData } from '@/entities/Article'
 import { type Comment } from '@/entities/Comment'
 import { getUserAuthDate } from '@/entities/User'
 
-export const sendCommentForArticle = createAsyncThunk<Comment, string, AsyncThunkConfig<string>>(
+interface sendCommentForArticleArgs {
+    text: string
+    articleId?: string
+}
+
+export const sendCommentForArticle = createAsyncThunk<Comment, sendCommentForArticleArgs, AsyncThunkConfig<string>>(
   'articleSingle/sendCommentForArticle',
-  async (text, thunkApi) => {
+  async ({text, articleId}, thunkApi) => {
     const { getState, extra, rejectWithValue, dispatch } = thunkApi
 
-    const article = getArticleDetailsData(getState())
     const user = getUserAuthDate(getState())
 
-    if (!article?.id || !user?.id) {
+    if (!articleId || !user?.id) {
       return rejectWithValue('error')
     }
 
     try {
       const response = await extra.api.post<Comment>('/comments', {
-        articleId: article?.id,
+        articleId: articleId,
         userId: user?.id,
         text
       })
 
-      console.log(response, 'response')
-      console.log(article, 'article')
 
-      dispatch(fetchArticleCommentsById(article.id))
+      dispatch(fetchArticleCommentsById(articleId))
 
       return response.data
     } catch (e) {

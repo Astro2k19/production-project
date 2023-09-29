@@ -1,6 +1,6 @@
 import { type AddCommentFormSchema } from '../types/addCommentForm'
 
-import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
+import { useAddCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
 
 describe('addCommentFormSlice', () => {
   const state: DeepPartial<AddCommentFormSchema> = {
@@ -11,7 +11,7 @@ describe('addCommentFormSlice', () => {
     expect(
       addCommentFormReducer(
         state as AddCommentFormSchema,
-        addCommentFormActions.setText('New comment!')
+          useAddCommentFormActions().setText('New comment!')
       )
     ).toEqual({
       text: 'New comment!'

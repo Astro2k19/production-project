@@ -2,12 +2,11 @@ import { type FC, type FormEvent, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
-import { getAuthError } from '../../model/selectors/getAuthError/getAuthError'
-import { getAuthLoading } from '../../model/selectors/getAuthLoading/getAuthLoading'
-import { getAuthPassword } from '../../model/selectors/getAuthPassword/getAuthPassword'
-import { getAuthUsername } from '../../model/selectors/getAuthUsername/getAuthUsername'
+import {
+    useGetAuthError, useGetAuthLoading, useGetAuthPassword, useGetAuthUsername
+} from '../../model/selectors/authSelectors'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { authActions, authReducer } from '../../model/slice/loginByUsernameSlice'
+import { authReducer, useAuthActions} from '../../model/slice/loginByUsernameSlice'
 
 import { classNames } from '@/shared/lib'
 import {
@@ -35,24 +34,11 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
-  const username = useAppSelector(getAuthUsername)
-  const password = useAppSelector(getAuthPassword)
-  const isLoading = useAppSelector(getAuthLoading)
-  const error = useAppSelector(getAuthError)
-
-  const setUsername = useCallback(
-    (value: string): void => {
-      dispatch(authActions.setUsername(value))
-    },
-    [dispatch]
-  )
-
-  const setPassword = useCallback(
-    (value: string): void => {
-      dispatch(authActions.setPassword(value))
-    },
-    [dispatch]
-  )
+  const username =  useGetAuthUsername()
+  const password = useGetAuthPassword()
+  const isLoading = useGetAuthLoading()
+  const error = useGetAuthError()
+    const {setPassword, setUsername} = useAuthActions()
 
   const onSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()

@@ -22,7 +22,6 @@ export interface StoreSchema {
   // async reducers
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
-  articleDetails?: ArticleDetailsSchema
   articleSingleComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema

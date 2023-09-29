@@ -45,7 +45,7 @@ ArticleSingle.story = {
 }
 
 ArticleSingle.decorators = [StoreDecorator({
-  articleDetails: {
-    data
-  }
+  // articleDetails: {
+  //   data
+  // }
 })]

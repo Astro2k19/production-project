@@ -1,47 +1,34 @@
-import { memo } from 'react'
+import {memo} from 'react'
 
-import { getArticleErrorMessage } from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
-import { ArticleBlockType } from '../../model/const/articleConst'
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading
-} from '../../model/selectors/articleDetails'
-import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById'
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
-import { type ArticleBlockTypes } from '../../model/types/article'
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import {getArticleErrorMessage} from '../../lib/getArticleErrorMessage/getArticleErrorMessage'
+import {ArticleBlockType} from '../../model/const/articleConst'
+import {type ArticleBlockTypes} from '../../model/types/article'
+import {ArticleCodeBlockComponent} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
+import {ArticleImageBlockComponent} from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
+import {ArticleTextBlockComponent} from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from '@/shared/assets/icons/clarity_date-line.svg'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
-import { Avatar } from '@/shared/ui/Avatar'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { HStack, VStack } from '@/shared/ui/Stack'
-import { Text, TextAligns, TextSize, TextVariants } from '@/shared/ui/Text'
-import { Icon } from '@/shared/ui/icon'
+import {Avatar} from '@/shared/ui/Avatar'
+import {Skeleton} from '@/shared/ui/Skeleton'
+import {HStack, VStack} from '@/shared/ui/Stack'
+import {Text, TextAligns, TextSize, TextVariants} from '@/shared/ui/Text'
+import {Icon} from '@/shared/ui/icon'
 
 import cls from './ArticleDetails.module.scss'
+import {useFetchArticleById} from "../../api/articleApi";
 
 interface ArticleDetailsProps {
   className?: string
   id: string
 }
 
-const reducer: ReducersList = {
-  articleDetails: articleDetailsReducer
-}
-
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
-  const dispatch = useAppDispatch()
-  const article = useAppSelector(getArticleDetailsData)
-  const isLoading = useAppSelector(getArticleDetailsIsLoading)
-  const error = useAppSelector(getArticleDetailsError)
+  const {
+      data: article,
+      isLoading,
+      error
+  } = useFetchArticleById(id)
 
   const renderBlock = (block: ArticleBlockTypes, index: number) => {
     switch (block.type) {
@@ -55,10 +42,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         return null
     }
   }
-
-  useFetchData(() => {
-    dispatch(fetchArticleDetailsById(id))
-  })
 
   let content
 
@@ -78,7 +61,8 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = (
         <div className={cls.errorWrapper}>
             <Text
-              title={getArticleErrorMessage(error)}
+              // title={getArticleErrorMessage(error)}
+               title={'error'}
               variant={TextVariants.ERROR}
               align={TextAligns.CENTER}
             />
@@ -114,9 +98,5 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     )
   }
 
-  return (
-      <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
-          {content}
-      </DynamicModuleLoader>
-  )
+  return (content)
 })

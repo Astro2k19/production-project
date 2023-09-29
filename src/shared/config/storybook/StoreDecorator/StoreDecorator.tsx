@@ -2,7 +2,6 @@ import { type DecoratorFn, type Story } from '@storybook/react'
 
 import { type StoreSchema } from '@/app/providers/storeProvider'
 import { StoreProvider } from '@/app/providers/storeProvider'
-import { articleDetailsReducer } from '@/entities/Article/testing'
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing'
 import { authReducer } from '@/features/Auth/testing'
 import { profileReducer } from '@/features/EditableProfileCard/testing'
@@ -13,7 +12,6 @@ import { type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModul
 const defaultAsyncReducers: ReducersList = {
   loginForm: authReducer,
   profile: profileReducer,
-  articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleSingleComments: articleSingleCommentsReducer,
   articlesPageList: articlesPageReducer

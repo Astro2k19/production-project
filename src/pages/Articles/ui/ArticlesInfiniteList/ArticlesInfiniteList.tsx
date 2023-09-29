@@ -50,8 +50,11 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
   const onChangeListView = useCallback((view: ArticlesListView) => {
     dispatch(articlesPageActions.setArticlesView(view))
   }, [dispatch])
+  console.log('before useFetchData')
 
   useFetchData(() => {
+    console.log('inside useFetchData')
+
     dispatch(setInitialArticlesListState())
   })
 
@@ -66,7 +69,7 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
     )
   }, [view, onChangeListView])
 
-  console.log(articles, 'articles')
+  console.log(articles, 'articles!!!!!!!!!!!!!!!!!!!!!')
 
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>

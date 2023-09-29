@@ -41,8 +41,8 @@ export const ArticleSingleComments = memo(({ className, id }: ArticleSingleComme
 
   const commentsError = useSelector(getArticleSingleCommentsError)
   const onSendComment = useCallback((text: string) => {
-    dispatch(sendCommentForArticle(text))
-  }, [dispatch])
+    dispatch(sendCommentForArticle({text, articleId: id}))
+  }, [dispatch, id])
 
   useFetchData(() => {
     dispatch(fetchArticleCommentsById(id))

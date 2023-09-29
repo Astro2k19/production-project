@@ -5,6 +5,7 @@ import { loginByUsername } from '../services/loginByUsername/loginByUsername'
 import { type LoginFormSchema } from '../types/loginSchema'
 
 import { type ApiError } from '@/shared/api/api'
+import {buildSlice} from "@/shared/lib/store/buildSlice";
 
 const initialState: LoginFormSchema = {
   username: '',
@@ -12,7 +13,7 @@ const initialState: LoginFormSchema = {
   isLoading: false
 }
 
-export const authSlice = createSlice({
+export const authSlice = buildSlice({
   name: 'authForm',
   initialState,
   reducers: {
@@ -38,5 +39,5 @@ export const authSlice = createSlice({
   }
 })
 
-export const { actions: authActions } = authSlice
+export const { actions: authActions, useActions: useAuthActions } = authSlice
 export const { reducer: authReducer } = authSlice

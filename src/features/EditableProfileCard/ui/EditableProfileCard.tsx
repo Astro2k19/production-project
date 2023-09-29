@@ -1,11 +1,6 @@
 import { type FC, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
-import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData'
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
-import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { fetchProfileData } from '../model/services/fetchProfileData/fetctProfileData'
 import { profileActions, profileReducer } from '../model/slice/profileSlice'
 
@@ -19,6 +14,10 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextVariants } from '@/shared/ui/Text'
+import {
+  getProfileError,
+  getProfileFormData, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors
+} from "@/features/EditableProfileCard/model/selectors/editableProfileCardSelectors";
 
 interface EditableProfileCardProps {
   className?: string

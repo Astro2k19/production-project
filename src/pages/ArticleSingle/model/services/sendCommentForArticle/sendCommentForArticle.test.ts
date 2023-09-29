@@ -5,11 +5,6 @@ import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk
 
 describe('sendCommentForArticle', () => {
   const state: DeepPartial<StoreSchema> = {
-    articleDetails: {
-      data: {
-        id: 1
-      }
-    },
     user: {
       authData: {
         id: '1'
@@ -30,7 +25,7 @@ describe('sendCommentForArticle', () => {
   test('successful request', async () => {
     const asyncThunk = new TestAsyncThunk(sendCommentForArticle, state)
     asyncThunk.api.post.mockReturnValue(Promise.resolve({ data }))
-    const result = await asyncThunk.callAction('hello world!')
+    const result = await asyncThunk.callAction({text: 'hello world!', articleId: '2'})
 
     expect(result.meta.requestStatus).toBe('fulfilled')
     expect(result.payload).toEqual(data)
@@ -38,8 +33,8 @@ describe('sendCommentForArticle', () => {
   })
 
   test('request failed', async () => {
-    const asyncThunk = new TestAsyncThunk(sendCommentForArticle, { ...state, articleDetails: {} })
-    const result = await asyncThunk.callAction('hello world!')
+    const asyncThunk = new TestAsyncThunk(sendCommentForArticle, { ...state })
+    const result = await asyncThunk.callAction({text: 'hello world!'})
 
     expect(result.payload).toEqual('error')
     expect(result.meta.requestStatus).toBe('rejected')

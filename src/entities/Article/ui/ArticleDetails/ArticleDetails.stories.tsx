@@ -22,9 +22,9 @@ const Template: ComponentStory<typeof ArticleDetails> = () => <ArticleDetails id
 export const Primary = Template.bind({})
 
 Primary.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article
-  }
+  // articleDetails: {
+  //   data: article
+  // }
 })]
 
 export const withLoading = Template.bind({})
@@ -32,9 +32,9 @@ export const withLoading = Template.bind({})
 withLoading.args = {}
 
 withLoading.decorators = [StoreDecorator({
-  articleDetails: {
-    isLoading: true
-  }
+  // articleDetails: {
+  //   isLoading: true
+  // }
 })]
 
 export const withNotFoundError = Template.bind({})
@@ -42,12 +42,12 @@ export const withNotFoundError = Template.bind({})
 withNotFoundError.args = {}
 
 withNotFoundError.decorators = [StoreDecorator({
-  articleDetails: {
-    error: {
-      code: '404',
-      message: ArticleError.NOT_FOUND
-    }
-  }
+  // articleDetails: {
+  //   error: {
+  //     code: '404',
+  //     message: ArticleError.NOT_FOUND
+  //   }
+  // }
 })]
 
 export const withServerError = Template.bind({})
@@ -55,10 +55,10 @@ export const withServerError = Template.bind({})
 withServerError.args = {}
 
 withServerError.decorators = [StoreDecorator({
-  articleDetails: {
-    error: {
-      code: '404',
-      message: ArticleError.SERVER_ERROR
-    }
-  }
+  // articleDetails: {
+  //   error: {
+  //     code: '404',
+  //     message: ArticleError.SERVER_ERROR
+  //   }
+  // }
 })]

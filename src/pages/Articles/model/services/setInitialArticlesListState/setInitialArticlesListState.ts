@@ -1,15 +1,15 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import {createAsyncThunk} from '@reduxjs/toolkit'
 
-import { getArticlesInited } from '../../selectors/articlesPageList'
-import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
+import {getArticlesInited} from '../../selectors/articlesPageList'
+import {articlesPageActions} from '../../slice/articlesPageListSlice/articlesPageListSlice'
+import {fetchArticlesList} from '../fetchArticlesList/fetchArticlesList'
 
-import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
-import { ArticlesListView, type ArticleType } from '@/entities/Article'
-import { articlesFiltersActions, type ArticlesSortFields } from '@/features/ArticlesFilters'
-import { ARTICLES_LIST_VIEW_KEY } from '@/shared/const/localStorage'
-import { getUrlQueryParams } from '@/shared/lib'
-import { type SortOrder } from '@/shared/types/sortOrder'
+import {type AsyncThunkConfig} from '@/app/providers/storeProvider'
+import {ArticlesListView, type ArticleType} from '@/entities/Article'
+import {articlesFiltersActions, type ArticlesSortFields} from '@/features/ArticlesFilters'
+import {ARTICLES_LIST_VIEW_KEY} from '@/shared/const/localStorage'
+import {getUrlQueryParams} from '@/shared/lib'
+import {type SortOrder} from '@/shared/types/sortOrder'
 
 export interface InitialArticlesListState {
   initialView: ArticlesListView
@@ -29,20 +29,26 @@ export const setInitialArticlesListState = createAsyncThunk<undefined, undefined
       ) || ArticlesListView.LIST
       const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
       const urlQueryParams = getUrlQueryParams(false) as URLSearchParams
+      const {
+          setType,
+          setSort,
+          setOrder,
+          setSearch,
+      } = articlesFiltersActions
 
       urlQueryParams.forEach((value, key) => {
         switch (key) {
           case 'sort':
-            dispatch(articlesFiltersActions.setSort(value as ArticlesSortFields))
+            dispatch(setSort(value as ArticlesSortFields))
             break
           case 'order':
-            dispatch(articlesFiltersActions.setOrder(value as SortOrder))
+            dispatch(setOrder(value as SortOrder))
             break
           case 'search':
-            dispatch(articlesFiltersActions.setSearch(value))
+            dispatch(setSearch(value))
             break
           case 'type':
-            dispatch(articlesFiltersActions.setType(value as ArticleType))
+            dispatch(setType(value as ArticleType))
             break
         }
       })
