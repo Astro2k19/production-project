@@ -1,3 +1,5 @@
+import { SerializedError } from '@reduxjs/toolkit'
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -5,7 +7,7 @@ import { type Comment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'
 
 import { classNames } from '@/shared/lib'
-import { Text, TextVariants } from '@/shared/ui/Text'
+import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
 
 import cls from './CommentsList.module.scss'
 
@@ -13,7 +15,7 @@ interface CommentsListProps {
   className?: string
   comments?: Comment[]
   isLoading?: boolean
-  error?: string
+  error?: FetchBaseQueryError | SerializedError
 }
 
 export const CommentsList = memo(({ className, comments, isLoading, error }: CommentsListProps) => {
@@ -29,7 +31,7 @@ export const CommentsList = memo(({ className, comments, isLoading, error }: Com
 
   if (error) {
     return (
-        <Text text={error} variant={TextVariants.ERROR} />
+        <Text text={t('UNKNOWN_ARTICLE_COMMENTS_ERROR')} variant={TextVariants.ERROR} align={TextAligns.CENTER} />
     )
   }
 

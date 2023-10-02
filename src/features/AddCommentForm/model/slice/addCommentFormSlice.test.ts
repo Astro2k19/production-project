@@ -11,7 +11,7 @@ describe('addCommentFormSlice', () => {
     expect(
       addCommentFormReducer(
         state as AddCommentFormSchema,
-          useAddCommentFormActions().setText('New comment!')
+        useAddCommentFormActions().setText('New comment!')
       )
     ).toEqual({
       text: 'New comment!'

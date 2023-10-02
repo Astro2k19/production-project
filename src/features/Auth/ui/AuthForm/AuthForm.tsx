@@ -1,12 +1,12 @@
-import { type FC, type FormEvent, useCallback } from 'react'
+import { type FC, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
 import {
-    useGetAuthError, useGetAuthLoading, useGetAuthPassword, useGetAuthUsername
+  useGetAuthError, useGetAuthLoading, useGetAuthPassword, useGetAuthUsername
 } from '../../model/selectors/authSelectors'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { authReducer, useAuthActions} from '../../model/slice/loginByUsernameSlice'
+import { authReducer, useAuthActions } from '../../model/slice/loginByUsernameSlice'
 
 import { classNames } from '@/shared/lib'
 import {
@@ -14,7 +14,6 @@ import {
   type ReducersList
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 import { Text, TextVariants } from '@/shared/ui/Text'
@@ -34,11 +33,11 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
-  const username =  useGetAuthUsername()
+  const username = useGetAuthUsername()
   const password = useGetAuthPassword()
   const isLoading = useGetAuthLoading()
   const error = useGetAuthError()
-    const {setPassword, setUsername} = useAuthActions()
+  const { setPassword, setUsername } = useAuthActions()
 
   const onSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()

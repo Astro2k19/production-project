@@ -1,9 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import { article } from '../../mocks/data.mock'
-import { ArticleError } from '../../model/const/articleConst'
-
 import { ArticleDetails } from './ArticleDetails'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'

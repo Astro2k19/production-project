@@ -1,11 +1,11 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type PayloadAction } from '@reduxjs/toolkit'
 
 import { ArticlesSortFields } from '../const/articleFiltersConst'
 import { type ArticlesFiltersSchema } from '../types/articleFilters'
 
 import { ArticleType } from '@/entities/Article'
+import { buildSlice } from '@/shared/lib/store/buildSlice'
 import { type SortOrder } from '@/shared/types/sortOrder'
-import {buildSlice} from "@/shared/lib/store/buildSlice";
 
 const initialState: ArticlesFiltersSchema = {
   sort: ArticlesSortFields.VIEWS,
@@ -37,5 +37,5 @@ export const articlesFiltersSlice = buildSlice({
   }
 })
 
-export const { useActions: useArticlesFiltersActions, actions : articlesFiltersActions } = articlesFiltersSlice
+export const { useActions: useArticlesFiltersActions, actions: articlesFiltersActions } = articlesFiltersSlice
 export const { reducer: articlesFiltersReducer } = articlesFiltersSlice

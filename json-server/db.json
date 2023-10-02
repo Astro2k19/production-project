@@ -9,7 +9,7 @@
   "articles": [
     {
       "id": "1",
-      "userId": "2",
+      "userId": "1",
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
@@ -2428,40 +2428,76 @@
       "id": 52
     },
     {
-      "articleId": "14",
+      "articleId": "3",
       "userId": "1",
-      "text": "eeeeeeeeeeeeee",
+      "text": "sdfsdfssdf",
       "id": 53
     },
     {
-      "articleId": "14",
+      "articleId": "3",
+      "text": "123123",
       "userId": "1",
-      "text": "",
-      "id": 54
-    },
-    {
-      "articleId": "14",
-      "userId": "1",
-      "text": "hello",
-      "id": 55
-    },
-    {
-      "articleId": "14",
-      "userId": "1",
-      "text": "wqeqwerrqw",
-      "id": 56
-    },
-    {
-      "articleId": "14",
-      "userId": "1",
-      "text": "asdfasdfasdfasdfasdf",
-      "id": 57
-    },
-    {
-      "articleId": "14",
-      "userId": "1",
-      "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "id": 58
+    },
+    {
+      "articleId": "3",
+      "text": "1212",
+      "userId": "1",
+      "id": 59
+    },
+    {
+      "articleId": "14",
+      "text": "123123123",
+      "userId": "1",
+      "id": 60
+    },
+    {
+      "articleId": "14",
+      "text": "qqqq",
+      "userId": "1",
+      "id": 61
+    },
+    {
+      "articleId": "14",
+      "text": "hello world",
+      "userId": "1",
+      "id": 62
+    },
+    {
+      "articleId": "14",
+      "text": "asdasd",
+      "userId": "1",
+      "id": 63
+    },
+    {
+      "articleId": "14",
+      "text": "3333",
+      "userId": "1",
+      "id": 64
+    },
+    {
+      "articleId": "14",
+      "text": "cool",
+      "userId": "1",
+      "id": 65
+    },
+    {
+      "articleId": "14",
+      "text": "asdasd",
+      "userId": "1",
+      "id": 66
+    },
+    {
+      "articleId": "14",
+      "text": "wow",
+      "userId": "1",
+      "id": 67
+    },
+    {
+      "articleId": "3",
+      "text": "00",
+      "userId": "1",
+      "id": 68
     }
   ],
   "notifications": [
@@ -2574,6 +2610,12 @@
       "articleId": "1",
       "rate": 3,
       "id": 5
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "id": 6
     }
   ],
   "profiles-rating": [

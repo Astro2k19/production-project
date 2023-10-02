@@ -1,26 +1,13 @@
 import { memo, Suspense, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 
-import {
-  getArticleCommentsErrorMessage
-} from '../../lib/getArticleCommentsErrorMessage/getArticleCommentsErrorMessage'
-import {
-  articleSingleCommentsSelectors, getArticleSingleCommentsError,
-  getArticleSingleCommentsIsLoading
-} from '../../model/selectors/comments'
-import {
-  fetchArticleCommentsById
-} from '../../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
-import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle'
-import { articleSingleCommentsReducer } from '../../model/slice/articleSingleCommentsSlice'
+import { useFetchArticleSingleComment, useSendArticleSingleComment } from '../../api/articleSingleCommentApi'
 
 import { CommentsList } from '@/entities/Comment'
+import { getUserAuthDate } from '@/entities/User'
 import { AddCommentForm } from '@/features/AddCommentForm'
 import { classNames } from '@/shared/lib'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
@@ -29,40 +16,33 @@ interface ArticleSingleCommentsProps {
   className?: string
 }
 
-const reducers: ReducersList = {
-  articleSingleComments: articleSingleCommentsReducer
-}
-
 export const ArticleSingleComments = memo(({ className, id }: ArticleSingleCommentsProps) => {
-  const { t } = useTranslation()
-  const comments = useSelector(articleSingleCommentsSelectors.selectAll)
-  const isLoading = useSelector(getArticleSingleCommentsIsLoading)
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation('article')
+  const user = useAppSelector(getUserAuthDate)
+  const [sendArticleSingleComment, { isLoading: isFetching }] = useSendArticleSingleComment()
+  const { data: comments, isLoading, error } = useFetchArticleSingleComment(id)
 
-  const commentsError = useSelector(getArticleSingleCommentsError)
   const onSendComment = useCallback((text: string) => {
-    dispatch(sendCommentForArticle({text, articleId: id}))
-  }, [dispatch, id])
-
-  useFetchData(() => {
-    dispatch(fetchArticleCommentsById(id))
-  })
+    sendArticleSingleComment({
+      articleId: id,
+      text,
+      userId: user?.id
+    })
+  }, [id, sendArticleSingleComment, user?.id])
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
-          <VStack gap={'16'} className={classNames([className])}>
-              <Text title={t('Comments')}/>
-              <Suspense fallback={'Loading...'}>
-                  <AddCommentForm
-                      onSendComment={onSendComment}
-                  />
-              </Suspense>
-              <CommentsList
-                  comments={comments}
-                  isLoading={isLoading}
-                  error={getArticleCommentsErrorMessage(commentsError)}
+      <VStack gap={'16'} className={classNames([className])}>
+          <Text title={t('Comments')}/>
+          <Suspense fallback={'Loading...'}>
+              <AddCommentForm
+                  onSendComment={onSendComment}
               />
-          </VStack>
-      </DynamicModuleLoader>
+          </Suspense>
+          <CommentsList
+              comments={comments}
+              isLoading={isLoading || isFetching}
+              error={error}
+          />
+      </VStack>
   )
 })

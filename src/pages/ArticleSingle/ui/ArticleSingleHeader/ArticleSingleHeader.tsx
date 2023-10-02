@@ -4,13 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { getCanEditArticle } from '../../model/selectors/article'
 
+import { useFetchArticleById } from '@/entities/Article'
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 
 import cls from './ArticleSingleHeader.module.scss'
-import {useFetchArticleById} from "@/entities/Article";
 
 interface ArticleSingleHeaderProps {
   className?: string
@@ -20,10 +20,8 @@ export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({ className })
   const { t } = useTranslation('article')
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
-  const {data: article} = useFetchArticleById(id as string)
+  const { data: article } = useFetchArticleById(id as string)
   const canEdit = useAppSelector(getCanEditArticle(article))
-
-    console.log(canEdit, 'canEdit')
 
   const onGoBack = useCallback(() => {
     navigate(getRouteArticles())

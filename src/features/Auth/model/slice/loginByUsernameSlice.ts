@@ -1,11 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 import { loginByUsername } from '../services/loginByUsername/loginByUsername'
 import { type LoginFormSchema } from '../types/loginSchema'
 
 import { type ApiError } from '@/shared/api/api'
-import {buildSlice} from "@/shared/lib/store/buildSlice";
+import { buildSlice } from '@/shared/lib/store/buildSlice'
 
 const initialState: LoginFormSchema = {
   username: '',

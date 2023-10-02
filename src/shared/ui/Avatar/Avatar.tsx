@@ -1,5 +1,10 @@
 import { type CSSProperties, memo, useMemo } from 'react'
 
+import { AppImage } from '../AppImage'
+import { Skeleton } from '../Skeleton'
+import { Icon } from '../icon'
+
+import FallbackAvatar from '@/shared/assets/icons/fallback_avatar.svg'
 import { classNames } from '@/shared/lib'
 
 import cls from './Avatar.module.scss'
@@ -19,9 +24,18 @@ export const Avatar = memo((props: AvatarProps) => {
     height: size
   }), [size])
 
+  const FallbackError = <Icon Svg={FallbackAvatar} width={size} height={size} inverted />
+  const FallbackLoading = <Skeleton width={size} height={size} borderRadius={'50%'} />
+
   return (
       <div className={classNames([cls.wrapper, className])} style={style}>
-          <img src={src} className={classNames([cls.avatar])} alt={alt}/>
+          <AppImage
+              src={src}
+              className={classNames([cls.avatar])}
+              alt={alt}
+              fallback={FallbackLoading}
+              errorFallback={FallbackError}
+          />
       </div>
   )
 })

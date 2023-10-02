@@ -69,8 +69,6 @@ export const ArticlesInfiniteList = memo(({ className }: ArticleInfiniteListProp
     )
   }, [view, onChangeListView])
 
-  console.log(articles, 'articles!!!!!!!!!!!!!!!!!!!!!')
-
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
           <ArticlesListVirtualized

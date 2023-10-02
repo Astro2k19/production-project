@@ -4,7 +4,7 @@ import React from 'react'
 import { AppLink, AppLinkVariants } from './AppLink'
 
 export default {
-  title: 'shared/AppLink',
+  title: 'shared/AppImage',
   component: AppLink,
 
   argTypes: {

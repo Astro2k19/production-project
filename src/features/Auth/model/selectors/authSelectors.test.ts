@@ -1,6 +1,8 @@
-import {StoreSchema} from "@/app/providers/storeProvider";
-import {AuthFormError} from "../const/authConst";
-import {getAuthError, getAuthLoading, getAuthPassword, getAuthUsername} from "./authSelectors";
+import { AuthFormError } from '../const/authConst'
+
+import { getAuthError, getAuthLoading, getAuthPassword, getAuthUsername } from './authSelectors'
+
+import { StoreSchema } from '@/app/providers/storeProvider'
 
 describe('getAuthError', () => {
   test('should return error', () => {

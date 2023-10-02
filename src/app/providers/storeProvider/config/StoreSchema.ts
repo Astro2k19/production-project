@@ -3,7 +3,6 @@ import { type EnhancedStore, type AnyAction, type Reducer, type ReducersMapObjec
 import { type AxiosInstance } from 'axios'
 import { type CombinedState, type Dispatch } from 'redux'
 
-import { type ArticleDetailsSchema } from '@/entities/Article'
 import { type UserSchema } from '@/entities/User'
 import { type AddCommentFormSchema } from '@/features/AddCommentForm'
 import { type ArticlesFiltersSchema } from '@/features/ArticlesFilters'

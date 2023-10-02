@@ -1,5 +1,5 @@
 import { type StoreSchema } from '@/app/providers/storeProvider'
-import {buildSelector} from "@/shared/lib/store/buildSelector";
+import { buildSelector } from '@/shared/lib/store/buildSelector'
 
 export const [useGetArticlesFiltersSort, getArticlesFiltersSort] = buildSelector((state: StoreSchema) => state.articlesFilters.sort)
 export const [useGetArticlesFiltersOrder, getArticlesFiltersOrder] = buildSelector((state: StoreSchema) => state.articlesFilters.order)

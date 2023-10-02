@@ -4,7 +4,7 @@ import withMock from 'storybook-addon-mock'
 
 import ArticleSinglePage from './ArticleSingle'
 
-import { article, article as data } from '@/entities/Article/testing'
+import { article } from '@/entities/Article/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {

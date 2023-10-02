@@ -1,7 +1,8 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type PayloadAction } from '@reduxjs/toolkit'
 
 import { type AddCommentFormSchema } from '../types/addCommentForm'
-import {buildSlice} from "@/shared/lib/store/buildSlice";
+
+import { buildSlice } from '@/shared/lib/store/buildSlice'
 
 const initialState: AddCommentFormSchema = {
   error: undefined,

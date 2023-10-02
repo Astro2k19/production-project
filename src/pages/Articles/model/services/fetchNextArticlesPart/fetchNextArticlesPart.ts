@@ -7,7 +7,7 @@ import {
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
-import {useArticlesFiltersActions, getArticlesFiltersPage, articlesFiltersActions} from '@/features/ArticlesFilters'
+import { getArticlesFiltersPage, articlesFiltersActions } from '@/features/ArticlesFilters'
 
 export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, AsyncThunkConfig>(
   'articlesPageList/fetchNextArticlesPart',
@@ -16,11 +16,11 @@ export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, Asyn
     const page = getArticlesFiltersPage(getState())
     const hasMore = getArticlesListHasMore(getState())
     const isLoading = getArticlesListIsLoading(getState())
-    const {setPage} = articlesFiltersActions
+    const { setPage } = articlesFiltersActions
 
     if (hasMore && !isLoading) {
-        setPage(page + 1)
-        dispatch(fetchArticlesList())
+      setPage(page + 1)
+      dispatch(fetchArticlesList())
     }
 
     return undefined
