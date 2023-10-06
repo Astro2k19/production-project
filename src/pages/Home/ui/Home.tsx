@@ -7,7 +7,7 @@ const HomePage = memo(() => {
   const { t } = useTranslation('home')
 
   return (
-      <Page>
+      <Page dataTestId={'HomePage'}>
           <h1>{t('Home page', { ns: 'home' })}</h1>
       </Page>
   )

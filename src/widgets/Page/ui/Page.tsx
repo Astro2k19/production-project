@@ -8,16 +8,17 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import { TestsProps } from '@/shared/types/tests'
 
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestsProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
 }
 
-export const Page = ({ className, children, onScrollEnd }: PageProps) => {
+export const Page = ({ className, children, onScrollEnd, dataTestId = 'Page' }: PageProps) => {
   const rootRef = useRef() as MutableRefObject<HTMLElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
@@ -44,7 +45,12 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
   })
 
   return (
-      <section ref={rootRef} className={classNames([cls.page, className])} onScroll={onScroll}>
+      <section
+          ref={rootRef}
+          className={classNames([cls.page, className])}
+          onScroll={onScroll}
+          data-testid={dataTestId}
+      >
           {children}
           <div ref={triggerRef} />
       </section>

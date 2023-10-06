@@ -20,5 +20,5 @@ export const addCommentFormSlice = buildSlice({
   }
 })
 
-export const { useActions: useAddCommentFormActions } = addCommentFormSlice
+export const { useActions: useAddCommentFormActions, actions: addCommentFormActions } = addCommentFormSlice
 export const { reducer: addCommentFormReducer } = addCommentFormSlice

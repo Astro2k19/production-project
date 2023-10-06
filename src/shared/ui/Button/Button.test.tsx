@@ -6,7 +6,6 @@ describe('Button component', function () {
   test('Default Button', () => {
     render(<Button>HELLO</Button>)
     expect(screen.getByText('HELLO')).toBeInTheDocument()
-    screen.debug()
   })
 
   test('Button with variant', () => {

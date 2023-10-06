@@ -10,7 +10,7 @@ interface AdminPanelProps {
 const ForbiddenPage: FC<AdminPanelProps> = ({ className }) => {
   const { t } = useTranslation()
   return (
-      <Page>
+      <Page dataTestId={'ForbiddenPage'}>
           <h1>{t('FORBIDDEN_PAGE')}</h1>
       </Page>
   )

@@ -9,7 +9,7 @@ describe('Sidebar component', function () {
     componentRender(
         <Sidebar />
     )
-    // screen.debug()
+
     const toggleBtn = screen.getByTestId('toggle-btn')
     expect(screen.getByTestId('sidebar')).not.toHaveClass('collapsed')
     fireEvent.click(toggleBtn)

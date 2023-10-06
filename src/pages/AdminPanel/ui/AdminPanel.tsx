@@ -13,7 +13,7 @@ interface AdminPanelProps {
 const AdminPanel: FC<AdminPanelProps> = ({ className }) => {
   const { t } = useTranslation()
   return (
-      <Page className={classNames([cls.adminPanel, className])}>
+      <Page className={classNames([cls.adminPanel, className])} dataTestId={'AdminPage'}>
           <h1>{t('Admin panel')}</h1>
       </Page>
   )

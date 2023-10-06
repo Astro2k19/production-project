@@ -20,23 +20,25 @@ export const AppRouter: React.FC = () => {
         </Suspense>
     )
 
-    return <Route
-        key={route.path}
-        path={route.path}
-        element={
-            route.isProtected
-              ? (
-                  <RoleGuard requiredRoles={route.requiredRoles}>
-                      <ProtectedRoute>
-                          {element}
-                      </ProtectedRoute>
-                  </RoleGuard>
-                )
-              : (
-                  element
-                )
-        }
-    />
+    return (
+        <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.isProtected
+                      ? (
+                          <RoleGuard requiredRoles={route.requiredRoles}>
+                              <ProtectedRoute>
+                                  {element}
+                              </ProtectedRoute>
+                          </RoleGuard>
+                        )
+                      : (
+                          element
+                        )
+                }
+                />
+    )
   }
 
   return (

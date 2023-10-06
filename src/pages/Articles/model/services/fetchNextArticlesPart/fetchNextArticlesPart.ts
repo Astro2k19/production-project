@@ -19,7 +19,7 @@ export const fetchNextArticlesPart = createAsyncThunk<undefined, undefined, Asyn
     const { setPage } = articlesFiltersActions
 
     if (hasMore && !isLoading) {
-      setPage(page + 1)
+      dispatch(setPage(page + 1))
       dispatch(fetchArticlesList())
     }
 
