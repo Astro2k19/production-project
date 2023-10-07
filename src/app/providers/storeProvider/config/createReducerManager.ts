@@ -34,7 +34,6 @@ export function createReducerManager (initialReducers: ReducersMapObject<StoreSc
     // Adds a new reducer with the specified key
     add: (key: StoreSchemaKeys, reducer: Reducer) => {
       if (!key || reducers[key]) {
-        console.log(key, 'key is already here')
         return
       }
 

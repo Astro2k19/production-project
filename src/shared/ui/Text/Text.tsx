@@ -51,8 +51,6 @@ export const Text = memo((props: TextProps) => {
     'data-testid': dataTestId = 'Text'
   } = props
 
-  console.log(`${dataTestId}.Header`)
-
   return (
       <div className={classNames([cls.text, className, cls[variant], cls[align], cls[size]])}>
           {title && (
