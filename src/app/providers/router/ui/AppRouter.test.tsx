@@ -41,15 +41,13 @@ describe('AppRouter tests', () => {
   })
 
   test('Authorized user have access to protected pages', async () => {
-    await act(() => {
-      componentRender(<AppRouter />, {
-        route: getRouteProfile('1'),
-        initialState: {
-          user: {
-            authData
-          }
+    componentRender(<AppRouter />, {
+      route: getRouteProfile('1'),
+      initialState: {
+        user: {
+          authData
         }
-      })
+      }
     })
 
     const page = await screen.findByTestId('ProfilePage', undefined, {

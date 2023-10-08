@@ -9,7 +9,6 @@ import { type ArticlesFiltersSchema } from '@/features/ArticlesFilters'
 import { type LoginFormSchema } from '@/features/Auth'
 import { type ProfileSchema } from '@/features/EditableProfileCard'
 import { type SavePageScrollSchema } from '@/features/SavePageScroll'
-import { type ArticleSingleCommentsSchema } from '@/pages/ArticleSingle'
 import { type ArticlesPageListSchema } from '@/pages/Articles'
 import { type rtkApi } from '@/shared/api/rtkApi'
 
@@ -21,7 +20,6 @@ export interface StoreSchema {
   // async reducers
   loginForm?: LoginFormSchema
   profile?: ProfileSchema
-  articleSingleComments?: ArticleSingleCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPageList?: ArticlesPageListSchema
   articlesFilters: ArticlesFiltersSchema

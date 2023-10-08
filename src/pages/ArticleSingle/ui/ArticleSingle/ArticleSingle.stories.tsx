@@ -4,7 +4,9 @@ import withMock from 'storybook-addon-mock'
 
 import ArticleSinglePage from './ArticleSingle'
 
-import { article } from '@/entities/Article/testing'
+import { article, mockArticleResponse } from '@/entities/Article/testing'
+import { mockCommentResponse } from '@/entities/Comment/testing'
+import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
@@ -13,9 +15,22 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' }
   },
-  decorators: [withMock],
+  decorators: [withMock, StoreDecorator({
+    user: {
+      authData: {
+        id: '1'
+      }
+    }
+  })],
   parameters: {
+    reactRouter: {
+      routePath: '/articles/:id',
+      routeParams: { id: '1' }
+    },
     mockData: [
+      { ...mockArticleResponse, response: article },
+      mockCommentResponse,
+      mockArticleRatingResponse,
       {
         url: `${__API_URL__}/articles?_limit=4&_expand=user`,
         method: 'GET',
@@ -34,18 +49,10 @@ const Template: ComponentStory<typeof ArticleSinglePage> = () => <ArticleSingleP
 
 export const ArticleSingle = Template.bind({})
 
-ArticleSingle.args = {}
-ArticleSingle.story = {
-  parameters: {
-    reactRouter: {
-      routePath: '/articles/:id',
-      routeParams: { id: '1' }
-    }
-  }
-}
+export const withLoading = Template.bind({})
 
-ArticleSingle.decorators = [StoreDecorator({
-  // articleDetails: {
-  //   data
-  // }
-})]
+// withLoading.parameters = {
+//   mockData: [
+//     { ...mockArticleResponse, response: article, delay: 2000 }
+//   ]
+// }

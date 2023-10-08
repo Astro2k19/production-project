@@ -31,7 +31,7 @@ export const CommentsList = memo(({ className, comments, isLoading, error }: Com
 
   if (error) {
     return (
-        <Text text={t('UNKNOWN_ARTICLE_COMMENTS_ERROR')} variant={TextVariants.ERROR} align={TextAligns.CENTER} />
+        <Text text={t('UNKNOWN_COMMENTS_ERROR')} variant={TextVariants.ERROR} align={TextAligns.CENTER} />
     )
   }
 

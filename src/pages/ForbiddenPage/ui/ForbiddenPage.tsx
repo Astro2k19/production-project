@@ -7,11 +7,13 @@ interface AdminPanelProps {
   className?: string
 }
 
-const ForbiddenPage: FC<AdminPanelProps> = ({ className }) => {
+const ForbiddenPage: FC<AdminPanelProps> = () => {
   const { t } = useTranslation()
   return (
       <Page dataTestId={'ForbiddenPage'}>
-          <h1>{t('FORBIDDEN_PAGE')}</h1>
+          <div style={{ textAlign: 'center' }}>
+              <h1>{t('FORBIDDEN_PAGE')}</h1>
+          </div>
       </Page>
   )
 }

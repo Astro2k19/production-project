@@ -6,7 +6,6 @@ import { Modal } from './Modal'
 export default {
   title: 'shared/Modal',
   component: Modal,
-
   argTypes: {
     backgroundColor: { control: 'color' }
   }

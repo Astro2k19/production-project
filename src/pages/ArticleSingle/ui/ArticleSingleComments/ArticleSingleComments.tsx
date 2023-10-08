@@ -30,6 +30,7 @@ export const ArticleSingleComments = memo(({ className, id }: ArticleSingleComme
     })
   }, [id, sendArticleSingleComment, user?.id])
 
+  console.log(__API_URL__)
   return (
       <VStack gap={'16'} className={classNames([className])}>
           <Text title={t('Comments')}/>

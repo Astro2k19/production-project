@@ -9,7 +9,7 @@ interface AnimationProviderContext {
   isLoaded?: boolean
 }
 
-const AnimationContext = createContext<AnimationProviderContext>({})
+export const AnimationContext = createContext<AnimationProviderContext>({})
 
 export const useAnimLibs = () => {
   return useContext(AnimationContext) as Required<AnimationProviderContext>

@@ -9,7 +9,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 export default {
   title: 'features/ArticleSingleRecommendations',
   component: ArticleSingleRecommendations,
-  decorators: [withMock],
+  decorators: [withMock, StoreDecorator({})],
   parameters: {
     mockData: [
       {
@@ -29,6 +29,3 @@ export default {
 const Template: ComponentStory<typeof ArticleSingleRecommendations> = (args) => <ArticleSingleRecommendations {...args} />
 
 export const Normal = Template.bind({})
-Normal.decorators = [
-  StoreDecorator({})
-]

@@ -5,7 +5,7 @@ import { profileReducer } from '../model/slice/profileSlice'
 
 import { EditableProfileCard } from './EditableProfileCard'
 
-import { profile } from '@/entities/Profile'
+import { profile } from '@/entities/Profile/testing'
 import { $api } from '@/shared/api/api'
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 

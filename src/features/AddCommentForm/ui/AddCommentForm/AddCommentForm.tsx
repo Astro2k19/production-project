@@ -6,7 +6,6 @@ import { addCommentFormReducer, useAddCommentFormActions } from '../../model/sli
 
 import { classNames } from '@/shared/lib'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button, ButtonVariants } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 

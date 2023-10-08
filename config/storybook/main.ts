@@ -22,5 +22,6 @@ export default {
   core: {
     builder: '@storybook/builder-webpack5'
   },
-  webpackFinal: buildStorybookConfig
+  webpackFinal: buildStorybookConfig,
+  staticDirs: ['./static']
 }

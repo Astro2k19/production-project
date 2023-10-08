@@ -7,7 +7,7 @@ export const article: Article = {
   userId: '1',
   user: {
     id: '1',
-    avatar: '',
+    avatar: 'assets/avatar.jpg',
     username: 'Astro'
   },
   title: 'Javascript news',
@@ -75,5 +75,16 @@ export const article: Article = {
         'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.'
       ]
     }
+  ]
+}
+
+export const mockArticleResponse = {
+  url: `${__API_URL__}/articles/1`,
+  method: 'GET',
+  status: 200,
+  response: [
+    { ...article, id: '1' },
+    { ...article, id: '2' },
+    { ...article, id: '3' }
   ]
 }

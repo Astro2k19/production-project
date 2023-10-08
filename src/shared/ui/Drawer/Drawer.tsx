@@ -24,9 +24,10 @@ export const DrawerContent = memo((props: DrawerProps) => {
     onClose,
     isOpen,
     children,
-    withPortal = false
+    withPortal = true
   } = props
   const { Gesture, Spring } = useAnimLibs()
+  console.log({ Gesture, Spring })
   // const contentRef = useRef<HTMLDivElement>(null)
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
 

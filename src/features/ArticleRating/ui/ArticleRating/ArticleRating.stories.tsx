@@ -3,6 +3,7 @@ import withMock from 'storybook-addon-mock'
 
 import ArticleRating from './ArticleRating'
 
+import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
@@ -17,16 +18,7 @@ export default {
   })],
   parameters: {
     mockData: [
-      {
-        url: `${__API_URL__}/article-rating?userid=1&articleId=1`,
-        method: 'GET',
-        status: 200,
-        response: [
-          {
-            rate: 4
-          }
-        ]
-      }
+      mockArticleRatingResponse
     ]
   }
 } as ComponentMeta<typeof ArticleRating>

@@ -2,7 +2,8 @@
 import { validateErrors } from './validateErrors'
 
 import { type Profile } from '@/entities/Profile'
-import { profile as data, ValidateProfileError } from '@/entities/Profile'
+import { ValidateProfileError } from '@/entities/Profile'
+import { profile as data } from '@/entities/Profile/testing'
 
 describe('validateErrors', () => {
   test('invalid user data', () => {

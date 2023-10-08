@@ -6,7 +6,6 @@ import { EditableProfileCard } from './EditableProfileCard'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import { ValidateProfileError } from '@/entities/Profile'
-import img from '@/shared/assets/images/tests/avatar.jpg'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
@@ -19,7 +18,7 @@ export default {
 
 const Template: ComponentStory<typeof EditableProfileCard> = (...args) => <EditableProfileCard id={'1'} {...args} />
 
-export const Primary = Template.bind({})
+export const Normal = Template.bind({})
 
 const data = {
   first: 'Артем',
@@ -29,10 +28,10 @@ const data = {
   country: Country.USA,
   city: 'Poltava',
   username: 'wer',
-  avatar: img
+  avatar: 'assets/avatar.jpg'
 }
 
-Primary.decorators = [StoreDecorator({
+Normal.decorators = [StoreDecorator({
   profile: {
     readonly: true,
     data,

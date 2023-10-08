@@ -1,4 +1,4 @@
-import { type Profile } from '../types/profile'
+import { type Profile } from '../model/types/profile'
 
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
@@ -12,5 +12,5 @@ export const profile: Profile = {
   country: Country.USA,
   city: 'Kyiv',
   username: 'Astro2k23',
-  avatar: ''
+  avatar: 'assets/avatar.jpg'
 }

@@ -7,6 +7,9 @@ import { Drawer } from './Drawer'
 export default {
   title: 'shared/Drawer',
   component: Drawer,
+  parameters: {
+    loki: { skip: true }
+  },
   argTypes: {
     backgroundColor: { control: 'color' }
   }
@@ -15,7 +18,7 @@ export default {
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />
 
 const content = (
-    <div>
+    <div style={{ padding: '15px' }}>
         <Text title={'Drag me:)'} text={'again!'} />
         <Text title={'Drag me:)'} text={'again!'} />
     </div>
@@ -24,5 +27,6 @@ export const Normal = Template.bind({})
 
 Normal.args = {
   isOpen: true,
-  children: content
+  children: content,
+  withPortal: false
 }

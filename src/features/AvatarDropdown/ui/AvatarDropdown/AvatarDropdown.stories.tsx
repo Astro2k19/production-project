@@ -15,7 +15,6 @@ export default {
 } as ComponentMeta<typeof AvatarDropdown>
 
 const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />
-console.log(avatar)
 export const User = Template.bind({})
 User.args = {
   authDate: {
