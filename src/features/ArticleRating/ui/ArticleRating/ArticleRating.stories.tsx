@@ -12,7 +12,7 @@ export default {
   decorators: [withMock, StoreDecorator({
     user: {
       authData: {
-        id: '1'
+        id: '2'
       }
     }
   })],
@@ -20,6 +20,10 @@ export default {
     mockData: [
       mockArticleRatingResponse
     ]
+  },
+  args: {
+    articleId: '3',
+    withPortal: false
   }
 } as ComponentMeta<typeof ArticleRating>
 
@@ -27,24 +31,11 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating 
 
 export const Normal = Template.bind({})
 
-Normal.args = {
-  articleId: '1',
-  withPortal: false
+export const withLoading = Template.bind({})
+
+withLoading.parameters = {
+  mockData: [
+    { ...mockArticleRatingResponse, delay: 2000 }
+  ],
+  loki: { skip: true }
 }
-// export const withLoading = Template.bind({})
-//
-// withLoading.parameters = {
-//   mockData: [
-//     {
-//       url: `${__API_URL__}/article-rating?userid=1&articleId=1`,
-//       method: 'GET',
-//       status: 200,
-//       response: [
-//         {
-//           rate: 4
-//         }
-//       ],
-//       delay: 2000
-//     }
-//   ]
-// }

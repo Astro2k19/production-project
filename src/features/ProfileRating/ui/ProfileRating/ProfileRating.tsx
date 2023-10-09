@@ -23,6 +23,8 @@ const ProfileRating = memo(({ className, profileId, withPortal = true }: Profile
   })
   const [postProfileRating] = usePostProfileRating()
 
+  console.log(profileId, 'profileId')
+
   const profileRating = data?.at(0)
 
   const handleProfileRating = useCallback((rate: number, feedback?: string) => {

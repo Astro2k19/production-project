@@ -5,19 +5,13 @@ import withMock from 'storybook-addon-mock'
 import ProfilePage from './Profile'
 
 import { profile as data } from '@/entities/Profile/testing'
-import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'pages/Profile',
   component: ProfilePage,
-  parameters: {
-    reactRouter: {
-      routePath: '/profile/:id',
-      routeParams: { id: '1' }
-    }
-  },
   decorators: [
+    withMock,
     StoreDecorator({
       profile: {
         data,
@@ -25,16 +19,28 @@ export default {
       },
       user: {
         authData: {
-          id: '1'
+          id: '2'
         }
       }
-    }), withMock
+    })
   ],
-  mockData: [
-    mockArticleRatingResponse
-  ],
-  argTypes: {
-    backgroundColor: { control: 'color' }
+  parameters: {
+    reactRouter: {
+      routePath: '/profile/:id',
+      routeParams: { id: '2' }
+    },
+    mockData: [
+      {
+        url: `${__API_URL__}/profiles-rating?profileId=2&userId=2`,
+        method: 'GET',
+        status: 200,
+        response: [
+          {
+            rate: 5
+          }
+        ]
+      }
+    ]
   }
 } as ComponentMeta<typeof ProfilePage>
 
