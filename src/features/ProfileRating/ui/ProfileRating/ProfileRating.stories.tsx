@@ -11,31 +11,30 @@ export default {
   decorators: [withMock, StoreDecorator({
     user: {
       authData: {
-        id: '3'
+        id: '2'
       }
     }
   })],
   parameters: {
     mockData: [
       {
-        url: `${__API_URL__}/profile-rating?userid=1&profileId=1`,
+        url: `${__API_URL__}/profiles-rating?profileId=2&userId=2`,
         method: 'GET',
         status: 200,
         response: [
           {
-            rate: 3
+            rate: 2
           }
         ]
       }
     ]
+  },
+  args: {
+    profileId: '2',
+    withPortal: false
   }
 } as ComponentMeta<typeof ProfileRating>
 
 const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args} />
 
 export const Normal = Template.bind({})
-
-Normal.args = {
-  profileId: '1',
-  withPortal: false
-}

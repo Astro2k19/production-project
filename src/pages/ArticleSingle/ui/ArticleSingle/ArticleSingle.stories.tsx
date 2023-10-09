@@ -51,8 +51,9 @@ export const ArticleSingle = Template.bind({})
 
 export const withLoading = Template.bind({})
 
-// withLoading.parameters = {
-//   mockData: [
-//     { ...mockArticleResponse, response: article, delay: 2000 }
-//   ]
-// }
+withLoading.parameters = {
+  mockData: [
+    { ...mockArticleResponse, response: article, delay: 2000 }
+  ],
+  loki: { skip: true }
+}

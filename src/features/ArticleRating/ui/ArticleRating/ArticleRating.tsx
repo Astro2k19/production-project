@@ -21,6 +21,8 @@ const ArticleRating = memo(({ className, articleId, withPortal = true }: Article
     userId: userData?.id ?? '',
     articleId
   })
+
+  console.log(data, 'data')
   const [postArticleRating] = usePostArticleRating()
 
   const rating = data?.at(0)

@@ -1,5 +1,8 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
+import withMock from 'storybook-addon-mock'
+
+import { article, mockArticleResponse } from '../../mocks/data.mock'
 
 import { ArticleDetails } from './ArticleDetails'
 
@@ -9,8 +12,20 @@ export default {
   title: 'entities/ArticleDetails',
   component: ArticleDetails,
 
-  argTypes: {
-    backgroundColor: { control: 'color' }
+  decorators: [withMock, StoreDecorator({
+    user: {
+      authData: {
+        id: '1'
+      }
+    }
+  })],
+  parameters: {
+    mockData: [
+      { ...mockArticleResponse, response: article }
+    ]
+  },
+  args: {
+    id: '1'
   }
 } as ComponentMeta<typeof ArticleDetails>
 
@@ -18,44 +33,12 @@ const Template: ComponentStory<typeof ArticleDetails> = () => <ArticleDetails id
 
 export const Primary = Template.bind({})
 
-Primary.decorators = [StoreDecorator({
-  // articleDetails: {
-  //   data: article
-  // }
-})]
-
 export const withLoading = Template.bind({})
 
 withLoading.args = {}
 
-withLoading.decorators = [StoreDecorator({
-  // articleDetails: {
-  //   isLoading: true
-  // }
-})]
-
-export const withNotFoundError = Template.bind({})
-
-withNotFoundError.args = {}
-
-withNotFoundError.decorators = [StoreDecorator({
-  // articleDetails: {
-  //   error: {
-  //     code: '404',
-  //     message: ArticleError.NOT_FOUND
-  //   }
-  // }
-})]
-
-export const withServerError = Template.bind({})
-
-withServerError.args = {}
-
-withServerError.decorators = [StoreDecorator({
-  // articleDetails: {
-  //   error: {
-  //     code: '404',
-  //     message: ArticleError.SERVER_ERROR
-  //   }
-  // }
-})]
+withLoading.parameters = {
+  mockData: [
+    { ...mockArticleResponse, response: article, delay: 2000 }
+  ]
+}

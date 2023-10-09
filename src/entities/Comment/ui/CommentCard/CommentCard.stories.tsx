@@ -33,3 +33,9 @@ export const Loading = Template.bind({})
 Loading.args = {
   isLoading: true
 }
+
+Loading.parameters = {
+  loki: {
+    skip: true
+  }
+}
