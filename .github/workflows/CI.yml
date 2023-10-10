@@ -14,7 +14,7 @@ jobs:
   integration:
     # The runners that the job will run on
     # i can use tests with docker
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     # A strategy that defines different variations of an environment to run each job in.
     strategy:
       matrix:
