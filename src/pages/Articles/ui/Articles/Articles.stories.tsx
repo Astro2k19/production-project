@@ -12,6 +12,11 @@ export default {
 
   argTypes: {
     backgroundColor: { control: 'color' }
+  },
+  parameters: {
+    loki: {
+      skip: true
+    }
   }
 } as ComponentMeta<typeof ArticlesPage>
 
