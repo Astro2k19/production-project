@@ -1,58 +1,80 @@
-# Name your workflow
-name: CI
-
-# Set on which events you want run the actions.
-# In this case the workflow will run on push for master and on pull request for master and develop branches
+name: linting, testing, building
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
-  # This workflow contains a job called "integration"
-  integration:
-    # The runners that the job will run on
-    # i can use tests with docker
+  build-and-ui-testing:
     runs-on: ubuntu-latest
-    # A strategy that defines different variations of an environment to run each job in.
+    concurrency: ci-${{ github.ref }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [ 17.x ]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Setup Node.js environment
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Checkout master branch
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
+      - name: install modules
         run: npm install --force
-
-      - name: Run Eslint
-        run: npm run lint:ts
-        if: always()
-
-      - name: Run StyleLint
-        run: npm run lint:scss
-        if: always()
-
-      - name: Run Unit tests
-        run: npm run test:unit
-        if: always()
-
-      - name: Run Build production
+      - name: build production project
         run: npm run build:prod
         if: always()
-
-      - name: Run build storybook
+      - name: build storybook
         run: npm run build:storybook
         if: always()
-
-      - name: Run screenshot testing
+      - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
+      - name: unit testing
+        if: always()
+        run: npm run test:unit
+      - name: Generate HTML report
+        run: npm run test:ui:report
+        if: always()
+      - name: Move loki to reports folder
+        run: mv .loki reports/
+        if: always()
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+        if: always()
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        if: always()
+        with:
+          path: 'reports'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: always()
+        uses: actions/deploy-pages@v1
+
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm ci --force
+      - name: linting typescript
+        run: npm run lint:ts
+        if: always()
+      - name: linting css
+        run: npm run lint:scss
