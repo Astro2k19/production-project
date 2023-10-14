@@ -51,6 +51,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/no-namespace": "off",
     "react/display-name": "off",
     // only Text in react files
     'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''], ignoreFiles: ["**/*.stories.{ts,tsx}"], exclude: ['"**/*.stories.{ts,tsx}"'] }],

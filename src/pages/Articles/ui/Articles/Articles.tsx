@@ -12,7 +12,7 @@ interface ArticlesProps {
 
 const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
   return (
-      <Page className={cls.articlesPage}>
+      <Page className={cls.articlesPage} dataTestId={'ArticlesPage'}>
           <ArticlesInfiniteList />
       </Page>
   )
