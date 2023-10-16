@@ -16,7 +16,10 @@ export const ArticleSingleRecommendations = memo(({ className }: ArticleSingleRe
   const { data: articles = [], isLoading } = useGetArticleRecommendations(undefined)
 
   return (
-      <div className={classNames([className])}>
+      <div
+          className={classNames([className])}
+          data-testid={'ArticleSingleRecommendations'}
+      >
           <Text title={t('Recommendations')}/>
           <ArticlesList
                 articles={articles}

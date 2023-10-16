@@ -152,7 +152,10 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = (props) => {
   }
 
   return (
-      <div className={classNames([cls.articlesList, className, cls[view]])}>
+      <div
+          className={classNames([cls.articlesList, className, cls[view]])}
+          data-testid={'ArticlesList'}
+      >
           {view === ArticlesListView.LIST
             ? (
                 <Virtuoso

@@ -35,7 +35,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
   }
 
   return (
-      <div className={classNames([cls.commentCard, className])}>
+      <div className={classNames([cls.commentCard, className])} data-testid={'CommentCard'}>
           <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
               <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} />
               <Text title={comment.user.username} />

@@ -47,7 +47,7 @@ export const StartRating: FC<StartRatingProps> =
     }
 
     return (
-        <div className={classNames([cls.startRation, className])}>
+        <div className={classNames([cls.startRation, className])} data-testid={'StarRating'}>
             {rating.map(starCount => (
                 <Icon
                   Svg={Star}
@@ -58,6 +58,8 @@ export const StartRating: FC<StartRatingProps> =
                   onClick={onClick(starCount)}
                   width={size}
                   height={size}
+                  data-testid={`StarRating.${starCount}`}
+                  data-selected={starCount <= currentStarsCount}
                 />
             ))}
         </div>

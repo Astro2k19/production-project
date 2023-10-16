@@ -56,7 +56,12 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
 
   if (view === ArticlesListView.GRID) {
     return (
-        <Link to={path} target={target} className={classNames([cls.articlesListItem, className, cls[view]])} onClick={onCardClick}>
+        <Link
+                data-testid={'ArticlesListItem'}
+                to={path} target={target}
+              className={classNames([cls.articlesListItem, className, cls[view]])}
+              onClick={onCardClick}
+        >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <AppImage
@@ -83,7 +88,10 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
   const description = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
 
   return (
-      <div className={classNames([cls.articlesListItem, className, cls[view]])}>
+      <div
+          className={classNames([cls.articlesListItem, className, cls[view]])}
+          data-testid={'ArticlesListItem'}
+      >
           <Card>
               <div className={cls.header}>
                   <div className={cls.user}>

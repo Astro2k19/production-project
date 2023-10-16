@@ -67,6 +67,7 @@ export const RatingCard: FC<RatingCardProps> =
               placeholder={t('Your feedback')}
               value={feedbackText}
               onChange={setFeedbackText}
+              data-testid={'RatingCard.Input'}
           />
       </>
   )
@@ -102,10 +103,10 @@ export const RatingCard: FC<RatingCardProps> =
                     <VStack gap={'12'}>
                         {modalContent}
                         <VStack gap={'8'}>
-                            <Button onClick={acceptHandle} variant={ButtonVariants.OUTLINE}>
+                            <Button onClick={acceptHandle} variant={ButtonVariants.OUTLINE} data-testid={'RatingCard.Send'}>
                                 {t('Send')}
                             </Button>
-                            <Button onClick={cancelHandle} variant={ButtonVariants.OUTLINE_RED}>
+                            <Button onClick={cancelHandle} variant={ButtonVariants.OUTLINE_RED} data-testid={'RatingCard.Cancel'}>
                                 {t('Cancel')}
                             </Button>
                         </VStack>

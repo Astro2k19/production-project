@@ -1,4 +1,3 @@
-
 import { validateErrors } from './validateErrors'
 
 import { type Profile } from '@/entities/Profile'

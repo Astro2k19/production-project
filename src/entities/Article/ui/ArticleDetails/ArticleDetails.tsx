@@ -48,7 +48,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   if (isLoading) {
     return (
-        <VStack gap={'12'}>
+        <VStack gap={'12'} data-testid={'ArticleDetails.Loading'}>
             <HStack justify={'center'}>
                 <Skeleton width={200} height={200} borderRadius={'50%'} />
             </HStack>
@@ -61,7 +61,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   }
 
   return (
-      <VStack gap={'12'} tag={'div'} className={className}>
+      <VStack
+          gap={'12'}
+          tag={'div'}
+          className={className}
+          data-testid={'ArticleDetails'}
+      >
           <HStack justify={'center'}>
               <AppImage
                   src={article?.img}

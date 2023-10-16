@@ -2112,6 +2112,32 @@
           ]
         }
       ]
+    },
+    {
+      "userId": "1",
+      "title": "Testing article",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1231,
+      "createdAt": "23.02.2019",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "6vzFE8H"
+    },
+    {
+      "userId": "1",
+      "title": "Testing article",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1231,
+      "createdAt": "23.02.2019",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "ZLbYKtO"
     }
   ],
   "comments": [
@@ -2294,12 +2320,6 @@
       "userId": "1",
       "text": "asdfasdf",
       "id": 30
-    },
-    {
-      "articleId": "21",
-      "userId": "1",
-      "text": "Hello world",
-      "id": 31
     },
     {
       "articleId": "14",
@@ -2556,6 +2576,17 @@
       "city": "Poltava",
       "username": "werwertewr",
       "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
+    },
+    {
+      "id": "3",
+      "first": "test firstname",
+      "lastname": "test lastname",
+      "age": "12",
+      "currency": "UAH",
+      "country": "UKRAINE",
+      "city": "Poltava",
+      "username": "Test user",
+      "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
     }
   ],
   "users": [
@@ -2573,6 +2604,15 @@
       "id": "2",
       "username": "User",
       "password": "qwerqwer",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://www.w3scdhools.com/howto/img_avatar.png"
+    },
+    {
+      "id": "3",
+      "username": "Test user",
+      "password": "12341234",
       "roles": [
         "USER"
       ],
