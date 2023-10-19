@@ -6,6 +6,7 @@ describe('User visit articles page', () => {
   })
 
   it('Articles list are successfully loaded', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles-list.json' })
     cy.getByTestId('ArticlesList').should('exist')
     cy.getByTestId('ArticlesListItem').should('exist')
   })

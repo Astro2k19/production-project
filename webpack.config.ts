@@ -6,11 +6,11 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig'
 import { type BuildEnv, type BuildPaths } from './config/build/types/config'
 
 export default (env: BuildEnv): webpack.Configuration => {
-  const mode = env.mode ?? 'development'
+  const mode = env?.mode ?? 'development'
   const isDev = mode === 'development'
-  const PORT = env.port ?? 3000
-  const analyze = env.analyze ?? false
-  const apiUrl = env.apiUrl || 'http://localhost:8000'
+  const PORT = env?.port ?? 3000
+  const analyze = env?.analyze ?? false
+  const apiUrl = env?.apiUrl || 'http://localhost:8000'
   const project = 'frontend'
 
   const paths: BuildPaths = {
