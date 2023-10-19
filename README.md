@@ -16,7 +16,7 @@ npm run start:dev - server start + frontend project in development mode
 - `npm run build:dev` - Build in development mode (not minimized)
 - `npm run analyze:dev` - Create bundle analyzer in development mode
 - `npm run analyze:prod` - Create bundle analyzer in production mode
-- `npm run lint:ts` -  Ts file linter check
+- `npm run lint:ts` - Ts file linter check
 - `npm run lint:ts:fix` - Ts file linter fix
 - `npm run lint:scss` - Scss file linter check
 - `npm run lint:scss:fix` - Scss file linter fix
@@ -32,12 +32,13 @@ npm run start:dev - server start + frontend project in development mode
 - `npm run prepare` - Precommit husky
 - `npm run generate:slice` - Script to generate FSD slices
 
-
 ## Project architecture
+
 The project was written in accordance with the methodology FEATURE SLICED DESIGN
 Link for documentation - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
 ## Translation
+
 The project uses the library i18next to work with translations. Translation files are stored in public/locales.
 For comfortable work, we recommend to install a plugin for webstorm/vscode.
 Documentation for i18next - [https://react.i18next.com/](https://react.i18next.com/)
@@ -45,6 +46,7 @@ Documentation for i18next - [https://react.i18next.com/](https://react.i18next.c
 ## Tests
 
 The project uses 3 types of tests:
+
 1. Unit test on jest `npm run test:unit`
 2. Tests for components with React testing library `npm run test:unit`
 3. Screenshot testing with Loki `npm run test:ui`
@@ -57,14 +59,15 @@ More about tests - [tests documentation](/docs/tests.md)
 The project uses eslint to check TypeScript code and stylelint to check styles.
 
 Also, for strict control of the chapters of architectural principles, we use our own [eslint plugin](https://www.npmjs.com/package/eslint-plugin-authoring-project-plugin) which contains 3 rules:
-1) relative-path-checker - prohibits the use of absolute imports within one module
-2) import-layer-checker - checks the correct use of layers in terms of FSD
+
+1. relative-path-checker - prohibits the use of absolute imports within one module
+2. import-layer-checker - checks the correct use of layers in terms of FSD
    (e.g. widgets cannot be used in features and entities)
-3) public-api-import-checker - allows import from other modules only from public api. Has auto fix
+3. public-api-import-checker - allows import from other modules only from public api. Has auto fix
 
 ### Linters run
 
-- `npm run lint:ts` -  ts file linter check
+- `npm run lint:ts` - ts file linter check
 - `npm run lint:ts:fix` - ts file linter fix
 - `npm run lint:scss` - scss file linter check
 - `npm run lint:scss:fix` - scss file linter fix
@@ -82,38 +85,39 @@ Learn more about [Storybook](https://storybook.js.org/docs/react/get-started/why
 Example:
 
 ```tsx
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from "react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/themeConst';
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/shared/const/themeConst";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 export default {
-    title: 'shared/Button',
-    component: Button,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: "shared/Button",
+  component: Button,
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    children: 'Text',
+  children: "Text",
 };
 
 export const Clear = Template.bind({});
 Clear.args = {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR,
+  children: "Text",
+  theme: ButtonTheme.CLEAR,
 };
 ```
 
 ## Project configuration
 
 For development, the project contains 2 configs:
+
 1. Webpack - ./config/build
 2. vite - vite.config.ts
 

@@ -3,6 +3,7 @@
 Here's a list of plugins used in the project, along with their descriptions and groupings based on their usage:
 
 **Storybook:**
+
 - `@storybook/addon-actions`: Allows adding interactivity and actions to Storybook stories.
 - `@storybook/addon-essentials`: Provides essential addons for Storybook, including controls, backgrounds, and viewport.
 - `@storybook/addon-interactions`: Enables interaction testing within Storybook.
@@ -13,6 +14,7 @@ Here's a list of plugins used in the project, along with their descriptions and 
 - `@storybook/testing-library`: Enhances Storybook with testing utilities from Testing Library.
 
 **Babel:**
+
 - `@babel/core`: Core Babel compiler.
 - `@babel/plugin-transform-runtime`: Transforms code to use the Babel runtime instead of duplicating it.
 - `@babel/plugin-transform-typescript`: Transforms TypeScript syntax to JavaScript.
@@ -21,11 +23,13 @@ Here's a list of plugins used in the project, along with their descriptions and 
 - `@babel/preset-typescript`: Configures Babel for transforming TypeScript syntax.
 - `babel-plugin-react-anonymous-display-name`: Babel plugin that fixes displaying, in react devtools, components wrapped by React.memo and forwardRef as Anonymous.
 
-***Self-made plugin:***
+**_Self-made plugin:_**
+
 - `babelRemovePropsPlugin`: It's a plugin that removes specified JSX elements from your code during production build. Transforming modern JavaScript (ES6 and later)
   into an older version of JavaScript (like ES5) that is more widely supported across all browsers.
 
 **Webpack:**
+
 - `@pmmmwh/react-refresh-webpack-plugin`: Enables fast refresh for React components during development.
 - `@svgr/webpack`: Webpack loader for transforming SVG files into React components.
 - `copy-webpack-plugin`: Copies files and directories during webpack build.
@@ -43,6 +47,7 @@ Here's a list of plugins used in the project, along with their descriptions and 
 - `webpack-dev-server`: Development server for webpack.
 
 **Linting and Code Formatting:**
+
 - `eslint`: JavaScript and TypeScript linter.
 - `eslint-config-standard-with-typescript`: Standard TS ESLint configuration.
 - `eslint-config-prettier`: Disables ESLint rules that conflict with Prettier.
@@ -56,6 +61,7 @@ Here's a list of plugins used in the project, along with their descriptions and 
 - `stylelint-config-standard-scss`: SCSS-specific configuration for stylelint.
 
 **Testing:**
+
 - `jest`: JavaScript testing framework.
 - `jest-html-reporters`: Jest reporters for generating HTML test reports.
 - `loki`: Visual regression testing tool.
@@ -66,5 +72,6 @@ Here's a list of plugins used in the project, along with their descriptions and 
 - `@testing-library/user-event`: Simulates user events for Testing Library.
 
 **UI Component Libraries:**
+
 - `@headlessui/react`: Collection of fully accessible, headless UI components for React.
 - `react-virtuoso`: Virtualized list component for efficient rendering of large lists.

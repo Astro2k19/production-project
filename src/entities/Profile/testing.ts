@@ -1,1 +1,1 @@
-export { profile } from './mocks/profileMocks'
+export { profile } from './mocks/profileMocks';

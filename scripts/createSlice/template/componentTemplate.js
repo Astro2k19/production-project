@@ -1,11 +1,11 @@
-const firstLetterUppercase = require('../firstLetterUppercase');
+const firstLetterUppercase = require("../firstLetterUppercase");
 
-const interfaceConst = 'interface'
+const interfaceConst = "interface";
 
 module.exports = (sliceName) => {
-    const componentName = firstLetterUppercase(sliceName)
+  const componentName = firstLetterUppercase(sliceName);
 
-    return `import { memo } from 'react'
+  return `import { memo } from 'react'
 import cls from './${componentName}.module.scss'
 import {classNames} from 'shared/lib'
 
@@ -20,4 +20,4 @@ export const ${componentName} = memo(({className}: ${componentName}Props) => {
         </div>
     )
 })`;
-}
+};

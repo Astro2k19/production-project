@@ -1,8 +1,8 @@
-const firstLetterUppercase = require('../firstLetterUppercase');
+const firstLetterUppercase = require("../firstLetterUppercase");
 
 module.exports = (sliceName) => {
-    const typedSliceName = firstLetterUppercase(sliceName)
-    return ` export interface ${typedSliceName}Schema {
+  const typedSliceName = firstLetterUppercase(sliceName);
+  return ` export interface ${typedSliceName}Schema {
     
     }`;
-}
+};

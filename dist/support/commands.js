@@ -1,3 +1,2 @@
-Cypress.Commands.add('login', function (email, password) {
-});
+Cypress.Commands.add("login", function (email, password) {});
 export {};

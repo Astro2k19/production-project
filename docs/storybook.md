@@ -1,4 +1,5 @@
 ## Tests
+
 The project uses 4 types of tests:
 
 - Common jest unit tests - npm run test:unit

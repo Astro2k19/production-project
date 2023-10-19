@@ -1,5 +1,5 @@
 module.exports = (sliceName) => {
-return `.${sliceName} {
+  return `.${sliceName} {
 
 }`;
-}
+};

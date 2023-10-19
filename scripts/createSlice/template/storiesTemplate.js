@@ -1,9 +1,9 @@
-const firstLetterUppercase = require('../firstLetterUppercase');
+const firstLetterUppercase = require("../firstLetterUppercase");
 
 module.exports = (layer, sliceName) => {
-const componentName = firstLetterUppercase(sliceName)
+  const componentName = firstLetterUppercase(sliceName);
 
-return `import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+  return `import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ${componentName} } from './${componentName}'
 
 export default {
@@ -18,4 +18,4 @@ const Template: ComponentStory<typeof ${componentName}> = (args) => <${component
 
 export const Normal = Template.bind({})
 `;
-}
+};

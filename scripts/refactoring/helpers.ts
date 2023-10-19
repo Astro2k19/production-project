@@ -1,3 +1,4 @@
-const layers = ['app', 'entities', 'features', 'pages', 'shared', 'widgets']
+const layers = ['app', 'entities', 'features', 'pages', 'shared', 'widgets'];
 
-export const isAbsoluteImport = (path: string) => layers.some(layer => path.startsWith(layer))
+export const isAbsoluteImport = (path: string) =>
+	layers.some(layer => path.startsWith(layer));
