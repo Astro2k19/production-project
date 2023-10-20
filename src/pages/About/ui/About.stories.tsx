@@ -1,23 +1,21 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import AboutPage from './About'
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
-export default {
-  title: 'pages/About',
-  component: AboutPage,
+import AboutPage from './About'
 
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+export default {
+	title: 'pages/About',
+	component: AboutPage,
+
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
 } as ComponentMeta<typeof AboutPage>
 
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />
 
 export const About = Template.bind({})
 
-About.decorators = [
-  StoreDecorator({})
-]
+About.decorators = [StoreDecorator({})]

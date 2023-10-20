@@ -1,11 +1,10 @@
-import { withRouter } from 'storybook-addon-react-router-v6';
-import { withThemes } from 'storybook-addon-themes/react';
+import { withRouter } from 'storybook-addon-react-router-v6'
+import { withThemes } from 'storybook-addon-themes/react'
 
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
-import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { Theme } from '../../src/shared/const/theme';
-
-import i18n from './i18next';
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
+import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
+import { Theme } from '../../src/shared/const/theme'
+import i18n from './i18next'
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -30,7 +29,7 @@ export const parameters = {
 		en: 'English',
 		ua: 'Ukrainian',
 	},
-};
+}
 
 // addDecorator(StyleDecorator)
 // addDecorator(withThemes)
@@ -42,4 +41,4 @@ export const decorators = [
 	SuspenseDecorator,
 	withThemes,
 	withRouter,
-];
+]

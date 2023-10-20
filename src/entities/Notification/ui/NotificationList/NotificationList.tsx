@@ -1,22 +1,21 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
-import { useNotification } from '../../model/api/notificationsApi';
-import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { classNames } from '@/shared/lib'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { VStack } from '@/shared/ui/Stack'
 
-import { classNames } from '@/shared/lib';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { VStack } from '@/shared/ui/Stack';
-
-import cls from './NotificationList.module.scss';
+import { useNotification } from '../../model/api/notificationsApi'
+import { NotificationItem } from '../NotificationItem/NotificationItem'
+import cls from './NotificationList.module.scss'
 
 interface NotificationListProps {
-	className?: string;
+	className?: string
 }
 
 export const NotificationList = memo(({ className }: NotificationListProps) => {
 	const { data: notifications, isLoading } = useNotification(null, {
 		pollingInterval: 5000,
-	});
+	})
 
 	if (isLoading) {
 		return (
@@ -26,10 +25,14 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 				noShrink
 			>
 				{new Array(4).fill(null).map((_, index) => (
-					<Skeleton key={index} width={'100%'} height={140} />
+					<Skeleton
+						key={index}
+						width={'100%'}
+						height={140}
+					/>
 				))}
 			</VStack>
-		);
+		)
 	}
 
 	return (
@@ -39,8 +42,11 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 			noShrink
 		>
 			{notifications?.map(item => (
-				<NotificationItem key={item.id} item={item} />
+				<NotificationItem
+					key={item.id}
+					item={item}
+				/>
 			))}
 		</VStack>
-	);
-});
+	)
+})

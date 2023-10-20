@@ -1,6 +1,6 @@
-import { Article } from '..';
+import { rtkApi } from '@/shared/api/rtkApi'
 
-import { rtkApi } from '@/shared/api/rtkApi';
+import { Article } from '..'
 
 const articleApi = rtkApi.injectEndpoints({
 	endpoints: build => ({
@@ -8,6 +8,6 @@ const articleApi = rtkApi.injectEndpoints({
 			query: id => `/articles/${id}`,
 		}),
 	}),
-});
+})
 
-export const useFetchArticleById = articleApi.useFetchArticleByIdQuery;
+export const useFetchArticleById = articleApi.useFetchArticleByIdQuery

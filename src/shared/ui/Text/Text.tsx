@@ -1,8 +1,8 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
-import { classNames } from '@/shared/lib';
+import { classNames } from '@/shared/lib'
 
-import cls from './Text.module.scss';
+import cls from './Text.module.scss'
 
 export enum TextVariants {
 	PRIMARY = 'primary',
@@ -23,19 +23,19 @@ export enum TextSize {
 	XL = 'size_xl',
 }
 
-type TitleTextType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-type TextType = 'p';
+type TitleTextType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+type TextType = 'p'
 
 interface TextProps {
-	className?: string;
-	title?: string;
-	TitleTag?: TitleTextType;
-	TextTag?: TextType;
-	text?: string;
-	variant?: TextVariants;
-	align?: TextAligns;
-	size?: TextSize;
-	'data-testid'?: string;
+	className?: string
+	title?: string
+	TitleTag?: TitleTextType
+	TextTag?: TextType
+	text?: string
+	variant?: TextVariants
+	align?: TextAligns
+	size?: TextSize
+	'data-testid'?: string
 }
 
 export const Text = memo((props: TextProps) => {
@@ -49,7 +49,7 @@ export const Text = memo((props: TextProps) => {
 		TitleTag = 'h3',
 		TextTag = 'p',
 		'data-testid': dataTestId = 'Text',
-	} = props;
+	} = props
 
 	return (
 		<div
@@ -78,5 +78,5 @@ export const Text = memo((props: TextProps) => {
 				</TextTag>
 			)}
 		</div>
-	);
-});
+	)
+})

@@ -1,49 +1,54 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import { AuthFormError } from '../../model/const/authConst'
-
-import AuthForm from './AuthForm'
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
-export default {
-  title: 'features/AuthForm',
-  component: AuthForm,
+import { AuthFormError } from '../../model/const/authConst'
+import AuthForm from './AuthForm'
 
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+export default {
+	title: 'features/AuthForm',
+	component: AuthForm,
+
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
 } as ComponentMeta<typeof AuthForm>
 
-const Template: ComponentStory<typeof AuthForm> = (args) => <AuthForm {...args} />
+const Template: ComponentStory<typeof AuthForm> = args => <AuthForm {...args} />
 
 export const AuthFormComponent = Template.bind({})
 
 AuthFormComponent.args = {}
-AuthFormComponent.decorators = [StoreDecorator({
-  loginForm: {
-    username: 'test',
-    password: '123456789'
-  }
-})]
+AuthFormComponent.decorators = [
+	StoreDecorator({
+		loginForm: {
+			username: 'test',
+			password: '123456789',
+		},
+	}),
+]
 export const Loading = Template.bind({})
 
 Loading.args = {}
-Loading.decorators = [StoreDecorator({
-  loginForm: {
-    isLoading: true
-  }
-})]
+Loading.decorators = [
+	StoreDecorator({
+		loginForm: {
+			isLoading: true,
+		},
+	}),
+]
 
 export const Error = Template.bind({})
 
 Error.args = {}
-Error.decorators = [StoreDecorator({
-  loginForm: {
-    error: {
-      code: '500',
-      message: AuthFormError.SERVER_ERROR
-    }
-  }
-})]
+Error.decorators = [
+	StoreDecorator({
+		loginForm: {
+			error: {
+				code: '500',
+				message: AuthFormError.SERVER_ERROR,
+			},
+		},
+	}),
+]

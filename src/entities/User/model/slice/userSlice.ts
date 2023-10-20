@@ -4,24 +4,24 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { type User, type UserSchema } from '../types/userTypes'
 
 const initialState: UserSchema = {
-  authData: undefined,
-  _inited: false
+	authData: undefined,
+	_inited: false,
 }
 
 export const userSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {
-    setAuthDate: (state, action: PayloadAction<User>) => {
-      state.authData = action.payload
-    },
-    initAuthData: (state) => {
-      state._inited = true
-    },
-    logOut: (state) => {
-      state.authData = undefined
-    }
-  }
+	name: 'user',
+	initialState,
+	reducers: {
+		setAuthDate: (state, action: PayloadAction<User>) => {
+			state.authData = action.payload
+		},
+		initAuthData: state => {
+			state._inited = true
+		},
+		logOut: state => {
+			state.authData = undefined
+		},
+	},
 })
 
 export const { actions: userActions } = userSlice

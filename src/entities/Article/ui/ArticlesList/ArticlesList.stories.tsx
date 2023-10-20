@@ -3,43 +3,44 @@ import React from 'react'
 
 import { article } from '../../mocks/data.mock'
 import { ArticlesListView } from '../../model/const/articleConst'
-
 import { ArticlesList } from './ArticlesList'
 
 export default {
-  title: 'entities/Article/ArticlesList',
-  component: ArticlesList,
+	title: 'entities/Article/ArticlesList',
+	component: ArticlesList,
 
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
 } as ComponentMeta<typeof ArticlesList>
 
-const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />
+const Template: ComponentStory<typeof ArticlesList> = args => (
+	<ArticlesList {...args} />
+)
 
 export const Grid = Template.bind({})
 
 Grid.args = {
-  articles: new Array(9).fill(0).map(() => article)
+	articles: new Array(9).fill(0).map(() => article),
 }
 
 export const List = Template.bind({})
 
 List.args = {
-  articles: new Array(3).fill(0).map(() => article),
-  view: ArticlesListView.LIST
+	articles: new Array(3).fill(0).map(() => article),
+	view: ArticlesListView.LIST,
 }
 
 export const IsLoadingGrid = Template.bind({})
 
 IsLoadingGrid.args = {
-  isLoading: true,
-  view: ArticlesListView.GRID
+	isLoading: true,
+	view: ArticlesListView.GRID,
 }
 
 export const IsLoadingList = Template.bind({})
 
 IsLoadingList.args = {
-  isLoading: true,
-  view: ArticlesListView.LIST
+	isLoading: true,
+	view: ArticlesListView.LIST,
 }

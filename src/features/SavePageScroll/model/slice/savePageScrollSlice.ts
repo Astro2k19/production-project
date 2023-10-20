@@ -1,19 +1,22 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { type SavePageScrollSchema } from '../types/savePageScroll'
 
 const initialState: SavePageScrollSchema = {
-  scroll: {}
+	scroll: {},
 }
 
 export const savePageScrollSlice = createSlice({
-  name: 'savePageScroll',
-  initialState,
-  reducers: {
-    setScrollPosition: (state, { payload }: PayloadAction<{ page: string, scroll: number }>) => {
-      state.scroll[payload.page] = payload.scroll
-    }
-  }
+	name: 'savePageScroll',
+	initialState,
+	reducers: {
+		setScrollPosition: (
+			state,
+			{ payload }: PayloadAction<{ page: string; scroll: number }>,
+		) => {
+			state.scroll[payload.page] = payload.scroll
+		},
+	},
 })
 
 export const { actions: savePageScrollActions } = savePageScrollSlice

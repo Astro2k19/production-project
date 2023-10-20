@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { AppRouter } from './providers/router/ui/AppRouter';
+import { Navbar } from '@/widgets/Navbar'
+import { Sidebar } from '@/widgets/Sidebar'
 
-import { getUserInited, userActions } from '@/entities/User';
-import { classNames } from '@/shared/lib';
-import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar';
+import { getUserInited, userActions } from '@/entities/User'
 
-import './styles/index.scss';
+import { classNames } from '@/shared/lib'
+
+import { AppRouter } from './providers/router/ui/AppRouter'
+import './styles/index.scss'
 
 export const App: React.FC = () => {
-	const dispatch = useDispatch();
-	const inited = useSelector(getUserInited);
+	const dispatch = useDispatch()
+	const inited = useSelector(getUserInited)
 
 	useEffect(() => {
-		dispatch(userActions.initAuthData());
-	}, []); // eslint-disable-line
+		dispatch(userActions.initAuthData())
+	}, []) // eslint-disable-line
 
-	console.log(inited, 'inited');
+	console.log(inited, 'inited')
 
 	return (
 		<div className={classNames(['app'])}>
@@ -28,5 +29,5 @@ export const App: React.FC = () => {
 				{inited && <AppRouter />}
 			</div>
 		</div>
-	);
-};
+	)
+}

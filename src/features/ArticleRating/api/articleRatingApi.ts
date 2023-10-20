@@ -1,14 +1,15 @@
-import { Rating } from '@/entities/Rating';
-import { rtkApi } from '@/shared/api/rtkApi';
+import { Rating } from '@/entities/Rating'
+
+import { rtkApi } from '@/shared/api/rtkApi'
 
 interface GetArticleRatingArgs {
-	userId: string;
-	articleId: string;
+	userId: string
+	articleId: string
 }
 
 interface PostArticleRatingArgs extends GetArticleRatingArgs {
-	rate: number;
-	feedback?: string;
+	rate: number
+	feedback?: string
 }
 
 export const articleRatingApi = rtkApi
@@ -45,8 +46,8 @@ export const articleRatingApi = rtkApi
 				],
 			}),
 		}),
-	});
+	})
 
-export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery;
+export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery
 export const usePostArticleRating =
-	articleRatingApi.usePostArticleRatingMutation;
+	articleRatingApi.usePostArticleRatingMutation

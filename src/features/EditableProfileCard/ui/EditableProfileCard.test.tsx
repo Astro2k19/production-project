@@ -1,22 +1,22 @@
-import { act, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
-import { profileReducer } from '../model/slice/profileSlice';
+import { profile } from '@/entities/Profile/testing'
 
-import { EditableProfileCard } from './EditableProfileCard';
+import { $api } from '@/shared/api/api'
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 
-import { profile } from '@/entities/Profile/testing';
-import { $api } from '@/shared/api/api';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { profileReducer } from '../model/slice/profileSlice'
+import { EditableProfileCard } from './EditableProfileCard'
 
-jest.spyOn($api, 'put');
+jest.spyOn($api, 'put')
 describe('features/EditableProfileCard', function () {
 	beforeEach(async () => {
 		jest.spyOn($api, 'get').mockReturnValue(
 			Promise.resolve({
 				data: profile,
-			})
-		);
+			}),
+		)
 
 		await act(async () =>
 			componentRender(<EditableProfileCard id={'1'} />, {
@@ -35,76 +35,74 @@ describe('features/EditableProfileCard', function () {
 				asyncReducers: {
 					profile: profileReducer,
 				},
-			})
-		);
-	});
+			}),
+		)
+	})
 
 	test('Leave the old data after canceling the save', async () => {
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.EditButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.EditButton'),
+		)
 
-		await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
-		await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
+		await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
+		await userEvent.clear(screen.getByTestId('ProfileCard.lastname'))
 
 		await userEvent.type(
 			screen.getByTestId('ProfileCard.firstname'),
-			'Walter'
-		);
+			'Walter',
+		)
 		await userEvent.type(
 			screen.getByTestId('ProfileCard.lastname'),
-			'White'
-		);
+			'White',
+		)
 
 		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue(
-			'Walter'
-		);
-		expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('White');
+			'Walter',
+		)
+		expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('White')
 
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.CancelButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+		)
 
-		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue(
-			'Artem'
-		);
-		expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('Katr');
-	});
+		expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('Artem')
+		expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('Katr')
+	})
 
 	test('With validation errors', async () => {
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.EditButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.EditButton'),
+		)
 
-		await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
+		await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
 
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.SaveButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+		)
 
 		expect(
-			screen.getByTestId('EditableProfileCard.Error.Paragraph')
-		).toBeInTheDocument();
-	});
+			screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+		).toBeInTheDocument()
+	})
 
 	test('Successful data submitting', async () => {
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.EditButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.EditButton'),
+		)
 
 		await userEvent.type(
 			screen.getByTestId('ProfileCard.firstname'),
-			'First'
-		);
+			'First',
+		)
 		await userEvent.type(
 			screen.getByTestId('ProfileCard.lastname'),
-			'Second'
-		);
+			'Second',
+		)
 
 		await userEvent.click(
-			screen.getByTestId('EditableProfileCardHeader.SaveButton')
-		);
+			screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+		)
 
-		expect($api.put).toHaveBeenCalled();
-	});
-});
+		expect($api.put).toHaveBeenCalled()
+	})
+})

@@ -1,13 +1,13 @@
-import React, { memo, SVGProps } from 'react';
+import React, { SVGProps, memo } from 'react'
 
-import { classNames } from '@/shared/lib';
+import { classNames } from '@/shared/lib'
 
-import cls from './Icon.module.scss';
+import cls from './Icon.module.scss'
 
 interface IconProps extends SVGProps<SVGElement> {
-	className?: string;
-	Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-	inverted?: boolean;
+	className?: string
+	Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+	inverted?: boolean
 }
 
 export const Icon = memo(
@@ -21,6 +21,6 @@ export const Icon = memo(
 					inverted ? cls.inverted : '',
 				])}
 			/>
-		);
-	}
-);
+		)
+	},
+)

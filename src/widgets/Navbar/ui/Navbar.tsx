@@ -1,40 +1,42 @@
-import { memo, useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { memo, useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
-import { getUserAuthDate } from '@/entities/User';
-import { AuthModal } from '@/features/Auth';
-import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { NotificationsButton } from '@/features/NotificationButton';
-import { getRouteArticleNew } from '@/shared/const/router';
-import { classNames } from '@/shared/lib';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { AppLink, AppLinkVariants } from '@/shared/ui/AppLink';
-import { Button, ButtonVariants } from '@/shared/ui/Button';
+import { AuthModal } from '@/features/Auth'
+import { AvatarDropdown } from '@/features/AvatarDropdown'
+import { NotificationsButton } from '@/features/NotificationButton'
 
-import cls from './Navbar.module.scss';
+import { getUserAuthDate } from '@/entities/User'
+
+import { getRouteArticleNew } from '@/shared/const/router'
+import { classNames } from '@/shared/lib'
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { AppLink, AppLinkVariants } from '@/shared/ui/AppLink'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
+
+import cls from './Navbar.module.scss'
 
 interface NavbarProps {
-	className?: string;
+	className?: string
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-	const { t } = useTranslation();
-	const [isOpen, setIsOpen] = useState(false);
-	const authDate = useAppSelector(getUserAuthDate);
-	const navigate = useNavigate();
+	const { t } = useTranslation()
+	const [isOpen, setIsOpen] = useState(false)
+	const authDate = useAppSelector(getUserAuthDate)
+	const navigate = useNavigate()
 
 	const onClose = useCallback(() => {
-		setIsOpen(false);
-	}, []);
+		setIsOpen(false)
+	}, [])
 
 	const onOpen = useCallback(() => {
-		setIsOpen(true);
-	}, []);
+		setIsOpen(true)
+	}, [])
 
 	const onCreateNewArticle = useCallback(() => {
-		navigate(getRouteArticleNew());
-	}, [navigate]);
+		navigate(getRouteArticleNew())
+	}, [navigate])
 
 	if (authDate) {
 		return (
@@ -57,12 +59,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 					<AvatarDropdown authDate={authDate} />
 				</div>
 			</div>
-		);
+		)
 	}
 
 	return (
 		<div className={classNames([cls.navbar, className])}>
-			<AuthModal isOpen={isOpen} onClose={onClose} />
+			<AuthModal
+				isOpen={isOpen}
+				onClose={onClose}
+			/>
 			<div className={cls.links}>
 				<Button
 					onClick={onOpen}
@@ -72,5 +77,5 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				</Button>
 			</div>
 		</div>
-	);
-});
+	)
+})

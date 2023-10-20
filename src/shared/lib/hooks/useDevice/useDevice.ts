@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export const useDevice = () => {
 	const [isMobile, setIsMobile] = useState(
-		window.matchMedia('(pointer:coarse)').matches
-	);
+		window.matchMedia('(pointer:coarse)').matches,
+	)
 
 	useEffect(() => {
 		const onResize = () => {
-			setIsMobile(window.matchMedia('(pointer:coarse)').matches);
-		};
+			setIsMobile(window.matchMedia('(pointer:coarse)').matches)
+		}
 
-		window.addEventListener('resize', onResize);
+		window.addEventListener('resize', onResize)
 
 		return () => {
-			window.removeEventListener('resize', onResize);
-		};
-	}, []);
+			window.removeEventListener('resize', onResize)
+		}
+	}, [])
 
-	return isMobile;
-};
+	return isMobile
+}

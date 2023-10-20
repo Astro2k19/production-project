@@ -1,13 +1,12 @@
-import { AuthFormError } from '../const/authConst';
+import { StoreSchema } from '@/app/providers/storeProvider'
 
+import { AuthFormError } from '../const/authConst'
 import {
 	getAuthError,
 	getAuthLoading,
 	getAuthPassword,
 	getAuthUsername,
-} from './authSelectors';
-
-import { StoreSchema } from '@/app/providers/storeProvider';
+} from './authSelectors'
 
 describe('getAuthError', () => {
 	test('should return error', () => {
@@ -18,20 +17,20 @@ describe('getAuthError', () => {
 					message: AuthFormError.SERVER_ERROR,
 				},
 			},
-		};
+		}
 
 		expect(getAuthError(result as StoreSchema)).toEqual({
 			code: '500',
 			message: AuthFormError.SERVER_ERROR,
-		});
-	});
+		})
+	})
 
 	test('should return empty error', () => {
-		const result = {} as StoreSchema;
+		const result = {} as StoreSchema
 
-		expect(getAuthError(result)).toBeUndefined();
-	});
-});
+		expect(getAuthError(result)).toBeUndefined()
+	})
+})
 
 describe('getAuthLoading', () => {
 	test('should return true', () => {
@@ -39,17 +38,17 @@ describe('getAuthLoading', () => {
 			loginForm: {
 				isLoading: true,
 			},
-		} as StoreSchema;
+		} as StoreSchema
 
-		expect(getAuthLoading(result)).toBe(true);
-	});
+		expect(getAuthLoading(result)).toBe(true)
+	})
 
 	test('should return false', () => {
-		const result = {} as StoreSchema;
+		const result = {} as StoreSchema
 
-		expect(getAuthLoading(result)).toBe(false);
-	});
-});
+		expect(getAuthLoading(result)).toBe(false)
+	})
+})
 
 describe('getAuthPassword', () => {
 	test('should return password', () => {
@@ -57,17 +56,17 @@ describe('getAuthPassword', () => {
 			loginForm: {
 				password: '123456',
 			},
-		} as StoreSchema;
+		} as StoreSchema
 
-		expect(getAuthPassword(result)).toBe('123456');
-	});
+		expect(getAuthPassword(result)).toBe('123456')
+	})
 
 	test('should return empty string', () => {
-		const result = {} as StoreSchema;
+		const result = {} as StoreSchema
 
-		expect(getAuthPassword(result)).toBe('');
-	});
-});
+		expect(getAuthPassword(result)).toBe('')
+	})
+})
 
 describe('getAuthUsername', () => {
 	test('should return username', () => {
@@ -75,14 +74,14 @@ describe('getAuthUsername', () => {
 			loginForm: {
 				username: 'hello world!',
 			},
-		} as StoreSchema;
+		} as StoreSchema
 
-		expect(getAuthUsername(result)).toBe('hello world!');
-	});
+		expect(getAuthUsername(result)).toBe('hello world!')
+	})
 
 	test('should return empty string', () => {
-		const result = {} as StoreSchema;
+		const result = {} as StoreSchema
 
-		expect(getAuthUsername(result)).toBe('');
-	});
-});
+		expect(getAuthUsername(result)).toBe('')
+	})
+})

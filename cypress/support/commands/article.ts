@@ -1,4 +1,4 @@
-import { Article } from '../../../src/entities/Article';
+import { Article } from '../../../src/entities/Article'
 
 const defaultArticle = {
 	userId: '1',
@@ -9,7 +9,7 @@ const defaultArticle = {
 	createdAt: '23.02.2019',
 	type: ['IT'],
 	blocks: [],
-};
+}
 
 export const createArticle = (article?: Article) => {
 	return cy
@@ -19,22 +19,22 @@ export const createArticle = (article?: Article) => {
 			headers: { authorization: 'test' },
 			body: article ?? defaultArticle,
 		})
-		.then(({ body }) => body);
-};
+		.then(({ body }) => body)
+}
 
 export const removeArticle = (articleId: string | number) => {
 	cy.request({
 		method: 'DELETE',
 		url: `http://localhost:8000/articles/${articleId}`,
 		headers: { authorization: 'test' },
-	});
-};
+	})
+}
 
 declare global {
 	namespace Cypress {
 		interface Chainable {
-			createArticle: (article?: Article) => Chainable<Article>;
-			removeArticle: (articleId: string | number) => Chainable<void>;
+			createArticle: (article?: Article) => Chainable<Article>
+			removeArticle: (articleId: string | number) => Chainable<void>
 		}
 	}
 }

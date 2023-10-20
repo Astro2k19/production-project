@@ -1,36 +1,35 @@
-import { memo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { Button, ButtonVariants } from '../Button';
+import CopyIcon from '@/shared/assets/icons/copy_icon.svg'
+import { classNames } from '@/shared/lib'
 
-import CopyIcon from '@/shared/assets/icons/copy_icon.svg';
-import { classNames } from '@/shared/lib';
-
-import cls from './Code.module.scss';
+import { Button, ButtonVariants } from '../Button'
+import cls from './Code.module.scss'
 
 interface CodeProps {
-	className?: string;
-	text: string;
+	className?: string
+	text: string
 }
 
 export const Code = memo(({ className, text }: CodeProps) => {
-	const { t } = useTranslation();
-	const [isCopied, setIsCopied] = useState(false);
+	const { t } = useTranslation()
+	const [isCopied, setIsCopied] = useState(false)
 
 	const onCopy = () => {
-		const type = 'text/plain';
-		const blob = new Blob([text], { type });
-		const data = [new ClipboardItem({ [type]: blob })];
+		const type = 'text/plain'
+		const blob = new Blob([text], { type })
+		const data = [new ClipboardItem({ [type]: blob })]
 		window.navigator.clipboard.write(data).then(() => {
-			setIsCopied(true);
+			setIsCopied(true)
 			setTimeout(() => {
-				setIsCopied(false);
-			}, 700);
-		});
-	};
+				setIsCopied(false)
+			}, 700)
+		})
+	}
 
 	if (!text) {
-		return null;
+		return null
 	}
 
 	return (
@@ -45,5 +44,5 @@ export const Code = memo(({ className, text }: CodeProps) => {
 			</Button>
 			<code>{text}</code>
 		</pre>
-	);
-});
+	)
+})

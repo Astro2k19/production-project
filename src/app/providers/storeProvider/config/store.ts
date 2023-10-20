@@ -1,52 +1,66 @@
-import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
+import {
+	type CombinedState,
+	type Reducer,
+	type ReducersMapObject,
+	configureStore,
+} from '@reduxjs/toolkit'
+
+import { setArticlesListViewMiddleware } from '@/pages/Articles'
+
+import { articlesFiltersReducer } from '@/features/ArticlesFilters'
+import { savePageScrollReducer } from '@/features/SavePageScroll'
+
+import {
+	authMiddleware,
+	initUserDataMiddleware,
+	userReducer,
+} from '@/entities/User'
+
+import { $api } from '@/shared/api/api'
+import { rtkApi } from '@/shared/api/rtkApi'
 
 import { type StoreSchema, type ThunkExtraArgs } from './StoreSchema'
 import { createReducerManager } from './createReducerManager'
 
-import { authMiddleware, initUserDataMiddleware, userReducer } from '@/entities/User'
-import { articlesFiltersReducer } from '@/features/ArticlesFilters'
-import { savePageScrollReducer } from '@/features/SavePageScroll'
-import { setArticlesListViewMiddleware } from '@/pages/Articles'
-import { $api } from '@/shared/api/api'
-import { rtkApi } from '@/shared/api/rtkApi'
-
 export const createReduxStore = (
-  initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>
+	initialState?: StoreSchema,
+	asyncReducers?: ReducersMapObject<StoreSchema>,
 ) => {
-  const initialReducers: ReducersMapObject<StoreSchema> = {
-    ...asyncReducers,
-    user: userReducer,
-    savePageScroll: savePageScrollReducer,
-    articlesFilters: articlesFiltersReducer,
-    [rtkApi.reducerPath]: rtkApi.reducer
-  }
+	const initialReducers: ReducersMapObject<StoreSchema> = {
+		...asyncReducers,
+		user: userReducer,
+		savePageScroll: savePageScrollReducer,
+		articlesFilters: articlesFiltersReducer,
+		[rtkApi.reducerPath]: rtkApi.reducer,
+	}
 
-  const reducerManager = createReducerManager(initialReducers)
+	const reducerManager = createReducerManager(initialReducers)
 
-  const extraArgs: ThunkExtraArgs = {
-    api: $api
-  }
+	const extraArgs: ThunkExtraArgs = {
+		api: $api,
+	}
 
-  const store = configureStore({
-    reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
-    preloadedState: initialState,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({
-      thunk: {
-        extraArgument: extraArgs
-      }
-    }).prepend(
-      authMiddleware.middleware,
-      initUserDataMiddleware.middleware,
-      setArticlesListViewMiddleware.middleware
-    ).concat(
-      rtkApi.middleware
-    )
-  })
+	const store = configureStore({
+		reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
+		preloadedState: initialState,
+		middleware: getDefaultMiddleware =>
+			getDefaultMiddleware({
+				thunk: {
+					extraArgument: extraArgs,
+				},
+			})
+				.prepend(
+					authMiddleware.middleware,
+					initUserDataMiddleware.middleware,
+					setArticlesListViewMiddleware.middleware,
+				)
+				.concat(rtkApi.middleware),
+	})
 
-  // @ts-expect-error eslint-disable-line
-  store.reducerManager = reducerManager //eslint-disable-line
+	// @ts-expect-error eslint-disable-line
+	store.reducerManager = reducerManager //eslint-disable-line
 
-  return store
+	return store
 }
 
 export type ReduxStore = ReturnType<typeof createReduxStore>

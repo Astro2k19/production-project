@@ -7,4 +7,4 @@ export const mockArticleRatingResponse = {
 			rate: 2,
 		},
 	],
-};
+}

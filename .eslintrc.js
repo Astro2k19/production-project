@@ -93,22 +93,5 @@ module.exports = {
 			},
 		],
 		'unused-imports/no-unused-imports': 'error',
-		'import/order': [
-			'error',
-			{
-				pathGroups: [
-					{
-						pattern: './**.module.*',
-						group: 'internal',
-						position: 'after',
-					},
-				],
-				'newlines-between': 'always',
-				alphabetize: {
-					order: 'asc',
-					caseInsensitive: false,
-				},
-			},
-		],
 	},
-};
+}

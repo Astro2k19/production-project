@@ -1,4 +1,4 @@
-import { buildStorybookConfig } from './buildStorybookConfig';
+import { buildStorybookConfig } from './buildStorybookConfig'
 
 export default {
 	stories: [
@@ -24,4 +24,4 @@ export default {
 	},
 	webpackFinal: buildStorybookConfig,
 	staticDirs: ['./static'],
-};
+}

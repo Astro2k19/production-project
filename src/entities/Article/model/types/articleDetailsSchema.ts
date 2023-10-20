@@ -1,9 +1,9 @@
-import { type Article } from './article'
-
 import { type ApiError } from '@/shared/api/api'
 
+import { type Article } from './article'
+
 export interface ArticleDetailsSchema {
-  isLoading: boolean
-  error?: ApiError
-  data?: Article
+	isLoading: boolean
+	error?: ApiError
+	data?: Article
 }

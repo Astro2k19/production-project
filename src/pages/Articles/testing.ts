@@ -1,1 +1,1 @@
-export { articlesPageReducer } from './model/slice/articlesPageListSlice/articlesPageListSlice';
+export { articlesPageReducer } from './model/slice/articlesPageListSlice/articlesPageListSlice'

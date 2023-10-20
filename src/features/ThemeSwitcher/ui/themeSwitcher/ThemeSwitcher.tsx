@@ -1,19 +1,19 @@
 // import cls from './ThemeSwitcher.module.scss'
-import { memo } from 'react';
+import { memo } from 'react'
 
-import ThemeSwitcherIcon from '@/shared/assets/icons/theme-light.svg';
-import { classNames } from '@/shared/lib';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Button, ButtonVariants } from '@/shared/ui/Button';
+import ThemeSwitcherIcon from '@/shared/assets/icons/theme-light.svg'
+import { classNames } from '@/shared/lib'
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
+import { Button, ButtonVariants } from '@/shared/ui/Button'
 
-import cls from './ThemeSwitcher.module.scss';
+import cls from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
-	className?: string;
+	className?: string
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-	const { toggleTheme } = useTheme();
+	const { toggleTheme } = useTheme()
 
 	return (
 		<Button
@@ -23,5 +23,5 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 		>
 			<ThemeSwitcherIcon className={cls.themeSwitcherIcon} />
 		</Button>
-	);
-});
+	)
+})

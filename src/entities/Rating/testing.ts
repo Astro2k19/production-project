@@ -1,1 +1,1 @@
-export { mockArticleRatingResponse } from './mocks/data.mock';
+export { mockArticleRatingResponse } from './mocks/data.mock'

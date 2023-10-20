@@ -1,14 +1,15 @@
-import { Rating } from '@/entities/Rating';
-import { rtkApi } from '@/shared/api/rtkApi';
+import { Rating } from '@/entities/Rating'
+
+import { rtkApi } from '@/shared/api/rtkApi'
 
 interface GetProfileRating {
-	userId: string;
-	profileId: string;
+	userId: string
+	profileId: string
 }
 
 interface PostProfileRating extends GetProfileRating {
-	rate: number;
-	feedback?: string;
+	rate: number
+	feedback?: string
 }
 
 export const profileRatingApi = rtkApi
@@ -42,8 +43,8 @@ export const profileRatingApi = rtkApi
 				],
 			}),
 		}),
-	});
+	})
 
-export const useGetProfileRating = profileRatingApi.useGetProfileRatingQuery;
+export const useGetProfileRating = profileRatingApi.useGetProfileRatingQuery
 export const usePostProfileRating =
-	profileRatingApi.usePostProfileRatingMutation;
+	profileRatingApi.usePostProfileRatingMutation

@@ -1,6 +1,6 @@
-import { Comment } from '..';
+import avatar from '@/shared/assets/images/tests/avatar.jpg'
 
-import avatar from '@/shared/assets/images/tests/avatar.jpg';
+import { Comment } from '..'
 
 export const comment: Comment = {
 	user: {
@@ -10,7 +10,7 @@ export const comment: Comment = {
 	},
 	id: '1',
 	text: 'Comment 1',
-};
+}
 
 export const mockCommentResponse = {
 	url: `${__API_URL__}/comments?articleId=1&_expand=user`,
@@ -21,4 +21,4 @@ export const mockCommentResponse = {
 		{ ...comment, id: '2' },
 		{ ...comment, id: '3' },
 	],
-};
+}

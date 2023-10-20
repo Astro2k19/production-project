@@ -1,1 +1,1 @@
-export { mockCommentResponse } from './mocks/data.mock';
+export { mockCommentResponse } from './mocks/data.mock'

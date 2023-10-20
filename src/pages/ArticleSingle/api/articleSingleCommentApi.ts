@@ -1,10 +1,11 @@
-import { Comment } from '@/entities/Comment';
-import { rtkApi } from '@/shared/api/rtkApi';
+import { Comment } from '@/entities/Comment'
+
+import { rtkApi } from '@/shared/api/rtkApi'
 
 interface sendArticleSingleCommentArgs {
-	articleId: string;
-	userId?: string;
-	text: string;
+	articleId: string
+	userId?: string
+	text: string
 }
 
 export const articleSingleCommentApi = rtkApi
@@ -26,19 +27,19 @@ export const articleSingleCommentApi = rtkApi
 				sendArticleSingleCommentArgs
 			>({
 				query: args => {
-					console.log(args);
+					console.log(args)
 					return {
 						url: '/comments',
 						method: 'POST',
 						body: args,
-					};
+					}
 				},
 				invalidatesTags: ['article_single_comments'],
 			}),
 		}),
-	});
+	})
 
 export const useFetchArticleSingleComment =
-	articleSingleCommentApi.useFetchArticleSingleCommentQuery;
+	articleSingleCommentApi.useFetchArticleSingleCommentQuery
 export const useSendArticleSingleComment =
-	articleSingleCommentApi.useSendArticleSingleCommentMutation;
+	articleSingleCommentApi.useSendArticleSingleCommentMutation

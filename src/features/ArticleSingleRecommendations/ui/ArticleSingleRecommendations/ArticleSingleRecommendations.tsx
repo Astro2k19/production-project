@@ -1,21 +1,22 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations';
+import { ArticlesList } from '@/entities/Article'
 
-import { ArticlesList } from '@/entities/Article';
-import { classNames } from '@/shared/lib';
-import { Text } from '@/shared/ui/Text';
+import { classNames } from '@/shared/lib'
+import { Text } from '@/shared/ui/Text'
+
+import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
 
 interface ArticleSingleRecommendationsProps {
-	className?: string;
+	className?: string
 }
 
 export const ArticleSingleRecommendations = memo(
 	({ className }: ArticleSingleRecommendationsProps) => {
-		const { t } = useTranslation();
+		const { t } = useTranslation()
 		const { data: articles = [], isLoading } =
-			useGetArticleRecommendations(undefined);
+			useGetArticleRecommendations(undefined)
 
 		return (
 			<div
@@ -29,6 +30,6 @@ export const ArticleSingleRecommendations = memo(
 					target={'_blank'}
 				/>
 			</div>
-		);
-	}
-);
+		)
+	},
+)

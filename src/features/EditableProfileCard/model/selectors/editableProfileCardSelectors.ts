@@ -1,21 +1,22 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { createSelector } from '@reduxjs/toolkit'
 
-import { StoreSchema } from '@/app/providers/storeProvider';
-import { Profile } from '@/entities/Profile';
-import { getUserAuthDate, User } from '@/entities/User';
+import { StoreSchema } from '@/app/providers/storeProvider'
 
-export const getProfileData = (state: StoreSchema) => state.profile?.data;
+import { Profile } from '@/entities/Profile'
+import { User, getUserAuthDate } from '@/entities/User'
+
+export const getProfileData = (state: StoreSchema) => state.profile?.data
 export const canEditProfile = createSelector(
 	getUserAuthDate,
 	getProfileData,
-	(user?: User, profile?: Profile) => user?.id === profile?.id
-);
-export const getProfileError = (state: StoreSchema) => state.profile?.error;
+	(user?: User, profile?: Profile) => user?.id === profile?.id,
+)
+export const getProfileError = (state: StoreSchema) => state.profile?.error
 export const getProfileFormData = (state: StoreSchema) =>
-	state.profile?.formData;
+	state.profile?.formData
 export const getProfileIsLoading = (state: StoreSchema): boolean | undefined =>
-	state.profile?.isLoading;
+	state.profile?.isLoading
 export const getProfileReadonly = (state: StoreSchema): boolean | undefined =>
-	state.profile?.readonly;
+	state.profile?.readonly
 export const getProfileValidateErrors = (state: StoreSchema) =>
-	state.profile?.validateProfileErrors;
+	state.profile?.validateProfileErrors

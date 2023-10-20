@@ -1,36 +1,38 @@
-import { useCallback } from 'react';
+import { useCallback } from 'react'
 
-import { typedMemo } from '../../const/typedMemo';
-import { Card } from '../Card';
-import { HStack } from '../Stack';
+import { classNames } from '@/shared/lib'
 
-import { classNames } from '@/shared/lib';
-
-import cls from './Tabs.module.scss';
+import { typedMemo } from '../../const/typedMemo'
+import { Card } from '../Card'
+import { HStack } from '../Stack'
+import cls from './Tabs.module.scss'
 
 export interface TabItem<T extends string> {
-	value: T;
-	label: string;
+	value: T
+	label: string
 }
 
 interface TabsProps<T extends string> {
-	className?: string;
-	tabs: Array<TabItem<T>>;
-	value: T;
-	onClick: (newValue: T) => void;
+	className?: string
+	tabs: Array<TabItem<T>>
+	value: T
+	onClick: (newValue: T) => void
 }
 
 export const Tabs = typedMemo(
 	<T extends string>({ className, tabs, value, onClick }: TabsProps<T>) => {
 		const onClickHandler = useCallback(
 			(newValue: T) => () => {
-				onClick(newValue);
+				onClick(newValue)
 			},
-			[onClick]
-		);
+			[onClick],
+		)
 
 		return (
-			<HStack gap={'16'} className={className}>
+			<HStack
+				gap={'16'}
+				className={className}
+			>
 				{tabs.map(tabItem => (
 					<Card
 						key={tabItem.value}
@@ -43,6 +45,6 @@ export const Tabs = typedMemo(
 					</Card>
 				))}
 			</HStack>
-		);
-	}
-);
+		)
+	},
+)

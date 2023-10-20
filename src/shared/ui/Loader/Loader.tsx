@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
-import { classNames } from '@/shared/lib';
+import { classNames } from '@/shared/lib'
 
-import cls from './Loader.module.scss';
+import cls from './Loader.module.scss'
 
 interface LoaderProps {
-	className?: string;
+	className?: string
 }
 
 export const Loader = memo(({ className }: LoaderProps) => {
@@ -14,7 +14,10 @@ export const Loader = memo(({ className }: LoaderProps) => {
 			className={classNames([cls.loader, className])}
 			data-testid={'Loading'}
 		>
-			<svg className={cls.circular} viewBox="25 25 50 50">
+			<svg
+				className={cls.circular}
+				viewBox="25 25 50 50"
+			>
 				<circle
 					className={cls.path}
 					cx="50"
@@ -26,5 +29,5 @@ export const Loader = memo(({ className }: LoaderProps) => {
 				/>
 			</svg>
 		</div>
-	);
-});
+	)
+})

@@ -1,1 +1,1 @@
-export { ArticleSingleRecommendations } from './ui/ArticleSingleRecommendations/ArticleSingleRecommendations';
+export { ArticleSingleRecommendations } from './ui/ArticleSingleRecommendations/ArticleSingleRecommendations'
