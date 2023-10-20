@@ -31,10 +31,7 @@ export const buildStorybookConfig = async (
 
         config.module.rules = [
             ...(rules.map(rule => {
-                if (
-                    typeof rule.test === 'string' &&
-                    rule.test.includes('svg')
-                ) {
+                if (/svg/.test(rule.test as string)) {
                     // eslint-disable-line
                     // Silence the Storybook loaders for SVG files
                     return { ...rule, exclude: /\.svg$/i }
