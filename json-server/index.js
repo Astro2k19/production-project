@@ -104,7 +104,7 @@ server.use(router)
 
 const httpsServer = https.createServer(options, server)
 
-const PORT = 8453
+const PORT = 8443
 
 // запуск сервера
 httpsServer.listen(PORT, () => {
