@@ -7,7 +7,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 import type { WebpackPluginInstance } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import Dotenv from 'dotenv-webpack'
 
 import { type BuildOptions } from './types/config'
 
