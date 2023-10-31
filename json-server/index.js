@@ -10,13 +10,20 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 server.use(jsonServer.defaults({}))
 server.use(jsonServer.bodyParser)
 
-const options = {
-    key: fs.readFileSync(
-        '/etc/letsencrypt/live/prod-project.fun-0001/privkey.pem',
-    ),
-    cert: fs.readFileSync(
-        '/etc/letsencrypt/live/prod-project.fun-0001/fullchain.pem',
-    ),
+const mode = process.argv[2]
+
+let options = {}
+console.log(mode, 'mode')
+
+if (mode !== 'development') {
+    options = {
+        key: fs.readFileSync(
+            '/etc/letsencrypt/live/prod-project.fun-0001/privkey.pem',
+        ),
+        cert: fs.readFileSync(
+            '/etc/letsencrypt/live/prod-project.fun-0001/fullchain.pem',
+        ),
+    }
 }
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
@@ -102,11 +109,18 @@ server.use((req, res, next) => {
 
 server.use(router)
 
-const httpsServer = https.createServer(options, server)
+const DEV_PORT = 8000
 
-const PORT = 8443
+if (mode !== 'development') {
+    const PORT = 8443
+    // running server
+    const httpsServer = https.createServer(options, server)
+    httpsServer.listen(PORT, () => {
+        console.log(`server is running on ${PORT} port`)
+    })
+}
 
-// запуск сервера
-httpsServer.listen(PORT, () => {
-    console.log(`server is running on ${PORT} port`)
+// running dev server
+server.listen(DEV_PORT, () => {
+    console.log('server is running on 8000 port')
 })

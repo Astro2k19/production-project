@@ -7,6 +7,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 import type { WebpackPluginInstance } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import Dotenv from 'dotenv-webpack'
 
 import { type BuildOptions } from './types/config'
 
@@ -24,7 +25,7 @@ export const buildPlugins = ({ isDev, paths, analyze, apiUrl, project }: BuildOp
       : []),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-      __API_URL__: JSON.stringify(apiUrl),
+      __API_URL__: JSON.stringify(apiUrl || process.env.API_URL),
       __PROJECT__: JSON.stringify(project)
     }),
     // refresh react components without reloading
