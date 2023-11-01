@@ -10,19 +10,19 @@ import { ProfileRating } from '@/features/ProfileRating'
 import { Text } from '@/shared/ui/Text'
 
 const ProfilePage = memo(() => {
-	const { t } = useTranslation()
-	const { id } = useParams<string>()
+    const { t } = useTranslation()
+    const { id } = useParams<string>()
 
-	if (!id) {
-		return <Text title={t('Something went wrong!')} />
-	}
+    if (!id) {
+        return <Text title={t('Something went wrong!')} />
+    }
 
-	return (
-		<Page dataTestId={'ProfilePage'}>
-			<EditableProfileCard id={id} />
-			<ProfileRating profileId={id} />
-		</Page>
-	)
+    return (
+        <Page dataTestId={'ProfilePage'}>
+            <EditableProfileCard id={id} />
+            <ProfileRating profileId={id} />
+        </Page>
+    )
 })
 
 export default ProfilePage

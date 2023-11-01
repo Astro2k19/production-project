@@ -9,40 +9,40 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import ProfilePage from './Profile'
 
 export default {
-	title: 'pages/Profile',
-	component: ProfilePage,
-	decorators: [
-		withMock,
-		StoreDecorator({
-			profile: {
-				data,
-				formData: data,
-			},
-			user: {
-				authData: {
-					id: '2',
-				},
-			},
-		}),
-	],
-	parameters: {
-		reactRouter: {
-			routePath: '/profile/:id',
-			routeParams: { id: '2' },
-		},
-		mockData: [
-			{
-				url: `${__API_URL__}/profiles-rating?profileId=2&userId=2`,
-				method: 'GET',
-				status: 200,
-				response: [
-					{
-						rate: 5,
-					},
-				],
-			},
-		],
-	},
+    title: 'pages/Profile',
+    component: ProfilePage,
+    decorators: [
+        withMock,
+        StoreDecorator({
+            profile: {
+                data,
+                formData: data,
+            },
+            user: {
+                authData: {
+                    id: '2',
+                },
+            },
+        }),
+    ],
+    parameters: {
+        reactRouter: {
+            routePath: '/profile/:id',
+            routeParams: { id: '2' },
+        },
+        mockData: [
+            {
+                url: `${__API_URL__}/profiles-rating?profileId=2&userId=2`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    {
+                        rate: 5,
+                    },
+                ],
+            },
+        ],
+    },
 } as ComponentMeta<typeof ProfilePage>
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />

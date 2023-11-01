@@ -6,28 +6,28 @@ import { ArticlesListView } from '../../model/const/articleConst'
 import { ArticlesListItem } from './ArticlesListItem'
 
 export default {
-	title: 'entities/Article/ArticlesListItem',
-	component: ArticlesListItem,
+    title: 'entities/Article/ArticlesListItem',
+    component: ArticlesListItem,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ArticlesListItem>
 
 const Template: ComponentStory<typeof ArticlesListItem> = args => (
-	<ArticlesListItem {...args} />
+    <ArticlesListItem {...args} />
 )
 
 export const Grid = Template.bind({})
 
 Grid.args = {
-	article,
-	view: ArticlesListView.GRID,
+    article,
+    view: ArticlesListView.GRID,
 }
 
 export const List = Template.bind({})
 
 List.args = {
-	article,
-	view: ArticlesListView.LIST,
+    article,
+    view: ArticlesListView.LIST,
 }

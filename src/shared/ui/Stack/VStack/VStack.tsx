@@ -4,13 +4,13 @@ import { Flex, type FlexProps } from '../Flex/Flex'
 
 type VStackProps = Omit<FlexProps, 'direction'>
 export const VStack: FC<VStackProps> = props => {
-	const { children, ...rest } = props
-	return (
-		<Flex
-			{...rest}
-			direction={'column'}
-		>
-			{children}
-		</Flex>
-	)
+    const { children, ...rest } = props
+    return (
+        <Flex
+            {...rest}
+            direction={'column'}
+        >
+            {children}
+        </Flex>
+    )
 }

@@ -12,22 +12,22 @@ import { AppRouter } from './providers/router/ui/AppRouter'
 import './styles/index.scss'
 
 export const App: React.FC = () => {
-	const dispatch = useDispatch()
-	const inited = useSelector(getUserInited)
+    const dispatch = useDispatch()
+    const inited = useSelector(getUserInited)
 
-	useEffect(() => {
-		dispatch(userActions.initAuthData())
-	}, []) // eslint-disable-line
+    useEffect(() => {
+        dispatch(userActions.initAuthData())
+    }, []) // eslint-disable-line
 
-	console.log(inited, 'inited')
+    console.log(inited, 'inited')
 
-	return (
-		<div className={classNames(['app'])}>
-			<Navbar />
-			<div className="page-content">
-				<Sidebar />
-				{inited && <AppRouter />}
-			</div>
-		</div>
-	)
+    return (
+        <div className={classNames(['app'])}>
+            <Navbar />
+            <div className="page-content">
+                <Sidebar />
+                {inited && <AppRouter />}
+            </div>
+        </div>
+    )
 }

@@ -4,13 +4,13 @@ import { Flex, type FlexProps } from '../Flex/Flex'
 
 type HStackProps = Omit<FlexProps, 'direction'>
 export const HStack: FC<HStackProps> = props => {
-	const { children, ...others } = props
-	return (
-		<Flex
-			{...others}
-			direction={'row'}
-		>
-			{children}
-		</Flex>
-	)
+    const { children, ...others } = props
+    return (
+        <Flex
+            {...others}
+            direction={'row'}
+        >
+            {children}
+        </Flex>
+    )
 }

@@ -3,15 +3,15 @@ import { type StoreSchema } from '@/app/providers/storeProvider'
 import { ArticlesListView } from '@/entities/Article'
 
 export const getArticlesListIsLoading = (state: StoreSchema) =>
-	state.articlesPageList?.isLoading
+    state.articlesPageList?.isLoading
 export const getArticlesListError = (state: StoreSchema) =>
-	state.articlesPageList?.error
+    state.articlesPageList?.error
 export const getArticlesListView = (state: StoreSchema) =>
-	state?.articlesPageList?.view ?? ArticlesListView.LIST
+    state?.articlesPageList?.view ?? ArticlesListView.LIST
 export const getArticlesListLimit = (state: StoreSchema) =>
-	state.articlesPageList?.limit ?? 9
+    state.articlesPageList?.limit ?? 9
 export const getArticlesListHasMore = (state: StoreSchema) =>
-	state.articlesPageList?.hasMore
+    state.articlesPageList?.hasMore
 
 export const getArticlesInited = (state: StoreSchema) =>
-	state.articlesPageList?._inited
+    state.articlesPageList?._inited

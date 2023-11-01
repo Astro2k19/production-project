@@ -6,18 +6,18 @@ import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteLi
 import cls from './Articles.module.scss'
 
 interface ArticlesProps {
-	className?: string
+    className?: string
 }
 
 const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
-	return (
-		<Page
-			className={cls.articlesPage}
-			dataTestId={'ArticlesPage'}
-		>
-			<ArticlesInfiniteList />
-		</Page>
-	)
+    return (
+        <Page
+            className={cls.articlesPage}
+            dataTestId={'ArticlesPage'}
+        >
+            <ArticlesInfiniteList />
+        </Page>
+    )
 }
 
 export default memo(ArticlesPage)

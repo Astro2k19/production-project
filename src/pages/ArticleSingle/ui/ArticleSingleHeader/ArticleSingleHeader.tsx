@@ -13,44 +13,44 @@ import { getCanEditArticle } from '../../model/selectors/article'
 import cls from './ArticleSingleHeader.module.scss'
 
 interface ArticleSingleHeaderProps {
-	className?: string
+    className?: string
 }
 
 export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({
-	className,
+    className,
 }) => {
-	const { t } = useTranslation('article')
-	const navigate = useNavigate()
-	const { id } = useParams<{ id: string }>()
-	const { data: article } = useFetchArticleById(id as string)
-	const canEdit = useAppSelector(getCanEditArticle(article))
+    const { t } = useTranslation('article')
+    const navigate = useNavigate()
+    const { id } = useParams<{ id: string }>()
+    const { data: article } = useFetchArticleById(id as string)
+    const canEdit = useAppSelector(getCanEditArticle(article))
 
-	const onGoBack = useCallback(() => {
-		navigate(getRouteArticles())
-	}, [navigate])
+    const onGoBack = useCallback(() => {
+        navigate(getRouteArticles())
+    }, [navigate])
 
-	const onEditArticle = useCallback(() => {
-		navigate(getRouteArticleEdit(id as string))
-	}, [id, navigate])
+    const onEditArticle = useCallback(() => {
+        navigate(getRouteArticleEdit(id as string))
+    }, [id, navigate])
 
-	return (
-		<div className={classNames([cls.articleSingleHeader, className])}>
-			<Button
-				title={t('Go back to articles')}
-				onClick={onGoBack}
-				variant={ButtonVariants.OUTLINE}
-			>
-				{t('Go back to articles')}
-			</Button>
-			{canEdit && (
-				<Button
-					title={t('Click to edit article')}
-					onClick={onEditArticle}
-					variant={ButtonVariants.OUTLINE}
-				>
-					{t('Edit article')}
-				</Button>
-			)}
-		</div>
-	)
+    return (
+        <div className={classNames([cls.articleSingleHeader, className])}>
+            <Button
+                title={t('Go back to articles')}
+                onClick={onGoBack}
+                variant={ButtonVariants.OUTLINE}
+            >
+                {t('Go back to articles')}
+            </Button>
+            {canEdit && (
+                <Button
+                    title={t('Click to edit article')}
+                    onClick={onEditArticle}
+                    variant={ButtonVariants.OUTLINE}
+                >
+                    {t('Edit article')}
+                </Button>
+            )}
+        </div>
+    )
 }

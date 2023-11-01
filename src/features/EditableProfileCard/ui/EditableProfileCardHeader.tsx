@@ -8,80 +8,80 @@ import { HStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
 import {
-	canEditProfile,
-	getProfileError,
-	getProfileIsLoading,
-	getProfileReadonly,
+    canEditProfile,
+    getProfileError,
+    getProfileIsLoading,
+    getProfileReadonly,
 } from '../model/selectors/editableProfileCardSelectors'
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
 import { profileActions } from '../model/slice/profileSlice'
 
 interface EditableProfileCardHeaderProps {
-	className?: string
+    className?: string
 }
 
 export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
-	className,
+    className,
 }) => {
-	const { t } = useTranslation('profile')
-	const readonly = useAppSelector(getProfileReadonly)
-	const isLoading = useAppSelector(getProfileIsLoading)
-	const error = useAppSelector(getProfileError)
-	const dispatch = useAppDispatch()
-	const canEdit = useAppSelector(canEditProfile)
+    const { t } = useTranslation('profile')
+    const readonly = useAppSelector(getProfileReadonly)
+    const isLoading = useAppSelector(getProfileIsLoading)
+    const error = useAppSelector(getProfileError)
+    const dispatch = useAppDispatch()
+    const canEdit = useAppSelector(canEditProfile)
 
-	const onEdit = useCallback(() => {
-		dispatch(profileActions.setReadonly(false))
-	}, [dispatch])
+    const onEdit = useCallback(() => {
+        dispatch(profileActions.setReadonly(false))
+    }, [dispatch])
 
-	const onCancel = useCallback(() => {
-		dispatch(profileActions.cancelUpdate())
-	}, [dispatch])
+    const onCancel = useCallback(() => {
+        dispatch(profileActions.cancelUpdate())
+    }, [dispatch])
 
-	const onSave = useCallback(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(updateProfileData())
-		}
-	}, [dispatch])
+    const onSave = useCallback(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(updateProfileData())
+        }
+    }, [dispatch])
 
-	return (
-		<HStack
-			justify={'spaceBetween'}
-			alignItems={'center'}
-		>
-			<Text title={t('Profile', { ns: 'profile' })} />
-			{canEdit &&
-				!error &&
-				(readonly ? (
-					<Button
-						onClick={onEdit}
-						disabled={isLoading}
-						data-testid={'EditableProfileCardHeader.EditButton'}
-					>
-						{t('Edit')}
-					</Button>
-				) : (
-					<HStack gap={'8'}>
-						<Button
-							onClick={onSave}
-							variant={ButtonVariants.OUTLINE}
-							disabled={isLoading}
-							data-testid={'EditableProfileCardHeader.SaveButton'}
-						>
-							{t('Save')}
-						</Button>
-						<Button
-							onClick={onCancel}
-							variant={ButtonVariants.OUTLINE_RED}
-							disabled={isLoading}
-							data-testid={
-								'EditableProfileCardHeader.CancelButton'
-							}
-						>
-							{t('Cancel')}
-						</Button>
-					</HStack>
-				))}
-		</HStack>
-	)
+    return (
+        <HStack
+            justify={'spaceBetween'}
+            alignItems={'center'}
+        >
+            <Text title={t('Profile', { ns: 'profile' })} />
+            {canEdit &&
+                !error &&
+                (readonly ? (
+                    <Button
+                        onClick={onEdit}
+                        disabled={isLoading}
+                        data-testid={'EditableProfileCardHeader.EditButton'}
+                    >
+                        {t('Edit')}
+                    </Button>
+                ) : (
+                    <HStack gap={'8'}>
+                        <Button
+                            onClick={onSave}
+                            variant={ButtonVariants.OUTLINE}
+                            disabled={isLoading}
+                            data-testid={'EditableProfileCardHeader.SaveButton'}
+                        >
+                            {t('Save')}
+                        </Button>
+                        <Button
+                            onClick={onCancel}
+                            variant={ButtonVariants.OUTLINE_RED}
+                            disabled={isLoading}
+                            data-testid={
+                                'EditableProfileCardHeader.CancelButton'
+                            }
+                        >
+                            {t('Cancel')}
+                        </Button>
+                    </HStack>
+                ))}
+        </HStack>
+    )
 }

@@ -10,31 +10,31 @@ import { ProtectedRoute } from './ProtectedRoute'
 import { RoleGuard } from './RoleGuard'
 
 export const AppRouter: React.FC = () => {
-	const renderWithProtectedRoutes = (route: ProtectedRouteProps) => {
-		const element = (
-			<Suspense fallback={<PageLoader />}>
-				<ErrorBoundary FallbackComponent={PageError}>
-					{route.element}
-				</ErrorBoundary>
-			</Suspense>
-		)
+    const renderWithProtectedRoutes = (route: ProtectedRouteProps) => {
+        const element = (
+            <Suspense fallback={<PageLoader />}>
+                <ErrorBoundary FallbackComponent={PageError}>
+                    {route.element}
+                </ErrorBoundary>
+            </Suspense>
+        )
 
-		return (
-			<Route
-				key={route.path}
-				path={route.path}
-				element={
-					route.isProtected ? (
-						<RoleGuard requiredRoles={route.requiredRoles}>
-							<ProtectedRoute>{element}</ProtectedRoute>
-						</RoleGuard>
-					) : (
-						element
-					)
-				}
-			/>
-		)
-	}
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.isProtected ? (
+                        <RoleGuard requiredRoles={route.requiredRoles}>
+                            <ProtectedRoute>{element}</ProtectedRoute>
+                        </RoleGuard>
+                    ) : (
+                        element
+                    )
+                }
+            />
+        )
+    }
 
-	return <Routes>{routerConfig.map(renderWithProtectedRoutes)}</Routes>
+    return <Routes>{routerConfig.map(renderWithProtectedRoutes)}</Routes>
 }

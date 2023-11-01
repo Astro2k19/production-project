@@ -7,18 +7,18 @@ import { classNames } from '@/shared/lib'
 import cls from './PageError.module.scss'
 
 export const PageError: FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
-	const { t } = useTranslation('home')
+    const { t } = useTranslation('home')
 
-	console.log(error)
+    console.log(error)
 
-	return (
-		<div className={classNames([cls.pageError])}>
-			<div>
-				<h1>{t('Something went wrong!', { ns: 'translation' })}</h1>
-				<button onClick={resetErrorBoundary}>
-					{t('Try again', { ns: 'translation' })}
-				</button>
-			</div>
-		</div>
-	)
+    return (
+        <div className={classNames([cls.pageError])}>
+            <div>
+                <h1>{t('Something went wrong!', { ns: 'translation' })}</h1>
+                <button onClick={resetErrorBoundary}>
+                    {t('Try again', { ns: 'translation' })}
+                </button>
+            </div>
+        </div>
+    )
 }

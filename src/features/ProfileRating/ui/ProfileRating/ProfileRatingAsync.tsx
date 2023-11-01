@@ -5,20 +5,20 @@ import { Skeleton } from '@/shared/ui/Skeleton'
 import { ProfileRatingProps } from './ProfileRating'
 
 export const ProfileRatingLazy = React.lazy(
-	async () => await import('./ProfileRating'),
+    async () => await import('./ProfileRating'),
 )
 
 export const profileRatingAsync = (props: ProfileRatingProps) => {
-	return (
-		<Suspense
-			fallback={
-				<Skeleton
-					width={'100%'}
-					height={126}
-				/>
-			}
-		>
-			<ProfileRatingLazy {...props} />
-		</Suspense>
-	)
+    return (
+        <Suspense
+            fallback={
+                <Skeleton
+                    width={'100%'}
+                    height={126}
+                />
+            }
+        >
+            <ProfileRatingLazy {...props} />
+        </Suspense>
+    )
 }

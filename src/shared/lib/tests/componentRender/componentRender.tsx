@@ -16,43 +16,43 @@ import { Theme } from '@/shared/const/theme'
 import { type ReducersList } from '../../DynamicModuleLoader/DynamicModuleLoader'
 
 interface ComponentRenderOptions {
-	route?: string
-	initialState?: DeepPartial<StoreSchema>
-	asyncReducers?: ReducersList
-	theme?: Theme
+    route?: string
+    initialState?: DeepPartial<StoreSchema>
+    asyncReducers?: ReducersList
+    theme?: Theme
 }
 
 interface TestProviderProps {
-	children: ReactNode
-	options?: ComponentRenderOptions
+    children: ReactNode
+    options?: ComponentRenderOptions
 }
 
 export const TestProvider = ({ options, children }: TestProviderProps) => {
-	const {
-		route = '/',
-		initialState,
-		asyncReducers,
-		theme = Theme.LIGHT,
-	} = options ?? {}
+    const {
+        route = '/',
+        initialState,
+        asyncReducers,
+        theme = Theme.LIGHT,
+    } = options ?? {}
 
-	return (
-		<StoreProvider
-			initialState={initialState as StoreSchema}
-			asyncReducers={asyncReducers}
-		>
-			<MemoryRouter initialEntries={[route]}>
-				<I18nextProvider i18n={i18nForTests}>
-					<ThemeProvider initialTheme={theme}>
-						{children}
-					</ThemeProvider>
-				</I18nextProvider>
-			</MemoryRouter>
-		</StoreProvider>
-	)
+    return (
+        <StoreProvider
+            initialState={initialState as StoreSchema}
+            asyncReducers={asyncReducers}
+        >
+            <MemoryRouter initialEntries={[route]}>
+                <I18nextProvider i18n={i18nForTests}>
+                    <ThemeProvider initialTheme={theme}>
+                        {children}
+                    </ThemeProvider>
+                </I18nextProvider>
+            </MemoryRouter>
+        </StoreProvider>
+    )
 }
 
 export const componentRender = (
-	component: ReactNode,
-	options: ComponentRenderOptions = {},
+    component: ReactNode,
+    options: ComponentRenderOptions = {},
 ): RenderResult =>
-	render(<TestProvider options={options}>{component}</TestProvider>)
+    render(<TestProvider options={options}>{component}</TestProvider>)

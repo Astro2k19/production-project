@@ -5,9 +5,9 @@ import { type SortOrder } from '@/shared/types/sortOrder'
 import { type ArticlesSortFields } from '../const/articleFiltersConst'
 
 export interface ArticlesFiltersSchema {
-	sort: ArticlesSortFields
-	order: SortOrder
-	search: string
-	type: ArticleType
-	page: number
+    sort: ArticlesSortFields
+    order: SortOrder
+    search: string
+    type: ArticleType
+    page: number
 }

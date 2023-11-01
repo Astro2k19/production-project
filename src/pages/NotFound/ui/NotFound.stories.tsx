@@ -6,16 +6,16 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { NotFoundPage } from './NotFound'
 
 export default {
-	title: 'pages/NotFound',
-	component: NotFoundPage,
+    title: 'pages/NotFound',
+    component: NotFoundPage,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof NotFoundPage>
 
 const Template: ComponentStory<typeof NotFoundPage> = args => (
-	<NotFoundPage {...args} />
+    <NotFoundPage {...args} />
 )
 
 export const NotFound = Template.bind({})

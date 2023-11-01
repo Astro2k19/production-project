@@ -6,12 +6,12 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import HomePage from './Home'
 
 export default {
-	title: 'pages/Home',
-	component: HomePage,
+    title: 'pages/Home',
+    component: HomePage,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof HomePage>
 
 const Template: ComponentStory<typeof HomePage> = () => <HomePage />

@@ -4,19 +4,19 @@ import React from 'react'
 import { Code as CodeComponent } from './Code'
 
 export default {
-	title: 'shared/Code',
-	component: CodeComponent,
+    title: 'shared/Code',
+    component: CodeComponent,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof CodeComponent>
 
 const Template: ComponentStory<typeof CodeComponent> = args => (
-	<CodeComponent {...args} />
+    <CodeComponent {...args} />
 )
 
 export const Code = Template.bind({})
 Code.args = {
-	text: 'test',
+    text: 'test',
 }

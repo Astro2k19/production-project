@@ -9,51 +9,51 @@ import { Icon } from '../icon'
 import cls from './Avatar.module.scss'
 
 interface AvatarProps {
-	className?: string
-	size?: number
-	src?: string
-	alt?: string
+    className?: string
+    size?: number
+    src?: string
+    alt?: string
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-	const { className, size = 100, src, alt } = props
+    const { className, size = 100, src, alt } = props
 
-	const style = useMemo<CSSProperties>(
-		() => ({
-			width: size,
-			height: size,
-		}),
-		[size],
-	)
+    const style = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    )
 
-	const FallbackError = (
-		<Icon
-			Svg={FallbackAvatar}
-			width={size}
-			height={size}
-			inverted
-		/>
-	)
-	const FallbackLoading = (
-		<Skeleton
-			width={size}
-			height={size}
-			borderRadius={'50%'}
-		/>
-	)
+    const FallbackError = (
+        <Icon
+            Svg={FallbackAvatar}
+            width={size}
+            height={size}
+            inverted
+        />
+    )
+    const FallbackLoading = (
+        <Skeleton
+            width={size}
+            height={size}
+            borderRadius={'50%'}
+        />
+    )
 
-	return (
-		<div
-			className={classNames([cls.wrapper, className])}
-			style={style}
-		>
-			<AppImage
-				src={src}
-				className={classNames([cls.avatar])}
-				alt={alt}
-				fallback={FallbackLoading}
-				errorFallback={FallbackError}
-			/>
-		</div>
-	)
+    return (
+        <div
+            className={classNames([cls.wrapper, className])}
+            style={style}
+        >
+            <AppImage
+                src={src}
+                className={classNames([cls.avatar])}
+                alt={alt}
+                fallback={FallbackLoading}
+                errorFallback={FallbackError}
+            />
+        </div>
+    )
 })

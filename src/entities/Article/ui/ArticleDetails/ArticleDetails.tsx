@@ -17,119 +17,119 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import cls from './ArticleDetails.module.scss'
 
 interface ArticleDetailsProps {
-	className?: string
-	id: string
+    className?: string
+    id: string
 }
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-	const { className, id } = props
-	const { data: article, isLoading } = useFetchArticleById(id)
+    const { className, id } = props
+    const { data: article, isLoading } = useFetchArticleById(id)
 
-	const renderBlock = (block: ArticleBlockTypes, index: number) => {
-		switch (block.type) {
-			case ArticleBlockType.CODE:
-				return (
-					<ArticleCodeBlockComponent
-						block={block}
-						key={index}
-					/>
-				)
-			case ArticleBlockType.IMAGE:
-				return (
-					<ArticleImageBlockComponent
-						block={block}
-						key={index}
-					/>
-				)
-			case ArticleBlockType.TEXT:
-				return (
-					<ArticleTextBlockComponent
-						block={block}
-						key={index}
-					/>
-				)
-			default:
-				return null
-		}
-	}
+    const renderBlock = (block: ArticleBlockTypes, index: number) => {
+        switch (block.type) {
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        block={block}
+                        key={index}
+                    />
+                )
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        block={block}
+                        key={index}
+                    />
+                )
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        block={block}
+                        key={index}
+                    />
+                )
+            default:
+                return null
+        }
+    }
 
-	const FallbackLoading = (
-		<Skeleton
-			width={200}
-			height={200}
-			borderRadius={'50%'}
-		/>
-	)
+    const FallbackLoading = (
+        <Skeleton
+            width={200}
+            height={200}
+            borderRadius={'50%'}
+        />
+    )
 
-	if (isLoading) {
-		return (
-			<VStack
-				gap={'12'}
-				data-testid={'ArticleDetails.Loading'}
-			>
-				<HStack justify={'center'}>
-					<Skeleton
-						width={200}
-						height={200}
-						borderRadius={'50%'}
-					/>
-				</HStack>
-				<Skeleton
-					width={'60%'}
-					height={30}
-				/>
-				<Skeleton
-					width={'40%'}
-					height={30}
-				/>
-				<Skeleton
-					width={'100%'}
-					height={230}
-				/>
-				<Skeleton
-					width={'100%'}
-					height={230}
-				/>
-			</VStack>
-		)
-	}
+    if (isLoading) {
+        return (
+            <VStack
+                gap={'12'}
+                data-testid={'ArticleDetails.Loading'}
+            >
+                <HStack justify={'center'}>
+                    <Skeleton
+                        width={200}
+                        height={200}
+                        borderRadius={'50%'}
+                    />
+                </HStack>
+                <Skeleton
+                    width={'60%'}
+                    height={30}
+                />
+                <Skeleton
+                    width={'40%'}
+                    height={30}
+                />
+                <Skeleton
+                    width={'100%'}
+                    height={230}
+                />
+                <Skeleton
+                    width={'100%'}
+                    height={230}
+                />
+            </VStack>
+        )
+    }
 
-	return (
-		<VStack
-			gap={'12'}
-			tag={'div'}
-			className={className}
-			data-testid={'ArticleDetails'}
-		>
-			<HStack justify={'center'}>
-				<AppImage
-					src={article?.img}
-					alt={article?.title}
-					width={200}
-					height={200}
-					fallback={FallbackLoading}
-					errorFallback={FallbackLoading}
-					className={cls.image}
-				/>
-			</HStack>
-			<Text
-				title={article?.title}
-				TitleTag={'h1'}
-				text={article?.subtitle}
-				TextTag={'p'}
-				size={TextSize.L}
-			/>
-			<div>
-				<HStack gap={'8'}>
-					<Icon Svg={EyeIcon} />
-					<Text text={String(article?.views)} />
-				</HStack>
-				<HStack gap={'8'}>
-					<Icon Svg={DateIcon} />
-					<Text text={String(article?.createdAt)} />
-				</HStack>
-			</div>
-			<VStack gap={'32'}>{article?.blocks.map(renderBlock)}</VStack>
-		</VStack>
-	)
+    return (
+        <VStack
+            gap={'12'}
+            tag={'div'}
+            className={className}
+            data-testid={'ArticleDetails'}
+        >
+            <HStack justify={'center'}>
+                <AppImage
+                    src={article?.img}
+                    alt={article?.title}
+                    width={200}
+                    height={200}
+                    fallback={FallbackLoading}
+                    errorFallback={FallbackLoading}
+                    className={cls.image}
+                />
+            </HStack>
+            <Text
+                title={article?.title}
+                TitleTag={'h1'}
+                text={article?.subtitle}
+                TextTag={'p'}
+                size={TextSize.L}
+            />
+            <div>
+                <HStack gap={'8'}>
+                    <Icon Svg={EyeIcon} />
+                    <Text text={String(article?.views)} />
+                </HStack>
+                <HStack gap={'8'}>
+                    <Icon Svg={DateIcon} />
+                    <Text text={String(article?.createdAt)} />
+                </HStack>
+            </div>
+            <VStack gap={'32'}>{article?.blocks.map(renderBlock)}</VStack>
+        </VStack>
+    )
 })

@@ -12,24 +12,24 @@ import { profileReducer } from '@/features/EditableProfileCard/testing'
 import { type ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducersList = {
-	loginForm: authReducer,
-	profile: profileReducer,
-	addCommentForm: addCommentFormReducer,
-	articlesPageList: articlesPageReducer,
+    loginForm: authReducer,
+    profile: profileReducer,
+    addCommentForm: addCommentFormReducer,
+    articlesPageList: articlesPageReducer,
 }
 
 export const StoreDecorator =
-	(
-		initialState?: DeepPartial<StoreSchema>,
-		asyncReducers?: ReducersList,
-	): DecoratorFn =>
-	(StoryComponent: Story) => {
-		return (
-			<StoreProvider
-				initialState={initialState as StoreSchema}
-				asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-			>
-				<StoryComponent />
-			</StoreProvider>
-		)
-	}
+    (
+        initialState?: DeepPartial<StoreSchema>,
+        asyncReducers?: ReducersList,
+    ): DecoratorFn =>
+    (StoryComponent: Story) => {
+        return (
+            <StoreProvider
+                initialState={initialState as StoreSchema}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
+                <StoryComponent />
+            </StoreProvider>
+        )
+    }

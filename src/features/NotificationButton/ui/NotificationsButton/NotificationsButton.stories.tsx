@@ -8,16 +8,16 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { NotificationsButton } from './NotificationsButton'
 
 export default {
-	title: 'features/NotificationsButton',
-	component: NotificationsButton,
-	decorators: [withMock, StoreDecorator({})],
-	parameters: {
-		mockData: [{ ...mockResponse, delay: 2000 }],
-	},
+    title: 'features/NotificationsButton',
+    component: NotificationsButton,
+    decorators: [withMock, StoreDecorator({})],
+    parameters: {
+        mockData: [{ ...mockResponse, delay: 2000 }],
+    },
 } as ComponentMeta<typeof NotificationsButton>
 
 const Template: ComponentStory<typeof NotificationsButton> = args => (
-	<NotificationsButton {...args} />
+    <NotificationsButton {...args} />
 )
 
 export const Normal = Template.bind({})

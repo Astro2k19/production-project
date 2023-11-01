@@ -9,19 +9,19 @@ import { Button, ButtonVariants } from '@/shared/ui/Button'
 import cls from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
-	className?: string
+    className?: string
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-	const { toggleTheme } = useTheme()
+    const { toggleTheme } = useTheme()
 
-	return (
-		<Button
-			className={classNames([className])}
-			onClick={toggleTheme}
-			variant={ButtonVariants.CLEAR}
-		>
-			<ThemeSwitcherIcon className={cls.themeSwitcherIcon} />
-		</Button>
-	)
+    return (
+        <Button
+            className={classNames([className])}
+            onClick={toggleTheme}
+            variant={ButtonVariants.CLEAR}
+        >
+            <ThemeSwitcherIcon className={cls.themeSwitcherIcon} />
+        </Button>
+    )
 })

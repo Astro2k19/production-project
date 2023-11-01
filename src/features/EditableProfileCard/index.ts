@@ -3,6 +3,6 @@ export { fetchProfileData } from './model/services/fetchProfileData/fetctProfile
 export { profileActions } from './model/slice/profileSlice'
 export type { ProfileSchema } from './model/types/editableProfileCard'
 export {
-	ValidateProfileError,
-	ProfileError,
+    ValidateProfileError,
+    ProfileError,
 } from '@/entities/Profile/model/const/editableProfileCardConst'

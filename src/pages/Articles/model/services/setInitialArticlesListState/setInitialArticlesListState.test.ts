@@ -3,29 +3,29 @@ import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk
 import { setInitialArticlesListState } from './setInitialArticlesListState'
 
 describe('setInitialArticlesListState', () => {
-	test('inited state', async () => {
-		const asyncThunk = new TestAsyncThunk(setInitialArticlesListState, {
-			articlesPageList: {
-				_inited: true,
-			},
-		})
+    test('inited state', async () => {
+        const asyncThunk = new TestAsyncThunk(setInitialArticlesListState, {
+            articlesPageList: {
+                _inited: true,
+            },
+        })
 
-		const result = await asyncThunk.callAction()
+        const result = await asyncThunk.callAction()
 
-		expect(result.meta.requestStatus).toBe('fulfilled')
-		expect(asyncThunk.dispatch).toBeCalledTimes(2)
-	})
+        expect(result.meta.requestStatus).toBe('fulfilled')
+        expect(asyncThunk.dispatch).toBeCalledTimes(2)
+    })
 
-	test('not inited state', async () => {
-		const asyncThunk = new TestAsyncThunk(setInitialArticlesListState, {
-			articlesPageList: {
-				_inited: false,
-			},
-		})
+    test('not inited state', async () => {
+        const asyncThunk = new TestAsyncThunk(setInitialArticlesListState, {
+            articlesPageList: {
+                _inited: false,
+            },
+        })
 
-		const result = await asyncThunk.callAction()
+        const result = await asyncThunk.callAction()
 
-		expect(result.meta.requestStatus).toBe('fulfilled')
-		expect(asyncThunk.dispatch).toBeCalledTimes(4)
-	})
+        expect(result.meta.requestStatus).toBe('fulfilled')
+        expect(asyncThunk.dispatch).toBeCalledTimes(4)
+    })
 })

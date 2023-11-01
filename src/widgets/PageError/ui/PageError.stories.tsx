@@ -4,12 +4,12 @@ import React from 'react'
 import { PageErrorTest } from './PageErrorTest'
 
 export default {
-	title: 'widgets/PageError',
-	component: PageErrorTest,
+    title: 'widgets/PageError',
+    component: PageErrorTest,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof PageErrorTest>
 
 const Template: ComponentStory<typeof PageErrorTest> = args => <PageErrorTest />

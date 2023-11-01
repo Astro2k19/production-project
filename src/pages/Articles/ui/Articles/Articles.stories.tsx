@@ -8,17 +8,17 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import ArticlesPage from './Articles'
 
 export default {
-	title: 'pages/Articles',
-	component: ArticlesPage,
+    title: 'pages/Articles',
+    component: ArticlesPage,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
-	parameters: {
-		loki: {
-			skip: true,
-		},
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
 } as ComponentMeta<typeof ArticlesPage>
 
 const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />
@@ -28,13 +28,13 @@ export const Articles = Template.bind({})
 Articles.args = {}
 
 Articles.decorators = [
-	StoreDecorator({
-		articlesPageList: {
-			ids: [1, 2],
-			entities: {
-				1: { ...article, id: 1 },
-				2: { ...article, id: 2 },
-			},
-		},
-	}),
+    StoreDecorator({
+        articlesPageList: {
+            ids: [1, 2],
+            entities: {
+                1: { ...article, id: 1 },
+                2: { ...article, id: 2 },
+            },
+        },
+    }),
 ]

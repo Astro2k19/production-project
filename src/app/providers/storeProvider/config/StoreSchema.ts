@@ -1,9 +1,9 @@
 // eslint-disable-next-line authoring-project-plugin/public-api-import-checker
 import {
-	type AnyAction,
-	type EnhancedStore,
-	type Reducer,
-	type ReducersMapObject,
+    type AnyAction,
+    type EnhancedStore,
+    type Reducer,
+    type ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
 import { type CombinedState, type Dispatch } from 'redux'
@@ -21,42 +21,42 @@ import { type UserSchema } from '@/entities/User'
 import { type rtkApi } from '@/shared/api/rtkApi'
 
 export interface StoreSchema {
-	user: UserSchema
-	savePageScroll: SavePageScrollSchema
-	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    user: UserSchema
+    savePageScroll: SavePageScrollSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
-	// async reducers
-	loginForm?: LoginFormSchema
-	profile?: ProfileSchema
-	addCommentForm?: AddCommentFormSchema
-	articlesPageList?: ArticlesPageListSchema
-	articlesFilters: ArticlesFiltersSchema
+    // async reducers
+    loginForm?: LoginFormSchema
+    profile?: ProfileSchema
+    addCommentForm?: AddCommentFormSchema
+    articlesPageList?: ArticlesPageListSchema
+    articlesFilters: ArticlesFiltersSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema
 
 export interface ReducerManager {
-	getReducerMap: () => ReducersMapObject<StoreSchema>
-	reduce: (
-		state: StoreSchema,
-		action: AnyAction,
-	) => CombinedState<StoreSchema>
-	add: (key: StoreSchemaKeys, reducer: Reducer) => void
-	remove: (key: StoreSchemaKeys) => void
+    getReducerMap: () => ReducersMapObject<StoreSchema>
+    reduce: (
+        state: StoreSchema,
+        action: AnyAction,
+    ) => CombinedState<StoreSchema>
+    add: (key: StoreSchemaKeys, reducer: Reducer) => void
+    remove: (key: StoreSchemaKeys) => void
 }
 
 export interface ExtendedReducerManagerStore
-	extends EnhancedStore<StoreSchema> {
-	reducerManager: ReducerManager
+    extends EnhancedStore<StoreSchema> {
+    reducerManager: ReducerManager
 }
 
 export interface ThunkExtraArgs {
-	api: AxiosInstance
+    api: AxiosInstance
 }
 
 export interface AsyncThunkConfig<T = undefined> {
-	extra: ThunkExtraArgs
-	rejectValue?: T
-	dispatch?: Dispatch
-	state: StoreSchema
+    extra: ThunkExtraArgs
+    rejectValue?: T
+    dispatch?: Dispatch
+    state: StoreSchema
 }

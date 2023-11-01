@@ -12,53 +12,53 @@ import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 
 import {
-	useFetchArticleSingleComment,
-	useSendArticleSingleComment,
+    useFetchArticleSingleComment,
+    useSendArticleSingleComment,
 } from '../../api/articleSingleCommentApi'
 
 interface ArticleSingleCommentsProps {
-	id: string
-	className?: string
+    id: string
+    className?: string
 }
 
 export const ArticleSingleComments = memo(
-	({ className, id }: ArticleSingleCommentsProps) => {
-		const { t } = useTranslation('article')
-		const user = useAppSelector(getUserAuthDate)
-		const [sendArticleSingleComment, { isLoading: isFetching }] =
-			useSendArticleSingleComment()
-		const {
-			data: comments,
-			isLoading,
-			error,
-		} = useFetchArticleSingleComment(id)
+    ({ className, id }: ArticleSingleCommentsProps) => {
+        const { t } = useTranslation('article')
+        const user = useAppSelector(getUserAuthDate)
+        const [sendArticleSingleComment, { isLoading: isFetching }] =
+            useSendArticleSingleComment()
+        const {
+            data: comments,
+            isLoading,
+            error,
+        } = useFetchArticleSingleComment(id)
 
-		const onSendComment = useCallback(
-			(text: string) => {
-				sendArticleSingleComment({
-					articleId: id,
-					text,
-					userId: user?.id,
-				})
-			},
-			[id, sendArticleSingleComment, user?.id],
-		)
+        const onSendComment = useCallback(
+            (text: string) => {
+                sendArticleSingleComment({
+                    articleId: id,
+                    text,
+                    userId: user?.id,
+                })
+            },
+            [id, sendArticleSingleComment, user?.id],
+        )
 
-		return (
-			<VStack
-				gap={'16'}
-				className={classNames([className])}
-			>
-				<Text title={t('Comments')} />
-				<Suspense fallback={'Loading...'}>
-					<AddCommentForm onSendComment={onSendComment} />
-				</Suspense>
-				<CommentsList
-					comments={comments}
-					isLoading={isLoading || isFetching}
-					error={error}
-				/>
-			</VStack>
-		)
-	},
+        return (
+            <VStack
+                gap={'16'}
+                className={classNames([className])}
+            >
+                <Text title={t('Comments')} />
+                <Suspense fallback={'Loading...'}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
+                <CommentsList
+                    comments={comments}
+                    isLoading={isLoading || isFetching}
+                    error={error}
+                />
+            </VStack>
+        )
+    },
 )

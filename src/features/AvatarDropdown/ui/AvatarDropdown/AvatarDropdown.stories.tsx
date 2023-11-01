@@ -8,49 +8,49 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { AvatarDropdown } from './AvatarDropdown'
 
 export default {
-	title: 'features/AvatarDropdown',
-	component: AvatarDropdown,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    title: 'features/AvatarDropdown',
+    component: AvatarDropdown,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof AvatarDropdown>
 
 const Template: ComponentStory<typeof AvatarDropdown> = args => (
-	<AvatarDropdown {...args} />
+    <AvatarDropdown {...args} />
 )
 export const User = Template.bind({})
 User.args = {
-	authDate: {
-		id: '1',
-		username: 'Astro',
-		avatar,
-	},
+    authDate: {
+        id: '1',
+        username: 'Astro',
+        avatar,
+    },
 }
 User.decorators = [
-	StoreDecorator({
-		user: {
-			authData: {
-				roles: [UserRoles.USER],
-			},
-		},
-	}),
+    StoreDecorator({
+        user: {
+            authData: {
+                roles: [UserRoles.USER],
+            },
+        },
+    }),
 ]
 
 export const Admin = Template.bind({})
 Admin.args = {
-	authDate: {
-		id: '1',
-		username: 'Astro',
-		avatar,
-	},
+    authDate: {
+        id: '1',
+        username: 'Astro',
+        avatar,
+    },
 }
 
 Admin.decorators = [
-	StoreDecorator({
-		user: {
-			authData: {
-				roles: [UserRoles.ADMIN],
-			},
-		},
-	}),
+    StoreDecorator({
+        user: {
+            authData: {
+                roles: [UserRoles.ADMIN],
+            },
+        },
+    }),
 ]

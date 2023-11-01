@@ -8,11 +8,11 @@ import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesP
 
 export const setArticlesListViewMiddleware = createListenerMiddleware()
 setArticlesListViewMiddleware.startListening({
-	actionCreator: articlesPageActions.setArticlesView,
-	effect: (action, { getState }) => {
-		localStorage.setItem(
-			ARTICLES_LIST_VIEW_KEY,
-			JSON.stringify((getState() as StoreSchema).articlesPageList?.view),
-		)
-	},
+    actionCreator: articlesPageActions.setArticlesView,
+    effect: (action, { getState }) => {
+        localStorage.setItem(
+            ARTICLES_LIST_VIEW_KEY,
+            JSON.stringify((getState() as StoreSchema).articlesPageList?.view),
+        )
+    },
 })

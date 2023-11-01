@@ -8,8 +8,8 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import AdminPanelPage from './AdminPanel'
 
 export default {
-	title: 'pages/AdminPanel',
-	component: AdminPanelPage,
+    title: 'pages/AdminPanel',
+    component: AdminPanelPage,
 } as ComponentMeta<typeof AdminPanelPage>
 
 const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />
@@ -17,11 +17,11 @@ const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />
 export const AdminPanel = Template.bind({})
 
 AdminPanel.decorators = [
-	StoreDecorator({
-		user: {
-			authData: {
-				roles: [UserRoles.ADMIN],
-			},
-		},
-	}),
+    StoreDecorator({
+        user: {
+            authData: {
+                roles: [UserRoles.ADMIN],
+            },
+        },
+    }),
 ]

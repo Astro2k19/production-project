@@ -9,14 +9,14 @@ project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx'])
 const sourceFiles = project.getSourceFiles()
 
 sourceFiles.forEach(sourceFile => {
-	const imports = sourceFile.getImportDeclarations()
+    const imports = sourceFile.getImportDeclarations()
 
-	imports.forEach(importDeclaration => {
-		const importPath = importDeclaration.getModuleSpecifierValue()
-		if (isAbsoluteImport(importPath)) {
-			importDeclaration.setModuleSpecifier(`@/${importPath}`)
-		}
-	})
+    imports.forEach(importDeclaration => {
+        const importPath = importDeclaration.getModuleSpecifierValue()
+        if (isAbsoluteImport(importPath)) {
+            importDeclaration.setModuleSpecifier(`@/${importPath}`)
+        }
+    })
 })
 
 project.save()

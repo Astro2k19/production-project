@@ -10,6 +10,7 @@ import { ArticleSingleRecommendations } from '@/features/ArticleSingleRecommenda
 import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
+import { getFeatureFlag } from '@/shared/lib/features'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
 
@@ -24,6 +25,10 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
     const { t } = useTranslation()
     const { id } = useParams<{ id: string }>()
     const { error } = useFetchArticleById(id as string)
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
+    const isArticleRecommendationsEnabled = getFeatureFlag(
+        'isArticleRecommendationsEnabled',
+    )
 
     if (!id) {
         return <Text text={t('UNKNOWN_ARTICLE_ERROR')} />
@@ -46,8 +51,10 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
             <VStack gap={'32'}>
                 <ArticleSingleHeader />
                 <ArticleDetails id={id} />
-                <ArticleSingleRecommendations />
-                <ArticleRating articleId={id} />
+                {isArticleRecommendationsEnabled && (
+                    <ArticleSingleRecommendations />
+                )}
+                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                 <ArticleSingleComments id={id} />
             </VStack>
         </Page>

@@ -1,11 +1,11 @@
 {
-  "id": "1",
-  "first": "test firstname",
-  "lastname": "test lastname",
-  "age": "12",
-  "currency": "UAH",
-  "country": "UKRAINE",
-  "city": "Poltava",
-  "username": "Test user",
-  "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
+    "id": "1",
+    "first": "test firstname",
+    "lastname": "test lastname",
+    "age": "12",
+    "currency": "UAH",
+    "country": "UKRAINE",
+    "city": "Poltava",
+    "username": "Test user",
+    "avatar": "https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg"
 }

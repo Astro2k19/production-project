@@ -14,36 +14,36 @@ const sourceFiles = project.getSourceFiles()
 
 const sharedUiComponents = sharedUiDirectory?.getDirectories()
 sharedUiComponents?.forEach(directory => {
-	const indexFilePath = `${directory.getPath()}/index.ts`
-	const componentName = directory.getBaseName()
-	const publicApi = directory.getSourceFile(indexFilePath)
+    const indexFilePath = `${directory.getPath()}/index.ts`
+    const componentName = directory.getBaseName()
+    const publicApi = directory.getSourceFile(indexFilePath)
 
-	if (!publicApi) {
-		const content = `export * from './${componentName}'`
-		directory.createSourceFile(indexFilePath, content, { overwrite: true })
-	}
+    if (!publicApi) {
+        const content = `export * from './${componentName}'`
+        directory.createSourceFile(indexFilePath, content, { overwrite: true })
+    }
 })
 
 sourceFiles.forEach(sourceFile => {
-	const imports = sourceFile.getImportDeclarations()
+    const imports = sourceFile.getImportDeclarations()
 
-	imports.forEach(importDeclaration => {
-		const importPath = importDeclaration.getModuleSpecifierValue()
-		const importWithoutAlias = importPath.replace('@/', '')
+    imports.forEach(importDeclaration => {
+        const importPath = importDeclaration.getModuleSpecifierValue()
+        const importWithoutAlias = importPath.replace('@/', '')
 
-		const segments = importWithoutAlias.split('/')
-		const isSharedLayer = segments[0] === 'shared'
-		const isUiSlice = segments[1] === 'ui'
+        const segments = importWithoutAlias.split('/')
+        const isSharedLayer = segments[0] === 'shared'
+        const isUiSlice = segments[1] === 'ui'
 
-		if (
-			isAbsoluteImport(importWithoutAlias) &&
-			isSharedLayer &&
-			isUiSlice
-		) {
-			const newImportPath = segments.slice(0, 3).join('/')
-			importDeclaration.setModuleSpecifier(newImportPath)
-		}
-	})
+        if (
+            isAbsoluteImport(importWithoutAlias) &&
+            isSharedLayer &&
+            isUiSlice
+        ) {
+            const newImportPath = segments.slice(0, 3).join('/')
+            importDeclaration.setModuleSpecifier(newImportPath)
+        }
+    })
 })
 
 project.save()

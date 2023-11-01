@@ -6,12 +6,12 @@ import img from '@/shared/assets/images/tests/avatar.jpg'
 import { Avatar } from './Avatar'
 
 export default {
-	title: 'shared/Avatar',
-	component: Avatar,
+    title: 'shared/Avatar',
+    component: Avatar,
 
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Avatar>
 
 const Template: ComponentStory<typeof Avatar> = args => <Avatar {...args} />
@@ -19,12 +19,12 @@ const Template: ComponentStory<typeof Avatar> = args => <Avatar {...args} />
 export const small = Template.bind({})
 
 small.args = {
-	src: img,
-	size: 50,
+    src: img,
+    size: 50,
 }
 
 export const medium = Template.bind({})
 
 medium.args = {
-	src: img,
+    src: img,
 }

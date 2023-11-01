@@ -7,44 +7,44 @@ import ArticlesIcon from '@/shared/assets/icons/articles_icon.svg'
 import HomeIcon from '@/shared/assets/icons/home_icon.svg'
 import ProfileIcon from '@/shared/assets/icons/profile_icon.svg'
 import {
-	getRouteAbout,
-	getRouteArticles,
-	getRouteMain,
-	getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router'
 
 import { type SidebarItemType } from '../../model/types/sidebar'
 
 export const getSidebarItems = createSelector(getUserAuthDate, authDate => {
-	const sidebarItems: SidebarItemType[] = [
-		{
-			path: getRouteMain(),
-			Icon: HomeIcon,
-			text: 'Home',
-		},
-		{
-			path: getRouteAbout(),
-			Icon: AboutIcon,
-			text: 'About',
-		},
-	]
+    const sidebarItems: SidebarItemType[] = [
+        {
+            path: getRouteMain(),
+            Icon: HomeIcon,
+            text: 'Home',
+        },
+        {
+            path: getRouteAbout(),
+            Icon: AboutIcon,
+            text: 'About',
+        },
+    ]
 
-	if (authDate) {
-		sidebarItems.push(
-			{
-				path: getRouteProfile(authDate.id),
-				Icon: ProfileIcon,
-				text: 'Profile',
-				isProtected: true,
-			},
-			{
-				path: getRouteArticles(),
-				Icon: ArticlesIcon,
-				text: 'Articles',
-				isProtected: true,
-			},
-		)
-	}
+    if (authDate) {
+        sidebarItems.push(
+            {
+                path: getRouteProfile(authDate.id),
+                Icon: ProfileIcon,
+                text: 'Profile',
+                isProtected: true,
+            },
+            {
+                path: getRouteArticles(),
+                Icon: ArticlesIcon,
+                text: 'Articles',
+                isProtected: true,
+            },
+        )
+    }
 
-	return sidebarItems
+    return sidebarItems
 })
