@@ -1,25 +1,25 @@
 {
-    "Age": "Age",
-    "Avatar": "Avatar",
-    "Cancel": "Cancel",
-    "Edit": "Edit",
-    "First name": "First name",
-    "How do you like the profile?": "How do you like the profile?",
-    "Last name": "Last name",
-    "Leave feedback about this profile!": "Leave feedback about this profile!",
-    "Profile": "Profile",
-    "Profile page": "Profile page",
-    "Save": "Save",
-    "Username": "Username",
-    "fetch_error": {
-        "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
-        "NOT_FOUND": "Such profile does not exist! :(",
-        "SERVER_ERROR": "An error occurred on the server. Please try again later."
-    },
-    "validation_error": {
-        "INVALID_AGE": "Invalid age",
-        "INVALID_USERNAME": "Invalid username",
-        "INVALID_USER_DATA": "Firstname and Lastname are required!",
-        "SERVER_ERROR": "An error occurred on the server. Please try again later."
-    }
+  "Age": "Age",
+  "Avatar": "Avatar",
+  "Cancel": "Cancel",
+  "Edit": "Edit",
+  "First name": "First name",
+  "How do you like the profile?": "How do you like the profile?",
+  "Last name": "Last name",
+  "Leave feedback about this profile!": "Leave feedback about this profile!",
+  "Profile": "Profile",
+  "Profile page": "Profile page",
+  "Save": "Save",
+  "Username": "Username",
+  "fetch_error": {
+    "NETWORK_ERROR": "A network error occurred. Please check your internet connection and try again.",
+    "NOT_FOUND": "Such profile does not exist! :(",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later."
+  },
+  "validation_error": {
+    "INVALID_AGE": "Invalid age",
+    "INVALID_USERNAME": "Invalid username",
+    "INVALID_USER_DATA": "Firstname and Lastname are required!",
+    "SERVER_ERROR": "An error occurred on the server. Please try again later."
+  }
 }

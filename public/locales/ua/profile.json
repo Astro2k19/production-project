@@ -1,25 +1,25 @@
 {
-    "Age": "Вік",
-    "Avatar": "Аватарка",
-    "Cancel": "Cancel",
-    "Edit": "Edit",
-    "First name": "Ім'я",
-    "How do you like the profile?": "How do you like the profile?",
-    "Last name": "Прізвище",
-    "Leave feedback about this profile!": "Leave feedback about this profile!",
-    "Profile": "Профіль",
-    "Profile page": "Сторінка профіля",
-    "Save": "Зберегти",
-    "Username": "Ім'я користувача",
-    "fetch_error": {
-        "NETWORK_ERROR": "Сталася помилка мережі. Перевірте підключення до Інтернету та повторіть спробу.",
-        "NOT_FOUND": "Такого профілю не існує! :(",
-        "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
-    },
-    "validation_error": {
-        "INVALID_AGE": "Невірний вік",
-        "INVALID_USERNAME": "Невірний юзернейм",
-        "INVALID_USER_DATA": "Ім'я та Прізвище обов'язкові!",
-        "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
-    }
+  "Age": "Вік",
+  "Avatar": "Аватарка",
+  "Cancel": "Cancel",
+  "Edit": "Edit",
+  "First name": "Ім'я",
+  "How do you like the profile?": "How do you like the profile?",
+  "Last name": "Прізвище",
+  "Leave feedback about this profile!": "Leave feedback about this profile!",
+  "Profile": "Профіль",
+  "Profile page": "Сторінка профіля",
+  "Save": "Зберегти",
+  "Username": "Ім'я користувача",
+  "fetch_error": {
+    "NETWORK_ERROR": "Сталася помилка мережі. Перевірте підключення до Інтернету та повторіть спробу.",
+    "NOT_FOUND": "Такого профілю не існує! :(",
+    "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
+  },
+  "validation_error": {
+    "INVALID_AGE": "Невірний вік",
+    "INVALID_USERNAME": "Невірний юзернейм",
+    "INVALID_USER_DATA": "Ім'я та Прізвище обов'язкові!",
+    "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
+  }
 }

@@ -1,21 +1,22 @@
 {
-    "Click to edit article": "",
-    "Click to go back": "Повернутися назад",
-    "Edit article": "",
-    "Go back to articles": "Повернутися до статтей",
-    "How do you like the article?": "Як вам стаття?",
-    "UNKNOWN_ARTICLE_ERROR": "Ой! Щось пішло не так зі статтею, можливо її не існує. Спробуйте будь ласка перезайти.",
-    "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ой! Щось пішло не так при завантаженні коментарів до статті.",
-    "articles_type": {
-        "ALL": "Усі",
-        "ECONOMICS": "Економіка",
-        "IT": "Айті",
-        "POLITICS": "Політика",
-        "SPORT": "Спорт"
-    },
-    "fetch_error": {
-        "NETWORK_ERROR": "Сталася помилка мережі. Перевірте підключення до Інтернету та повторіть спробу.",
-        "NOT_FOUND": "Такої статті не існує! :(",
-        "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
-    }
+  "Click to edit article": "",
+  "Click to go back": "Повернутися назад",
+  "Comments": "Comments",
+  "Edit article": "",
+  "Go back to articles": "Повернутися до статтей",
+  "How do you like the article?": "Як вам стаття?",
+  "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ой! Щось пішло не так при завантаженні коментарів до статті.",
+  "UNKNOWN_ARTICLE_ERROR": "Ой! Щось пішло не так зі статтею, можливо її не існує. Спробуйте будь ласка перезайти.",
+  "articles_type": {
+    "ALL": "Усі",
+    "ECONOMICS": "Економіка",
+    "IT": "Айті",
+    "POLITICS": "Політика",
+    "SPORT": "Спорт"
+  },
+  "fetch_error": {
+    "NETWORK_ERROR": "Сталася помилка мережі. Перевірте підключення до Інтернету та повторіть спробу.",
+    "NOT_FOUND": "Такої статті не існує! :(",
+    "SERVER_ERROR": "На сервері сталася помилка. Будь-ласка спробуйте пізніше."
+  }
 }

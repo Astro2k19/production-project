@@ -1,16 +1,17 @@
 {
-    "Click to edit article": "",
-    "Click to go back": "Click to go back",
-    "Edit article": "",
-    "Go back to articles": "Go back to articles",
-    "How do you like the article?": "How do you like the article?",
-    "UNKNOWN_ARTICLE_ERROR": "Ops! Something went wrong with the article, maybe it doesn't exist. Please try again.",
-    "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ops! Something went wrong while loading article comments.",
-    "articles_type": {
-        "ALL": "ALL",
-        "ECONOMICS": "ECONOMICS",
-        "IT": "IT",
-        "POLITICS": "POLITICS",
-        "SPORT": "SPORT"
-    }
+  "Click to edit article": "",
+  "Click to go back": "Click to go back",
+  "Comments": "Comments",
+  "Edit article": "",
+  "Go back to articles": "Go back to articles",
+  "How do you like the article?": "How do you like the article?",
+  "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ops! Something went wrong while loading article comments.",
+  "UNKNOWN_ARTICLE_ERROR": "Ops! Something went wrong with the article, maybe it doesn't exist. Please try again.",
+  "articles_type": {
+    "ALL": "ALL",
+    "ECONOMICS": "ECONOMICS",
+    "IT": "IT",
+    "POLITICS": "POLITICS",
+    "SPORT": "SPORT"
+  }
 }
