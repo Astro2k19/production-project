@@ -17,9 +17,7 @@ export const App: React.FC = () => {
 
     useEffect(() => {
         dispatch(userActions.initAuthData())
-    }, []) // eslint-disable-line
-
-    console.log(inited, 'inited')
+    }, [dispatch])
 
     return (
         <div className={classNames(['app'])}>

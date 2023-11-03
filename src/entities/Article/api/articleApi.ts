@@ -1,6 +1,6 @@
 import { rtkApi } from '@/shared/api/rtkApi'
 
-import { Article } from '..'
+import { Article } from '../model/types/article'
 
 const articleApi = rtkApi.injectEndpoints({
     endpoints: build => ({

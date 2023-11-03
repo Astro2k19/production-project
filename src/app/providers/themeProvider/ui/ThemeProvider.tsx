@@ -6,12 +6,10 @@ import React, {
     useState,
 } from 'react'
 
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
+import { useUserJsonSettings } from '@/entities/User'
+
 import { Theme } from '@/shared/const/theme'
 import { ThemeContext } from '@/shared/context/theme'
-
-const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ?? Theme.LIGHT
 
 interface ThemeProviderProps {
     children: ReactNode
@@ -22,11 +20,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     children,
     initialTheme,
 }) => {
+    const { theme: defaultTheme = Theme.DUSK } = useUserJsonSettings()
+    // const [isThemeInited, setIsThemeInited] = useState(false)
     const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
+    // console.log(initialTheme ?? defaultTheme, 'initialTheme ?? defaultTheme')
 
     useEffect(() => {
-        document.body.className = theme
-    }, []) // eslint-disable-line
+        document.body.className = defaultTheme
+    }, [defaultTheme]) // eslint-disable-line
 
     const defaultValue = useMemo(
         () => ({

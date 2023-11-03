@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { VStack } from '@/shared/ui/Stack'
 
-import { useNotification } from '../../model/api/notificationsApi'
+import { useNotification } from '../../api/notificationsApi'
 import { NotificationItem } from '../NotificationItem/NotificationItem'
 import cls from './NotificationList.module.scss'
 

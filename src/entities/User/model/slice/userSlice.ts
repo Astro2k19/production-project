@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import { setFeatureFlag } from '@/shared/lib/features'
 
+import { setJsonSettings } from '../services/setJsonSettings'
 import { type User, type UserSchema } from '../types/userTypes'
 
 const initialState: UserSchema = {
@@ -24,6 +25,13 @@ export const userSlice = createSlice({
         logOut: state => {
             state.authData = undefined
         },
+    },
+    extraReducers: builder => {
+        builder.addCase(setJsonSettings.fulfilled, (state, { payload }) => {
+            if (state.authData) {
+                state.authData.jsonSettings = payload
+            }
+        })
     },
 })
 
