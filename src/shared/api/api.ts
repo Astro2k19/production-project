@@ -19,7 +19,7 @@ export const $api = axios.create({
 })
 
 $api.interceptors.request.use(config => {
-    config.headers.authorization = store.getState().user.authData
+    config.headers.authorization = store.getState().user.authData?.id
     return config
 })
 

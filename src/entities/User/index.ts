@@ -11,5 +11,6 @@ export {
 } from './model/selectors/getUserRoles/getUserRoles'
 export { UserRoles } from '@/entities/User/model/const/userConst'
 export { authMiddleware } from './model/middlewares/authMiddleware/authMiddleware'
-export { initUserDataMiddleware } from './model/middlewares/initUserDataMiddleware/initUserDataMiddleware'
 export { setJsonSettings } from './model/services/setJsonSettings'
+export { initAuthDate } from './model/services/initAuthDate'
+export { useUserJsonSettings } from './model/selectors/jsonSettingsSelectors'

@@ -2,6 +2,8 @@ import React, { type FC, memo } from 'react'
 
 import { Page } from '@/widgets/Page'
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
+
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
 import cls from './Articles.module.scss'
 
@@ -16,6 +18,7 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
             dataTestId={'ArticlesPage'}
         >
             <ArticlesInfiniteList />
+            <ArticlePageGreeting />
         </Page>
     )
 }

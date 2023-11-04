@@ -2604,7 +2604,8 @@
         "isArticleRecommendationsEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme"
+        "theme": "app_light_theme",
+        "wasArticlesPageOpened": true
       }
     },
     {
@@ -2620,7 +2621,8 @@
         "isArticleRecommendationsEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dusk_theme"
+        "theme": "app_light_theme",
+        "wasArticlesPageOpened": true
       }
     },
     {

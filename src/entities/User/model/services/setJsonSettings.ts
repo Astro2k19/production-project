@@ -11,7 +11,7 @@ export const setJsonSettings = createAsyncThunk<
     JsonSettings,
     JsonSettings,
     AsyncThunkConfig
->('profile/updateProfileData', async (newJsonSettings, thunkAPI) => {
+>('user/setJsonSettings', async (newJsonSettings, thunkAPI) => {
     const { rejectWithValue, dispatch, getState } = thunkAPI
 
     try {

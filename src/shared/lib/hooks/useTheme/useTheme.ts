@@ -28,9 +28,6 @@ export const useTheme = (): useThemeResult => {
 				themeName = Theme.LIGHT;
 		}
 
-		console.log(theme, 'toggleTheme');
-
-		console.log(themeName, 'toggleTheme');
 
 		if (setTheme) {
 			setTheme(themeName);

@@ -16,7 +16,7 @@ authMiddleware.startListening({
             localStorage.setItem(
                 USER_AUTH_DATA_KEY,
                 JSON.stringify(
-                    (listenerApi.getState() as StoreSchema).user.authData,
+                    (listenerApi.getState() as StoreSchema).user.authData?.id,
                 ),
             )
         }

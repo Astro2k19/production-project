@@ -10,11 +10,7 @@ import { setArticlesListViewMiddleware } from '@/pages/Articles'
 import { articlesFiltersReducer } from '@/features/ArticlesFilters'
 import { savePageScrollReducer } from '@/features/SavePageScroll'
 
-import {
-    authMiddleware,
-    initUserDataMiddleware,
-    userReducer,
-} from '@/entities/User'
+import { authMiddleware, userReducer } from '@/entities/User'
 
 import { $api } from '@/shared/api/api'
 import { rtkApi } from '@/shared/api/rtkApi'
@@ -51,7 +47,6 @@ export const createReduxStore = (
             })
                 .prepend(
                     authMiddleware.middleware,
-                    initUserDataMiddleware.middleware,
                     setArticlesListViewMiddleware.middleware,
                 )
                 .concat(rtkApi.middleware),

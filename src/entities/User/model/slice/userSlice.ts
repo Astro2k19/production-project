@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import { setFeatureFlag } from '@/shared/lib/features'
 
+import { initAuthDate } from '../services/initAuthDate'
 import { setJsonSettings } from '../services/setJsonSettings'
 import { type User, type UserSchema } from '../types/userTypes'
 
@@ -19,9 +20,6 @@ export const userSlice = createSlice({
             state.authData = action.payload
             setFeatureFlag(action.payload.features)
         },
-        initAuthData: state => {
-            state._inited = true
-        },
         logOut: state => {
             state.authData = undefined
         },
@@ -31,6 +29,14 @@ export const userSlice = createSlice({
             if (state.authData) {
                 state.authData.jsonSettings = payload
             }
+        })
+        builder.addCase(initAuthDate.fulfilled, (state, { payload }) => {
+            state.authData = payload
+            setFeatureFlag(payload.features)
+            state._inited = true
+        })
+        builder.addCase(initAuthDate.rejected, state => {
+            state._inited = true
         })
     },
 })
