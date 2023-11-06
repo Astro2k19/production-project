@@ -1,0 +1,20 @@
+.mainLayout {
+  display: grid;
+  grid-template-areas: 'sidebar content rightbar';
+  grid-template-columns: 284px 1fr 176px;
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  padding: 32px;
+}
+
+.content {
+  grid-area: content;
+  padding: 32px;
+}
+
+.rightbar {
+  grid-area: rightbar;
+}

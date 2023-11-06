@@ -2601,10 +2601,11 @@
       "avatar": "https://www.w3scheools.com/howto/img_avatar.png",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationsEnabled": true
+        "isArticleRecommendationsEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "wasArticlesPageOpened": true
       }
     },

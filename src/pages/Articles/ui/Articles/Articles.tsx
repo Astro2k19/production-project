@@ -4,7 +4,9 @@ import { Page } from '@/widgets/Page'
 
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 
-import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+
+import { ArticlesVirtualizedInfiniteList } from '../ArticlesVirtualizedInfiniteList/ArticlesVirtualizedInfiniteList'
 import cls from './Articles.module.scss'
 
 interface ArticlesProps {
@@ -12,12 +14,19 @@ interface ArticlesProps {
 }
 
 const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
+    const dispatch = useAppDispatch()
+    // const loadNextArticles = useCallback(() => {
+    //     console.log('end reached')
+    //     dispatch(fetchNextArticlesPart())
+    // }, [dispatch])
+
     return (
         <Page
             className={cls.articlesPage}
             dataTestId={'ArticlesPage'}
+            // onScrollEnd={loadNextArticles}
         >
-            <ArticlesInfiniteList />
+            <ArticlesVirtualizedInfiniteList />
             <ArticlePageGreeting />
         </Page>
     )

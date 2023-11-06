@@ -185,6 +185,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = props => {
             {view === ArticlesListView.LIST ? (
                 <Virtuoso
                     style={{ height: '100%', overflowX: 'hidden' }}
+                    useWindowScroll
                     data={articles}
                     itemContent={renderArticleItem}
                     endReached={loadMoreCallback}
@@ -196,6 +197,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = props => {
                 />
             ) : (
                 <VirtuosoGrid
+                    useWindowScroll
                     data={articles}
                     itemContent={renderArticleItem}
                     className={cls.virtuosoGrid}

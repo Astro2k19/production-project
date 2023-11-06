@@ -12,6 +12,7 @@ import {
 } from '@/features/SavePageScroll'
 
 import { classNames } from '@/shared/lib'
+import { toggleFeature } from '@/shared/lib/features/toggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
@@ -61,10 +62,16 @@ export const Page = ({
         rootRef.current.scrollTop = scrollTop
     })
 
+    const pageClassName = toggleFeature({
+        name: 'isAppRedesigned',
+        on: () => cls.pageRedesigned,
+        off: () => cls.page,
+    })
+
     return (
         <section
             ref={rootRef}
-            className={classNames([cls.page, className])}
+            className={classNames([pageClassName, className])}
             onScroll={onScroll}
             data-testid={dataTestId}
         >

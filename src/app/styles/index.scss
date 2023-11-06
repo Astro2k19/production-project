@@ -7,8 +7,8 @@
 
 body {
   height: 100vh;
-  font: var(--font-m);
-  color: var(--primary-color);
+  //font: var(--font-m);
+  //color: var(--primary-color);
   overflow-x: hidden;
 }
 
@@ -16,11 +16,22 @@ body {
   height: 100%;
 }
 
+.app_redesigned,
+.app {
+  min-height: 100vh;
+  height: 100%;
+}
+
 .app {
   background: var(--bg-color);
   color: var(--primary-color);
-  min-height: 100vh;
-  height: 100%;
+  font: var(--font-m);
+}
+
+.app_redesigned {
+  background: var(--bq-redesigned);
+  color: var(--text-redesigned);
+  font: var(--font-m-redesigned);
 }
 
 .app_drawer {

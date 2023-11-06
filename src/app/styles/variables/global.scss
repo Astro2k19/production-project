@@ -1,5 +1,7 @@
 :root {
   --font-family-main: inter;
+  --font-family-text-redesigned: 'Roboto', sans-serif;
+  --font-family-header-redesigned: 'NunitoSans', sans-serif;
 
   // S
   --font-size-s: 14px;
@@ -25,6 +27,24 @@
   --font-size-xxl: 40px;
   --font-line-xxl: 48px;
   --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
+
+  //redesigned font sizes
+
+  // S
+  --font-s-redesigned: 400 var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+
+  // M
+  --font-m-redesigned: 400 var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+
+  // L
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-header-redesigned);
+
+  // XL
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
+
+  // XXL
+  --font-xxl-redesigned: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-header-redesigned);
+
   --navbar-height: 50px;
   --sidebar-width: 80px;
   --sidebar-collapsed-width: 300px;

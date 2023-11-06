@@ -7,7 +7,9 @@ import { PageLoader } from '@/widgets/pageLoader'
 
 import { getUserInited, initAuthDate } from '@/entities/User'
 
+import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 import { AppRouter } from './providers/router/ui/AppRouter'
@@ -26,15 +28,31 @@ export const App: React.FC = () => {
     }
 
     return (
-        <Suspense fallback={<PageLoader />}>
-            <div className={classNames(['app'])}>
-                <Navbar />
-                <div className="page-content">
-                    <Sidebar />
-
-                    {isInited && <AppRouter />}
-                </div>
-            </div>
-        </Suspense>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <Suspense fallback={<PageLoader />}>
+                    <div className={classNames(['app_redesigned'])}>
+                        <MainLayout
+                            navbar={<Navbar />}
+                            sidebar={<Sidebar />}
+                            content={<AppRouter />}
+                            toolbar={<div>test content</div>}
+                        />
+                    </div>
+                </Suspense>
+            }
+            off={
+                <Suspense fallback={<PageLoader />}>
+                    <div className={classNames(['app'])}>
+                        <Navbar />
+                        <div className="page-content">
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </div>
+                </Suspense>
+            }
+        />
     )
 }

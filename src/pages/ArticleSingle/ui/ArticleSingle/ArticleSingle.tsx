@@ -10,7 +10,7 @@ import { ArticleSingleRecommendations } from '@/features/ArticleSingleRecommenda
 import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { toggleFeature } from '@/shared/lib/features/toggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { Card } from '@/shared/ui/Card'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
@@ -31,20 +31,6 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
         return <Text text={t('UNKNOWN_ARTICLE_ERROR')} />
     }
 
-    const articleRating = toggleFeature({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Article rating will be accessible soon!')}</Card>,
-    })
-
-    const articleRecommendations = toggleFeature({
-        name: 'isArticleRecommendationsEnabled',
-        on: () => <ArticleSingleRecommendations />,
-        off: () => (
-            <Card>{t('Article recommendations will be accessible soon!')}</Card>
-        ),
-    })
-
     if (error) {
         return (
             <Page className={classNames([className])}>
@@ -62,8 +48,26 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
             <VStack gap={'32'}>
                 <ArticleSingleHeader />
                 <ArticleDetails id={id} />
-                {articleRecommendations}
-                {articleRating}
+                <ToggleFeatures
+                    feature={'isArticleRecommendationsEnabled'}
+                    on={<ArticleSingleRecommendations />}
+                    off={
+                        <Card>
+                            {t(
+                                'Article recommendations will be accessible soon!',
+                            )}
+                        </Card>
+                    }
+                />
+                <ToggleFeatures
+                    feature={'isArticleRatingEnabled'}
+                    on={<ArticleRating articleId={id} />}
+                    off={
+                        <Card>
+                            {t('Article rating will be accessible soon!')}
+                        </Card>
+                    }
+                />
                 <ArticleSingleComments id={id} />
             </VStack>
         </Page>

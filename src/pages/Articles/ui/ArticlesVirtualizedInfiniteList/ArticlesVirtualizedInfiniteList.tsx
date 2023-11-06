@@ -1,8 +1,14 @@
 import React, { memo, useCallback } from 'react'
 
-import { ArticlesFilters } from '@/features/ArticlesFilters'
+import {
+    ArticlesFilters,
+    getArticlesFiltersType,
+} from '@/features/ArticlesFilters'
 
-import { ArticlesList, type ArticlesListView } from '@/entities/Article'
+import {
+    type ArticlesListView,
+    ArticlesListVirtualized,
+} from '@/entities/Article'
 
 import {
     DynamicModuleLoader,
@@ -14,17 +20,19 @@ import { useFetchData } from '@/shared/lib/hooks/useFetchData/useFetchData'
 
 import {
     getArticlesListError,
+    getArticlesListHasMore,
     getArticlesListIsLoading,
     getArticlesListView,
 } from '../../model/selectors/articlesPageList'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
+import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
 import { setInitialArticlesListState } from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import {
     articlesListSelectors,
     articlesPageActions,
     articlesPageReducer,
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import cls from '../ArticlesVirtualizedInfiniteList/ArticlesVirtualizedInfiniteList.module.scss'
+import cls from './ArticlesVirtualizedInfiniteList.module.scss'
 
 interface ArticleInfiniteListProps {
     className?: string
@@ -34,7 +42,7 @@ const reducer: ReducersList = {
     articlesPageList: articlesPageReducer,
 }
 
-export const ArticlesInfiniteList = memo(
+export const ArticlesVirtualizedInfiniteList = memo(
     ({ className }: ArticleInfiniteListProps) => {
         const dispatch = useAppDispatch()
         const isLoading = useAppSelector(getArticlesListIsLoading)
@@ -42,6 +50,13 @@ export const ArticlesInfiniteList = memo(
         const error = useAppSelector(getArticlesListError)
         const articles = useAppSelector(articlesListSelectors.selectAll)
         const view = useAppSelector(getArticlesListView)
+        const hasMore = useAppSelector(getArticlesListHasMore)
+        const articlesType = useAppSelector(getArticlesFiltersType)
+
+        const loadNextArticles = useCallback(() => {
+            console.log('end reached')
+            dispatch(fetchNextArticlesPart())
+        }, [dispatch])
 
         const onChangeListView = useCallback(
             (view: ArticlesListView) => {
@@ -49,26 +64,38 @@ export const ArticlesInfiniteList = memo(
             },
             [dispatch],
         )
+        console.log('before useFetchData')
 
         useFetchData(() => {
+            console.log('inside useFetchData')
+
             dispatch(setInitialArticlesListState())
         })
 
-        return (
-            <DynamicModuleLoader
-                reducers={reducer}
-                removeAfterUnmount={false}
-            >
+        const Header = useCallback(() => {
+            return (
                 <ArticlesFilters
                     view={view}
                     onChangeListView={onChangeListView}
                     className={cls.articlesFilter}
                     fetchArticlesList={fetchArticlesList}
                 />
-                <ArticlesList
+            )
+        }, [view, onChangeListView])
+
+        return (
+            <DynamicModuleLoader
+                reducers={reducer}
+                removeAfterUnmount={false}
+            >
+                <ArticlesListVirtualized
                     articles={articles}
-                    isLoading={isLoading}
+                    isLoading={true}
+                    articlesType={articlesType}
+                    hasMore={hasMore}
                     view={view}
+                    onReachEnd={loadNextArticles}
+                    Header={Header}
                 />
             </DynamicModuleLoader>
         )
