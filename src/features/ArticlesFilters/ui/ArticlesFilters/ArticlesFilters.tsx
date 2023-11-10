@@ -8,9 +8,9 @@ import { classNames } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { type SortOrder } from '@/shared/types/sortOrder'
-import { Card } from '@/shared/ui/Card'
-import { Input } from '@/shared/ui/Input'
-import { HStack, VStack } from '@/shared/ui/Stack'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Input } from '@/shared/ui/deprecated/Input'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import { type ArticlesSortFields } from '../../model/const/articleFiltersConst'
 import {

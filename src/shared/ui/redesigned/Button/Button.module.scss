@@ -1,0 +1,37 @@
+.button {
+  cursor: pointer;
+  padding: 10px 15px;
+  color: var(--text-redesigned);
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: auto;
+  }
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+}
+
+.clear {
+  padding: 0;
+  background: none;
+  border: none;
+  outline-color: transparent;
+}
+
+.outline {
+  border: 1px solid var(--bq-redesigned);
+}
+
+.M {
+  font: var(--font-m-redesigned);
+}
+
+.L {
+  font: var(--font-l-redesigned);
+}
+
+.XL {
+  font: var(--font-xl-redesigned);
+}

@@ -37,7 +37,7 @@ export const App: React.FC = () => {
                             navbar={<Navbar />}
                             sidebar={<Sidebar />}
                             content={<AppRouter />}
-                            toolbar={<div>test content</div>}
+                            toolbar={<div>1234</div>}
                         />
                     </div>
                 </Suspense>

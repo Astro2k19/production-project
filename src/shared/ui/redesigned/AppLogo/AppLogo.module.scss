@@ -1,0 +1,48 @@
+.appLogoWrapper {
+  position: relative;
+}
+
+.appLogoWrapper svg {
+  position: relative;
+  z-index: 10;
+}
+
+.smallGradient {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  width: 195.113px;
+  height: 193.78px;
+  background:
+    radial-gradient(
+      30.29% 30.29% at 50% 50%,
+      rgb(94 211 243 / 18%) 0%,
+      rgb(94 211 243 / 11%) 25.55%,
+      rgb(94 211 243 / 7%) 47.27%,
+      rgb(94 211 243 / 4%) 69.66%,
+      rgb(94 211 243 / 0%) 100%
+    );
+  pointer-events: none;
+}
+
+.bigGradient {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  width: 303.62px;
+  height: 301.546px;
+  border-radius: 303.62px;
+  background:
+    radial-gradient(
+      57.05% 57.05% at 49.84% 42.95%,
+      rgb(94 211 243 / 20%) 0%,
+      rgb(94 211 243 / 13%) 7.81%,
+      rgb(94 211 243 / 8%) 29.69%,
+      rgb(94 211 243 / 4%) 56.77%,
+      rgb(94 211 243 / 2%) 77.6%,
+      rgb(94 211 243 / 0%) 100%
+    );
+  pointer-events: none;
+}

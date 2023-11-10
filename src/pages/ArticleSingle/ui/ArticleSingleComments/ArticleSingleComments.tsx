@@ -8,8 +8,8 @@ import { getUserAuthDate } from '@/entities/User'
 
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { VStack } from '@/shared/ui/Stack'
-import { Text } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import {
     useFetchArticleSingleComment,

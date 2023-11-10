@@ -17,10 +17,10 @@ import {
 
 import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
 import { classNames } from '@/shared/lib'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Loader } from '@/shared/ui/Loader'
-import { HStack } from '@/shared/ui/Stack'
-import { Text } from '@/shared/ui/Text'
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
+import { Loader } from '@/shared/ui/deprecated/Loader'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import {
     type ArticleType,

@@ -13,6 +13,7 @@ import { Profile } from '@/pages/Profile'
 import { UserRoles } from '@/entities/User'
 
 import {
+    getRouteAbout,
     getRouteAdminPanel,
     getRouteArticleEdit,
     getRouteArticleNew,
@@ -35,7 +36,7 @@ export const routerConfig: ProtectedRouteProps[] = [
         element: <HomePage />,
     },
     {
-        path: getRouteMain(),
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     {

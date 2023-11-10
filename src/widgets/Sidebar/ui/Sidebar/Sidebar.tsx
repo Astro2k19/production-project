@@ -1,12 +1,12 @@
-import React, { type FC } from 'react'
+import React, { type FC, useMemo } from 'react'
 
-import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
-import { SidebarOldDesign } from '../SidebarOldDesign/SidebarOldDesign'
-import cls from './Sidebar.module.scss'
+import { SidebarDeprecated } from '../SidebarDeprecated/SidebarDeprecated'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
+import { SidebarRedesigned } from '../SidebarRedesigned/SidebarRedesigned'
 
 interface SidebarProps {
     className?: string
@@ -20,24 +20,33 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
         setCollapsed(prevState => !prevState)
     }
 
+    const items = useMemo<Array<ReturnType<typeof SidebarItem>>>(
+        () =>
+            sidebarItems.map(item => (
+                <SidebarItem
+                    item={item}
+                    key={item.path}
+                    collapsed={collapsed}
+                />
+            )),
+        [collapsed, sidebarItems],
+    )
+
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
             on={
-                <section
-                    className={classNames([cls.sidebarRedesigned, className], {
-                        [cls.collapsed]: collapsed,
-                    })}
-                    data-testid="sidebar"
-                >
-                    new sidebar create layout, add color, fonts, app_redeisgedn
-                    class, sidebar in progress, need other component
-                </section>
+                <SidebarRedesigned
+                    className={className}
+                    items={items}
+                    toggleSidebar={toggleSidebar}
+                    collapsed={collapsed}
+                />
             }
             off={
-                <SidebarOldDesign
+                <SidebarDeprecated
                     className={className}
-                    sidebarItems={sidebarItems}
+                    items={items}
                     toggleSidebar={toggleSidebar}
                     collapsed={collapsed}
                 />

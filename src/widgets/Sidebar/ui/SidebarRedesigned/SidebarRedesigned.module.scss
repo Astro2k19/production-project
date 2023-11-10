@@ -1,0 +1,47 @@
+.sidebarRedesigned {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  border-radius: 32px;
+  background: var(--light-bg-redesigned);
+  overflow: hidden;
+  transition: width 0.2s ease-out;
+}
+
+.collapsed {
+  width: 50px;
+
+  .toggleBtn {
+    --rotate-deg: 180deg;
+  }
+
+  .switchers {
+    flex-direction: column;
+  }
+
+  .logo {
+    transform: scale(0.7);
+  }
+}
+
+.logo {
+  padding-top: 20px;
+  margin-bottom: 40px;
+  transition: transform 0.2s ease-out;
+}
+
+.toggleBtn {
+  --rotate-deg: 0deg;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%) rotate(var(--rotate-deg));
+}
+
+.switchers {
+  padding-block: 30px;
+}

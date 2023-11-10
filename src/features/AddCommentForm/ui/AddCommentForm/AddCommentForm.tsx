@@ -6,8 +6,8 @@ import {
     DynamicModuleLoader,
     type ReducersList,
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input'
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
+import { Input } from '@/shared/ui/deprecated/Input'
 
 import { useGetAddCommentFormText } from '../../model/selectors/addCommentFormSelectors'
 import {

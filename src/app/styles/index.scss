@@ -7,8 +7,6 @@
 
 body {
   height: 100vh;
-  //font: var(--font-m);
-  //color: var(--primary-color);
   overflow-x: hidden;
 }
 
@@ -18,12 +16,15 @@ body {
 
 .app_redesigned,
 .app {
-  min-height: 100vh;
-  height: 100%;
+  min-height: 100%;
 }
 
 .app {
   background: var(--bg-color);
+}
+
+.app_modal,
+.app {
   color: var(--primary-color);
   font: var(--font-m);
 }

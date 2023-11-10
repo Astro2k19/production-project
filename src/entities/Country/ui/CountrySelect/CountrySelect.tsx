@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { ListBox } from '@/shared/ui/ListBox'
+import { ListBox } from '@/shared/ui/deprecated/ListBox'
 
 import { Country } from '../../model/const/countryConts'
 

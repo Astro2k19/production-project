@@ -14,14 +14,14 @@ export const buildBabelLoader = ({ isTSX, isDev }: BuildBabelLoaderOptions) => (
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
       cacheDirectory: true,
       plugins: [
-        ['i18next-extract',
-          {
-            locales: ['en', 'ua'],
-            defaultNS: 'translation',
-            keySeparator: '.',
-            keyAsDefaultValue: true,
-            outputPath: 'public/locales/{{locale}}/{{ns}}.json'
-          }],
+        // ['i18next-extract',
+        //   {
+        //     locales: ['en', 'ua'],
+        //     defaultNS: 'translation',
+        //     keySeparator: '.',
+        //     keyAsDefaultValue: true,
+        //     outputPath: 'public/locales/{{locale}}/{{ns}}.json'
+        //   }],
         [
           '@babel/plugin-transform-typescript',
           {

@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
+import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 
 import { type Comment } from '../../model/types/comment'
 import { CommentCard } from '../CommentCard/CommentCard'

@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { HStack } from '@/shared/ui/Stack'
-import { Text } from '@/shared/ui/Text'
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import {
     canEditProfile,

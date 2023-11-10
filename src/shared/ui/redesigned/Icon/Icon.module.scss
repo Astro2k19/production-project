@@ -1,0 +1,16 @@
+.icon {
+  fill: var(--icon-redesigned);
+  color: var(--icon-redesigned);
+}
+
+.button {
+  padding: 0;
+  background: none;
+  outline-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

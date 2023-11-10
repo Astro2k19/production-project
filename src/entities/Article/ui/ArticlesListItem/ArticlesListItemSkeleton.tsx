@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { Card } from '@/shared/ui/Card'
-import { Skeleton } from '@/shared/ui/Skeleton'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 
 import { ArticlesListView } from '../../model/const/articleConst'
 import cls from './ArticlesListItem.module.scss'

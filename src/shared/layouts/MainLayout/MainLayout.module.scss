@@ -1,8 +1,14 @@
 .mainLayout {
   display: grid;
-  grid-template-areas: 'sidebar content rightbar';
+  grid-template-areas: "sidebar content rightbar";
   grid-template-columns: 284px 1fr 176px;
-  height: 100%;
+}
+
+.rightbar,
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .sidebar {
@@ -13,8 +19,18 @@
 .content {
   grid-area: content;
   padding: 32px;
+  max-width: 1500px;
+  width: 100%;
+  justify-self: center;
 }
 
 .rightbar {
   grid-area: rightbar;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toolbar {
+  height: 100%;
 }

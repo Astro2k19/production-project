@@ -11,9 +11,9 @@ import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
-import { Card } from '@/shared/ui/Card'
-import { VStack } from '@/shared/ui/Stack'
-import { Text, TextAligns, TextVariants } from '@/shared/ui/Text'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleComments'
 import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'

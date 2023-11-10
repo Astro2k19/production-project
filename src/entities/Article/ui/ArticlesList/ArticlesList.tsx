@@ -2,7 +2,7 @@ import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
 
 import { ArticlesListView } from '../../model/const/articleConst'
 import { type Article } from '../../model/types/article'

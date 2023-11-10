@@ -1,8 +1,8 @@
 import { type FC, Suspense } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { Loader } from '@/shared/ui/Loader'
-import { Modal } from '@/shared/ui/Modal'
+import { Loader } from '@/shared/ui/deprecated/Loader'
+import { Modal } from '@/shared/ui/deprecated/Modal'
 
 import { AuthFormAsync } from '../AuthForm/AuthFormAsync'
 import cls from './AuthModal.module.scss'

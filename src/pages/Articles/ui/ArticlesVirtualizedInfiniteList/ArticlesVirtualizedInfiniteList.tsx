@@ -90,7 +90,7 @@ export const ArticlesVirtualizedInfiniteList = memo(
             >
                 <ArticlesListVirtualized
                     articles={articles}
-                    isLoading={true}
+                    isLoading={isLoading}
                     articlesType={articlesType}
                     hasMore={hasMore}
                     view={view}

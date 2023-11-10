@@ -7,9 +7,9 @@ import {
     type ReducersList,
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input'
-import { Text, TextVariants } from '@/shared/ui/Text'
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
+import { Input } from '@/shared/ui/deprecated/Input'
+import { Text, TextVariants } from '@/shared/ui/deprecated/Text'
 
 import { getAuthErrorMessage } from '../../lib/getAuthErrorMessage/getAuthErrorMessage'
 import {

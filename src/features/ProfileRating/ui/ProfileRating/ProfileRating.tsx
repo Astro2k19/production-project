@@ -5,7 +5,7 @@ import { RatingCard } from '@/entities/Rating'
 import { getUserAuthDate } from '@/entities/User'
 
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Skeleton } from '@/shared/ui/Skeleton'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 
 import {
     useGetProfileRating,

@@ -7,7 +7,7 @@ import { useFetchArticleById } from '@/entities/Article'
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Button, ButtonVariants } from '@/shared/ui/Button'
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
 
 import { getCanEditArticle } from '../../model/selectors/article'
 import cls from './ArticleSingleHeader.module.scss'

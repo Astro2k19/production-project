@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticlesList } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
 
 import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
 

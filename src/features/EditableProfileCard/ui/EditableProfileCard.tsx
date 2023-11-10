@@ -11,8 +11,8 @@ import {
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { VStack } from '@/shared/ui/Stack'
-import { Text, TextVariants } from '@/shared/ui/Text'
+import { Text, TextVariants } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import {
     getProfileError,

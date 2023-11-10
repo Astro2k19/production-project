@@ -59,17 +59,19 @@ export const ArticlesInfiniteList = memo(
                 reducers={reducer}
                 removeAfterUnmount={false}
             >
-                <ArticlesFilters
-                    view={view}
-                    onChangeListView={onChangeListView}
-                    className={cls.articlesFilter}
-                    fetchArticlesList={fetchArticlesList}
-                />
-                <ArticlesList
-                    articles={articles}
-                    isLoading={isLoading}
-                    view={view}
-                />
+                <div>
+                    <ArticlesFilters
+                        view={view}
+                        onChangeListView={onChangeListView}
+                        className={cls.articlesFilter}
+                        fetchArticlesList={fetchArticlesList}
+                    />
+                    <ArticlesList
+                        articles={articles}
+                        isLoading={isLoading}
+                        view={view}
+                    />
+                </div>
             </DynamicModuleLoader>
         )
     },
