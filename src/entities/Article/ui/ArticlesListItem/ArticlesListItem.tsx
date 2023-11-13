@@ -6,13 +6,13 @@ import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
 import { getRouteArticleSingle } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
-import { AppImage } from '@/shared/ui/deprecated/AppImage'
 import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
 import { Card } from '@/shared/ui/deprecated/Card'
 import { Icon } from '@/shared/ui/deprecated/Icon'
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 import { Text } from '@/shared/ui/deprecated/Text'
+import { AppImage } from '@/shared/ui/redesigned/AppImage'
 
 import {
     ArticleBlockType,

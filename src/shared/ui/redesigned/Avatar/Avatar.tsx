@@ -3,7 +3,7 @@ import { type CSSProperties, memo, useMemo } from 'react'
 import FallbackAvatar from '@/shared/assets/icons/fallback_avatar.svg'
 import { classNames } from '@/shared/lib'
 
-import { AppImage } from '../../redesigned/AppImage'
+import { AppImage } from '../AppImage'
 import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'
 import cls from './Avatar.module.scss'
@@ -31,9 +31,9 @@ export const Avatar = memo((props: AvatarProps) => {
             Svg={FallbackAvatar}
             width={size}
             height={size}
-            inverted
         />
     )
+
     const FallbackLoading = (
         <Skeleton
             width={size}

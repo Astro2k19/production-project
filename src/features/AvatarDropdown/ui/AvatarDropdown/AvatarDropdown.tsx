@@ -9,10 +9,13 @@ import {
 } from '@/entities/User'
 
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Avatar } from '@/shared/ui/deprecated/Avatar'
-import { Dropdown } from '@/shared/ui/deprecated/Dropdown'
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Dropdown'
+import { Avatar } from '@/shared/ui/redesigned/Avatar'
+import { Dropdown } from '@/shared/ui/redesigned/Popups'
 
 interface AvatarDropdownProps {
     className?: string
@@ -51,14 +54,30 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
     ]
 
     return (
-        <Dropdown
-            trigger={
-                <Avatar
-                    src={authDate.avatar}
-                    size={30}
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <Dropdown
+                    trigger={
+                        <Avatar
+                            src={authDate.avatar}
+                            size={40}
+                        />
+                    }
+                    items={dropdownOptions}
                 />
             }
-            items={dropdownOptions}
+            off={
+                <DropdownDeprecated
+                    trigger={
+                        <AvatarDeprecated
+                            src={authDate.avatar}
+                            size={30}
+                        />
+                    }
+                    items={dropdownOptions}
+                />
+            }
         />
     )
 })

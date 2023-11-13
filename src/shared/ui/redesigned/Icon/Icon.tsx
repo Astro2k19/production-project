@@ -1,4 +1,4 @@
-import React, { SVGProps, memo } from 'react'
+import React, { ForwardedRef, SVGProps, forwardRef } from 'react'
 
 import { classNames } from '@/shared/lib'
 
@@ -17,44 +17,47 @@ interface NonClickableIconProps extends IconDefaultProps {
 
 interface ClickableIconProps extends IconDefaultProps {
     clickable: true
-    onClick: () => void
+    onClick?: () => void
 }
 
 type IconProps = NonClickableIconProps | ClickableIconProps
 
-export const Icon = memo((props: IconProps) => {
-    const {
-        className,
-        Svg,
-        width = 32,
-        height = 32,
-        clickable,
-        ...others
-    } = props
+export const Icon = forwardRef(
+    (props: IconProps, ref?: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            Svg,
+            width = 32,
+            height = 32,
+            clickable,
+            ...others
+        } = props
 
-    const icon = (
-        <Svg
-            {...others}
-            className={
-                !clickable ? classNames([cls.icon, className]) : undefined
-            }
-            width={width}
-            height={height}
-            onClick={undefined}
-        />
-    )
-
-    if (clickable) {
-        return (
-            <button
-                className={classNames([cls.icon, cls.button, className])}
-                onClick={props.onClick}
-                style={{ width, height }}
-            >
-                {icon}
-            </button>
+        const icon = (
+            <Svg
+                {...others}
+                className={
+                    !clickable ? classNames([cls.icon, className]) : undefined
+                }
+                width={width}
+                height={height}
+                onClick={undefined}
+            />
         )
-    }
 
-    return icon
-})
+        if (clickable) {
+            return (
+                <button
+                    className={classNames([cls.icon, cls.button, className])}
+                    onClick={props.onClick}
+                    style={{ width, height }}
+                    ref={ref}
+                >
+                    {icon}
+                </button>
+            )
+        }
+
+        return icon
+    },
+)

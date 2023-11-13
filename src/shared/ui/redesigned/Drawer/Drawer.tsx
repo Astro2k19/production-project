@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib'
 import { AnimationProvider, useAnimLibs } from '@/shared/lib/AnimationProvider'
 
 import { Overlay } from '../../redesigned/Overlay'
-import { Portal } from '../../redesigned/Portal'
+import { Portal } from '../Portal'
 import cls from './Drawer.module.scss'
 
 interface DrawerProps {

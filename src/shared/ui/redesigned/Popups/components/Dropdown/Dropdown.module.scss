@@ -1,0 +1,31 @@
+.trigger {
+  border: none;
+  background-color: transparent;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  line-height: 1;
+  word-wrap: break-word;
+  cursor: pointer;
+  color: var(--text-redesigned);
+  background-color: inherit;
+  text-align: left;
+  outline: none !important;
+
+  &.active {
+    background-color: var(--light-bg-redesigned);
+  }
+
+  &[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: auto;
+  }
+}

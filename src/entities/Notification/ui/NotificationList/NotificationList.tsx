@@ -1,12 +1,13 @@
 import { memo } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { useNotification } from '../../api/notificationsApi'
 import { NotificationItem } from '../NotificationItem/NotificationItem'
-import cls from './NotificationList.module.scss'
 
 interface NotificationListProps {
     className?: string
@@ -20,15 +21,28 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     if (isLoading) {
         return (
             <VStack
-                className={classNames([className, cls.list])}
+                className={classNames([className])}
                 gap={'12'}
                 noShrink
             >
                 {new Array(4).fill(null).map((_, index) => (
-                    <Skeleton
+                    <ToggleFeatures
+                        feature={'isAppRedesigned'}
                         key={index}
-                        width={'100%'}
-                        height={140}
+                        on={
+                            <Skeleton
+                                key={index}
+                                width={'100%'}
+                                height={113}
+                            />
+                        }
+                        off={
+                            <SkeletonDeprecated
+                                key={index}
+                                width={'100%'}
+                                height={140}
+                            />
+                        }
                     />
                 ))}
             </VStack>
@@ -37,8 +51,7 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 
     return (
         <VStack
-            className={classNames([className, cls.list])}
-            gap={'12'}
+            className={classNames([className])}
             noShrink
         >
             {notifications?.map(item => (

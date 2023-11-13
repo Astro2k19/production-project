@@ -8,8 +8,8 @@ import {
 
 import { classNames } from '@/shared/lib'
 
-import { Overlay } from '../Overlay'
-import { Portal } from '../Portal'
+import { Overlay } from '../../redesigned/Overlay'
+import { Portal } from '../../redesigned/Portal'
 import cls from './Modal.module.scss'
 
 interface ModalProps {

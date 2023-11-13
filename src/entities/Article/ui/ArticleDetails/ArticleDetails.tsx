@@ -2,10 +2,10 @@ import { memo } from 'react'
 
 import EyeIcon from '@/shared/assets/icons/ant-design_eye-outlined.svg'
 import DateIcon from '@/shared/assets/icons/clarity_date-line.svg'
-import { AppImage } from '@/shared/ui/deprecated/AppImage'
 import { Icon } from '@/shared/ui/deprecated/Icon'
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { AppImage } from '@/shared/ui/redesigned/AppImage'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import { useFetchArticleById } from '../../api/articleApi'
