@@ -2,17 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 
-import {
-    type ArticlesSortFields,
-    articlesFiltersActions,
-} from '@/features/ArticlesFilters'
-
 import { type ArticleType, ArticlesListView } from '@/entities/Article'
 
 import { ARTICLES_LIST_VIEW_KEY } from '@/shared/const/localStorage'
 import { getUrlQueryParams } from '@/shared/lib'
 import { type SortOrder } from '@/shared/types/sortOrder'
 
+import { ArticlesSortFields } from '../../const/articleFiltersConst'
 import { getArticlesInited } from '../../selectors/articlesPageList'
 import { articlesPageActions } from '../../slice/articlesPageListSlice/articlesPageListSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
@@ -40,7 +36,7 @@ export const setInitialArticlesListState = createAsyncThunk<
             ) || ArticlesListView.LIST
         const initialLimit = initialView === ArticlesListView.GRID ? 9 : 4
         const urlQueryParams = getUrlQueryParams(false) as URLSearchParams
-        const { setType, setSort, setOrder, setSearch } = articlesFiltersActions
+        const { setType, setSort, setOrder, setSearch } = articlesPageActions
 
         urlQueryParams.forEach((value, key) => {
             switch (key) {

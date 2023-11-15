@@ -7,7 +7,6 @@ import {
 
 import { setArticlesListViewMiddleware } from '@/pages/Articles'
 
-import { articlesFiltersReducer } from '@/features/ArticlesFilters'
 import { savePageScrollReducer } from '@/features/SavePageScroll'
 
 import { authMiddleware, userReducer } from '@/entities/User'
@@ -26,7 +25,6 @@ export const createReduxStore = (
         ...asyncReducers,
         user: userReducer,
         savePageScroll: savePageScrollReducer,
-        articlesFilters: articlesFiltersReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     }
 

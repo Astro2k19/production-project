@@ -1,8 +1,6 @@
-import React, { memo, useCallback } from 'react'
+import React, { memo } from 'react'
 
-import { ArticlesFilters } from '@/features/ArticlesFilters'
-
-import { ArticlesList, type ArticlesListView } from '@/entities/Article'
+import { ArticlesList } from '@/entities/Article'
 
 import {
     DynamicModuleLoader,
@@ -17,14 +15,11 @@ import {
     getArticlesListIsLoading,
     getArticlesListView,
 } from '../../model/selectors/articlesPageList'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { setInitialArticlesListState } from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import {
     articlesListSelectors,
-    articlesPageActions,
     articlesPageReducer,
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import cls from '../ArticlesVirtualizedInfiniteList/ArticlesVirtualizedInfiniteList.module.scss'
 
 interface ArticleInfiniteListProps {
     className?: string
@@ -43,13 +38,6 @@ export const ArticlesInfiniteList = memo(
         const articles = useAppSelector(articlesListSelectors.selectAll)
         const view = useAppSelector(getArticlesListView)
 
-        const onChangeListView = useCallback(
-            (view: ArticlesListView) => {
-                dispatch(articlesPageActions.setArticlesView(view))
-            },
-            [dispatch],
-        )
-
         useFetchData(() => {
             dispatch(setInitialArticlesListState())
         })
@@ -60,12 +48,6 @@ export const ArticlesInfiniteList = memo(
                 removeAfterUnmount={false}
             >
                 <div>
-                    <ArticlesFilters
-                        view={view}
-                        onChangeListView={onChangeListView}
-                        className={cls.articlesFilter}
-                        fetchArticlesList={fetchArticlesList}
-                    />
                     <ArticlesList
                         articles={articles}
                         isLoading={isLoading}

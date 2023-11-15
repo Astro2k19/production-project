@@ -7,6 +7,7 @@ import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
+import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters'
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
 import cls from './Articles.module.scss'
 
@@ -27,7 +28,7 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
             dataTestId={'ArticlesPage'}
             onScrollEnd={loadNextArticles}
         >
-            {/* <ArticlesVirtualizedInfiniteList /> */}
+            <ArticlesFilters />
             <ArticlesInfiniteList />
             <ArticlePageGreeting />
         </Page>

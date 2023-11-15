@@ -1,15 +1,14 @@
-import {
-    type PayloadAction,
-    createEntityAdapter,
-    createSlice,
-} from '@reduxjs/toolkit'
+import { type PayloadAction, createEntityAdapter } from '@reduxjs/toolkit'
 
 import { type StoreSchema } from '@/app/providers/storeProvider'
 
-import { type Article, ArticlesListView } from '@/entities/Article'
+import { type Article, ArticleType, ArticlesListView } from '@/entities/Article'
 
 import { type ApiError } from '@/shared/api/api'
+import { buildSlice } from '@/shared/lib/store/buildSlice'
+import { SortOrder } from '@/shared/types/sortOrder'
 
+import { ArticlesSortFields } from '../../const/articleFiltersConst'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
 import { type InitialArticlesListState } from '../../services/setInitialArticlesListState/setInitialArticlesListState'
 import { type ArticlesPageListSchema } from '../../types/articlesPageListSchema'
@@ -18,7 +17,7 @@ export const articlesListAdapter = createEntityAdapter<Article>({
     selectId: article => article.id,
 })
 
-export const articlesPageListSlice = createSlice({
+export const articlesPageListSlice = buildSlice({
     name: 'articlesPageList',
     initialState: articlesListAdapter.getInitialState<ArticlesPageListSchema>({
         isLoading: false,
@@ -28,8 +27,28 @@ export const articlesPageListSlice = createSlice({
         limit: 4,
         hasMore: true,
         _inited: false,
+        sort: 'views',
+        order: 'asc',
+        search: '',
+        type: ArticleType.ALL,
+        page: 1,
     }),
     reducers: {
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload
+        },
+        setSort: (state, action: PayloadAction<ArticlesSortFields>) => {
+            state.sort = action.payload
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload
+        },
         setArticlesView: (state, action: PayloadAction<ArticlesListView>) => {
             state.view = action.payload
             state.limit = action.payload === ArticlesListView.GRID ? 9 : 4
@@ -60,7 +79,6 @@ export const articlesPageListSlice = createSlice({
                 if (action.meta.arg?.replace) {
                     articlesListAdapter.setAll(state, action.payload)
                 } else {
-                    console.log(action.payload, 'action.payload')
                     articlesListAdapter.addMany(state, action.payload)
                 }
             })
@@ -71,7 +89,10 @@ export const articlesPageListSlice = createSlice({
     },
 })
 
-export const { actions: articlesPageActions } = articlesPageListSlice
+export const {
+    actions: articlesPageActions,
+    useActions: useArticlesPageActions,
+} = articlesPageListSlice
 export const { reducer: articlesPageReducer } = articlesPageListSlice
 export const articlesListSelectors =
     articlesListAdapter.getSelectors<StoreSchema>(

@@ -11,7 +11,6 @@ import { type CombinedState, type Dispatch } from 'redux'
 import { type ArticlesPageListSchema } from '@/pages/Articles'
 
 import { type AddCommentFormSchema } from '@/features/AddCommentForm'
-import { type ArticlesFiltersSchema } from '@/features/ArticlesFilters'
 import { type LoginFormSchema } from '@/features/Auth'
 import { type ProfileSchema } from '@/features/EditableProfileCard'
 import { type SavePageScrollSchema } from '@/features/SavePageScroll'
@@ -30,7 +29,6 @@ export interface StoreSchema {
     profile?: ProfileSchema
     addCommentForm?: AddCommentFormSchema
     articlesPageList?: ArticlesPageListSchema
-    articlesFilters: ArticlesFiltersSchema
 }
 
 export type StoreSchemaKeys = keyof StoreSchema

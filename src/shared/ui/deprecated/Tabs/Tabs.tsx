@@ -15,7 +15,7 @@ export interface TabItem<T extends string> {
 interface TabsProps<T extends string> {
     className?: string
     tabs: Array<TabItem<T>>
-    value: T
+    value?: T
     onClick: (newValue: T) => void
 }
 

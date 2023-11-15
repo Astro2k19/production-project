@@ -1,11 +1,13 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersConst'
+
+// eslint-disable-next-line authoring-project-plugin/import-layer-checker
 import { classNames } from '@/shared/lib'
 import { type SortOrder } from '@/shared/types/sortOrder'
 import { Select, type SelectOption } from '@/shared/ui/deprecated/Select'
 
-import { ArticlesSortFields } from '../../model/const/articleFiltersConst'
 import cls from './ArticlesFiltersSelectors.module.scss'
 
 interface ArticlesFiltersSelectorsProps {
@@ -13,7 +15,7 @@ interface ArticlesFiltersSelectorsProps {
     onChangeSort: (newSort: ArticlesSortFields) => void
     onChangeOrder: (newOrder: SortOrder) => void
     sort: ArticlesSortFields
-    order: SortOrder
+    order?: SortOrder
 }
 
 export const ArticlesFiltersSelectors = memo(
@@ -28,15 +30,15 @@ export const ArticlesFiltersSelectors = memo(
             () => [
                 {
                     label: 'Title',
-                    value: ArticlesSortFields.TITLE,
+                    value: 'title',
                 },
                 {
                     label: 'Date',
-                    value: ArticlesSortFields.CREATED,
+                    value: 'createdAt',
                 },
                 {
                     label: 'Views',
-                    value: ArticlesSortFields.VIEWS,
+                    value: 'views',
                 },
             ],
             [],

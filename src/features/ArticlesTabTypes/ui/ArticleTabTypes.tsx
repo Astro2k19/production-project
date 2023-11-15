@@ -9,7 +9,7 @@ import { type TabItem, Tabs } from '@/shared/ui/deprecated/Tabs'
 interface ArticleTabTypesProps {
     className?: string
     onChangeType: (newType: ArticleType) => void
-    articleType: ArticleType
+    articleType?: ArticleType
 }
 
 export const ArticleTabTypes = memo(
