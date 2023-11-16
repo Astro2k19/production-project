@@ -34,7 +34,7 @@ export const getSidebarItems = createSelector(getUserAuthDate, authDate => {
         {
             path: getRouteAbout(),
             Icon: toggleFeature({
-                name: 'isArticleRatingEnabled',
+                name: 'isAppRedesigned',
                 on: () => AboutIcon,
                 off: () => AboutIconDeprecated,
             }),

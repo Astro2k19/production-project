@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
+// eslint-disable-next-line
 import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersConst'
 
-// eslint-disable-next-line authoring-project-plugin/import-layer-checker
 import { classNames } from '@/shared/lib'
 import { type SortOrder } from '@/shared/types/sortOrder'
 import { Select, type SelectOption } from '@/shared/ui/deprecated/Select'
@@ -14,7 +14,7 @@ interface ArticlesFiltersSelectorsProps {
     className?: string
     onChangeSort: (newSort: ArticlesSortFields) => void
     onChangeOrder: (newOrder: SortOrder) => void
-    sort: ArticlesSortFields
+    sort?: ArticlesSortFields
     order?: SortOrder
 }
 

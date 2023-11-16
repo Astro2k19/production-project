@@ -1,7 +1,7 @@
 import { type MutableRefObject, useEffect } from 'react'
 
 interface useInfiniteScrollArgs {
-    rootTarget: MutableRefObject<HTMLElement>
+    rootTarget: HTMLElement
     triggerTarget: MutableRefObject<HTMLElement>
     callback?: () => void
 }
@@ -17,7 +17,7 @@ export const useInfiniteScroll = ({
 
         if (callback) {
             const options = {
-                root: rootTarget.current,
+                root: rootTarget,
                 rootMargin: '0px',
                 threshold: 1.0,
             }

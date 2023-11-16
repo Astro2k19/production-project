@@ -1,5 +1,5 @@
 export const addUrlQueryParams = (
-    urlOptions?: OptionalRecord<string, string | number>,
+    urlOptions?: OptionalRecord<string, string | number | undefined>,
 ) => {
     const queryParams = getUrlQueryParams(true, urlOptions)
     if (typeof queryParams === 'string') {

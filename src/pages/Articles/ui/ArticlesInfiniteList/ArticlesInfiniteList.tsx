@@ -47,13 +47,11 @@ export const ArticlesInfiniteList = memo(
                 reducers={reducer}
                 removeAfterUnmount={false}
             >
-                <div>
-                    <ArticlesList
-                        articles={articles}
-                        isLoading={isLoading}
-                        view={view}
-                    />
-                </div>
+                <ArticlesList
+                    articles={articles}
+                    isLoading={isLoading}
+                    view={view}
+                />
             </DynamicModuleLoader>
         )
     },

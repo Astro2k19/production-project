@@ -2,9 +2,10 @@ import React, { type FC, memo, useCallback } from 'react'
 
 import { Page } from '@/widgets/Page'
 
-import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
-
+import { StickyLayout } from '@/shared/layouts/StickyLayout'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters'
@@ -23,15 +24,39 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
     }, [dispatch])
 
     return (
-        <Page
-            className={cls.articlesPage}
-            dataTestId={'ArticlesPage'}
-            onScrollEnd={loadNextArticles}
-        >
-            <ArticlesFilters />
-            <ArticlesInfiniteList />
-            <ArticlePageGreeting />
-        </Page>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <StickyLayout
+                    left={<div>sdfsdf</div>}
+                    content={
+                        <Page
+                            className={cls.articlesPage}
+                            dataTestId={'ArticlesPage'}
+                            onScrollEnd={loadNextArticles}
+                        >
+                            <VStack gap={'16'}>
+                                <ArticlesFilters />
+                                <ArticlesInfiniteList />
+                            </VStack>
+                        </Page>
+                    }
+                    right={<div>sdfsdf</div>}
+                />
+            }
+            off={
+                <Page
+                    className={cls.articlesPage}
+                    dataTestId={'ArticlesPage'}
+                    onScrollEnd={loadNextArticles}
+                >
+                    <VStack gap={'16'}>
+                        <ArticlesFilters />
+                        <ArticlesInfiniteList />
+                    </VStack>
+                </Page>
+            }
+        />
     )
 }
 

@@ -43,7 +43,11 @@ export const Page = ({
     )
 
     useInfiniteScroll({
-        rootTarget: rootRef,
+        rootTarget: toggleFeature({
+            name: 'isAppRedesigned',
+            on: () => rootRef.current,
+            off: () => document.body,
+        }),
         triggerTarget: triggerRef,
         callback: onScrollEnd,
     })

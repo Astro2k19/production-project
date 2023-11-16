@@ -34,7 +34,7 @@ import cls from './ArticlesList.module.scss'
 interface ArticlesListProps {
     className?: string
     articles: Article[]
-    articlesType: ArticleType
+    articlesType?: ArticleType
     view?: ArticlesListView
     isLoading?: boolean
     hasMore?: boolean
