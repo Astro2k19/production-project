@@ -5,3 +5,4 @@ export type { ArticlesPageListSchema } from './model/types/articlesPageListSchem
 export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArticlesList'
 export { fetchNextArticlesPart } from './model/services/fetchNextArticlesPart/fetchNextArticlesPart'
 export { setArticlesListViewMiddleware } from './model/middleware/setArticlesListViewMiddleware/setArticlesListViewMiddleware'
+export type { ArticlesSortFields } from './model/const/articleFiltersConst'

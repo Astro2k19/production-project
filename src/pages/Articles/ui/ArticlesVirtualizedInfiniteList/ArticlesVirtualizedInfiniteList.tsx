@@ -1,9 +1,6 @@
 import React, { memo, useCallback } from 'react'
 
-import {
-    type ArticlesListView,
-    ArticlesListVirtualized,
-} from '@/entities/Article'
+import { ArticlesListVirtualized } from '@/entities/Article'
 
 import {
     DynamicModuleLoader,
@@ -24,10 +21,9 @@ import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPar
 import { setInitialArticlesListState } from '../../model/services/setInitialArticlesListState/setInitialArticlesListState'
 import {
     articlesListSelectors,
-    articlesPageActions,
     articlesPageReducer,
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import cls from './ArticlesVirtualizedInfiniteList.module.scss'
 
 interface ArticleInfiniteListProps {
@@ -54,12 +50,12 @@ export const ArticlesVirtualizedInfiniteList = memo(
             dispatch(fetchNextArticlesPart())
         }, [dispatch])
 
-        const onChangeListView = useCallback(
-            (view: ArticlesListView) => {
-                dispatch(articlesPageActions.setArticlesView(view))
-            },
-            [dispatch],
-        )
+        // const onChangeListView = useCallback(
+        //     (view: ArticlesListView) => {
+        //         dispatch(articlesPageActions.setArticlesView(view))
+        //     },
+        //     [dispatch],
+        // )
         console.log('before useFetchData')
 
         useFetchData(() => {
@@ -70,7 +66,7 @@ export const ArticlesVirtualizedInfiniteList = memo(
 
         const Header = useCallback(() => {
             return (
-                <ArticlesFilters
+                <ArticlesPageFilters
                     // view={view}
                     // onChangeListView={onChangeListView}
                     className={cls.articlesFilter}

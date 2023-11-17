@@ -1,7 +1,15 @@
-.selected {
-  fill: #f40808;
-
-  svg {
+.articleViewSwitcher {
+  .selected {
     fill: #f40808;
+
+    svg {
+      fill: #f40808;
+    }
+  }
+}
+
+.articleViewSwitcherRedesigned {
+  .noSelected {
+    opacity: 0.3;
   }
 }

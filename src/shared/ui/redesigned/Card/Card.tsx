@@ -4,14 +4,16 @@ import { classNames } from '@/shared/lib'
 
 import cls from './Card.module.scss'
 
-type CardVariants = 'normal' | 'outline'
+type CardVariants = 'normal' | 'outline' | 'light'
 type CardPaddings = '0' | '8' | '16' | '24'
+type CardBorder = 'normal' | 'round'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
     children: ReactNode
     variant?: CardVariants
     padding?: CardPaddings
+    border?: CardBorder
 }
 
 const mappedPaddings: Record<CardPaddings, string> = {
@@ -27,6 +29,7 @@ export const Card = (props: CardProps) => {
         children,
         variant = 'normal',
         padding = '8',
+        border = 'normal',
         ...othersProps
     } = props
 
@@ -37,6 +40,7 @@ export const Card = (props: CardProps) => {
                 className,
                 cls[variant],
                 mappedPaddings[padding],
+                cls[border],
             ])}
         >
             {children}

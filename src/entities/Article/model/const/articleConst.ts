@@ -1,9 +1,9 @@
 export enum ArticleType {
-    ALL = 'ALL',
-    IT = 'IT',
-    POLITICS = 'POLITICS',
-    SPORT = 'SPORT',
-    ECONOMICS = 'ECONOMICS',
+    ALL = 'All',
+    IT = 'It',
+    POLITICS = 'Politics',
+    SPORT = 'Sport',
+    ECONOMICS = 'Economics',
 }
 
 export enum ArticleBlockType {

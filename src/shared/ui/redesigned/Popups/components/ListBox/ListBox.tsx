@@ -1,11 +1,12 @@
-import { flip, offset, shift, useFloating } from '@floating-ui/react'
+import { flip, offset, shift, size, useFloating } from '@floating-ui/react'
 import { Listbox } from '@headlessui/react'
-import { Fragment, type ReactNode } from 'react'
+import { Fragment, type ReactNode, useMemo } from 'react'
 
-import CaretDown from '@/shared/assets/icons/caret-down.svg'
-import CheckedIcon from '@/shared/assets/icons/icon-checked.svg'
+import ArrowDown from '@/shared/assets/icons/Arrow.svg'
 import { classNames } from '@/shared/lib'
 
+import { Button } from '../../../Button'
+import { Icon } from '../../../Icon'
 import { HStack } from '../../../Stack'
 import clsPopups from '../../popups.module.scss'
 import cls from './ListBox.module.scss'
@@ -16,13 +17,7 @@ interface ListBoxItem<T extends string> {
     disabled?: boolean
 }
 
-/*
- * It is preferable to use the new redesigned component!
- * @deprecated
- * */
-
 interface ListBoxProps<T extends string> {
-    label: string
     items: Array<ListBoxItem<T>>
     value?: T
     defaultValue?: T
@@ -32,19 +27,33 @@ interface ListBoxProps<T extends string> {
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
-    const { value, defaultValue, label, items, readonly, onChange, className } =
-        props
+    const { value, defaultValue, items, readonly, onChange, className } = props
     const { refs, floatingStyles } = useFloating({
         placement: 'bottom-start',
-        middleware: [flip(), offset(4), shift()],
+        middleware: [
+            flip(),
+            offset(1),
+            shift(),
+            size({
+                apply({ rects, elements }) {
+                    Object.assign(elements.floating.style, {
+                        width: `${rects.reference.width}px`,
+                    })
+                },
+            }),
+        ],
     })
+
+    const selectedItem = useMemo(
+        () => items.find(item => item.value === value),
+        [items, value],
+    )
 
     return (
         <HStack
             gap={'12'}
             alignItems={'center'}
         >
-            {label && <span className={cls.label}>{`${label}>`}</span>}
             <Listbox
                 value={value}
                 defaultValue={defaultValue}
@@ -54,12 +63,18 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 onChange={onChange}
                 ref={refs.setReference}
             >
-                <Listbox.Button className={cls.trigger}>
-                    {value ?? defaultValue}
-                    <CaretDown />
+                <Listbox.Button as={Fragment}>
+                    <Button
+                        variant={'filled'}
+                        border={'round'}
+                        className={cls.trigger}
+                    >
+                        <span>{selectedItem?.label ?? defaultValue}</span>
+                        <Icon Svg={ArrowDown} />
+                    </Button>
                 </Listbox.Button>
                 <Listbox.Options
-                    className={classNames([clsPopups.menu, cls.listBox])}
+                    className={classNames([cls.options, clsPopups.menu])}
                     ref={refs.setFloating}
                     style={floatingStyles}
                 >
@@ -74,10 +89,10 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                                 <li
                                     className={classNames([cls.item], {
                                         [cls.active]: active,
+                                        [cls.selected]: selected,
                                         [cls.disabled]: item.disabled,
                                     })}
                                 >
-                                    {selected ? <CheckedIcon /> : <div></div>}
                                     {item.label}
                                 </li>
                             )}

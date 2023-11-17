@@ -4,7 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { ArticleType } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { type TabItem, Tabs } from '@/shared/ui/deprecated/Tabs'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import {
+    type TabItem,
+    Tabs as TabsDeprecated,
+} from '@/shared/ui/deprecated/Tabs'
+import { Tabs } from '@/shared/ui/redesigned/Tabs'
 
 interface ArticleTabTypesProps {
     className?: string
@@ -21,7 +26,7 @@ export const ArticleTabTypes = memo(
                     ...tabItems,
                     {
                         value: item,
-                        label: t(`articles_type.${item}`),
+                        label: t(`articles_sort_categories.${item}`),
                     } /* i18next-extract-disable-line */,
                 ],
                 [],
@@ -29,11 +34,25 @@ export const ArticleTabTypes = memo(
         }, [t])
 
         return (
-            <Tabs<ArticleType>
-                onClick={onChangeType}
-                tabs={articleTypesOptions}
-                value={articleType}
-                className={classNames([className])}
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <Tabs<ArticleType>
+                        onClick={onChangeType}
+                        tabs={articleTypesOptions}
+                        value={articleType}
+                        direction={'column'}
+                        className={classNames([className])}
+                    />
+                }
+                off={
+                    <TabsDeprecated<ArticleType>
+                        onClick={onChangeType}
+                        tabs={articleTypesOptions}
+                        value={articleType}
+                        className={classNames([className])}
+                    />
+                }
             />
         )
     },

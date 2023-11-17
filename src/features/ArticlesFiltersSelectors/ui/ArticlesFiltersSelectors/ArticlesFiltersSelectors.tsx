@@ -5,10 +5,12 @@ import { useTranslation } from 'react-i18next'
 import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersConst'
 
 import { classNames } from '@/shared/lib'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
 import { type SortOrder } from '@/shared/types/sortOrder'
 import { Select, type SelectOption } from '@/shared/ui/deprecated/Select'
-
-import cls from './ArticlesFiltersSelectors.module.scss'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface ArticlesFiltersSelectorsProps {
     className?: string
@@ -20,7 +22,7 @@ interface ArticlesFiltersSelectorsProps {
 
 export const ArticlesFiltersSelectors = memo(
     (props: ArticlesFiltersSelectorsProps) => {
-        const { t } = useTranslation()
+        const { t } = useTranslation('article')
 
         const { className, onChangeOrder, onChangeSort, order, sort } = props
 
@@ -29,55 +31,76 @@ export const ArticlesFiltersSelectors = memo(
         >(
             () => [
                 {
-                    label: 'Title',
+                    label: t('articles_sort_fields.Title'),
                     value: 'title',
                 },
                 {
-                    label: 'Date',
+                    label: t('articles_sort_fields.Date'),
                     value: 'createdAt',
                 },
                 {
-                    label: 'Views',
+                    label: t('articles_sort_fields.Views'),
                     value: 'views',
                 },
             ],
-            [],
+            [t],
         )
 
         const filterOrderOptions = useMemo<Array<SelectOption<SortOrder>>>(
             () => [
                 {
-                    label: 'ascending',
+                    label: t('articles_sort_order.Ascending'),
                     value: 'asc',
                 },
                 {
-                    label: 'descending',
+                    label: t('articles_sort_order.Descending'),
                     value: 'desc',
                 },
             ],
-            [],
+            [t],
         )
 
         return (
-            <div
-                className={classNames([
-                    cls.articlesFiltersSelectors,
-                    className,
-                ])}
-            >
-                <Select
-                    options={filterSortOptions}
-                    label={t('Sort by')}
-                    value={sort}
-                    onChange={onChangeSort}
-                />
-                <Select
-                    options={filterOrderOptions}
-                    label={t('Sort order')}
-                    value={order}
-                    onChange={onChangeOrder}
-                />
-            </div>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <VStack
+                        gap={'8'}
+                        className={classNames([className])}
+                    >
+                        <Text text={t('Sort by')} />
+                        <ListBox
+                            items={filterSortOptions}
+                            value={sort}
+                            onChange={onChangeSort}
+                        />
+                        <ListBox
+                            items={filterOrderOptions}
+                            value={order}
+                            onChange={onChangeOrder}
+                        />
+                    </VStack>
+                }
+                off={
+                    <HStack
+                        className={classNames([className])}
+                        gap={'8'}
+                    >
+                        <Select
+                            options={filterSortOptions}
+                            label={t('Sort by')}
+                            value={sort}
+                            onChange={onChangeSort}
+                        />
+                        <Select
+                            options={filterOrderOptions}
+                            label={t('Sort order')}
+                            value={order}
+                            onChange={onChangeOrder}
+                        />
+                    </HStack>
+                }
+            />
         )
     },
 )

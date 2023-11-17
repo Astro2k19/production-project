@@ -8,19 +8,26 @@
 
 .padding_16 {
   padding: 16px;
-
 }
 
 .padding_24 {
   padding: 24px;
 }
 
-
 .normal {
   background-color: var(--dark-bg-redesigned);
+  border-radius: 0;
 }
 
 .outline {
   background-color: var(--dark-bg-redesigned);
   border: 1px solid var(--accent-redesigned);
+}
+
+.light {
+  background-color: var(--light-bg-redesigned);
+}
+
+.round {
+  border-radius: 32px;
 }

@@ -18,7 +18,7 @@ export const StickyLayout = (props: StickyLayoutProps) => {
         <div className={classNames([className, cls.stickyLayout])}>
             {left && <div className={cls.left}>{left}</div>}
             <div className={cls.content}>{content}</div>
-            {right && <div className={cls.right}>{left}</div>}
+            {right && <div className={cls.right}>{right}</div>}
         </div>
     )
 }

@@ -8,9 +8,10 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { fetchNextArticlesPart } from '../../model/services/fetchNextArticlesPart/fetchNextArticlesPart'
-import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters'
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
-import cls from './Articles.module.scss'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer'
+import { ViewSwitcherContainer } from '../ViewSwitcherContainer/ViewSwitcherContainer'
 
 interface ArticlesProps {
     className?: string
@@ -19,7 +20,6 @@ interface ArticlesProps {
 const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
     const dispatch = useAppDispatch()
     const loadNextArticles = useCallback(() => {
-        console.log('end reached')
         dispatch(fetchNextArticlesPart())
     }, [dispatch])
 
@@ -28,30 +28,25 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
             feature={'isAppRedesigned'}
             on={
                 <StickyLayout
-                    left={<div>sdfsdf</div>}
+                    left={<ViewSwitcherContainer />}
                     content={
                         <Page
-                            className={cls.articlesPage}
                             dataTestId={'ArticlesPage'}
                             onScrollEnd={loadNextArticles}
                         >
-                            <VStack gap={'16'}>
-                                <ArticlesFilters />
-                                <ArticlesInfiniteList />
-                            </VStack>
+                            <ArticlesInfiniteList />
                         </Page>
                     }
-                    right={<div>sdfsdf</div>}
+                    right={<FiltersContainer />}
                 />
             }
             off={
                 <Page
-                    className={cls.articlesPage}
                     dataTestId={'ArticlesPage'}
                     onScrollEnd={loadNextArticles}
                 >
                     <VStack gap={'16'}>
-                        <ArticlesFilters />
+                        <ArticlesPageFilters />
                         <ArticlesInfiniteList />
                     </VStack>
                 </Page>

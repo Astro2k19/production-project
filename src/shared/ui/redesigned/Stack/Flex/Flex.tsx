@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib'
 
 import cls from './Flex.module.scss'
 
-type FlexDirectionOptions = 'row' | 'column'
+export type FlexDirectionOptions = 'row' | 'column'
 type FlexJustifyOptions = 'start' | 'center' | 'end' | 'spaceBetween'
 type FlexAlignItemsOptions = 'start' | 'center' | 'end' | 'stretch'
 type FlexGapOptions = '4' | '8' | '12' | '16' | '32'

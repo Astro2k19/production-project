@@ -49,7 +49,6 @@ export const Normal = Template.bind({})
 
 Normal.args = {
     items: people,
-    label: 'People',
     defaultValue: 'Select person',
     onChange: value => value,
 }
@@ -58,7 +57,6 @@ export const Disabled = Template.bind({})
 
 Disabled.args = {
     items: people,
-    label: 'People',
     defaultValue: 'Select person',
     onChange: value => value,
     readonly: true,

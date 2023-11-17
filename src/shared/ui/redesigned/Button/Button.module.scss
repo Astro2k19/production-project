@@ -1,7 +1,8 @@
 .button {
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 7px 16px;
   color: var(--text-redesigned);
+  text-align: left;
 
   &[disabled] {
     opacity: 0.5;
@@ -14,7 +15,6 @@
 }
 
 .clear {
-  padding: 0;
   background: none;
   border: none;
   outline-color: transparent;
@@ -22,6 +22,20 @@
 
 .outline {
   border: 1px solid var(--bq-redesigned);
+}
+
+.filled {
+  border: none;
+  outline-color: transparent;
+  background-color: var(--light-bg-redesigned);
+}
+
+.normal {
+  border-radius: 16px;
+}
+
+.round {
+  border-radius: 32px;
 }
 
 .M {
