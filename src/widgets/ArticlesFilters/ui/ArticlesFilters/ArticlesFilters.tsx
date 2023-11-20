@@ -9,9 +9,11 @@ import { ArticleTabTypes } from '@/features/ArticlesTabTypes'
 
 import { ArticleType } from '@/entities/Article'
 
+import SearchIcon from '@/shared/assets/icons/Search.svg'
 import { classNames } from '@/shared/lib'
 import { SortOrder } from '@/shared/types/sortOrder'
 import { Card } from '@/shared/ui/redesigned/Card'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
@@ -55,6 +57,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
                     placeholder={t('Search')}
                     value={search}
                     onChange={onChangeSearch}
+                    addonLeft={<Icon Svg={SearchIcon} />}
                 />
                 <ArticleTabTypes
                     onChangeType={onChangeType}

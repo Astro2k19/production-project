@@ -1,31 +1,49 @@
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px 16px;
+  border: 2px solid var(--icon-redesigned);
+  border-radius: 48px;
+
+  &:not(.readOnly):focus-within {
+    border-color: var(--accent-redesigned);
+
+    :is(.addonLeft svg, .addonRight svg) {
+      color: var(--accent-redesigned);
+      fill: var(--accent-redesigned);
+    }
+  }
+
+  &:is(.withLeftAddon, .withRightAddon) {
+    padding-block: 0;
+  }
+
+  :is(.addonLeft, .addonRight) {
+    display: flex;
+  }
+
+  &.withLeftAddon {
+    padding-left: 8px;
+  }
+
+  &.withRightAddon {
+    padding-right: 8px;
+  }
+
+  &.readOnly {
+    opacity: 0.7;
+  }
+}
+
 .input {
   width: 100%;
+  height: 18px;
   background-color: transparent;
   outline: none;
   border: none;
-  font-weight: 700;
-  color: var(--primary-color);
-}
+  color: var(--text-redesigned);
 
-@keyframes blink {
-  0% {
-    opacity: 0;
+  &::placeholder {
+    color: var(--hint-redesigned);
   }
-
-  50% {
-    opacity: 0.01;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.placeholder {
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.readOnly {
-  opacity: 0.7;
 }

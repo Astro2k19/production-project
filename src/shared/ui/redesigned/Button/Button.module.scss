@@ -9,6 +9,17 @@
     cursor: auto;
   }
 
+  &:is(.withLeftAddon, .withRightAddon) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-block: 0;
+  }
+
+  :is(.addonLeft, .addonRight) {
+    display: flex;
+  }
+
   &:hover {
     color: var(--accent-redesigned);
   }

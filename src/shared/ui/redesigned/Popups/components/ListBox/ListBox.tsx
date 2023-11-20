@@ -68,9 +68,9 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                         variant={'filled'}
                         border={'round'}
                         className={cls.trigger}
+                        addonRight={<Icon Svg={ArrowDown} />}
                     >
                         <span>{selectedItem?.label ?? defaultValue}</span>
-                        <Icon Svg={ArrowDown} />
                     </Button>
                 </Listbox.Button>
                 <Listbox.Options

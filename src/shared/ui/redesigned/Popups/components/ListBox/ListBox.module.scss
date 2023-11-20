@@ -1,20 +1,15 @@
 .options {
   list-style: none;
+  min-width: auto;
 }
 
 .trigger {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 125px;
-  padding-block: 0;
   white-space: nowrap;
 }
 
 .item {
   position: relative;
-  padding: 8px 16px;
+  padding: 7px 16px;
   cursor: pointer;
   line-height: 1.1;
   background-color: inherit;
