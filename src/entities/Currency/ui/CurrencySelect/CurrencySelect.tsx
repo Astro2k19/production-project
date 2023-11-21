@@ -1,6 +1,8 @@
 import { type FC } from 'react'
 
-import { ListBox } from '@/shared/ui/deprecated/ListBox'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/ListBox'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
 
 import { Currency } from '../../model/const/currencyConst'
 
@@ -37,12 +39,26 @@ export const CurrencySelect: FC<CurrencySelectProps> = props => {
     }
 
     return (
-        <ListBox
-            label={'Currency'}
-            items={currencyOptions}
-            value={value}
-            onChange={onChangeHandler}
-            readonly={readonly}
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <ListBox
+                    label={'Currency'}
+                    items={currencyOptions}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readonly}
+                />
+            }
+            off={
+                <ListBoxDeprecated
+                    label={'Currency'}
+                    items={currencyOptions}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readonly}
+                />
+            }
         />
     )
 }

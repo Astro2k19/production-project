@@ -6,7 +6,7 @@
 
   &[disabled] {
     opacity: 0.5;
-    cursor: auto;
+    pointer-events: none;
   }
 
   &:is(.withLeftAddon, .withRightAddon) {
@@ -18,6 +18,11 @@
 
   :is(.addonLeft, .addonRight) {
     display: flex;
+  }
+
+  :is(.addonLeft, .addonRight) svg {
+    color: var(--hint-redesigned);
+    fill: var(--hint-redesigned);
   }
 
   &:hover {

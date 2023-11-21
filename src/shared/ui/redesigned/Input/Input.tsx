@@ -3,12 +3,16 @@ import React, { type InputHTMLAttributes, ReactNode, memo } from 'react'
 import { classNames } from '@/shared/lib'
 import { type Mods } from '@/shared/lib/classNames/classNames'
 
+import { HStack } from '../Stack'
+import { Text } from '../Text'
 import cls from './Input.module.scss'
 
 type InputOmittedAttributes = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'onChange' | 'value'
+    'onChange' | 'value' | 'size'
 >
+
+type InputSizes = 'S' | 'M' | 'L'
 
 interface InputProps extends InputOmittedAttributes {
     className?: string
@@ -16,6 +20,8 @@ interface InputProps extends InputOmittedAttributes {
     value?: string | number
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    label?: string
+    size?: InputSizes
 }
 
 export const Input = memo((props: InputProps) => {
@@ -29,6 +35,8 @@ export const Input = memo((props: InputProps) => {
         addonLeft,
         addonRight,
         readOnly = false,
+        label,
+        size = 'M',
         ...others
     } = props
 
@@ -44,8 +52,13 @@ export const Input = memo((props: InputProps) => {
         [cls.readOnly]: readOnly,
     }
 
-    return (
-        <div className={classNames([cls.inputWrapper, className], mods)}>
+    const input = (
+        <div
+            className={classNames(
+                [cls.inputWrapper, cls[size], className],
+                mods,
+            )}
+        >
             {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
             <input
                 {...others}
@@ -60,4 +73,21 @@ export const Input = memo((props: InputProps) => {
             {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
         </div>
     )
+
+    if (label) {
+        return (
+            <HStack
+                gap={'8'}
+                alignItems={'center'}
+            >
+                <Text
+                    text={label}
+                    className={cls.label}
+                />
+                {input}
+            </HStack>
+        )
+    }
+
+    return input
 })

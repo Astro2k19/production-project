@@ -11,7 +11,7 @@ import cls from './Flex.module.scss'
 export type FlexDirectionOptions = 'row' | 'column'
 type FlexJustifyOptions = 'start' | 'center' | 'end' | 'spaceBetween'
 type FlexAlignItemsOptions = 'start' | 'center' | 'end' | 'stretch'
-type FlexGapOptions = '4' | '8' | '12' | '16' | '32'
+type FlexGapOptions = '4' | '8' | '12' | '16' | '24' | '32'
 
 type ValidTags = keyof JSX.IntrinsicElements
 
@@ -53,6 +53,7 @@ const mappedGap: Record<FlexGapOptions, string> = {
     8: cls.gap8,
     12: cls.gap12,
     16: cls.gap16,
+    24: cls.gap24,
     32: cls.gap32,
 }
 

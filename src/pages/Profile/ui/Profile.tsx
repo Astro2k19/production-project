@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { Page } from '@/widgets/Page'
 
 import { EditableProfileCard } from '@/features/EditableProfileCard'
-import { ProfileRating } from '@/features/ProfileRating'
 
 import { Text } from '@/shared/ui/deprecated/Text'
 
@@ -20,7 +19,7 @@ const ProfilePage = memo(() => {
     return (
         <Page dataTestId={'ProfilePage'}>
             <EditableProfileCard id={id} />
-            <ProfileRating profileId={id} />
+            {/* <ProfileRating profileId={id} /> */}
         </Page>
     )
 })

@@ -1,6 +1,8 @@
 import { type FC } from 'react'
 
-import { ListBox } from '@/shared/ui/deprecated/ListBox'
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/ListBox'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
 
 import { Country } from '../../model/const/countryConts'
 
@@ -37,13 +39,27 @@ export const CountrySelect: FC<CurrencySelectProps> = props => {
     }
 
     return (
-        <ListBox
-            label={'Country'}
-            items={countryOptions}
-            value={value}
-            onChange={onChangeHandler}
-            readonly={readonly}
-            className={className}
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <ListBox
+                    label={'Country'}
+                    items={countryOptions}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readonly}
+                />
+            }
+            off={
+                <ListBoxDeprecated
+                    label={'Country'}
+                    items={countryOptions}
+                    value={value}
+                    onChange={onChangeHandler}
+                    readonly={readonly}
+                    className={className}
+                />
+            }
         />
     )
 }

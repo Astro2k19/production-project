@@ -49,7 +49,10 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
             justify={'spaceBetween'}
             alignItems={'center'}
         >
-            <Text title={t('Profile', { ns: 'profile' })} />
+            <Text
+                TitleTag={'h2'}
+                title={t('Profile', { ns: 'profile' })}
+            />
             {canEdit &&
                 !error &&
                 (readonly ? (

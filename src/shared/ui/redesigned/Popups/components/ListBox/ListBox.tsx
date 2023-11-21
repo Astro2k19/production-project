@@ -8,6 +8,7 @@ import { classNames } from '@/shared/lib'
 import { Button } from '../../../Button'
 import { Icon } from '../../../Icon'
 import { HStack } from '../../../Stack'
+import { Text } from '../../../Text'
 import clsPopups from '../../popups.module.scss'
 import cls from './ListBox.module.scss'
 
@@ -19,6 +20,7 @@ interface ListBoxItem<T extends string> {
 
 interface ListBoxProps<T extends string> {
     items: Array<ListBoxItem<T>>
+    label?: string
     value?: T
     defaultValue?: T
     onChange: (value: T) => void
@@ -27,7 +29,8 @@ interface ListBoxProps<T extends string> {
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
-    const { value, defaultValue, items, readonly, onChange, className } = props
+    const { value, defaultValue, items, readonly, onChange, className, label } =
+        props
     const { refs, floatingStyles } = useFloating({
         placement: 'bottom-start',
         middleware: [
@@ -49,57 +52,67 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         [items, value],
     )
 
-    return (
-        <HStack
-            gap={'12'}
-            alignItems={'center'}
+    const listBox = (
+        <Listbox
+            value={value}
+            defaultValue={defaultValue}
+            as="div"
+            className={classNames([cls.listBox, className])}
+            disabled={readonly}
+            onChange={onChange}
+            ref={refs.setReference}
         >
-            <Listbox
-                value={value}
-                defaultValue={defaultValue}
-                as="div"
-                className={classNames([cls.listBox, className])}
-                disabled={readonly}
-                onChange={onChange}
-                ref={refs.setReference}
-            >
-                <Listbox.Button as={Fragment}>
-                    <Button
-                        variant={'filled'}
-                        border={'round'}
-                        className={cls.trigger}
-                        addonRight={<Icon Svg={ArrowDown} />}
-                    >
-                        <span>{selectedItem?.label ?? defaultValue}</span>
-                    </Button>
-                </Listbox.Button>
-                <Listbox.Options
-                    className={classNames([cls.options, clsPopups.menu])}
-                    ref={refs.setFloating}
-                    style={floatingStyles}
+            <Listbox.Button as={Fragment}>
+                <Button
+                    variant={'filled'}
+                    border={'round'}
+                    className={cls.trigger}
+                    disabled={readonly}
+                    addonRight={<Icon Svg={ArrowDown} />}
                 >
-                    {items.map(item => (
-                        <Listbox.Option
-                            key={item.value}
-                            value={item.value}
-                            disabled={item.disabled}
-                            as={Fragment}
-                        >
-                            {({ active, selected }) => (
-                                <li
-                                    className={classNames([cls.item], {
-                                        [cls.active]: active,
-                                        [cls.selected]: selected,
-                                        [cls.disabled]: item.disabled,
-                                    })}
-                                >
-                                    {item.label}
-                                </li>
-                            )}
-                        </Listbox.Option>
-                    ))}
-                </Listbox.Options>
-            </Listbox>
-        </HStack>
+                    <span>{selectedItem?.label ?? defaultValue}</span>
+                </Button>
+            </Listbox.Button>
+            <Listbox.Options
+                className={classNames([cls.options, clsPopups.menu])}
+                ref={refs.setFloating}
+                style={floatingStyles}
+            >
+                {items.map(item => (
+                    <Listbox.Option
+                        key={item.value}
+                        value={item.value}
+                        disabled={item.disabled}
+                        as={Fragment}
+                    >
+                        {({ active, selected }) => (
+                            <li
+                                className={classNames([cls.item], {
+                                    [cls.active]: active,
+                                    [cls.selected]: selected,
+                                    [cls.disabled]: item.disabled,
+                                })}
+                            >
+                                {item.label}
+                            </li>
+                        )}
+                    </Listbox.Option>
+                ))}
+            </Listbox.Options>
+        </Listbox>
     )
+
+    if (label) {
+        return (
+            <HStack
+                gap={'12'}
+                alignItems={'center'}
+            >
+                <Text text={label} />
+                {listBox}
+            </HStack>
+        )
+    }
+
+    return listBox
 }
