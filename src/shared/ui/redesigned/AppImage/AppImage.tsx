@@ -13,11 +13,6 @@ interface AppLinkProps extends ImgHTMLAttributes<HTMLImageElement> {
     errorFallback?: ReactElement
 }
 
-/*
- * It is preferable to use the new redesigned component!
- * @deprecated
- * */
-
 export const AppImage = memo((props: AppLinkProps) => {
     const { src, fallback, errorFallback, alt = 'image', ...otherProps } = props
     const [isLoading, setIsLoading] = useState(true)

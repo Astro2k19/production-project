@@ -47,8 +47,6 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
     const getElementSkeleton = (view: ArticlesListView) => {
         const length = 4
 
-        console.log(view, 'getElementSkeleton')
-
         return new Array(length).fill(0).map((item, index) => {
             const mods = {
                 [cls.gridListItem]: view === 'GRID',
@@ -64,11 +62,10 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
         })
     }
 
-    console.log('TEST TESET')
-
     if (!isLoading && articles?.length === 0) {
         return <Text title={t("Such articles doesn't exist")} />
     }
+    console.log(isLoading, 'isLoading')
 
     const mods = {
         [cls.gridList]: view === 'GRID',

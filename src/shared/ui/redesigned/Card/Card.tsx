@@ -10,7 +10,7 @@ type CardBorder = 'normal' | 'round'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
-    children: ReactNode
+    children?: ReactNode
     variant?: CardVariants
     padding?: CardPaddings
     border?: CardBorder

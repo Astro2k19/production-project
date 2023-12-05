@@ -37,7 +37,12 @@
 }
 
 .outline {
-  border: 1px solid var(--bq-redesigned);
+  border: 1px solid var(--icon-redesigned);
+  background-color: transparent;
+}
+
+.outline:hover {
+  border-color: var(--accent-redesigned);
 }
 
 .filled {
