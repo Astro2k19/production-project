@@ -12,8 +12,8 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
-import { getProfileErrorMessage } from '../..'
-import { ProfileCardProps } from '../ProfileCard/ProfileCard'
+import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
+import { ProfileCardProps } from '../../model/types/profile'
 
 export const ProfileCardRedesigned: FC<ProfileCardProps> = props => {
     const {

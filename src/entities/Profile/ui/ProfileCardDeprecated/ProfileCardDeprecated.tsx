@@ -12,8 +12,8 @@ import { Loader } from '@/shared/ui/deprecated/Loader'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
-import { getProfileErrorMessage } from '../..'
-import { ProfileCardProps } from '../ProfileCard/ProfileCard'
+import { getProfileErrorMessage } from '../../model/services/getProfileErrorMessage/getProfileErrorMessage'
+import { ProfileCardProps } from '../../model/types/profile'
 import cls from './ProfileCardDeprecated.module.scss'
 
 export const ProfileCardDeprecated: FC<ProfileCardProps> = props => {
