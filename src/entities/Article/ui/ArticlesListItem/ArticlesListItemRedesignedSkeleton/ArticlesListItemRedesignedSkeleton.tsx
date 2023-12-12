@@ -14,36 +14,54 @@ export const ArticlesListItemRedesignedSkeleton: FC<
 > = ({ view, className }) => {
     if (view === ArticlesListView.GRID) {
         return (
-            <div
-                className={classNames([
-                    cls.articlesListItem,
-                    cls[view],
-                    className,
-                ])}
+            <Card
+                border={'round'}
+                className={classNames([className, cls[view]])}
             >
-                <Card className={cls.card}>
-                    <div
-                        className={classNames([cls.imageWrapper, cls.skeleton])}
+                <VStack gap={'4'}>
+                    <Skeleton
+                        width={'100%'}
+                        height={250}
+                    />
+                    <VStack
+                        className={cls.content}
+                        gap={'4'}
                     >
                         <Skeleton
                             width={'100%'}
-                            height={'100%'}
+                            height={113}
+                            borderRadius={'32px'}
                         />
-                    </div>
-                    <div className={cls.content}>
-                        <div className={cls.info}>
+                        <HStack justify={'spaceBetween'}>
                             <Skeleton
-                                width={'100%'}
-                                height={24}
+                                width={84}
+                                height={32}
+                                borderRadius={'32px'}
                             />
-                        </div>
-                        <Skeleton
-                            width={150}
-                            height={24}
-                        />
-                    </div>
-                </Card>
-            </div>
+                            <Skeleton
+                                width={145}
+                                height={32}
+                                borderRadius={'32px'}
+                            />
+                        </HStack>
+                        <HStack
+                            gap={'4'}
+                            alignItems={'center'}
+                        >
+                            <Skeleton
+                                width={30}
+                                height={30}
+                                borderRadius={'50%'}
+                            />
+                            <Skeleton
+                                width={150}
+                                height={20}
+                                borderRadius={'32px'}
+                            />
+                        </HStack>
+                    </VStack>
+                </VStack>
+            </Card>
         )
     }
 

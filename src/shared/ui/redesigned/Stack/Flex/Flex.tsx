@@ -1,6 +1,7 @@
 import {
     type ComponentPropsWithoutRef,
     type HTMLAttributes,
+    type JSX,
     type ReactNode,
 } from 'react'
 
@@ -25,6 +26,7 @@ export type FlexProps<T extends ValidTags = 'div'> = {
     gap?: FlexGapOptions
     noShrink?: boolean
     max?: boolean
+    wrap?: boolean
 } & (ComponentPropsWithoutRef<T> & HTMLAttributes<HTMLOrSVGElement>)
 
 const DEFAULT_TAG = 'div' as const
@@ -70,6 +72,7 @@ export const Flex = <T extends ValidTags = typeof DEFAULT_TAG>(
         max,
         noShrink = false,
         tag = 'div',
+        wrap = false,
         ...attributes
     } = props
 
@@ -84,6 +87,7 @@ export const Flex = <T extends ValidTags = typeof DEFAULT_TAG>(
     const mods = {
         [cls.max]: max,
         [cls.noShrink]: noShrink,
+        [cls.wrap]: wrap,
     }
 
     const Tag: ValidTags = tag

@@ -7,6 +7,7 @@ import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
 import { getRouteArticleSingle } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
+import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { Avatar } from '@/shared/ui/redesigned/Avatar'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Card } from '@/shared/ui/redesigned/Card'
@@ -39,13 +40,6 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
         </HStack>
     )
 
-    const type = (
-        <Text
-            className={cls.type}
-            text={article.type.join(', ')}
-        />
-    )
-
     const onCardClick = () => {
         if (index) {
             sessionStorage.setItem(
@@ -59,53 +53,60 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
 
     if (view === ArticlesListView.GRID) {
         return (
-            <Link
-                data-testid={'ArticlesListItem'}
-                to={path}
-                target={target}
-                className={classNames([
-                    cls.articlesListItem,
-                    className,
-                    cls[view],
-                ])}
-                onClick={onCardClick}
+            <Card
+                border={'round'}
+                className={classNames([className, cls[view]])}
             >
-                <Card className={cls.card}>
-                    <div className={cls.imageWrapper}>
-                        <AppImage
-                            src={article.img}
-                            alt={article.title}
-                            className={cls.image}
-                            fallback={
-                                <Skeleton
-                                    width={'100%'}
-                                    height={260}
-                                />
-                            }
-                            errorFallback={
-                                <Skeleton
-                                    width={'100%'}
-                                    height={260}
-                                />
-                            }
-                        />
+                <div className={cls.imageWrapper}>
+                    <AppImage
+                        src={article.img}
+                        alt={article.title}
+                        fallback={
+                            <Skeleton
+                                width={'100%'}
+                                height={250}
+                            />
+                        }
+                        errorFallback={
+                            <Skeleton
+                                width={'100%'}
+                                height={250}
+                            />
+                        }
+                    />
+                </div>
+                <VStack
+                    className={cls.content}
+                    gap={'4'}
+                >
+                    <AppLink
+                        data-testid={'ArticlesListItem'}
+                        to={path}
+                        target={target}
+                        onClick={onCardClick}
+                    >
+                        {article.title}
+                    </AppLink>
+                    <HStack justify={'spaceBetween'}>
                         <Text
                             text={article.createdAt}
                             className={cls.date}
                         />
-                    </div>
-                    <div className={cls.content}>
-                        <div className={cls.info}>
-                            {type}
-                            {views}
-                        </div>
-                        <Text
-                            title={article.title}
-                            className={cls.title}
+                        {views}
+                    </HStack>
+                    <HStack gap={'4'}>
+                        <Avatar
+                            src={article.user.avatar}
+                            alt={article.user.username}
+                            size={30}
                         />
-                    </div>
-                </Card>
-            </Link>
+                        <Text
+                            text={article.user.username}
+                            bold
+                        />
+                    </HStack>
+                </VStack>
+            </Card>
         )
     }
 
@@ -115,7 +116,7 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
 
     return (
         <Card
-            className={classNames([cls.articlesListItem, className, cls[view]])}
+            className={classNames([className, cls[view]])}
             data-testid={'ArticlesListItem'}
             padding={'24'}
             border={'round'}
