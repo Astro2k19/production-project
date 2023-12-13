@@ -56,6 +56,7 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
             <Card
                 border={'round'}
                 className={classNames([className, cls[view]])}
+                padding={'0'}
             >
                 <div className={cls.imageWrapper}>
                     <AppImage
@@ -83,18 +84,26 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
                         data-testid={'ArticlesListItem'}
                         to={path}
                         target={target}
+                        size={'M'}
                         onClick={onCardClick}
                     >
                         {article.title}
                     </AppLink>
-                    <HStack justify={'spaceBetween'}>
+                    <HStack
+                        justify={'spaceBetween'}
+                        alignItems={'center'}
+                    >
                         <Text
                             text={article.createdAt}
                             className={cls.date}
                         />
                         {views}
                     </HStack>
-                    <HStack gap={'4'}>
+                    <HStack
+                        gap={'4'}
+                        alignItems={'center'}
+                        className={cls.cardBottom}
+                    >
                         <Avatar
                             src={article.user.avatar}
                             alt={article.user.username}
@@ -138,7 +147,11 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = props => {
                         />
                         <Text text={article.createdAt} />
                     </HStack>
-                    <Text title={article.title} />
+                    <Text
+                        title={article.title}
+                        size={'L'}
+                        bold
+                    />
                 </VStack>
                 <AppImage
                     src={article.img}

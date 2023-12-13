@@ -11,6 +11,7 @@
     position: relative;
     height: 250px;
     overflow: hidden;
+    border-radius: 32px 32px 0 0;
 
     img {
       width: 100%;
@@ -20,6 +21,10 @@
   }
 
   .content {
-    padding: 8px 8px 16px 8px;
+    padding: 8px 8px 16px;
+  }
+
+  .cardBottom {
+    padding-left: 8px;
   }
 }

@@ -6,7 +6,7 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import { ArticlesListView } from '../../../model/const/articleConst'
-import cls from '../ArticlesListItem.module.scss'
+import cls from '../ArticleListItemRedesigned/ArticleListItemRedesigned.module.scss'
 import { ArticlesListItemSkeletonProps } from '../ArticlesListItemSkeleton'
 
 export const ArticlesListItemRedesignedSkeleton: FC<
@@ -17,49 +17,50 @@ export const ArticlesListItemRedesignedSkeleton: FC<
             <Card
                 border={'round'}
                 className={classNames([className, cls[view]])}
+                padding={'0'}
             >
-                <VStack gap={'4'}>
+                <Skeleton
+                    width={'100%'}
+                    height={250}
+                    borderRadius={'32px 32px 0 0'}
+                />
+                <VStack
+                    className={cls.content}
+                    gap={'8'}
+                >
                     <Skeleton
                         width={'100%'}
-                        height={250}
+                        height={26}
+                        borderRadius={'16px'}
                     />
-                    <VStack
-                        className={cls.content}
+                    <HStack justify={'spaceBetween'}>
+                        <Skeleton
+                            width={84}
+                            height={22}
+                            borderRadius={'16px'}
+                        />
+                        <Skeleton
+                            width={88}
+                            height={22}
+                            borderRadius={'16px'}
+                        />
+                    </HStack>
+                    <HStack
                         gap={'4'}
+                        alignItems={'center'}
+                        className={cls.cardBottom}
                     >
                         <Skeleton
-                            width={'100%'}
-                            height={113}
-                            borderRadius={'32px'}
+                            width={30}
+                            height={30}
+                            borderRadius={'50%'}
                         />
-                        <HStack justify={'spaceBetween'}>
-                            <Skeleton
-                                width={84}
-                                height={32}
-                                borderRadius={'32px'}
-                            />
-                            <Skeleton
-                                width={145}
-                                height={32}
-                                borderRadius={'32px'}
-                            />
-                        </HStack>
-                        <HStack
-                            gap={'4'}
-                            alignItems={'center'}
-                        >
-                            <Skeleton
-                                width={30}
-                                height={30}
-                                borderRadius={'50%'}
-                            />
-                            <Skeleton
-                                width={150}
-                                height={20}
-                                borderRadius={'32px'}
-                            />
-                        </HStack>
-                    </VStack>
+                        <Skeleton
+                            width={100}
+                            height={20}
+                            borderRadius={'16px'}
+                        />
+                    </HStack>
                 </VStack>
             </Card>
         )
@@ -67,7 +68,7 @@ export const ArticlesListItemRedesignedSkeleton: FC<
 
     return (
         <Card
-            className={classNames([cls.articlesListItem, className, cls[view]])}
+            className={classNames([className, cls[view]])}
             data-testid={'ArticlesListItem'}
             padding={'24'}
             border={'round'}
@@ -107,7 +108,7 @@ export const ArticlesListItemRedesignedSkeleton: FC<
                 />
                 <Skeleton
                     width={'100%'}
-                    height={407}
+                    height={390}
                     borderRadius={'16px'}
                 />
                 <VStack gap={'8'}>

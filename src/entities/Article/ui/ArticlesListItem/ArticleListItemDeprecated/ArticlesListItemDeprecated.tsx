@@ -14,7 +14,10 @@ import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
 
-import { ArticleBlockType } from '../../../model/const/articleConst'
+import {
+    ArticleBlockType,
+    ArticlesListView,
+} from '../../../model/const/articleConst'
 import { ArticleTextBlock } from '../../../model/types/article'
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticlesListItemProps } from '../ArticlesListItem'
@@ -24,10 +27,6 @@ export const ArticlesListItemDeprecated: FC<ArticlesListItemProps> = props => {
     const { className, view, article, target = '_self', index } = props
 
     const { t } = useTranslation()
-
-    const description = article.blocks.find(
-        block => block.type === ArticleBlockType.TEXT,
-    ) as ArticleTextBlock
 
     const type = (
         <Text
@@ -53,6 +52,62 @@ export const ArticlesListItemDeprecated: FC<ArticlesListItemProps> = props => {
     }
 
     const path = getRouteArticleSingle(article.id)
+
+    if (view === ArticlesListView.GRID) {
+        return (
+            <Link
+                data-testid={'ArticlesListItem'}
+                to={path}
+                target={target}
+                className={classNames([
+                    cls.articlesListItem,
+                    className,
+                    cls[view],
+                ])}
+                onClick={onCardClick}
+            >
+                <Card className={cls.card}>
+                    <div className={cls.imageWrapper}>
+                        <AppImage
+                            src={article.img}
+                            alt={article.title}
+                            className={cls.image}
+                            fallback={
+                                <Skeleton
+                                    width={'100%'}
+                                    height={260}
+                                />
+                            }
+                            errorFallback={
+                                <Skeleton
+                                    width={'100%'}
+                                    height={260}
+                                />
+                            }
+                        />
+                        <Text
+                            text={article.createdAt}
+                            className={cls.date}
+                        />
+                    </div>
+                    <div className={cls.content}>
+                        <div className={cls.info}>
+                            {type}
+                            {views}
+                        </div>
+                        <Text
+                            title={article.title}
+                            className={cls.title}
+                        />
+                    </div>
+                </Card>
+            </Link>
+        )
+    }
+
+    const description = article.blocks.find(
+        block => block.type === ArticleBlockType.TEXT,
+    ) as ArticleTextBlock
 
     return (
         <div
