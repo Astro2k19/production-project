@@ -9,7 +9,7 @@ import { getUserInited, initAuthDate } from '@/entities/User'
 
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 import { AppRouter } from './providers/router/ui/AppRouter'
@@ -32,7 +32,10 @@ export const App: React.FC = () => {
             feature={'isAppRedesigned'}
             on={
                 <Suspense fallback={<PageLoader />}>
-                    <div className={classNames(['app_redesigned'])}>
+                    <div
+                        id={'app'}
+                        className={classNames(['app_redesigned'])}
+                    >
                         <MainLayout
                             navbar={<Navbar />}
                             sidebar={<Sidebar />}
@@ -44,7 +47,10 @@ export const App: React.FC = () => {
             }
             off={
                 <Suspense fallback={<PageLoader />}>
-                    <div className={classNames(['app'])}>
+                    <div
+                        id={'app'}
+                        className={classNames(['app'])}
+                    >
                         <Navbar />
                         <div className="page-content">
                             <Sidebar />

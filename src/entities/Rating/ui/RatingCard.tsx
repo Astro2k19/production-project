@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
 import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
 import { Card } from '@/shared/ui/deprecated/Card'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
 import { Input } from '@/shared/ui/deprecated/Input'
-import { Modal } from '@/shared/ui/deprecated/Modal'
 import { StartRating } from '@/shared/ui/deprecated/StartRating'
 import { Text, TextVariants } from '@/shared/ui/deprecated/Text'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
+import { Modal } from '@/shared/ui/redesigned/Modal'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
 interface RatingCardProps {

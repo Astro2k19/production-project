@@ -7,9 +7,10 @@ import {
 } from 'react'
 
 import { classNames } from '@/shared/lib'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
-import { Overlay } from '../../redesigned/Overlay'
-import { Portal } from '../../redesigned/Portal'
+import { Overlay } from '../Overlay'
+import { Portal } from '../Portal'
 import cls from './Modal.module.scss'
 
 interface ModalProps {
@@ -32,6 +33,12 @@ export const Modal: FC<ModalProps> = props => {
     } = props
 
     const [isMounted, setIsMounted] = useState(false)
+
+    const classNameString = toggleFeature({
+        name: 'isAppRedesigned',
+        on: () => cls.newModal,
+        off: () => cls.oldModal,
+    })
 
     const closeModal = useCallback(() => {
         if (onClose !== undefined) {
@@ -74,8 +81,8 @@ export const Modal: FC<ModalProps> = props => {
 
     if (withPortal) {
         return (
-            <Portal>
-                <div className={classNames([cls.modal, 'app_modal'], mods)}>
+            <Portal domNode={document.querySelector('#app')}>
+                <div className={classNames([cls.modal, classNameString], mods)}>
                     <Overlay onClick={closeModal} />
                     <div className={classNames([cls.content, className])}>
                         {children}
@@ -86,7 +93,7 @@ export const Modal: FC<ModalProps> = props => {
     }
 
     return (
-        <div className={classNames([cls.modal], mods)}>
+        <div className={classNames([cls.modal, classNameString], mods)}>
             <Overlay onClick={closeModal} />
             <div className={classNames([cls.content, className])}>
                 {children}

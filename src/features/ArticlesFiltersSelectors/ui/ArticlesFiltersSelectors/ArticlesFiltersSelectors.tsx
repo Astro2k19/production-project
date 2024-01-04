@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersConst'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { type SortOrder } from '@/shared/types/sortOrder'
 import { Select, type SelectOption } from '@/shared/ui/deprecated/Select'
 import { ListBox } from '@/shared/ui/redesigned/Popups'

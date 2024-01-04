@@ -1,7 +1,6 @@
 .content {
   max-width: 60%;
   padding: 15px;
-  background-color: var(--bg-color);
   border-radius: 15px;
   transform: scale(0.5);
   transition: transform 0.2s ease-in;
@@ -27,5 +26,17 @@
     .content {
       transform: scale(1);
     }
+  }
+}
+
+.newModal {
+  .content {
+    background-color: var(--light-bg-redesigned);
+  }
+}
+
+.oldModal {
+  .content {
+    background-color: var(--bg-color);
   }
 }

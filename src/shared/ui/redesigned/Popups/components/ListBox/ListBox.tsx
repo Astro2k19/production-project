@@ -12,7 +12,7 @@ import { Text } from '../../../Text'
 import clsPopups from '../../popups.module.scss'
 import cls from './ListBox.module.scss'
 
-interface ListBoxItem<T extends string> {
+export interface ListBoxItem<T extends string> {
     value: T
     label: ReactNode
     disabled?: boolean
@@ -60,7 +60,6 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             className={classNames([cls.listBox, className])}
             disabled={readonly}
             onChange={onChange}
-            ref={refs.setReference}
         >
             <Listbox.Button as={Fragment}>
                 <Button
@@ -69,6 +68,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                     className={cls.trigger}
                     disabled={readonly}
                     addonRight={<Icon Svg={ArrowDown} />}
+                    ref={refs.setReference}
                 >
                     <span>{selectedItem?.label ?? defaultValue}</span>
                 </Button>

@@ -9,6 +9,7 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage'
 import { HomePage } from '@/pages/Home'
 import { NotFoundPage } from '@/pages/NotFound'
 import { Profile } from '@/pages/Profile'
+import { Settings } from '@/pages/Settings'
 
 import { UserRoles } from '@/entities/User'
 
@@ -23,6 +24,7 @@ import {
     getRouteMain,
     getRouteNotFound,
     getRouteProfile,
+    getRouteSettings,
 } from '@/shared/const/router'
 
 export type ProtectedRouteProps = RouteProps & {
@@ -34,6 +36,10 @@ export const routerConfig: ProtectedRouteProps[] = [
     {
         path: getRouteMain(),
         element: <HomePage />,
+    },
+    {
+        path: getRouteSettings(),
+        element: <Settings />,
     },
     {
         path: getRouteAbout(),

@@ -2,6 +2,7 @@ import { type ReactNode, memo, useCallback, useEffect } from 'react'
 
 import { classNames } from '@/shared/lib'
 import { AnimationProvider, useAnimLibs } from '@/shared/lib/AnimationProvider'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
 import { Overlay } from '../../redesigned/Overlay'
 import { Portal } from '../Portal'
@@ -20,9 +21,12 @@ const height = window.innerHeight - 300
 export const DrawerContent = memo((props: DrawerProps) => {
     const { className, onClose, isOpen, children, withPortal = true } = props
     const { Gesture, Spring } = useAnimLibs()
-    console.log({ Gesture, Spring })
-    // const contentRef = useRef<HTMLDivElement>(null)
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
+    const classNameString = toggleFeature({
+        name: 'isAppRedesigned',
+        on: () => cls.newDrawer,
+        off: () => cls.oldDrawer,
+    })
 
     const open = useCallback(
         ({ canceled }: { canceled: boolean }) => {
@@ -88,7 +92,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     }
 
     const content = (
-        <div className={classNames([cls.drawer, 'app_drawer'])}>
+        <div className={classNames([cls.drawer, classNameString])}>
             <Overlay
                 onClick={() => {
                     close()
@@ -116,12 +120,12 @@ export const DrawerContent = memo((props: DrawerProps) => {
     )
 
     if (withPortal) {
-        return <Portal>{content}</Portal>
+        return (
+            <Portal domNode={document.querySelector('#app')}>{content}</Portal>
+        )
     }
 
-    return (
-        <div className={classNames([cls.drawer, 'app_drawer'])}>{content}</div>
-    )
+    return content
 })
 
 const DrawerAsync = ({ children, ...props }: DrawerProps) => {

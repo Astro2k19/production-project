@@ -16,7 +16,7 @@ import {
     getRouteMain,
     getRouteProfile,
 } from '@/shared/const/router'
-import { toggleFeature } from '@/shared/lib/features/toggleFeatures'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
 import { type SidebarItemType } from '../../model/types/sidebar'
 

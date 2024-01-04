@@ -7,7 +7,7 @@ import ThemeSwitcherIcon from '@/shared/assets/icons/ThemeIcon.svg'
 import ThemeSwitcherIconDeprecated from '@/shared/assets/icons/theme-light.svg'
 import { Theme } from '@/shared/const/theme'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 import {

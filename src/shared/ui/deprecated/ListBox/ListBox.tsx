@@ -15,13 +15,8 @@ interface ListBoxItem<T extends string> {
     disabled?: boolean
 }
 
-/*
- * It is preferable to use the new redesigned component!
- * @deprecated
- * */
-
 interface ListBoxProps<T extends string> {
-    label: string
+    label?: string
     items: Array<ListBoxItem<T>>
     value?: T
     defaultValue?: T
@@ -29,6 +24,11 @@ interface ListBoxProps<T extends string> {
     className?: string
     readonly?: boolean
 }
+
+/*
+ * It is preferable to use the new redesigned component!
+ * @deprecated
+ * */
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const { value, defaultValue, label, items, readonly, onChange, className } =

@@ -3,7 +3,7 @@ import React, { type FC, memo, useCallback } from 'react'
 import { Page } from '@/widgets/Page'
 
 import { StickyLayout } from '@/shared/layouts/StickyLayout'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 

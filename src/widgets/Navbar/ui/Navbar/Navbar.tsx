@@ -10,7 +10,7 @@ import { getUserAuthDate } from '@/entities/User'
 
 import { getRouteArticleNew } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
 import { HStack } from '@/shared/ui/redesigned/Stack'

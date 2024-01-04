@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/ListBox'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
 

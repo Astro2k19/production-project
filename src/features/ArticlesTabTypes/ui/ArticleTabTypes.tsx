@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticleType } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import {
     type TabItem,
     Tabs as TabsDeprecated,

@@ -12,7 +12,7 @@ import {
 } from '@/features/SavePageScroll'
 
 import { classNames } from '@/shared/lib'
-import { toggleFeature } from '@/shared/lib/features/toggleFeatures'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'

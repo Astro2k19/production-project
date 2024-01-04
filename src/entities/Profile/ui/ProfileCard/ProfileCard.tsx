@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 import { ProfileCardProps } from '../../model/types/profile'
 import {

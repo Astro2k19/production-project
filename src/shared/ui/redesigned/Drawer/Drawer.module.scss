@@ -12,7 +12,6 @@
   left: 2vw;
   height: calc(100vh + 100px);
   width: 96vw;
-  background-color: var(--dark-bg-redesigned);
   border-radius: 28px;
   z-index: 99999;
   touch-action: none;
@@ -24,9 +23,29 @@
   align-items: center;
   justify-content: center;
   height: 30px;
-  background-color: var(--light-bg-redesigned);
   border-top-left-radius: 28px;
   border-top-right-radius: 28px;
+}
+
+
+.newDrawer {
+  .sheet {
+    background-color: var(--dark-bg-redesigned);
+  }
+
+  .dragger {
+    background-color: var(--light-bg-redesigned);
+  }
+}
+
+.oldDrawer {
+  .sheet {
+    background-color: var(--bg-color);
+  }
+
+  .dragger {
+    background-color: var(--inverted-bg-color);
+  }
 }
 
 .dragger::after {

@@ -5,17 +5,19 @@ import { NotificationList } from '@/entities/Notification'
 import NotificationIcon from '@/shared/assets/icons/Notify.svg'
 import NotificationIconDeprecated from '@/shared/assets/icons/notification.svg'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
-import { toggleFeature } from '@/shared/lib/features/toggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
 import {
     Button as ButtonDeprecated,
     ButtonVariants,
 } from '@/shared/ui/deprecated/Button'
-import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer'
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popover'
-import { Drawer } from '@/shared/ui/redesigned/Drawer'
+import {
+    Drawer,
+    Drawer as DrawerDeprecated,
+} from '@/shared/ui/redesigned/Drawer'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import { Popover } from '@/shared/ui/redesigned/Popups'
 

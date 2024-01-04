@@ -9,3 +9,5 @@ export const getRouteArticleNew = () => '/articles/new'
 export const getRouteAdminPanel = () => '/admin/'
 export const getRouteForbidden = () => '/forbidden-page/'
 export const getRouteNotFound = () => '*'
+
+export const getRouteSettings = () => '/settings'

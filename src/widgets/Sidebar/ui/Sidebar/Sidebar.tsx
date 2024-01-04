@@ -1,6 +1,6 @@
 import React, { type FC, useMemo } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'

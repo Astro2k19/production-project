@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import {
     AppLink as AppLinkDeprecated,
     AppLinkVariants,

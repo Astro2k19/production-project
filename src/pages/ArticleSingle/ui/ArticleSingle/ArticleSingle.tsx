@@ -10,7 +10,7 @@ import { ArticleSingleRecommendations } from '@/features/ArticleSingleRecommenda
 import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { Card } from '@/shared/ui/deprecated/Card'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'

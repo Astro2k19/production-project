@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { setJsonSettings, useUserJsonSettings } from '@/entities/User'
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Modal } from '@/shared/ui/deprecated/Modal'
+import { Modal } from '@/shared/ui/redesigned/Modal'
 
 interface ArticlePageGreetingProps {
     className?: string
