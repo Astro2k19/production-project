@@ -2,14 +2,15 @@ import { type FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { useFetchArticleById } from '@/entities/Article'
+import { ArticleEditButton } from '@/features/ArticleEditButton'
 
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
+import { getUserAuthDate } from '@/entities/User'
+
+import { getRouteArticles } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
 
-import { getCanEditArticle } from '../../model/selectors/article'
 import cls from './ArticleSingleHeader.module.scss'
 
 interface ArticleSingleHeaderProps {
@@ -22,16 +23,15 @@ export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({
     const { t } = useTranslation('article')
     const navigate = useNavigate()
     const { id } = useParams<{ id: string }>()
-    const { data: article } = useFetchArticleById(id as string)
-    const canEdit = useAppSelector(getCanEditArticle(article))
+    const authData = useAppSelector(getUserAuthDate)
 
     const onGoBack = useCallback(() => {
         navigate(getRouteArticles())
     }, [navigate])
 
-    const onEditArticle = useCallback(() => {
-        navigate(getRouteArticleEdit(id as string))
-    }, [id, navigate])
+    if (!id || !authData) {
+        return null
+    }
 
     return (
         <div className={classNames([cls.articleSingleHeader, className])}>
@@ -42,15 +42,10 @@ export const ArticleSingleHeader: FC<ArticleSingleHeaderProps> = ({
             >
                 {t('Go back to articles')}
             </Button>
-            {canEdit && (
-                <Button
-                    title={t('Click to edit article')}
-                    onClick={onEditArticle}
-                    variant={ButtonVariants.OUTLINE}
-                >
-                    {t('Edit article')}
-                </Button>
-            )}
+            <ArticleEditButton
+                articleId={id}
+                userId={authData.id}
+            />
         </div>
     )
 }

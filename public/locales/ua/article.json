@@ -7,6 +7,10 @@
     "How do you like the article?": "Як вам стаття?",
     "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ой! Щось пішло не так при завантаженні коментарів до статті.",
     "UNKNOWN_ARTICLE_ERROR": "Ой! Щось пішло не так зі статтею, можливо її не існує. Спробуйте будь ласка перезайти.",
+    "views_zero": "{{count}} переглядів",
+    "views_one": "{{count}} перегляд",
+    "views_two": "{{count}} перегляди",
+    "views_other": "{{count}} переглядів",
     "articles_sort_categories": {
         "All": "Усі статті",
         "Economics": "Економіка",

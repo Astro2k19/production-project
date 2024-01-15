@@ -66,6 +66,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <VStack
                 gap={'12'}
                 data-testid={'ArticleDetails.Loading'}
+                max
             >
                 <HStack justify={'center'}>
                     <Skeleton

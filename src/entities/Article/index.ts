@@ -10,3 +10,4 @@ export {
     ArticleType,
 } from './model/const/articleConst'
 export { useFetchArticleById } from './api/articleApi'
+export { getCanEditArticle } from './model/selectors/article'

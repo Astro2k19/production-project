@@ -2619,7 +2619,7 @@
       "avatar": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
       "features": {
         "isArticleRecommendationsEnabled": false,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",

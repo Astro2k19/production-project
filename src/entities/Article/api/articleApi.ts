@@ -5,7 +5,13 @@ import { Article } from '../model/types/article'
 const articleApi = rtkApi.injectEndpoints({
     endpoints: build => ({
         fetchArticleById: build.query<Article, string>({
-            query: id => `/articles/${id}`,
+            query: id => ({
+                url: `/articles/${id}`,
+                method: 'GET',
+                params: {
+                    _expand: 'user',
+                },
+            }),
         }),
     }),
 })

@@ -7,6 +7,8 @@
     "How do you like the article?": "How do you like the article?",
     "UNKNOWN_ARTICLE_COMMENTS_ERROR": "Ops! Something went wrong while loading article comments.",
     "UNKNOWN_ARTICLE_ERROR": "Ops! Something went wrong with the article, maybe it doesn't exist. Please try again.",
+    "views_one": "{{count}} view",
+    "views_other": "{{count}} views",
     "articles_sort_categories": {
         "All": "All articles",
         "Economics": "Economics",

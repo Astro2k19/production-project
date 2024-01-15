@@ -9,12 +9,14 @@ import { ArticleSingleRecommendations } from '@/features/ArticleSingleRecommenda
 
 import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
 
+import { StickyLayout } from '@/shared/layouts/StickyLayout'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/deprecated/Card'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
+import { ArticleAdditionalContainer } from '../ArticleAdditionalContainer/ArticleAdditionalContainer'
+import { ArticleDetailsContainer } from '../ArticleDetailsContainer/ArticleDetailsContainer'
 import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleComments'
 import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
 
@@ -45,31 +47,31 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
 
     return (
         <Page className={classNames([className])}>
-            <VStack gap={'32'}>
-                <ArticleSingleHeader />
-                <ArticleDetails id={id} />
-                <ToggleFeatures
-                    feature={'isArticleRecommendationsEnabled'}
-                    on={<ArticleSingleRecommendations />}
-                    off={
-                        <Card>
-                            {t(
-                                'Article recommendations will be accessible soon!',
-                            )}
-                        </Card>
-                    }
-                />
-                <ToggleFeatures
-                    feature={'isArticleRatingEnabled'}
-                    on={<ArticleRating articleId={id} />}
-                    off={
-                        <Card>
-                            {t('Article rating will be accessible soon!')}
-                        </Card>
-                    }
-                />
-                <ArticleSingleComments id={id} />
-            </VStack>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <StickyLayout
+                        content={
+                            <VStack gap={'16'}>
+                                <ArticleDetailsContainer />
+                                <ArticleSingleRecommendations />
+                                <ArticleRating articleId={id} />
+                                <ArticleSingleComments id={id} />
+                            </VStack>
+                        }
+                        right={<ArticleAdditionalContainer />}
+                    />
+                }
+                off={
+                    <VStack gap={'32'}>
+                        <ArticleSingleHeader />
+                        <ArticleDetails id={id} />
+                        <ArticleSingleRecommendations />
+                        <ArticleRating articleId={id} />
+                        <ArticleSingleComments id={id} />
+                    </VStack>
+                }
+            />
         </Page>
     )
 }

@@ -6,9 +6,9 @@ import cls from './StickyLayout.module.scss'
 
 interface StickyLayoutProps {
     className?: string
-    left: ReactNode
+    left?: ReactNode
     content: ReactNode
-    right: ReactNode
+    right?: ReactNode
 }
 
 export const StickyLayout = (props: StickyLayoutProps) => {
