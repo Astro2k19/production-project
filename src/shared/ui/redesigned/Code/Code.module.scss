@@ -1,0 +1,25 @@
+.code {
+  position: relative;
+  padding: 18px 32px;
+  background-color: var(--light-bg-redesigned);
+  border: 1px solid var(--accent-redesigned);
+}
+
+.buttonWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  span {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    right: 0;
+    width: fit-content;
+    padding: 5px 12px;
+    background-color: var(--bq-redesigned);
+    border: 1px solid var(--accent-redesigned);
+
+    border-radius: 4px;
+    transform: translateX(-50%);
+  }
+}

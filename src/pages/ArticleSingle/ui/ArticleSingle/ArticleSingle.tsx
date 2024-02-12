@@ -54,8 +54,8 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
                         content={
                             <VStack gap={'16'}>
                                 <ArticleDetailsContainer />
-                                <ArticleSingleRecommendations />
                                 <ArticleRating articleId={id} />
+                                <ArticleSingleRecommendations />
                                 <ArticleSingleComments id={id} />
                             </VStack>
                         }

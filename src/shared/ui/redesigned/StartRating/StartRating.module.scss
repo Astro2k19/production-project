@@ -1,0 +1,23 @@
+.starRating {
+  .hovered {
+    cursor: pointer;
+    fill: var(--inverted-primary-color);
+  }
+}
+
+.starRatingRedesigned {
+  .star svg {
+    fill: transparent;
+    stroke: var(--icon-redesigned);
+    stroke-width: 2px;
+  }
+
+  .hovered svg {
+    fill: var(--icon-redesigned);
+  }
+
+}
+
+.selected {
+  cursor: default;
+}

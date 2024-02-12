@@ -38,6 +38,7 @@ export const ArticleAdditionalInfo = memo(
                         <Skeleton
                             width={150}
                             height={20}
+                            borderRadius={'8px'}
                         />
                     </HStack>
                     <Skeleton
@@ -47,7 +48,8 @@ export const ArticleAdditionalInfo = memo(
                     />
                     <Skeleton
                         width={'100%'}
-                        height={24}
+                        height={20}
+                        borderRadius={'8px'}
                     />
                 </VStack>
             )

@@ -27,7 +27,6 @@ const ArticleRating = memo(
             articleId,
         })
 
-        console.log(data, 'data')
         const [postArticleRating] = usePostArticleRating()
 
         const rating = data?.at(0)

@@ -9,7 +9,7 @@ import { ArticlesListView } from '../../../model/const/articleConst'
 import cls from '../ArticleListItemRedesigned/ArticleListItemRedesigned.module.scss'
 import { ArticlesListItemSkeletonProps } from '../ArticlesListItemSkeleton'
 
-export const ArticlesListItemRedesignedSkeleton: FC<
+export const ArticlesListItemSkeletonRedesigned: FC<
     ArticlesListItemSkeletonProps
 > = ({ view, className }) => {
     if (view === ArticlesListView.GRID) {

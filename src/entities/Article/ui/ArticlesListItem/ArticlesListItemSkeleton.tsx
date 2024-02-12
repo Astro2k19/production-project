@@ -3,8 +3,8 @@ import { type FC } from 'react'
 import { ToggleFeatures } from '@/shared/lib/features'
 
 import { ArticlesListView } from '../../model/const/articleConst'
-import { ArticlesListItemDeprecatedSkeleton } from './ArticlesListItemDeprecatedSkeleton/ArticlesListItemDeprecatedSkeleton'
-import { ArticlesListItemRedesignedSkeleton } from './ArticlesListItemRedesignedSkeleton/ArticlesListItemRedesignedSkeleton'
+import { ArticlesListItemSkeletonDeprecated } from './ArticlesListItemSkeletonDeprecated/ArticlesListItemSkeletonDeprecated'
+import { ArticlesListItemSkeletonRedesigned } from './ArticlesListItemSkeletonRedesigned/ArticlesListItemSkeletonRedesigned'
 
 export interface ArticlesListItemSkeletonProps {
     view: ArticlesListView
@@ -17,8 +17,8 @@ export const ArticlesListItemSkeleton: FC<
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<ArticlesListItemRedesignedSkeleton {...props} />}
-            off={<ArticlesListItemDeprecatedSkeleton {...props} />}
+            on={<ArticlesListItemSkeletonRedesigned {...props} />}
+            off={<ArticlesListItemSkeletonDeprecated {...props} />}
         />
     )
 }

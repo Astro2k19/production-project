@@ -37,7 +37,7 @@
 }
 
 .outline {
-  border: 1px solid var(--icon-redesigned);
+  border: 2px solid var(--icon-redesigned);
   background-color: transparent;
 }
 
@@ -51,12 +51,28 @@
   background-color: var(--light-bg-redesigned);
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .normal {
   border-radius: 16px;
 }
 
 .round {
   border-radius: 32px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
 }
 
 .M {

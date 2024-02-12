@@ -4,11 +4,12 @@
   place-items: center;
 }
 
-.blocks {
-  padding-block: 25px;
+.articleDetails {
+  .image {
+    border-radius: 50%;
+  }
 }
 
 .image {
-  border-radius: 50%;
   object-fit: cover;
 }

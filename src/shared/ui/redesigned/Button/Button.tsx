@@ -11,10 +11,9 @@ import { Mods } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 type ButtonVariants = 'outline' | 'clear' | 'filled'
-
 type ButtonSizes = 'M' | 'L' | 'XL'
-
 type ButtonBorders = 'normal' | 'round'
+type ButtonAlign = 'left' | 'right' | 'center'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariants
@@ -23,6 +22,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     border?: ButtonBorders
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    fullWidth?: boolean
+    align?: ButtonAlign
 }
 
 export const Button = forwardRef(
@@ -36,18 +37,22 @@ export const Button = forwardRef(
             border = 'normal',
             addonLeft,
             addonRight,
+            fullWidth = false,
+            align = 'left',
             ...othersProps
         } = props
 
         const mods: Mods = {
             [cls.withLeftAddon]: Boolean(addonLeft),
             [cls.withRightAddon]: Boolean(addonRight),
+            [cls.fullWidth]: fullWidth,
         }
 
         const classes = [
             cls.button,
             cls[variant],
             cls[size],
+            cls[align],
             cls[border],
             className,
         ]

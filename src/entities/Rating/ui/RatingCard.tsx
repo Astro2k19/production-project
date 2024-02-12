@@ -1,15 +1,26 @@
 import { FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
-import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
-import { Card } from '@/shared/ui/deprecated/Card'
-import { Input } from '@/shared/ui/deprecated/Input'
-import { StartRating } from '@/shared/ui/deprecated/StartRating'
-import { Text, TextVariants } from '@/shared/ui/deprecated/Text'
+import {
+    Button as ButtonDeprecated,
+    ButtonVariants,
+} from '@/shared/ui/deprecated/Button'
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
+import {
+    Text as TextDeprecated,
+    TextVariants,
+} from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { Drawer } from '@/shared/ui/redesigned/Drawer'
+import { Input } from '@/shared/ui/redesigned/Input'
 import { Modal } from '@/shared/ui/redesigned/Modal'
-import { VStack } from '@/shared/ui/redesigned/Stack'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
+import { StartRating } from '@/shared/ui/redesigned/StartRating'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface RatingCardProps {
     className?: string
@@ -63,33 +74,110 @@ export const RatingCard: FC<RatingCardProps> = ({
     }, [currentStarsCount, feedbackText, onAccept])
 
     const modalContent = (
-        <>
-            <Text
-                title={feedbackTitle}
-                variant={TextVariants.INVERTED}
-            />
-            <Input
-                placeholder={t('Your feedback')}
-                value={feedbackText}
-                onChange={setFeedbackText}
-                data-testid={'RatingCard.Input'}
-            />
-        </>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <>
+                    <Text title={feedbackTitle} />
+                    <Input
+                        placeholder={t('Your feedback')}
+                        value={feedbackText}
+                        onChange={setFeedbackText}
+                        data-testid={'RatingCard.Input'}
+                    />
+                </>
+            }
+            off={
+                <>
+                    <TextDeprecated
+                        title={feedbackTitle}
+                        variant={TextVariants.INVERTED}
+                    />
+                    <InputDeprecated
+                        placeholder={t('Your feedback')}
+                        value={feedbackText}
+                        onChange={setFeedbackText}
+                        data-testid={'RatingCard.Input'}
+                    />
+                </>
+            }
+        />
     )
 
-    return (
-        <Card>
-            <VStack
-                alignItems={'center'}
-                gap={'8'}
-            >
-                <Text title={title} />
-                <StartRating
-                    onSelect={onSelectRating}
-                    size={50}
-                    selectedStarsCount={rate}
-                />
-            </VStack>
+    const buttonGroup = (
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <HStack gap={'8'}>
+                    <Button
+                        onClick={acceptHandle}
+                        variant={'outline'}
+                        fullWidth
+                        align={'center'}
+                    >
+                        {t('Send')}
+                    </Button>
+                    <Button
+                        variant={'outline'}
+                        onClick={cancelHandle}
+                        fullWidth
+                        align={'center'}
+                    >
+                        {t('Cancel')}
+                    </Button>
+                </HStack>
+            }
+            off={
+                <VStack gap={'8'}>
+                    <ButtonDeprecated
+                        onClick={acceptHandle}
+                        variant={ButtonVariants.OUTLINE}
+                    >
+                        {t('Send')}
+                    </ButtonDeprecated>
+                    <ButtonDeprecated
+                        onClick={cancelHandle}
+                        variant={ButtonVariants.OUTLINE_RED}
+                    >
+                        {t('Cancel')}
+                    </ButtonDeprecated>
+                </VStack>
+            }
+        />
+    )
+
+    const content = (
+        <>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <VStack
+                        alignItems={'center'}
+                        gap={'8'}
+                        className={className}
+                    >
+                        <Text title={title} />
+                        <StartRating
+                            onSelect={onSelectRating}
+                            size={34}
+                            selectedStarsCount={rate}
+                        />
+                    </VStack>
+                }
+                off={
+                    <VStack
+                        alignItems={'center'}
+                        gap={'8'}
+                    >
+                        <TextDeprecated title={title} />
+                        <StartRating
+                            onSelect={onSelectRating}
+                            size={50}
+                            selectedStarsCount={rate}
+                        />
+                    </VStack>
+                }
+            />
             {isMobile ? (
                 <Drawer
                     isOpen={isModalOpen}
@@ -97,20 +185,7 @@ export const RatingCard: FC<RatingCardProps> = ({
                 >
                     <VStack gap={'12'}>
                         {modalContent}
-                        <VStack gap={'8'}>
-                            <Button
-                                onClick={acceptHandle}
-                                variant={ButtonVariants.OUTLINE}
-                            >
-                                {t('Send')}
-                            </Button>
-                            <Button
-                                onClick={cancelHandle}
-                                variant={ButtonVariants.OUTLINE_RED}
-                            >
-                                {t('Cancel')}
-                            </Button>
-                        </VStack>
+                        {buttonGroup}
                     </VStack>
                 </Drawer>
             ) : (
@@ -121,25 +196,25 @@ export const RatingCard: FC<RatingCardProps> = ({
                 >
                     <VStack gap={'12'}>
                         {modalContent}
-                        <VStack gap={'8'}>
-                            <Button
-                                onClick={acceptHandle}
-                                variant={ButtonVariants.OUTLINE}
-                                data-testid={'RatingCard.Send'}
-                            >
-                                {t('Send')}
-                            </Button>
-                            <Button
-                                onClick={cancelHandle}
-                                variant={ButtonVariants.OUTLINE_RED}
-                                data-testid={'RatingCard.Cancel'}
-                            >
-                                {t('Cancel')}
-                            </Button>
-                        </VStack>
+                        {buttonGroup}
                     </VStack>
                 </Modal>
             )}
-        </Card>
+        </>
+    )
+
+    return (
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <Card
+                    padding={'24'}
+                    border={'round'}
+                >
+                    {content}
+                </Card>
+            }
+            off={<CardDeprecated>{content}</CardDeprecated>}
+        />
     )
 }

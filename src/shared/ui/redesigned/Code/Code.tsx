@@ -1,21 +1,16 @@
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import CopyIcon from '@/shared/assets/icons/copy_icon.svg'
+import CopyIcon from '@/shared/assets/icons/Copy.svg'
 import { classNames } from '@/shared/lib'
 
-import { Button, ButtonVariants } from '../Button'
+import { Icon } from '../Icon'
 import cls from './Code.module.scss'
 
 interface CodeProps {
     className?: string
     text: string
 }
-
-/*
- * It is preferable to use the new redesigned component!
- * @deprecated
- * */
 
 export const Code = memo(({ className, text }: CodeProps) => {
     const { t } = useTranslation()
@@ -35,14 +30,14 @@ export const Code = memo(({ className, text }: CodeProps) => {
 
     return (
         <pre className={classNames([cls.code, className])}>
-            <Button
-                className={cls.copyBtn}
-                variant={ButtonVariants.CLEAR}
-                onClick={onCopy}
-            >
-                <CopyIcon className={cls.copyIcon} />
+            <div className={cls.buttonWrapper}>
+                <Icon
+                    Svg={CopyIcon}
+                    clickable
+                    onClick={onCopy}
+                />
                 {isCopied && <span>{t('Copied!')}</span>}
-            </Button>
+            </div>
             <code>{text}</code>
         </pre>
     )
