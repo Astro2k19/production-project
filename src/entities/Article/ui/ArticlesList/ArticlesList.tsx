@@ -84,7 +84,7 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
                     ])}
                     wrap
                     alignItems={'start'}
-                    justify={view === 'GRID' ? 'center' : 'start'}
+                    // justify={view === 'GRID' ? 'center' : 'start'}
                     gap={'24'}
                     max
                 >

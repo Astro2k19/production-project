@@ -13,6 +13,7 @@ import { StickyLayout } from '@/shared/layouts/StickyLayout'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
 import { ArticleAdditionalContainer } from '../ArticleAdditionalContainer/ArticleAdditionalContainer'
@@ -52,12 +53,17 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
                 on={
                     <StickyLayout
                         content={
-                            <VStack gap={'16'}>
-                                <ArticleDetailsContainer />
-                                <ArticleRating articleId={id} />
-                                <ArticleSingleRecommendations />
-                                <ArticleSingleComments id={id} />
-                            </VStack>
+                            <Card
+                                padding={'24'}
+                                border={'round'}
+                            >
+                                <VStack gap={'16'}>
+                                    <ArticleDetailsContainer />
+                                    <ArticleRating articleId={id} />
+                                    <ArticleSingleRecommendations />
+                                    <ArticleSingleComments id={id} />
+                                </VStack>
+                            </Card>
                         }
                         right={<ArticleAdditionalContainer />}
                     />

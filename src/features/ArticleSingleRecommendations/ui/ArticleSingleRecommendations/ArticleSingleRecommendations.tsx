@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next'
 import { ArticlesList } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { useGetArticleRecommendations } from '../../api/fetchArticleSingleRecommendations'
 
@@ -19,17 +22,22 @@ export const ArticleSingleRecommendations = memo(
             useGetArticleRecommendations(undefined)
 
         return (
-            <div
+            <VStack
+                gap={'16'}
                 className={classNames([className])}
                 data-testid={'ArticleSingleRecommendations'}
             >
-                <Text title={t('Recommendations')} />
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={<Text title={t('Recommendations')} />}
+                    off={<TextDeprecated title={t('Recommendations')} />}
+                />
                 <ArticlesList
                     articles={articles}
                     isLoading={isLoading}
                     target={'_blank'}
                 />
-            </div>
+            </VStack>
         )
     },
 )

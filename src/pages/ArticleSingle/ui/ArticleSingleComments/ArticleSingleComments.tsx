@@ -7,9 +7,11 @@ import { CommentsList } from '@/entities/Comment'
 import { getUserAuthDate } from '@/entities/User'
 
 import { classNames } from '@/shared/lib'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import {
     useFetchArticleSingleComment,
@@ -49,7 +51,11 @@ export const ArticleSingleComments = memo(
                 gap={'16'}
                 className={classNames([className])}
             >
-                <Text title={t('Comments')} />
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={<Text title={t('Comments')} />}
+                    off={<TextDeprecated title={t('Comments')} />}
+                />
                 <Suspense fallback={'Loading...'}>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>

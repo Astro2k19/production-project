@@ -2542,6 +2542,36 @@
       "text": "",
       "userId": "1",
       "id": 72
+    },
+    {
+      "articleId": "3",
+      "text": "test",
+      "userId": "1",
+      "id": 73
+    },
+    {
+      "articleId": "3",
+      "text": "asdfasdf",
+      "userId": "1",
+      "id": 74
+    },
+    {
+      "articleId": "3",
+      "text": "ASDF",
+      "userId": "1",
+      "id": 75
+    },
+    {
+      "articleId": "12",
+      "text": "asdfasdf",
+      "userId": "1",
+      "id": 76
+    },
+    {
+      "articleId": "12",
+      "text": "wqerqwerqwer",
+      "userId": "1",
+      "id": 77
     }
   ],
   "notifications": [
@@ -2669,19 +2699,6 @@
   "articles-rating": [
     {
       "userId": "2",
-      "articleId": "14",
-      "rate": 3,
-      "feedback": "asdasd",
-      "id": 1
-    },
-    {
-      "userId": "2",
-      "articleId": "3",
-      "rate": 5,
-      "id": 2
-    },
-    {
-      "userId": "2",
       "articleId": "17",
       "rate": 3,
       "id": 3
@@ -2706,9 +2723,17 @@
     },
     {
       "userId": "1",
-      "articleId": "20",
+      "articleId": "12",
       "rate": 3,
+      "feedback": "21341234234",
       "id": 8
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 3,
+      "feedback": "wertwert",
+      "id": 9
     }
   ],
   "profiles-rating": [

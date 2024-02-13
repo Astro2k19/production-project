@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 
 import Star from '@/shared/assets/icons/Star.svg'
-import StarDeprecated from '@/shared/assets/icons/starDeprecated.svg'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
@@ -43,8 +42,6 @@ export const StartRating: FC<StartRatingProps> = ({
     }
 
     const onClick = (starCount: number) => () => {
-        console.log('ehere')
-        console.log(isSelected, 'isSelected')
         if (!isSelected) {
             setCurrentStarsCount(starCount)
             setIsSelected(true)
@@ -66,7 +63,13 @@ export const StartRating: FC<StartRatingProps> = ({
             data-testid={'StarRating'}
         >
             {rating.map((starCount, index) => {
+                console.log(
+                    starCount <= currentStarsCount,
+                    'starCount <= currentStarsCount',
+                )
+                console.log(cls.star)
                 const commonProps = {
+                    Svg: Star,
                     key: starCount,
                     className: classNames([cls.star], {
                         [cls.hovered]: starCount <= currentStarsCount,
@@ -87,17 +90,11 @@ export const StartRating: FC<StartRatingProps> = ({
                         feature={'isAppRedesigned'}
                         on={
                             <Icon
-                                Svg={Star}
-                                clickable
+                                clickable={!isSelected}
                                 {...commonProps}
                             />
                         }
-                        off={
-                            <IconDeprecated
-                                Svg={StarDeprecated}
-                                {...commonProps}
-                            />
-                        }
+                        off={<IconDeprecated {...commonProps} />}
                     />
                 )
             })}

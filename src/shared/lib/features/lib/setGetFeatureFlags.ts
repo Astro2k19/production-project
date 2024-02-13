@@ -13,6 +13,5 @@ export const getFeatureFlag = (flag: keyof FeatureFlags) => {
 }
 
 export const getAllFeatureFlag = () => {
-    console.log(featureFlags, 'featureFlags')
     return featureFlags
 }

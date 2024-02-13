@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { ArticleDetails } from '@/entities/Article'
 
 import { Text } from '@/shared/ui/deprecated/Text'
-import { Card } from '@/shared/ui/redesigned/Card'
 
 interface DetailsContainerProps {
     className?: string
@@ -20,13 +19,6 @@ export const ArticleDetailsContainer = memo(
             return <Text text={t('UNKNOWN_ARTICLE_ERROR')} />
         }
 
-        return (
-            <Card
-                padding={'24'}
-                border={'round'}
-            >
-                <ArticleDetails id={id} />
-            </Card>
-        )
+        return <ArticleDetails id={id} />
     },
 )

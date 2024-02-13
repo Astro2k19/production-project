@@ -14,7 +14,6 @@ type ButtonVariants = 'outline' | 'clear' | 'filled'
 type ButtonSizes = 'M' | 'L' | 'XL'
 type ButtonBorders = 'normal' | 'round'
 type ButtonAlign = 'left' | 'right' | 'center'
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariants
     size?: ButtonSizes

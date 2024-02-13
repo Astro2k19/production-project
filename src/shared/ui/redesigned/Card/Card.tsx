@@ -14,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     variant?: CardVariants
     padding?: CardPaddings
     border?: CardBorder
+    inverted?: boolean
 }
 
 const mappedPaddings: Record<CardPaddings, string> = {
@@ -30,18 +31,19 @@ export const Card = (props: CardProps) => {
         variant = 'normal',
         padding = '8',
         border = 'normal',
+        inverted = false,
         ...othersProps
     } = props
 
     return (
         <div
             {...othersProps}
-            className={classNames([
-                className,
-                cls[variant],
-                mappedPaddings[padding],
-                cls[border],
-            ])}
+            className={classNames(
+                [className, cls[variant], mappedPaddings[padding], cls[border]],
+                {
+                    [cls.inverted]: inverted,
+                },
+            )}
         >
             {children}
         </div>

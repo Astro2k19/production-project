@@ -51,7 +51,7 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 
     return (
         <VStack
-            className={classNames([className])}
+            className={classNames([className, 'list'])}
             noShrink
         >
             {notifications?.map(item => (
