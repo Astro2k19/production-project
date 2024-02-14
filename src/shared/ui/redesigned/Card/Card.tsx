@@ -15,6 +15,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     padding?: CardPaddings
     border?: CardBorder
     inverted?: boolean
+    fullWidth?: boolean
 }
 
 const mappedPaddings: Record<CardPaddings, string> = {
@@ -32,6 +33,7 @@ export const Card = (props: CardProps) => {
         padding = '8',
         border = 'normal',
         inverted = false,
+        fullWidth = false,
         ...othersProps
     } = props
 
@@ -42,6 +44,7 @@ export const Card = (props: CardProps) => {
                 [className, cls[variant], mappedPaddings[padding], cls[border]],
                 {
                     [cls.inverted]: inverted,
+                    [cls.fullWidth]: fullWidth,
                 },
             )}
         >

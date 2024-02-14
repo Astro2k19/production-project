@@ -2613,9 +2613,9 @@
       "id": "1",
       "first": "Artemkkk",
       "lastname": "asdfasdfasdf",
-      "age": "12",
-      "currency": "UAH",
-      "country": "USA",
+      "age": "129",
+      "currency": "USD",
+      "country": "POLAND",
       "city": "Poltava",
       "username": "qwe",
       "avatar": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
@@ -2658,7 +2658,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "wasArticlesPageOpened": true
       }
     },
@@ -2705,12 +2705,6 @@
     },
     {
       "userId": "1",
-      "articleId": "14",
-      "rate": 3,
-      "id": 4
-    },
-    {
-      "userId": "1",
       "articleId": "1",
       "rate": 3,
       "id": 5
@@ -2734,6 +2728,19 @@
       "rate": 3,
       "feedback": "wertwert",
       "id": 9
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "rate": 3,
+      "feedback": "test",
+      "id": 10
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "id": 11
     }
   ],
   "profiles-rating": [

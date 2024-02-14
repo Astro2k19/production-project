@@ -48,7 +48,7 @@ export const Icon = forwardRef(
         if (clickable) {
             return (
                 <button
-                    className={classNames([cls.icon, cls.button])}
+                    className={classNames([cls.icon, cls.button, className])}
                     onClick={props.onClick}
                     style={{ width, height }}
                     ref={ref}

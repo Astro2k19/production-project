@@ -14,6 +14,7 @@ type ButtonVariants = 'outline' | 'clear' | 'filled'
 type ButtonSizes = 'M' | 'L' | 'XL'
 type ButtonBorders = 'normal' | 'round'
 type ButtonAlign = 'left' | 'right' | 'center'
+type ButtonColor = 'normal' | 'error' | 'success'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariants
     size?: ButtonSizes
@@ -23,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     addonRight?: ReactNode
     fullWidth?: boolean
     align?: ButtonAlign
+    color?: ButtonColor
 }
 
 export const Button = forwardRef(
@@ -38,6 +40,7 @@ export const Button = forwardRef(
             addonRight,
             fullWidth = false,
             align = 'left',
+            color = 'normal',
             ...othersProps
         } = props
 
@@ -53,6 +56,7 @@ export const Button = forwardRef(
             cls[size],
             cls[align],
             cls[border],
+            cls[color],
             className,
         ]
 

@@ -31,11 +31,13 @@ export const StartRating: FC<StartRatingProps> = ({
 
     const onMouseEnter = (starCount: number) => () => {
         if (!isSelected) {
+            console.log(starCount, 'starCount')
             setCurrentStarsCount(starCount)
         }
     }
 
     const onMouseLeave = () => {
+        console.log(isSelected, 'isSelected')
         if (!isSelected) {
             setCurrentStarsCount(0)
         }

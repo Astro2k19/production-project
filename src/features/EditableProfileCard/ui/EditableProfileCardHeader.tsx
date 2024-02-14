@@ -1,11 +1,18 @@
 import { type FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
-import { Text } from '@/shared/ui/deprecated/Text'
+import {
+    Button as ButtonDeprecated,
+    ButtonVariants,
+} from '@/shared/ui/deprecated/Button'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import {
     canEditProfile,
@@ -45,46 +52,109 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
     }, [dispatch])
 
     return (
-        <HStack
-            justify={'spaceBetween'}
-            alignItems={'center'}
-        >
-            <Text
-                TitleTag={'h2'}
-                title={t('Profile', { ns: 'profile' })}
-            />
-            {canEdit &&
-                !error &&
-                (readonly ? (
-                    <Button
-                        onClick={onEdit}
-                        disabled={isLoading}
-                        data-testid={'EditableProfileCardHeader.EditButton'}
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <Card
+                    padding={'24'}
+                    fullWidth
+                    border={'round'}
+                >
+                    <HStack
+                        justify={'spaceBetween'}
+                        alignItems={'center'}
                     >
-                        {t('Edit')}
-                    </Button>
-                ) : (
-                    <HStack gap={'8'}>
-                        <Button
-                            onClick={onSave}
-                            variant={ButtonVariants.OUTLINE}
-                            disabled={isLoading}
-                            data-testid={'EditableProfileCardHeader.SaveButton'}
-                        >
-                            {t('Save')}
-                        </Button>
-                        <Button
-                            onClick={onCancel}
-                            variant={ButtonVariants.OUTLINE_RED}
-                            disabled={isLoading}
-                            data-testid={
-                                'EditableProfileCardHeader.CancelButton'
-                            }
-                        >
-                            {t('Cancel')}
-                        </Button>
+                        <Text
+                            TitleTag={'h2'}
+                            title={t('Profile', { ns: 'profile' })}
+                        />
+                        {canEdit &&
+                            !error &&
+                            (readonly ? (
+                                <Button
+                                    onClick={onEdit}
+                                    disabled={isLoading}
+                                    variant={'outline'}
+                                    data-testid={
+                                        'EditableProfileCardHeader.EditButton'
+                                    }
+                                >
+                                    {t('Edit')}
+                                </Button>
+                            ) : (
+                                <HStack gap={'8'}>
+                                    <Button
+                                        onClick={onSave}
+                                        variant={'outline'}
+                                        disabled={isLoading}
+                                        data-testid={
+                                            'EditableProfileCardHeader.SaveButton'
+                                        }
+                                    >
+                                        {t('Save')}
+                                    </Button>
+                                    <Button
+                                        onClick={onCancel}
+                                        variant={'outline'}
+                                        disabled={isLoading}
+                                        data-testid={
+                                            'EditableProfileCardHeader.CancelButton'
+                                        }
+                                    >
+                                        {t('Cancel')}
+                                    </Button>
+                                </HStack>
+                            ))}
                     </HStack>
-                ))}
-        </HStack>
+                </Card>
+            }
+            off={
+                <HStack
+                    justify={'spaceBetween'}
+                    alignItems={'center'}
+                >
+                    <TextDeprecated
+                        TitleTag={'h2'}
+                        title={t('Profile', { ns: 'profile' })}
+                    />
+                    {canEdit &&
+                        !error &&
+                        (readonly ? (
+                            <ButtonDeprecated
+                                onClick={onEdit}
+                                disabled={isLoading}
+                                data-testid={
+                                    'EditableProfileCardHeader.EditButton'
+                                }
+                            >
+                                {t('Edit')}
+                            </ButtonDeprecated>
+                        ) : (
+                            <HStack gap={'8'}>
+                                <ButtonDeprecated
+                                    onClick={onSave}
+                                    variant={ButtonVariants.OUTLINE}
+                                    disabled={isLoading}
+                                    data-testid={
+                                        'EditableProfileCardHeader.SaveButton'
+                                    }
+                                >
+                                    {t('Save')}
+                                </ButtonDeprecated>
+                                <ButtonDeprecated
+                                    onClick={onCancel}
+                                    variant={ButtonVariants.OUTLINE_RED}
+                                    disabled={isLoading}
+                                    data-testid={
+                                        'EditableProfileCardHeader.CancelButton'
+                                    }
+                                >
+                                    {t('Cancel')}
+                                </ButtonDeprecated>
+                            </HStack>
+                        ))}
+                </HStack>
+            }
+        />
     )
 }

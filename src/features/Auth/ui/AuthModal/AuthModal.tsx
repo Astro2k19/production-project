@@ -1,6 +1,7 @@
 import { type FC, Suspense } from 'react'
 
 import { classNames } from '@/shared/lib'
+import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 import { Loader } from '@/shared/ui/deprecated/Loader'
 import { Modal } from '@/shared/ui/redesigned/Modal'
 
@@ -20,7 +21,14 @@ export const AuthModal: FC<AuthModalProps> = props => {
         <>
             {isOpen && (
                 <Modal
-                    className={classNames([cls.authModal, className])}
+                    className={classNames([
+                        toggleFeature({
+                            name: 'isAppRedesigned',
+                            on: () => cls.authModalRedesign,
+                            off: () => cls.authModal,
+                        }),
+                        className,
+                    ])}
                     onClose={onClose}
                     isOpen={isOpen}
                     lazy={true}

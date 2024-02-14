@@ -12,7 +12,11 @@ import { getRouteArticleNew } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
+import {
+    Button as ButtonDeprecated,
+    ButtonVariants,
+} from '@/shared/ui/deprecated/Button'
+import { Button } from '@/shared/ui/redesigned/Button'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import { NavbarDeprecated } from '../NavbarDeprecated/NavbarDeprecated'
@@ -76,19 +80,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <ToggleFeatures
             feature={'isAppRedesigned'}
             on={
-                <div className={classNames([clsDeprecated.navbar, className])}>
+                <div className={classNames([className])}>
                     <AuthModal
                         isOpen={isOpen}
                         onClose={onClose}
                     />
-                    <div className={clsDeprecated.links}>
-                        <Button
-                            onClick={onOpen}
-                            variant={ButtonVariants.CLEAR_INVERTED}
-                        >
-                            {t('Log In')}
-                        </Button>
-                    </div>
+                    <Button
+                        onClick={onOpen}
+                        // variant={'clear'}
+                    >
+                        {t('Log In')}
+                    </Button>
                 </div>
             }
             off={
@@ -98,12 +100,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         onClose={onClose}
                     />
                     <div className={clsDeprecated.links}>
-                        <Button
+                        <ButtonDeprecated
                             onClick={onOpen}
                             variant={ButtonVariants.CLEAR_INVERTED}
                         >
                             {t('Log In')}
-                        </Button>
+                        </ButtonDeprecated>
                     </div>
                 </div>
             }

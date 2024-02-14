@@ -70,7 +70,10 @@ export const CommentCard = memo(
                                         alt={comment.user.username}
                                         size={30}
                                     />
-                                    <Text title={comment.user.username} />
+                                    <Text
+                                        title={comment.user.username}
+                                        bold
+                                    />
                                 </HStack>
                             </AppLink>
                             <Text text={comment.text} />
