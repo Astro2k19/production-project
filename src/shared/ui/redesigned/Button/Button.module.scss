@@ -40,9 +40,27 @@
 .outline {
   border: 2px solid var(--icon-redesigned);
   background-color: transparent;
+
+  &.error {
+    border-color: var(--cancel-redesigned);
+
+    &:hover {
+      border-color: var(--cancel-redesigned-darken);
+      color: var(--cancel-redesigned-darken);
+    }
+  }
+
+  &.success {
+    border-color: var(--save-redesigned);
+
+    &:hover {
+      border-color: var(--save-redesigned-darken);
+      color: var(--save-redesigned-darken);
+    }
+  }
 }
 
-.outline:hover {
+.outline:not(.error, .success):hover {
   border-color: var(--accent-redesigned);
 }
 

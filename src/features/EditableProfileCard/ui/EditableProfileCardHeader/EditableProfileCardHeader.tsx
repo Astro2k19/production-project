@@ -8,9 +8,11 @@ import {
     Button as ButtonDeprecated,
     ButtonVariants,
 } from '@/shared/ui/deprecated/Button'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Card } from '@/shared/ui/redesigned/Card'
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
@@ -19,9 +21,9 @@ import {
     getProfileError,
     getProfileIsLoading,
     getProfileReadonly,
-} from '../model/selectors/editableProfileCardSelectors'
-import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
-import { profileActions } from '../model/slice/profileSlice'
+} from '../../model/selectors/editableProfileCardSelectors'
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
+import { profileActions } from '../../model/slice/profileSlice'
 
 interface EditableProfileCardHeaderProps {
     className?: string
@@ -51,6 +53,27 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
         }
     }, [dispatch])
 
+    if (isLoading) {
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <Skeleton
+                        width={'100%'}
+                        height={'90px'}
+                        borderRadius={'round'}
+                    />
+                }
+                off={
+                    <SkeletonDeprecated
+                        width={'100%'}
+                        height={'90px'}
+                    />
+                }
+            />
+        )
+    }
+
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
@@ -73,7 +96,6 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                             (readonly ? (
                                 <Button
                                     onClick={onEdit}
-                                    disabled={isLoading}
                                     variant={'outline'}
                                     data-testid={
                                         'EditableProfileCardHeader.EditButton'
@@ -86,7 +108,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                                     <Button
                                         onClick={onSave}
                                         variant={'outline'}
-                                        disabled={isLoading}
+                                        color={'success'}
                                         data-testid={
                                             'EditableProfileCardHeader.SaveButton'
                                         }
@@ -96,7 +118,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                                     <Button
                                         onClick={onCancel}
                                         variant={'outline'}
-                                        disabled={isLoading}
+                                        color={'error'}
                                         data-testid={
                                             'EditableProfileCardHeader.CancelButton'
                                         }
@@ -122,7 +144,6 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                         (readonly ? (
                             <ButtonDeprecated
                                 onClick={onEdit}
-                                disabled={isLoading}
                                 data-testid={
                                     'EditableProfileCardHeader.EditButton'
                                 }
@@ -134,7 +155,6 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                                 <ButtonDeprecated
                                     onClick={onSave}
                                     variant={ButtonVariants.OUTLINE}
-                                    disabled={isLoading}
                                     data-testid={
                                         'EditableProfileCardHeader.SaveButton'
                                     }
@@ -144,7 +164,6 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
                                 <ButtonDeprecated
                                     onClick={onCancel}
                                     variant={ButtonVariants.OUTLINE_RED}
-                                    disabled={isLoading}
                                     data-testid={
                                         'EditableProfileCardHeader.CancelButton'
                                     }

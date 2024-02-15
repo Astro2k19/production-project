@@ -18,6 +18,8 @@
   --hint-redesigned: #ff5e5e;
   --cancel-redesigned: #ff5e5e;
   --save-redesigned: #52fa81;
+  --cancel-redesigned-darken: #{darken(#f77, 20%)};
+  --save-redesigned-darken: #{darken(#62de85, 20%)};
   --icon-redesigned: #4875f0;
   --accent-redesigned: #1d59ff;
 }

@@ -8,23 +8,31 @@ interface SkeletonProps {
     className?: string
     width: string | number
     height: string | number
-    borderRadius?: string
+    borderRadius?: string | SkeletonBorders
+}
+
+type SkeletonBorders = 'normal' | 'round' | 'partial'
+
+const mappedSkeletonBorders: Record<SkeletonBorders | string, string> = {
+    normal: '0',
+    round: '32px',
+    partial: '16px',
 }
 
 export const Skeleton: FC<SkeletonProps> = props => {
-    const { className, width, height, borderRadius } = props
+    const { className, width, height, borderRadius = 'normal' } = props
 
     const styles: CSSProperties = {
         width,
         height,
-        borderRadius,
+        borderRadius: mappedSkeletonBorders[borderRadius] || borderRadius,
     }
 
     return (
         <div
             title={'Loading...'}
             style={styles}
-            className={classNames([className, cls.skeleton])}
+            className={classNames([cls.skeleton, className])}
         ></div>
     )
 }

@@ -71,7 +71,7 @@ const ArticleRating = memo(
                         <Skeleton
                             width={'100%'}
                             height={126}
-                            borderRadius={'32px'}
+                            borderRadius={'round'}
                         />
                     }
                     off={

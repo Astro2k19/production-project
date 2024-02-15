@@ -37,7 +37,7 @@ export const CommentCard = memo(
                 <Skeleton
                     width={'100%'}
                     height={'96px'}
-                    borderRadius={'32px'}
+                    borderRadius={'round'}
                 />
             )
         }

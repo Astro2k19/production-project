@@ -20,10 +20,10 @@ import {
     getProfileIsLoading,
     getProfileReadonly,
     getProfileValidateErrors,
-} from '../model/selectors/editableProfileCardSelectors'
-import { fetchProfileData } from '../model/services/fetchProfileData/fetctProfileData'
-import { profileActions, profileReducer } from '../model/slice/profileSlice'
-import { EditableProfileCardHeader } from './EditableProfileCardHeader'
+} from '../../model/selectors/editableProfileCardSelectors'
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetctProfileData'
+import { profileActions, profileReducer } from '../../model/slice/profileSlice'
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardProps {
     className?: string

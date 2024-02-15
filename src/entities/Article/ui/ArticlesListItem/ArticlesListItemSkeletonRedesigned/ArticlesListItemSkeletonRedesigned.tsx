@@ -87,7 +87,7 @@ export const ArticlesListItemSkeletonRedesigned: FC<
                         <Skeleton
                             width={152}
                             height={24}
-                            borderRadius={'32px'}
+                            borderRadius={'round'}
                         />
                     </HStack>
                     <Skeleton

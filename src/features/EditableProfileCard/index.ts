@@ -1,4 +1,4 @@
-export { EditableProfileCard } from './ui/EditableProfileCard'
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
 export { fetchProfileData } from './model/services/fetchProfileData/fetctProfileData'
 export { profileActions } from './model/slice/profileSlice'
 export type { ProfileSchema } from './model/types/editableProfileCard'

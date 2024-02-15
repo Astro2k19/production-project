@@ -2611,7 +2611,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Artemkkk",
+      "first": "Artemkkkasdfasdfasdf",
       "lastname": "asdfasdfasdf",
       "age": "129",
       "currency": "USD",
@@ -2658,7 +2658,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "wasArticlesPageOpened": true
       }
     },

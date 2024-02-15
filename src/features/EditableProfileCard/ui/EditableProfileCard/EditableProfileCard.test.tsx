@@ -6,7 +6,7 @@ import { profile } from '@/entities/Profile/testing'
 import { $api } from '@/shared/api/api'
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 
-import { profileReducer } from '../model/slice/profileSlice'
+import { profileReducer } from '../../model/slice/profileSlice'
 import { EditableProfileCard } from './EditableProfileCard'
 
 jest.spyOn($api, 'put')
