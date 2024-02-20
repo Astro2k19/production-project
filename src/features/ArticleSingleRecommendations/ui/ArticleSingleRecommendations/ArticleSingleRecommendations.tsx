@@ -27,11 +27,7 @@ export const ArticleSingleRecommendations = memo(
                 className={classNames([className])}
                 data-testid={'ArticleSingleRecommendations'}
             >
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={<Text title={t('Recommendations')} />}
-                    off={<TextDeprecated title={t('Recommendations')} />}
-                />
+                <Text title={t('Recommendations')} />
                 <ArticlesList
                     articles={articles}
                     isLoading={isLoading}

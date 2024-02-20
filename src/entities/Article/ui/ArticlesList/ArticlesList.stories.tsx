@@ -1,8 +1,13 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
+import {
+    RedesignedDesignDecorator,
+    getThemeSettings,
+} from '@/shared/config/storybook'
+
+import { ArticlesListView } from '../..'
 import { article } from '../../mocks/data.mock'
-import { ArticlesListView } from '../../model/const/articleConst'
 import { ArticlesList } from './ArticlesList'
 
 export default {
@@ -18,9 +23,22 @@ const Template: ComponentStory<typeof ArticlesList> = args => (
     <ArticlesList {...args} />
 )
 
-export const Grid = Template.bind({})
+export const GridList = Template.bind({})
 
-Grid.args = {
+GridList.args = {
+    articles: new Array(9).fill(0).map(() => article),
+}
+
+export const GridListRedesigned = Template.bind({})
+
+GridListRedesigned.story = {
+    parameters: {
+        themes: getThemeSettings(true),
+    },
+}
+GridListRedesigned.decorators = [RedesignedDesignDecorator]
+
+GridListRedesigned.args = {
     articles: new Array(9).fill(0).map(() => article),
 }
 

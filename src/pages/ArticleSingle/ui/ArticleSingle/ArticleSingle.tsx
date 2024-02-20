@@ -48,36 +48,22 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
 
     return (
         <Page className={classNames([className])}>
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <StickyLayout
-                        content={
-                            <Card
-                                padding={'24'}
-                                border={'round'}
-                            >
-                                <VStack gap={'16'}>
-                                    <ArticleDetailsContainer />
-                                    <ArticleRating articleId={id} />
-                                    <ArticleSingleRecommendations />
-                                    <ArticleSingleComments id={id} />
-                                </VStack>
-                            </Card>
-                        }
-                        right={<ArticleAdditionalContainer />}
-                    />
-                }
-                off={
-                    <VStack gap={'32'}>
-                        <ArticleSingleHeader />
-                        <ArticleDetails id={id} />
-                        <ArticleSingleRecommendations />
-                        <ArticleRating articleId={id} />
-                        <ArticleSingleComments id={id} />
-                    </VStack>
-                }
-            />
+            <StickyLayout
+                                    content={
+                                        <Card
+                                            padding={'24'}
+                                            border={'round'}
+                                        >
+                                            <VStack gap={'16'}>
+                                                <ArticleDetailsContainer />
+                                                <ArticleRating articleId={id} />
+                                                <ArticleSingleRecommendations />
+                                                <ArticleSingleComments id={id} />
+                                            </VStack>
+                                        </Card>
+                                    }
+                                    right={<ArticleAdditionalContainer />}
+                                />
         </Page>
     )
 }

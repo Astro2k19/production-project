@@ -5,6 +5,7 @@ import { setJsonSettings } from '@/entities/User'
 
 import ThemeSwitcherIcon from '@/shared/assets/icons/ThemeIcon.svg'
 import ThemeSwitcherIconDeprecated from '@/shared/assets/icons/theme-light.svg'
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
 import { Theme } from '@/shared/const/theme'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
@@ -29,30 +30,15 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const onSaveTheme = useCallback(() => {
         toggleTheme((theme: Theme) => {
             dispatch(setJsonSettings({ theme }))
+            localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
         })
     }, [toggleTheme, dispatch])
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <Icon
-                    clickable
-                    onClick={onSaveTheme}
-                    Svg={ThemeSwitcherIcon}
-                />
-            }
-            off={
-                <ButtonDeprecated
-                    className={classNames([className])}
-                    onClick={onSaveTheme}
-                    variant={ButtonVariants.CLEAR}
-                >
-                    <ThemeSwitcherIconDeprecated
-                        className={cls.themeSwitcherIcon}
-                    />
-                </ButtonDeprecated>
-            }
-        />
+        <Icon
+                            clickable
+                            onClick={onSaveTheme}
+                            Svg={ThemeSwitcherIcon}
+                        />
     )
 })

@@ -73,36 +73,20 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <HStack
-                    className={classNames([
-                        className,
-                        cls[view],
-                        cls.articlesListRedesigned,
-                    ])}
-                    wrap
-                    alignItems={'start'}
-                    // justify={view === 'GRID' ? 'center' : 'start'}
-                    gap={'24'}
-                    max
-                >
-                    {articles?.length ? articles.map(renderArticleItem) : null}
-                    {isLoading && getElementSkeleton(view)}
-                </HStack>
-            }
-            off={
-                <div
-                    className={classNames(
-                        [className, cls[view], cls.articlesListDeprecated],
-                        mods,
-                    )}
-                >
-                    {articles?.length ? articles.map(renderArticleItem) : null}
-                    {isLoading && getElementSkeleton(view)}
-                </div>
-            }
-        />
+        <HStack
+                            className={classNames([
+                                className,
+                                cls[view],
+                                cls.articlesListRedesigned,
+                            ])}
+                            wrap
+                            alignItems={'start'}
+                            // justify={view === 'GRID' ? 'center' : 'start'}
+                            gap={'24'}
+                            max
+                        >
+                            {articles?.length ? articles.map(renderArticleItem) : null}
+                            {isLoading && getElementSkeleton(view)}
+                        </HStack>
     )
 }

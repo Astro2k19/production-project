@@ -14,21 +14,10 @@ export const ArticleRatingAsync = (props: ArticleRatingProps) => {
     return (
         <Suspense
             fallback={
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={
-                        <Skeleton
-                            width={'100%'}
-                            height={126}
-                        />
-                    }
-                    off={
-                        <SkeletonDeprecated
-                            width={'100%'}
-                            height={126}
-                        />
-                    }
-                />
+                <Skeleton
+                                            width={'100%'}
+                                            height={126}
+                                        />
             }
         >
             <ArticleRatingLazy {...props} />

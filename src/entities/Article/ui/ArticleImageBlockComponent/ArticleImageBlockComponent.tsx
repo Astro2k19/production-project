@@ -28,21 +28,10 @@ export const ArticleImageBlockComponent = memo(
                     alt={block.title}
                     className={cls.image}
                 />
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={
-                        <Text
-                            text={block.title}
-                            align={'center'}
-                        />
-                    }
-                    off={
-                        <TextDeprecated
-                            text={block.title}
-                            align={TextAligns.CENTER}
-                        />
-                    }
-                />
+                <Text
+                                            text={block.title}
+                                            align={'center'}
+                                        />
             </div>
         )
     },

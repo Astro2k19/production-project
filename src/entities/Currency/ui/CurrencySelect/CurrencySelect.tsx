@@ -39,26 +39,12 @@ export const CurrencySelect: FC<CurrencySelectProps> = props => {
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <ListBox
-                    label={'Currency'}
-                    items={currencyOptions}
-                    value={value}
-                    onChange={onChangeHandler}
-                    readonly={readonly}
-                />
-            }
-            off={
-                <ListBoxDeprecated
-                    label={'Currency'}
-                    items={currencyOptions}
-                    value={value}
-                    onChange={onChangeHandler}
-                    readonly={readonly}
-                />
-            }
-        />
+        <ListBox
+                            label={'Currency'}
+                            items={currencyOptions}
+                            value={value}
+                            onChange={onChangeHandler}
+                            readonly={readonly}
+                        />
     )
 }

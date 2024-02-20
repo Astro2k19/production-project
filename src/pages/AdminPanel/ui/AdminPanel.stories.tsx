@@ -3,7 +3,7 @@ import React from 'react'
 
 import { UserRoles } from '@/entities/User'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import AdminPanelPage from './AdminPanel'
 

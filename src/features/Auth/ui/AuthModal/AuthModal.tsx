@@ -22,11 +22,7 @@ export const AuthModal: FC<AuthModalProps> = props => {
             {isOpen && (
                 <Modal
                     className={classNames([
-                        toggleFeature({
-                            name: 'isAppRedesigned',
-                            on: () => cls.authModalRedesign,
-                            off: () => cls.authModal,
-                        }),
+                        cls.authModalRedesign,
                         className,
                     ])}
                     onClose={onClose}

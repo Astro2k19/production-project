@@ -43,11 +43,7 @@ export const Page = ({
     )
 
     useInfiniteScroll({
-        rootTarget: toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => rootRef.current,
-            off: () => document.body,
-        }),
+        rootTarget: rootRef.current,
         triggerTarget: triggerRef,
         callback: onScrollEnd,
     })
@@ -66,11 +62,7 @@ export const Page = ({
         rootRef.current.scrollTop = scrollTop
     })
 
-    const pageClassName = toggleFeature({
-        name: 'isAppRedesigned',
-        on: () => cls.pageRedesigned,
-        off: () => cls.page,
-    })
+    const pageClassName = cls.pageRedesigned
 
     return (
         <section

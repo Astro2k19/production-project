@@ -40,6 +40,7 @@ export const routerConfig: ProtectedRouteProps[] = [
     {
         path: getRouteSettings(),
         element: <Settings />,
+        isProtected: true,
     },
     {
         path: getRouteAbout(),

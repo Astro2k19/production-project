@@ -13,11 +13,7 @@ interface ArticleCodeBlockComponentProps {
 
 export const ArticleCodeBlockComponent = memo(
     ({ className, block }: ArticleCodeBlockComponentProps) => {
-        const Code = toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => CodeRedesigned,
-            off: () => CodeDeprecated,
-        })
+        const Code = CodeRedesigned
 
         return (
             <Code

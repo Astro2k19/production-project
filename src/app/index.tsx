@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import { Navbar } from '@/widgets/Navbar'
@@ -7,58 +7,53 @@ import { PageLoader } from '@/widgets/pageLoader'
 
 import { getUserInited, initAuthDate } from '@/entities/User'
 
+import { AppLayoutLoader } from '@/shared/layouts/AppLayoutLoader/AppLayoutLoader'
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
+import { useAppToolbar } from './lib/useAppToolbar'
 import { AppRouter } from './providers/router/ui/AppRouter'
+import { WithTheme } from './providers/themeProvider/ui/WIthTheme'
 import './styles/index.scss'
 
-export const App: React.FC = () => {
+const App = memo(() => {
     const dispatch = useAppDispatch()
     const isInited = useSelector(getUserInited)
+    const toolbar = useAppToolbar()
 
     useEffect(() => {
-        dispatch(initAuthDate())
-    }, [dispatch])
+        if (!isInited) {
+            dispatch(initAuthDate())
+        }
+    }, [dispatch, isInited])
 
     if (!isInited) {
-        return <PageLoader />
+        return (
+            <div
+                                    id={'app'}
+                                    className={classNames(['app_redesigned'])}
+                                >
+                                    <AppLayoutLoader />
+                                </div>
+        )
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <Suspense fallback={<PageLoader />}>
-                    <div
-                        id={'app'}
-                        className={classNames(['app_redesigned'])}
-                    >
-                        <MainLayout
-                            navbar={<Navbar />}
-                            sidebar={<Sidebar />}
-                            content={<AppRouter />}
-                            toolbar={<div>1234</div>}
-                        />
-                    </div>
-                </Suspense>
-            }
-            off={
-                <Suspense fallback={<PageLoader />}>
-                    <div
-                        id={'app'}
-                        className={classNames(['app'])}
-                    >
-                        <Navbar />
-                        <div className="page-content">
-                            <Sidebar />
-                            <AppRouter />
-                        </div>
-                    </div>
-                </Suspense>
-            }
-        />
+        <Suspense fallback={<PageLoader />}>
+                            <div
+                                id={'app'}
+                                className={classNames(['app_redesigned'])}
+                            >
+                                <MainLayout
+                                    navbar={<Navbar />}
+                                    sidebar={<Sidebar />}
+                                    content={<AppRouter />}
+                                    toolbar={toolbar}
+                                />
+                            </div>
+                        </Suspense>
     )
-}
+})
+export default WithTheme(App)

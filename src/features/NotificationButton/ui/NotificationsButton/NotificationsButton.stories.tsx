@@ -3,7 +3,7 @@ import withMock from 'storybook-addon-mock'
 
 import { mockResponse } from '@/entities/Notification'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import { NotificationsButton } from './NotificationsButton'
 

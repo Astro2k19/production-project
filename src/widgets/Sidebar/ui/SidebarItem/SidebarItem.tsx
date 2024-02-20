@@ -21,35 +21,18 @@ interface SidebarItemProps {
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation()
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <AppLink
-                    to={item.path}
-                    className={classNames([cls.itemRedesigned], {
-                        [cls.collapsedRedesigned]: collapsed,
-                    })}
-                    classNameActive={cls.active}
-                >
-                    <Icon
-                        Svg={item.Icon}
-                        className={cls.itemIcon}
-                    />
-                    <span>{t(item.text)}</span>
-                </AppLink>
-            }
-            off={
-                <AppLinkDeprecated
-                    to={item.path}
-                    className={classNames([cls.item], {
-                        [cls.collapsed]: collapsed,
-                    })}
-                    variant={AppLinkVariants.INVERTED}
-                >
-                    <item.Icon className={cls.itemIcon} />
-                    <span>{t(item.text)}</span>
-                </AppLinkDeprecated>
-            }
-        />
+        <AppLink
+                            to={item.path}
+                            className={classNames([cls.itemRedesigned], {
+                                [cls.collapsedRedesigned]: collapsed,
+                            })}
+                            classNameActive={cls.active}
+                        >
+                            <Icon
+                                Svg={item.Icon}
+                                className={cls.itemIcon}
+                            />
+                            <span>{t(item.text)}</span>
+                        </AppLink>
     )
 })

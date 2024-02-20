@@ -63,64 +63,34 @@ const AddCommentForm = memo(
                 reducers={reducers}
                 removeAfterUnmount
             >
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={
-                        <form
-                            className={className}
-                            onSubmit={onSubmitForm}
-                            data-testid={'AddCommentForm'}
-                        >
-                            <Card padding={'16'}>
-                                <HStack
-                                    gap={'8'}
-                                    alignItems={'center'}
-                                >
-                                    <Input
-                                        size={'M'}
-                                        placeholder={t('Enter comment')}
-                                        onChange={onChangeComment}
-                                        value={text}
-                                        data-testid={'AddCommentForm.Input'}
-                                        addonLeft={<Icon Svg={SearchIcon} />}
-                                    />
-                                    <Button
-                                        type="submit"
-                                        variant={'clear'}
-                                        data-testid={'AddCommentForm.Button'}
-                                    >
-                                        <Icon Svg={Send} />
-                                    </Button>
-                                </HStack>
-                            </Card>
-                        </form>
-                    }
-                    off={
-                        <form
-                            className={classNames([
-                                cls.addComponentForm,
-                                className,
-                            ])}
-                            onSubmit={onSubmitForm}
-                            data-testid={'AddCommentForm'}
-                        >
-                            <InputDeprecated
-                                className={cls.input}
-                                placeholder={t('Enter comment')}
-                                onChange={onChangeComment}
-                                value={text}
-                                data-testid={'AddCommentForm.Input'}
-                            />
-                            <ButtonDeprecated
-                                type="submit"
-                                variant={ButtonVariants.OUTLINE}
-                                data-testid={'AddCommentForm.Button'}
-                            >
-                                {t('Send')}
-                            </ButtonDeprecated>
-                        </form>
-                    }
-                />
+                <form
+                                            className={className}
+                                            onSubmit={onSubmitForm}
+                                            data-testid={'AddCommentForm'}
+                                        >
+                                            <Card padding={'16'}>
+                                                <HStack
+                                                    gap={'8'}
+                                                    alignItems={'center'}
+                                                >
+                                                    <Input
+                                                        size={'M'}
+                                                        placeholder={t('Enter comment')}
+                                                        onChange={onChangeComment}
+                                                        value={text}
+                                                        data-testid={'AddCommentForm.Input'}
+                                                        addonLeft={<Icon Svg={SearchIcon} />}
+                                                    />
+                                                    <Button
+                                                        type="submit"
+                                                        variant={'clear'}
+                                                        data-testid={'AddCommentForm.Button'}
+                                                    >
+                                                        <Icon Svg={Send} />
+                                                    </Button>
+                                                </HStack>
+                                            </Card>
+                                        </form>
             </DynamicModuleLoader>
         )
     },

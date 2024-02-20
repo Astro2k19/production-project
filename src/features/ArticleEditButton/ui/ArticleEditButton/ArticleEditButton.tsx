@@ -33,29 +33,14 @@ export const ArticleEditButton = memo(
         }, [articleId, navigate])
 
         return canEdit ? (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <Button
-                        title={t('Edit')}
-                        className={className}
-                        onClick={onEdit}
-                        variant={'outline'}
-                    >
-                        {t('Edit')}
-                    </Button>
-                }
-                off={
-                    <ButtonDeprecated
-                        title={t('Edit')}
-                        className={className}
-                        onClick={onEdit}
-                        variant={ButtonVariants.OUTLINE}
-                    >
-                        {t('Edit')}
-                    </ButtonDeprecated>
-                }
-            />
+            <Button
+                                    title={t('Edit')}
+                                    className={className}
+                                    onClick={onEdit}
+                                    variant={'outline'}
+                                >
+                                    {t('Edit')}
+                                </Button>
         ) : null
     },
 )

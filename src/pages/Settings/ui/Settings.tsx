@@ -13,11 +13,7 @@ import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text'
 const HomePage = memo(() => {
     const { t } = useTranslation()
 
-    const Text = toggleFeature({
-        name: 'isAppRedesigned',
-        on: () => TextRedesigned,
-        off: () => TextDeprecated,
-    })
+    const Text = TextRedesigned
 
     return (
         <Page dataTestId={'SettingsPage'}>

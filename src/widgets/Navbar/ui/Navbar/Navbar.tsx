@@ -47,68 +47,35 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authDate) {
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <div
-                        className={classNames([
-                            cls.navbarRedesigned,
-                            className,
-                        ])}
-                    >
-                        <HStack
-                            gap={'16'}
-                            alignItems={'center'}
-                        >
-                            <NotificationsButton />
-                            <AvatarDropdown authDate={authDate} />
-                        </HStack>
-                    </div>
-                }
-                off={
-                    <NavbarDeprecated
-                        onCreateNewArticle={onCreateNewArticle}
-                        className={className}
-                        authDate={authDate}
-                    />
-                }
-            />
+            <div
+                                    className={classNames([
+                                        cls.navbarRedesigned,
+                                        className,
+                                    ])}
+                                >
+                                    <HStack
+                                        gap={'16'}
+                                        alignItems={'center'}
+                                    >
+                                        <NotificationsButton />
+                                        <AvatarDropdown authDate={authDate} />
+                                    </HStack>
+                                </div>
         )
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <div className={classNames([className])}>
-                    <AuthModal
-                        isOpen={isOpen}
-                        onClose={onClose}
-                    />
-                    <Button
-                        onClick={onOpen}
-                        // variant={'clear'}
-                    >
-                        {t('Log In')}
-                    </Button>
-                </div>
-            }
-            off={
-                <div className={classNames([clsDeprecated.navbar, className])}>
-                    <AuthModal
-                        isOpen={isOpen}
-                        onClose={onClose}
-                    />
-                    <div className={clsDeprecated.links}>
-                        <ButtonDeprecated
-                            onClick={onOpen}
-                            variant={ButtonVariants.CLEAR_INVERTED}
-                        >
-                            {t('Log In')}
-                        </ButtonDeprecated>
-                    </div>
-                </div>
-            }
-        />
+        <div className={classNames([className])}>
+                            <AuthModal
+                                isOpen={isOpen}
+                                onClose={onClose}
+                            />
+                            <Button
+                                onClick={onOpen}
+                                // variant={'clear'}
+                            >
+                                {t('Log In')}
+                            </Button>
+                        </div>
     )
 })

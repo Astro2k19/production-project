@@ -3,7 +3,7 @@ import withMock from 'storybook-addon-mock'
 
 import { mockCommentResponse } from '@/entities/Comment/testing'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import { ArticleSingleComments } from './ArticleSingleComments'
 

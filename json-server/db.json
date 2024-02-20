@@ -2672,7 +2672,8 @@
       "avatar": "https://www.w3scdhools.com/howto/img_avatar.png",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationsEnabled": false
+        "isArticleRecommendationsEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",

@@ -27,30 +27,16 @@ export const NotificationItem = memo(
                 : item.description
 
         const cardContent = (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <Card
-                        className={classNames([className, cls.notify])}
-                        padding={'16'}
-                    >
-                        <Text
-                            title={text}
-                            text={content}
-                            TitleTag={'h6'}
-                        />
-                    </Card>
-                }
-                off={
-                    <CardDeprecated className={classNames([className])}>
-                        <TextDeprecated
-                            title={text}
-                            text={content}
-                            TitleTag={'h5'}
-                        />
-                    </CardDeprecated>
-                }
-            />
+            <Card
+                                    className={classNames([className, cls.notify])}
+                                    padding={'16'}
+                                >
+                                    <Text
+                                        title={text}
+                                        text={content}
+                                        TitleTag={'h6'}
+                                    />
+                                </Card>
         )
 
         if (item.href) {

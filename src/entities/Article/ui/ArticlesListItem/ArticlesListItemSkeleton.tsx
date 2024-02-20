@@ -15,10 +15,6 @@ export const ArticlesListItemSkeleton: FC<
     ArticlesListItemSkeletonProps
 > = props => {
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ArticlesListItemSkeletonRedesigned {...props} />}
-            off={<ArticlesListItemSkeletonDeprecated {...props} />}
-        />
+        <ArticlesListItemSkeletonRedesigned {...props} />
     )
 }

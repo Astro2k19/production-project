@@ -67,11 +67,7 @@ export const CommentsList = memo(
                         />
                     ))
                 ) : (
-                    <ToggleFeatures
-                        feature={'isAppRedesigned'}
-                        on={<Text text={t('No comments yet!')} />}
-                        off={<TextDeprecated text={t('No comments yet!')} />}
-                    />
+                    <Text text={t('No comments yet!')} />
                 )}
             </VStack>
         )

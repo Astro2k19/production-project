@@ -27,13 +27,10 @@ export const useTheme = (): useThemeResult => {
 			default:
 				themeName = Theme.LIGHT;
 		}
-
-
 		if (setTheme) {
 			setTheme(themeName);
 			document.body.className = themeName;
 		}
-
 		saveAction?.(themeName)
 	};
 

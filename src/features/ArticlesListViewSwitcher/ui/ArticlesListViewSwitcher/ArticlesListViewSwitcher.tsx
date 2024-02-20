@@ -25,19 +25,11 @@ interface ArticlesListViewSwitcherProps {
 
 const viewList = [
     {
-        icon: toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => ListView,
-            off: () => ListViewDeprecated,
-        }),
+        icon: ListView,
         view: ArticlesListView.LIST,
     },
     {
-        icon: toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => GridView,
-            off: () => GridViewDeprecated,
-        }),
+        icon: GridView,
         view: ArticlesListView.GRID,
     },
 ]
@@ -52,51 +44,27 @@ export const ArticlesListViewSwitcher: FC<ArticlesListViewSwitcherProps> = ({
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <Card
-                    className={classNames([
-                        cls.articleViewSwitcherRedesigned,
-                        className,
-                    ])}
-                    border={'round'}
-                    variant={'light'}
-                >
-                    <HStack gap={'8'}>
-                        {viewList.map((item, index) => (
-                            <Icon
-                                key={index}
-                                Svg={item.icon}
-                                clickable
-                                onClick={onClick(item.view)}
-                                className={classNames([], {
-                                    [cls.noSelected]: item.view !== view,
-                                })}
-                            />
-                        ))}
-                    </HStack>
-                </Card>
-            }
-            off={
-                <div
-                    className={classNames([cls.articleViewSwitcher, className])}
-                >
-                    {viewList.map((item, index) => (
-                        <ButtonDeprecated
-                            key={index}
-                            onClick={onClick(item.view)}
+        <Card
+                            className={classNames([
+                                cls.articleViewSwitcherRedesigned,
+                                className,
+                            ])}
+                            border={'round'}
+                            variant={'light'}
                         >
-                            <IconDeprecated
-                                Svg={item.icon}
-                                className={classNames([], {
-                                    [cls.selected]: item.view === view,
-                                })}
-                            />
-                        </ButtonDeprecated>
-                    ))}
-                </div>
-            }
-        />
+                            <HStack gap={'8'}>
+                                {viewList.map((item, index) => (
+                                    <Icon
+                                        key={index}
+                                        Svg={item.icon}
+                                        clickable
+                                        onClick={onClick(item.view)}
+                                        className={classNames([], {
+                                            [cls.noSelected]: item.view !== view,
+                                        })}
+                                    />
+                                ))}
+                            </HStack>
+                        </Card>
     )
 }

@@ -2,7 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type AsyncThunkConfig } from '@/app/providers/storeProvider'
 
-import { USER_AUTH_DATA_KEY } from '@/shared/const/localStorage'
+import {
+    LOCAL_STORAGE_DESIGN_KEY,
+    USER_AUTH_DATA_KEY,
+} from '@/shared/const/localStorage'
 
 import { fetchUserDataById } from '../../api/userApi'
 import { User } from '../types/userTypes'
@@ -22,7 +25,11 @@ export const initAuthDate = createAsyncThunk<User, undefined, AsyncThunkConfig>(
             const response = await dispatch(
                 fetchUserDataById(JSON.parse(userId)),
             ).unwrap()
-            console.log(response, 'response')
+
+            localStorage.setItem(
+                LOCAL_STORAGE_DESIGN_KEY,
+                response?.features?.isAppRedesigned ? 'new' : 'old',
+            )
 
             return response
         } catch (e) {

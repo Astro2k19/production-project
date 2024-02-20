@@ -3,7 +3,7 @@ import React from 'react'
 
 import { article } from '@/entities/Article/testing'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import ArticlesPage from './Articles'
 

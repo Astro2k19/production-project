@@ -17,10 +17,6 @@ export interface ArticlesListItemProps {
 
 export const ArticlesListItem: FC<ArticlesListItemProps> = props => {
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ArticlesListItemRedesigned {...props} />}
-            off={<ArticlesListItemDeprecated {...props} />}
-        />
+        <ArticlesListItemRedesigned {...props} />
     )
 }

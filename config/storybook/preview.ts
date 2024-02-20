@@ -1,9 +1,13 @@
-import { withRouter } from 'storybook-addon-react-router-v6'
+import { addDecorator } from '@storybook/react'
 import { withThemes } from 'storybook-addon-themes/react'
 
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
-import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
-import { Theme } from '../../src/shared/const/theme'
+import {
+    FeatureFlagsDecorator,
+    StyleDecorator,
+    SuspenseDecorator,
+    getThemeSettings,
+} from '@/shared/config/storybook'
+
 import i18n from './i18next'
 
 export const parameters = {
@@ -15,14 +19,7 @@ export const parameters = {
         },
     },
     layout: 'fullscreen',
-    themes: {
-        default: 'Light',
-        list: [
-            { name: 'Light', class: ['app', Theme.LIGHT], color: '#e8e8ea' },
-            { name: 'Dark', class: ['app', Theme.DARK], color: '#090949' },
-            { name: 'Dusk', class: ['app', Theme.DUSK], color: '#4b4e71' },
-        ],
-    },
+    themes: getThemeSettings(),
     i18n,
     locale: 'en',
     locales: {
@@ -31,14 +28,16 @@ export const parameters = {
     },
 }
 
-// addDecorator(StyleDecorator)
-// addDecorator(withThemes)
+addDecorator(StyleDecorator)
+addDecorator(withThemes)
 // addDecorator(withRouter)
-// addDecorator(SuspenseDecorator)
+addDecorator(SuspenseDecorator)
+addDecorator(FeatureFlagsDecorator({}))
 
-export const decorators = [
-    StyleDecorator,
-    SuspenseDecorator,
-    withThemes,
-    withRouter,
-]
+// export const decorators = [
+//     StyleDecorator,
+//     SuspenseDecorator,
+//     FeatureFlagsDecorator({ test: true }),
+//     withThemes,
+//     withRouter,
+// ]

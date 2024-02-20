@@ -62,30 +62,14 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
     ]
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <Dropdown
-                    trigger={
-                        <Avatar
-                            src={authDate.avatar}
-                            size={40}
+        <Dropdown
+                            trigger={
+                                <Avatar
+                                    src={authDate.avatar}
+                                    size={40}
+                                />
+                            }
+                            items={dropdownOptions}
                         />
-                    }
-                    items={dropdownOptions}
-                />
-            }
-            off={
-                <DropdownDeprecated
-                    trigger={
-                        <AvatarDeprecated
-                            src={authDate.avatar}
-                            size={30}
-                        />
-                    }
-                    items={dropdownOptions}
-                />
-            }
-        />
     )
 })

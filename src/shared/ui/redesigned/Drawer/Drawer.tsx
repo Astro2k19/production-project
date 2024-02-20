@@ -22,11 +22,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     const { className, onClose, isOpen, children, withPortal = true } = props
     const { Gesture, Spring } = useAnimLibs()
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
-    const classNameString = toggleFeature({
-        name: 'isAppRedesigned',
-        on: () => cls.newDrawer,
-        off: () => cls.oldDrawer,
-    })
+    const classNameString = cls.newDrawer
 
     const open = useCallback(
         ({ canceled }: { canceled: boolean }) => {

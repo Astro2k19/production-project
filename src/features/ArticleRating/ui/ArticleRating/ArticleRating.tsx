@@ -65,22 +65,11 @@ const ArticleRating = memo(
 
         if (isLoading) {
             return (
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={
-                        <Skeleton
-                            width={'100%'}
-                            height={126}
-                            borderRadius={'round'}
-                        />
-                    }
-                    off={
-                        <SkeletonDeprecated
-                            width={'100%'}
-                            height={126}
-                        />
-                    }
-                />
+                <Skeleton
+                                            width={'100%'}
+                                            height={126}
+                                            borderRadius={'round'}
+                                        />
             )
         }
 

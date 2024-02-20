@@ -61,46 +61,22 @@ export const ArticlesFiltersSelectors = memo(
         )
 
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <VStack
-                        gap={'8'}
-                        className={classNames([className])}
-                    >
-                        <Text text={t('Sort by')} />
-                        <ListBox
-                            items={filterSortOptions}
-                            value={sort}
-                            onChange={onChangeSort}
-                        />
-                        <ListBox
-                            items={filterOrderOptions}
-                            value={order}
-                            onChange={onChangeOrder}
-                        />
-                    </VStack>
-                }
-                off={
-                    <HStack
-                        className={classNames([className])}
-                        gap={'8'}
-                    >
-                        <Select
-                            options={filterSortOptions}
-                            label={t('Sort by')}
-                            value={sort}
-                            onChange={onChangeSort}
-                        />
-                        <Select
-                            options={filterOrderOptions}
-                            label={t('Sort order')}
-                            value={order}
-                            onChange={onChangeOrder}
-                        />
-                    </HStack>
-                }
-            />
+            <VStack
+                                    gap={'8'}
+                                    className={classNames([className])}
+                                >
+                                    <Text text={t('Sort by')} />
+                                    <ListBox
+                                        items={filterSortOptions}
+                                        value={sort}
+                                        onChange={onChangeSort}
+                                    />
+                                    <ListBox
+                                        items={filterOrderOptions}
+                                        value={order}
+                                        onChange={onChangeOrder}
+                                    />
+                                </VStack>
         )
     },
 )

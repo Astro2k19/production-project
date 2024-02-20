@@ -4,7 +4,7 @@ import withMock from 'storybook-addon-mock'
 
 import { profile as data } from '@/entities/Profile/testing'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import ProfilePage from './Profile'
 

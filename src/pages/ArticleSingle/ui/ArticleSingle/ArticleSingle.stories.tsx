@@ -6,7 +6,7 @@ import { article, mockArticleResponse } from '@/entities/Article/testing'
 import { mockCommentResponse } from '@/entities/Comment/testing'
 import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import ArticleSinglePage from './ArticleSingle'
 

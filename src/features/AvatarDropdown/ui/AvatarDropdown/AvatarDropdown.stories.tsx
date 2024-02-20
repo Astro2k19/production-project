@@ -3,7 +3,7 @@ import avatar from 'src/shared/assets/images/tests/avatar.jpg'
 
 import { UserRoles } from '@/entities/User'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import { AvatarDropdown } from './AvatarDropdown'
 

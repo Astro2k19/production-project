@@ -6,42 +6,37 @@ import React, {
     useState,
 } from 'react'
 
-import { getUserAuthDate, useUserJsonSettings } from '@/entities/User'
-
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
 import { Theme } from '@/shared/const/theme'
 import { ThemeContext } from '@/shared/context/theme'
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 
 interface ThemeProviderProps {
     children: ReactNode
     initialTheme?: Theme
 }
 
+const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
+
 export const ThemeProvider: FC<ThemeProviderProps> = ({
     children,
     initialTheme,
 }) => {
-    const { theme: defaultTheme } = useUserJsonSettings()
     const [isThemeInited, setIsThemeInited] = useState(false)
-    const authDate = useAppSelector(getUserAuthDate)
     const [theme, setTheme] = useState<Theme>(
-        initialTheme ?? defaultTheme ?? Theme.DUSK,
+        initialTheme ?? fallbackTheme ?? Theme.DUSK,
     )
 
     useEffect(() => {
-        if (!authDate?.id) {
-            setIsThemeInited(false)
-            document.body.className = Theme.DUSK
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme)
+            setIsThemeInited(true)
+            document.body.className = initialTheme
         }
-    }, [authDate?.id])
+    }, [initialTheme]) // eslint-disable-line
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme)
-            setIsThemeInited(true)
-            document.body.className = defaultTheme
-        }
-    }, [defaultTheme]) // eslint-disable-line
+        document.body.className = theme
+    }, [theme])
 
     const defaultValue = useMemo(
         () => ({

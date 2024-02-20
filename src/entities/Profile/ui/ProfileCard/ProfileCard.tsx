@@ -19,29 +19,17 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
 
     if (isLoading) {
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={<ProfileCardRedesignedSkeletons />}
-                off={<ProfileCardDeprecatedLoader />}
-            />
+            <ProfileCardRedesignedSkeletons />
         )
     }
 
     if (error) {
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={<ProfileCardRedesignedError error={error} />}
-                off={<ProfileCardDeprecatedError error={error} />}
-            />
+            <ProfileCardRedesignedError error={error} />
         )
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ProfileCardRedesigned {...props} />}
-            off={<ProfileCardDeprecated {...props} />}
-        />
+        <ProfileCardRedesigned {...props} />
     )
 }

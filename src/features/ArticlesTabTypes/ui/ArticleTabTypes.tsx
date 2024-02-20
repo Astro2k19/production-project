@@ -34,26 +34,13 @@ export const ArticleTabTypes = memo(
         }, [t])
 
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <Tabs<ArticleType>
-                        onClick={onChangeType}
-                        tabs={articleTypesOptions}
-                        value={articleType}
-                        direction={'column'}
-                        className={classNames([className])}
-                    />
-                }
-                off={
-                    <TabsDeprecated<ArticleType>
-                        onClick={onChangeType}
-                        tabs={articleTypesOptions}
-                        value={articleType}
-                        className={classNames([className])}
-                    />
-                }
-            />
+            <Tabs<ArticleType>
+                                    onClick={onChangeType}
+                                    tabs={articleTypesOptions}
+                                    value={articleType}
+                                    direction={'column'}
+                                    className={classNames([className])}
+                                />
         )
     },
 )

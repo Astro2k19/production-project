@@ -24,34 +24,18 @@ const ArticlesPage: FC<ArticlesProps> = ({ className }) => {
     }, [dispatch])
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <StickyLayout
-                    left={<ViewSwitcherContainer />}
-                    content={
-                        <Page
-                            dataTestId={'ArticlesPage'}
-                            onScrollEnd={loadNextArticles}
-                        >
-                            <ArticlesInfiniteList />
-                        </Page>
-                    }
-                    right={<FiltersContainer />}
-                />
-            }
-            off={
-                <Page
-                    dataTestId={'ArticlesPage'}
-                    onScrollEnd={loadNextArticles}
-                >
-                    <VStack gap={'16'}>
-                        <ArticlesPageFilters />
-                        <ArticlesInfiniteList />
-                    </VStack>
-                </Page>
-            }
-        />
+        <StickyLayout
+                            left={<ViewSwitcherContainer />}
+                            content={
+                                <Page
+                                    dataTestId={'ArticlesPage'}
+                                    onScrollEnd={loadNextArticles}
+                                >
+                                    <ArticlesInfiniteList />
+                                </Page>
+                            }
+                            right={<FiltersContainer />}
+                        />
     )
 }
 

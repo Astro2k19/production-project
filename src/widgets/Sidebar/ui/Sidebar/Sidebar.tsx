@@ -33,24 +33,11 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
     )
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <SidebarRedesigned
-                    className={className}
-                    items={items}
-                    toggleSidebar={toggleSidebar}
-                    collapsed={collapsed}
-                />
-            }
-            off={
-                <SidebarDeprecated
-                    className={className}
-                    items={items}
-                    toggleSidebar={toggleSidebar}
-                    collapsed={collapsed}
-                />
-            }
-        />
+        <SidebarRedesigned
+                            className={className}
+                            items={items}
+                            toggleSidebar={toggleSidebar}
+                            collapsed={collapsed}
+                        />
     )
 }

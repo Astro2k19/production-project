@@ -5,7 +5,11 @@ import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import { ValidateProfileError } from '@/entities/Profile'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import {
+    FeatureFlagsDecorator,
+    StoreDecorator,
+    getThemeSettings,
+} from '@/shared/config/storybook'
 
 import { EditableProfileCard } from './EditableProfileCard'
 
@@ -46,6 +50,24 @@ Normal.decorators = [
         },
     }),
 ]
+
+export const NormalRedesigned = Template.bind({})
+NormalRedesigned.story = {
+    parameters: {
+        themes: getThemeSettings(true),
+    },
+}
+NormalRedesigned.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: true,
+            data,
+            formData: data,
+        },
+    }),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+]
+
 export const WithValidationErrors = Template.bind({})
 
 WithValidationErrors.decorators = [

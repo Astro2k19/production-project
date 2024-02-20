@@ -12,10 +12,6 @@ interface ArticleDetailsProps {
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ArticleDetailsRedesigned {...props} />}
-            off={<ArticleDetailsDeprecated {...props} />}
-        />
+        <ArticleDetailsRedesigned {...props} />
     )
 })

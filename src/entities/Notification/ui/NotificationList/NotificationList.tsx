@@ -26,24 +26,11 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
                 noShrink
             >
                 {new Array(4).fill(null).map((_, index) => (
-                    <ToggleFeatures
-                        feature={'isAppRedesigned'}
-                        key={index}
-                        on={
-                            <Skeleton
-                                key={index}
-                                width={'100%'}
-                                height={113}
-                            />
-                        }
-                        off={
-                            <SkeletonDeprecated
-                                key={index}
-                                width={'100%'}
-                                height={140}
-                            />
-                        }
-                    />
+                    <Skeleton
+                                                    key={index}
+                                                    width={'100%'}
+                                                    height={113}
+                                                />
                 ))}
             </VStack>
         )

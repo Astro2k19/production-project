@@ -55,125 +55,65 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
 
     if (isLoading) {
         return (
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <Skeleton
-                        width={'100%'}
-                        height={'90px'}
-                        borderRadius={'round'}
-                    />
-                }
-                off={
-                    <SkeletonDeprecated
-                        width={'100%'}
-                        height={'90px'}
-                    />
-                }
-            />
+            <Skeleton
+                                    width={'100%'}
+                                    height={'90px'}
+                                    borderRadius={'round'}
+                                />
         )
     }
 
     return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <Card
-                    padding={'24'}
-                    fullWidth
-                    border={'round'}
-                >
-                    <HStack
-                        justify={'spaceBetween'}
-                        alignItems={'center'}
-                    >
-                        <Text
-                            TitleTag={'h2'}
-                            title={t('Profile', { ns: 'profile' })}
-                        />
-                        {canEdit &&
-                            !error &&
-                            (readonly ? (
-                                <Button
-                                    onClick={onEdit}
-                                    variant={'outline'}
-                                    data-testid={
-                                        'EditableProfileCardHeader.EditButton'
-                                    }
-                                >
-                                    {t('Edit')}
-                                </Button>
-                            ) : (
-                                <HStack gap={'8'}>
-                                    <Button
-                                        onClick={onSave}
-                                        variant={'outline'}
-                                        color={'success'}
-                                        data-testid={
-                                            'EditableProfileCardHeader.SaveButton'
-                                        }
-                                    >
-                                        {t('Save')}
-                                    </Button>
-                                    <Button
-                                        onClick={onCancel}
-                                        variant={'outline'}
-                                        color={'error'}
-                                        data-testid={
-                                            'EditableProfileCardHeader.CancelButton'
-                                        }
-                                    >
-                                        {t('Cancel')}
-                                    </Button>
-                                </HStack>
-                            ))}
-                    </HStack>
-                </Card>
-            }
-            off={
-                <HStack
-                    justify={'spaceBetween'}
-                    alignItems={'center'}
-                >
-                    <TextDeprecated
-                        TitleTag={'h2'}
-                        title={t('Profile', { ns: 'profile' })}
-                    />
-                    {canEdit &&
-                        !error &&
-                        (readonly ? (
-                            <ButtonDeprecated
-                                onClick={onEdit}
-                                data-testid={
-                                    'EditableProfileCardHeader.EditButton'
-                                }
+        <Card
+                            padding={'24'}
+                            fullWidth
+                            border={'round'}
+                        >
+                            <HStack
+                                justify={'spaceBetween'}
+                                alignItems={'center'}
                             >
-                                {t('Edit')}
-                            </ButtonDeprecated>
-                        ) : (
-                            <HStack gap={'8'}>
-                                <ButtonDeprecated
-                                    onClick={onSave}
-                                    variant={ButtonVariants.OUTLINE}
-                                    data-testid={
-                                        'EditableProfileCardHeader.SaveButton'
-                                    }
-                                >
-                                    {t('Save')}
-                                </ButtonDeprecated>
-                                <ButtonDeprecated
-                                    onClick={onCancel}
-                                    variant={ButtonVariants.OUTLINE_RED}
-                                    data-testid={
-                                        'EditableProfileCardHeader.CancelButton'
-                                    }
-                                >
-                                    {t('Cancel')}
-                                </ButtonDeprecated>
+                                <Text
+                                    TitleTag={'h2'}
+                                    title={t('Profile', { ns: 'profile' })}
+                                />
+                                {canEdit &&
+                                    !error &&
+                                    (readonly ? (
+                                        <Button
+                                            onClick={onEdit}
+                                            variant={'outline'}
+                                            data-testid={
+                                                'EditableProfileCardHeader.EditButton'
+                                            }
+                                        >
+                                            {t('Edit')}
+                                        </Button>
+                                    ) : (
+                                        <HStack gap={'8'}>
+                                            <Button
+                                                onClick={onSave}
+                                                variant={'outline'}
+                                                color={'success'}
+                                                data-testid={
+                                                    'EditableProfileCardHeader.SaveButton'
+                                                }
+                                            >
+                                                {t('Save')}
+                                            </Button>
+                                            <Button
+                                                onClick={onCancel}
+                                                variant={'outline'}
+                                                color={'error'}
+                                                data-testid={
+                                                    'EditableProfileCardHeader.CancelButton'
+                                                }
+                                            >
+                                                {t('Cancel')}
+                                            </Button>
+                                        </HStack>
+                                    ))}
                             </HStack>
-                        ))}
-                </HStack>
-            }
-        />
+                        </Card>
     )
 }

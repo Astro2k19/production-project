@@ -2,26 +2,26 @@ import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 import { BrowserRouter } from 'react-router-dom'
 
-import { App } from '@/app/index'
+import App from '@/app/index'
 import { StoreProvider } from '@/app/providers/storeProvider'
-import { ThemeProvider } from '@/app/providers/themeProvider'
 
 import { PageError } from '@/widgets/PageError'
 
 import '@/shared/config/i18n/i18n'
+import { ForceUpdateProvider } from '@/shared/lib/render/forceUpdate'
 
 createRoot(document.querySelector('#root') as HTMLDivElement).render(
     <StoreProvider>
-        <BrowserRouter>
-            <ErrorBoundary
-                FallbackComponent={PageError}
-                onError={console.log}
-            >
-                <ThemeProvider>
+        <ForceUpdateProvider>
+            <BrowserRouter>
+                <ErrorBoundary
+                    FallbackComponent={PageError}
+                    onError={console.log}
+                >
                     <App />
-                </ThemeProvider>
-            </ErrorBoundary>
-        </BrowserRouter>
+                </ErrorBoundary>
+            </BrowserRouter>
+        </ForceUpdateProvider>
     </StoreProvider>,
 )
 export { Theme } from '@/shared/const/theme'

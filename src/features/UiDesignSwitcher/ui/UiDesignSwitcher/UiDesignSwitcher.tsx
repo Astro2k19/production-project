@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { getUserAuthDate } from '@/entities/User'
 
+import { LOCAL_STORAGE_DESIGN_KEY } from '@/shared/const/localStorage'
 import {
     ToggleFeatures,
     getFeatureFlag,
@@ -50,7 +51,7 @@ export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {
                     isAppRedesigned: value === 'new',
                 },
             })
-
+            localStorage.setItem(LOCAL_STORAGE_DESIGN_KEY, value)
             window.location.reload()
         }
     }
@@ -60,43 +61,21 @@ export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {
             className={className}
             gap={'4'}
         >
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <>
-                        <Text text={t('Design')} />
-                        {isLoading ? (
-                            <Skeleton
-                                width={'150px'}
-                                height={'30px'}
-                            />
-                        ) : (
-                            <ListBox
-                                value={isAppRedesigned ? 'new' : 'old'}
-                                items={items}
-                                onChange={onChange}
-                            />
-                        )}
-                    </>
-                }
-                off={
-                    <>
-                        <TextDeprecated text={t('Design')} />
-                        {isLoading ? (
-                            <SkeletonDeprecated
-                                width={'150px'}
-                                height={'40px'}
-                            />
-                        ) : (
-                            <ListBoxDeprecated
-                                value={isAppRedesigned ? 'new' : 'old'}
-                                items={items}
-                                onChange={onChange}
-                            />
-                        )}
-                    </>
-                }
-            />
+            <>
+                                    <Text text={t('Design')} />
+                                    {isLoading ? (
+                                        <Skeleton
+                                            width={'150px'}
+                                            height={'30px'}
+                                        />
+                                    ) : (
+                                        <ListBox
+                                            value={isAppRedesigned ? 'new' : 'old'}
+                                            items={items}
+                                            onChange={onChange}
+                                        />
+                                    )}
+                                </>
         </VStack>
     )
 })

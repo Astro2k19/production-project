@@ -15,11 +15,7 @@ interface ArticleTextBlockComponentProps {
 
 export const ArticleTextBlockComponent = memo(
     ({ className, block }: ArticleTextBlockComponentProps) => {
-        const Text = toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => TextRedesigned,
-            off: () => TextDeprecated,
-        })
+        const Text = TextRedesigned
 
         return (
             <div

@@ -68,88 +68,43 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
             removeAfterUnmount
             reducers={initialReducers}
         >
-            <ToggleFeatures
-                feature={'isAppRedesigned'}
-                on={
-                    <form
-                        className={classNames([className])}
-                        onSubmit={onSubmit}
-                    >
-                        <VStack gap={'16'}>
-                            <Text title="Authorization form" />
-                            {error && (
-                                <Text
-                                    text={getAuthErrorMessage(error)}
-                                    variant={TextVariants.ERROR}
-                                />
-                            )}
-                            <Input
-                                type="text"
-                                onChange={setUsername}
-                                value={username}
-                                placeholder={'Username'}
-                                autoFocus
-                            />
-                            <Input
-                                type="password"
-                                onChange={setPassword}
-                                value={password}
-                                placeholder={'Password'}
-                            />
-                            <Button
-                                type="submit"
-                                variant={'outline'}
-                                fullWidth
-                                align={'center'}
-                                onClick={onSubmit}
-                                disabled={isLoading}
-                            >
-                                {t('Log In')}
-                            </Button>
-                        </VStack>
-                    </form>
-                }
-                off={
-                    <form
-                        className={classNames([cls.authForm, className])}
-                        onSubmit={onSubmit}
-                    >
-                        <TextDeprecated
-                            title="Authorization form"
-                            className={cls.title}
-                        />
-                        {error && (
-                            <TextDeprecated
-                                text={getAuthErrorMessage(error)}
-                                variant={TextVariants.ERROR}
-                            />
-                        )}
-                        <InputDeprecated
-                            type="text"
-                            onChange={setUsername}
-                            value={username}
-                            placeholder={'Username'}
-                            autoFocus
-                            className={cls.input}
-                        />
-                        <InputDeprecated
-                            type="password"
-                            onChange={setPassword}
-                            value={password}
-                            placeholder={'Password'}
-                        />
-                        <ButtonDeprecated
-                            type="submit"
-                            className={cls.button}
-                            variant={ButtonVariants.OUTLINE}
-                            onClick={onSubmit}
-                            disabled={isLoading}
-                        >
-                            {t('Log In')}
-                        </ButtonDeprecated>
-                    </form>
-                }
-            />
+            <form
+                                    className={classNames([className])}
+                                    onSubmit={onSubmit}
+                                >
+                                    <VStack gap={'16'}>
+                                        <Text title="Authorization form" />
+                                        {error && (
+                                            <Text
+                                                text={getAuthErrorMessage(error)}
+                                                variant={TextVariants.ERROR}
+                                            />
+                                        )}
+                                        <Input
+                                            type="text"
+                                            onChange={setUsername}
+                                            value={username}
+                                            placeholder={'Username'}
+                                            autoFocus
+                                        />
+                                        <Input
+                                            type="password"
+                                            onChange={setPassword}
+                                            value={password}
+                                            placeholder={'Password'}
+                                        />
+                                        <Button
+                                            type="submit"
+                                            variant={'outline'}
+                                            fullWidth
+                                            align={'center'}
+                                            onClick={onSubmit}
+                                            disabled={isLoading}
+                                        >
+                                            {t('Log In')}
+                                        </Button>
+                                    </VStack>
+                                </form>
         </DynamicModuleLoader>
     )
 }

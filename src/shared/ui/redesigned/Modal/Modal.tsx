@@ -34,11 +34,7 @@ export const Modal: FC<ModalProps> = props => {
 
     const [isMounted, setIsMounted] = useState(false)
 
-    const classNameString = toggleFeature({
-        name: 'isAppRedesigned',
-        on: () => cls.newModal,
-        off: () => cls.oldModal,
-    })
+    const classNameString = cls.newModal
 
     const closeModal = useCallback(() => {
         if (onClose !== undefined) {

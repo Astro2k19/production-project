@@ -51,11 +51,7 @@ export const ArticleSingleComments = memo(
                 gap={'16'}
                 className={classNames([className])}
             >
-                <ToggleFeatures
-                    feature={'isAppRedesigned'}
-                    on={<Text title={t('Comments')} />}
-                    off={<TextDeprecated title={t('Comments')} />}
-                />
+                <Text title={t('Comments')} />
                 <Suspense fallback={'Loading...'}>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>

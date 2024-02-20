@@ -53,11 +53,7 @@ export const StartRating: FC<StartRatingProps> = ({
         <HStack
             gap={'4'}
             className={classNames([
-                toggleFeature({
-                    name: 'isAppRedesigned',
-                    on: () => cls.starRatingRedesigned,
-                    off: () => cls.starRating,
-                }),
+                cls.starRatingRedesigned,
                 className,
             ])}
             data-testid={'StarRating'}
@@ -80,17 +76,10 @@ export const StartRating: FC<StartRatingProps> = ({
                 }
 
                 return (
-                    <ToggleFeatures
-                        key={index}
-                        feature={'isAppRedesigned'}
-                        on={
-                            <Icon
-                                clickable={!isSelected}
-                                {...commonProps}
-                            />
-                        }
-                        off={<IconDeprecated {...commonProps} />}
-                    />
+                    <Icon
+                                                    clickable={!isSelected}
+                                                    {...commonProps}
+                                                />
                 )
             })}
         </HStack>

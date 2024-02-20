@@ -1,6 +1,11 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
+import {
+    RedesignedDesignDecorator,
+    getThemeSettings,
+} from '@/shared/config/storybook'
+
 import { profile as data } from '../../mocks/profileMocks'
 import { ProfileCard } from './ProfileCard'
 
@@ -20,6 +25,18 @@ const Template: ComponentStory<typeof ProfileCard> = args => (
 export const Primary = Template.bind({})
 
 Primary.args = {
+    data,
+}
+
+export const PrimaryRedesigned = Template.bind({})
+PrimaryRedesigned.story = {
+    parameters: {
+        themes: getThemeSettings(true),
+    },
+}
+PrimaryRedesigned.decorators = [RedesignedDesignDecorator]
+
+PrimaryRedesigned.args = {
     data,
 }
 

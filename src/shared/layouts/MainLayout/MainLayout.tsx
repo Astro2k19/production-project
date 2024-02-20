@@ -6,10 +6,10 @@ import cls from './MainLayout.module.scss'
 
 interface MainLayoutProps {
     className?: string
-    navbar: ReactNode
+    navbar?: ReactNode
     sidebar: ReactNode
     content: ReactNode
-    toolbar: ReactNode
+    toolbar?: ReactNode
 }
 
 export const MainLayout = (props: MainLayoutProps) => {
@@ -20,8 +20,8 @@ export const MainLayout = (props: MainLayoutProps) => {
             <div className={cls.sidebar}>{sidebar}</div>
             <div className={cls.content}>{content}</div>
             <div className={cls.rightbar}>
-                <div className={cls.navbar}>{navbar}</div>
-                <div className={cls.toolbar}>{toolbar}</div>
+                {navbar && <div className={cls.navbar}>{navbar}</div>}
+                {toolbar && <div className={cls.toolbar}>{toolbar}</div>}
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import withMock from 'storybook-addon-mock'
 
 import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import ArticleRating from './ArticleRating'
 

@@ -40,83 +40,38 @@ export const NotificationsButton = memo(
             setIsDrawerOpen(false)
         }, [])
 
-        const trigger = toggleFeature({
-            name: 'isAppRedesigned',
-            on: () => (
-                <Icon
-                    Svg={NotificationIcon}
-                    clickable
-                    onClick={isMobile ? onDrawerOpen : undefined}
-                />
-            ),
-            off: () => (
-                <ButtonDeprecated
-                    variant={ButtonVariants.CLEAR}
-                    onClick={isMobile ? onDrawerOpen : undefined}
-                >
-                    <IconDeprecated
-                        Svg={NotificationIconDeprecated}
-                        inverted
-                    />
-                </ButtonDeprecated>
-            ),
-        })
+        const trigger = (
+                        <Icon
+                            Svg={NotificationIcon}
+                            clickable
+                            onClick={isMobile ? onDrawerOpen : undefined}
+                        />
+                    )
 
         return (
             <div>
                 {isMobile ? (
                     <>
                         {trigger}
-                        <ToggleFeatures
-                            feature={'isAppRedesigned'}
-                            on={
-                                <Drawer
-                                    isOpen={isDrawerOpen}
-                                    onClose={onDrawerClose}
-                                    withPortal={true}
-                                >
-                                    <NotificationList
-                                        className={cls.drawerNotificationList}
-                                    />
-                                </Drawer>
-                            }
-                            off={
-                                <DrawerDeprecated
-                                    isOpen={isDrawerOpen}
-                                    onClose={onDrawerClose}
-                                    withPortal={true}
-                                >
-                                    <NotificationList
-                                        className={cls.drawerNotificationList}
-                                    />
-                                </DrawerDeprecated>
-                            }
-                        />
+                        <Drawer
+                                                            isOpen={isDrawerOpen}
+                                                            onClose={onDrawerClose}
+                                                            withPortal={true}
+                                                        >
+                                                            <NotificationList
+                                                                className={cls.drawerNotificationList}
+                                                            />
+                                                        </Drawer>
                     </>
                 ) : (
-                    <ToggleFeatures
-                        feature={'isAppRedesigned'}
-                        on={
-                            <Popover
-                                trigger={trigger}
-                                className={classNames([className])}
-                            >
-                                <NotificationList
-                                    className={cls.notificationList}
-                                />
-                            </Popover>
-                        }
-                        off={
-                            <PopoverDeprecated
-                                trigger={trigger}
-                                className={classNames([className])}
-                            >
-                                <NotificationList
-                                    className={cls.notificationList}
-                                />
-                            </PopoverDeprecated>
-                        }
-                    />
+                    <Popover
+                                                        trigger={trigger}
+                                                        className={classNames([className])}
+                                                    >
+                                                        <NotificationList
+                                                            className={cls.notificationList}
+                                                        />
+                                                    </Popover>
                 )}
             </div>
         )
