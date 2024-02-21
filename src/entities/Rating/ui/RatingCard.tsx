@@ -1,18 +1,7 @@
 import { FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
-import {
-    Button as ButtonDeprecated,
-    ButtonVariants,
-} from '@/shared/ui/deprecated/Button'
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
-import {
-    Text as TextDeprecated,
-    TextVariants,
-} from '@/shared/ui/deprecated/Text'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { Drawer } from '@/shared/ui/redesigned/Drawer'
@@ -75,51 +64,51 @@ export const RatingCard: FC<RatingCardProps> = ({
 
     const modalContent = (
         <>
-                            <Text title={feedbackTitle} />
-                            <Input
-                                placeholder={t('Your feedback')}
-                                value={feedbackText}
-                                onChange={setFeedbackText}
-                                data-testid={'RatingCard.Input'}
-                            />
-                        </>
+            <Text title={feedbackTitle} />
+            <Input
+                placeholder={t('Your feedback')}
+                value={feedbackText}
+                onChange={setFeedbackText}
+                data-testid={'RatingCard.Input'}
+            />
+        </>
     )
 
     const buttonGroup = (
         <HStack gap={'8'}>
-                            <Button
-                                onClick={acceptHandle}
-                                variant={'outline'}
-                                fullWidth
-                                align={'center'}
-                            >
-                                {t('Send')}
-                            </Button>
-                            <Button
-                                variant={'outline'}
-                                onClick={cancelHandle}
-                                fullWidth
-                                align={'center'}
-                            >
-                                {t('Cancel')}
-                            </Button>
-                        </HStack>
+            <Button
+                onClick={acceptHandle}
+                variant={'outline'}
+                fullWidth
+                align={'center'}
+            >
+                {t('Send')}
+            </Button>
+            <Button
+                variant={'outline'}
+                onClick={cancelHandle}
+                fullWidth
+                align={'center'}
+            >
+                {t('Cancel')}
+            </Button>
+        </HStack>
     )
 
     const content = (
         <>
             <VStack
-                                    alignItems={'center'}
-                                    gap={'8'}
-                                    className={className}
-                                >
-                                    <Text title={title} />
-                                    <StartRating
-                                        onSelect={onSelectRating}
-                                        size={34}
-                                        selectedStarsCount={rate}
-                                    />
-                                </VStack>
+                alignItems={'center'}
+                gap={'8'}
+                className={className}
+            >
+                <Text title={title} />
+                <StartRating
+                    onSelect={onSelectRating}
+                    size={34}
+                    selectedStarsCount={rate}
+                />
+            </VStack>
             {isMobile ? (
                 <Drawer
                     isOpen={isModalOpen}
@@ -147,10 +136,10 @@ export const RatingCard: FC<RatingCardProps> = ({
 
     return (
         <Card
-                            padding={'24'}
-                            border={'round'}
-                        >
-                            {content}
-                        </Card>
+            padding={'24'}
+            border={'round'}
+        >
+            {content}
+        </Card>
     )
 }

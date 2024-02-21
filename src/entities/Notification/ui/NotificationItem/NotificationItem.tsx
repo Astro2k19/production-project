@@ -1,9 +1,6 @@
 import { memo } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { Text } from '@/shared/ui/redesigned/Text'
 
@@ -28,15 +25,15 @@ export const NotificationItem = memo(
 
         const cardContent = (
             <Card
-                                    className={classNames([className, cls.notify])}
-                                    padding={'16'}
-                                >
-                                    <Text
-                                        title={text}
-                                        text={content}
-                                        TitleTag={'h6'}
-                                    />
-                                </Card>
+                className={classNames([className, cls.notify])}
+                padding={'16'}
+            >
+                <Text
+                    title={text}
+                    text={content}
+                    TitleTag={'h6'}
+                />
+            </Card>
         )
 
         if (item.href) {

@@ -2,12 +2,6 @@ import { memo } from 'react'
 
 import { getRouteProfile } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
-import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink'
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { Avatar } from '@/shared/ui/redesigned/Avatar'
 import { Card } from '@/shared/ui/redesigned/Card'
@@ -16,7 +10,6 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 import { type Comment } from '../../model/types/comment'
-import cls from './CommentCard.module.scss'
 
 interface CommentCardProps {
     className?: string
@@ -44,34 +37,34 @@ export const CommentCard = memo(
 
         return (
             <Card
-                                    padding={'16'}
-                                    border={'round'}
-                                    inverted
-                                >
-                                    <VStack
-                                        className={classNames([className])}
-                                        data-testid={'CommentCard'}
-                                        gap={'8'}
-                                    >
-                                        <AppLink to={getRouteProfile(comment.user.id)}>
-                                            <HStack
-                                                gap={'8'}
-                                                alignItems={'center'}
-                                            >
-                                                <Avatar
-                                                    src={comment.user.avatar}
-                                                    alt={comment.user.username}
-                                                    size={30}
-                                                />
-                                                <Text
-                                                    title={comment.user.username}
-                                                    bold
-                                                />
-                                            </HStack>
-                                        </AppLink>
-                                        <Text text={comment.text} />
-                                    </VStack>
-                                </Card>
+                padding={'16'}
+                border={'round'}
+                inverted
+            >
+                <VStack
+                    className={classNames([className])}
+                    data-testid={'CommentCard'}
+                    gap={'8'}
+                >
+                    <AppLink to={getRouteProfile(comment.user.id)}>
+                        <HStack
+                            gap={'8'}
+                            alignItems={'center'}
+                        >
+                            <Avatar
+                                src={comment.user.avatar}
+                                alt={comment.user.username}
+                                size={30}
+                            />
+                            <Text
+                                title={comment.user.username}
+                                bold
+                            />
+                        </HStack>
+                    </AppLink>
+                    <Text text={comment.text} />
+                </VStack>
+            </Card>
         )
     },
 )

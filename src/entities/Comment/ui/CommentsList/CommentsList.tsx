@@ -4,12 +4,7 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import {
-    TextAligns,
-    Text as TextDeprecated,
-    TextVariants,
-} from '@/shared/ui/deprecated/Text'
+import { TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 

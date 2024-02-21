@@ -2,10 +2,7 @@ import { FC, useState } from 'react'
 
 import Star from '@/shared/assets/icons/Star.svg'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
-import { Icon as IconDeprecated } from '../../deprecated/Icon'
 import { Icon } from '../../redesigned/Icon'
 import { HStack } from '../Stack'
 import cls from './StartRating.module.scss'
@@ -52,10 +49,7 @@ export const StartRating: FC<StartRatingProps> = ({
     return (
         <HStack
             gap={'4'}
-            className={classNames([
-                cls.starRatingRedesigned,
-                className,
-            ])}
+            className={classNames([cls.starRatingRedesigned, className])}
             data-testid={'StarRating'}
         >
             {rating.map((starCount, index) => {
@@ -77,9 +71,9 @@ export const StartRating: FC<StartRatingProps> = ({
 
                 return (
                     <Icon
-                                                    clickable={!isSelected}
-                                                    {...commonProps}
-                                                />
+                        clickable={!isSelected}
+                        {...commonProps}
+                    />
                 )
             })}
         </HStack>

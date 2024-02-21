@@ -1,8 +1,6 @@
 import { memo } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text'
 
 import { type ArticleTextBlock } from '../../model/types/article'

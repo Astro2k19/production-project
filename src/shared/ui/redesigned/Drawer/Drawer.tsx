@@ -2,7 +2,6 @@ import { type ReactNode, memo, useCallback, useEffect } from 'react'
 
 import { classNames } from '@/shared/lib'
 import { AnimationProvider, useAnimLibs } from '@/shared/lib/AnimationProvider'
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
 import { Overlay } from '../../redesigned/Overlay'
 import { Portal } from '../Portal'

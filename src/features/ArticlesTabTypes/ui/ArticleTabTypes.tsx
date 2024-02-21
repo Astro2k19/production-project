@@ -4,11 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticleType } from '@/entities/Article'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import {
-    type TabItem,
-    Tabs as TabsDeprecated,
-} from '@/shared/ui/deprecated/Tabs'
+import { type TabItem } from '@/shared/ui/deprecated/Tabs'
 import { Tabs } from '@/shared/ui/redesigned/Tabs'
 
 interface ArticleTabTypesProps {
@@ -35,12 +31,12 @@ export const ArticleTabTypes = memo(
 
         return (
             <Tabs<ArticleType>
-                                    onClick={onChangeType}
-                                    tabs={articleTypesOptions}
-                                    value={articleType}
-                                    direction={'column'}
-                                    className={classNames([className])}
-                                />
+                onClick={onChangeType}
+                tabs={articleTypesOptions}
+                value={articleType}
+                direction={'column'}
+                className={classNames([className])}
+            />
         )
     },
 )

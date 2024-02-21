@@ -1,8 +1,6 @@
 import { memo } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 
@@ -27,10 +25,10 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
             >
                 {new Array(4).fill(null).map((_, index) => (
                     <Skeleton
-                                                    key={index}
-                                                    width={'100%'}
-                                                    height={113}
-                                                />
+                        key={index}
+                        width={'100%'}
+                        height={113}
+                    />
                 ))}
             </VStack>
         )

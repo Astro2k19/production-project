@@ -1,14 +1,17 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+
 import { UiDesignSwitcher } from './UiDesignSwitcher'
 
 export default {
-  title: 'features/UiDesignSwitcher',
-  component: UiDesignSwitcher,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+    title: 'features/UiDesignSwitcher',
+    component: UiDesignSwitcher,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof UiDesignSwitcher>
 
-const Template: ComponentStory<typeof UiDesignSwitcher> = (args) => <UiDesignSwitcher {...args} />
+const Template: ComponentStory<typeof UiDesignSwitcher> = args => (
+    <UiDesignSwitcher {...args} />
+)
 
 export const Normal = Template.bind({})

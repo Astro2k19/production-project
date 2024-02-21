@@ -1,13 +1,6 @@
 import { type FC } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features'
-
 import { ProfileCardProps } from '../../model/types/profile'
-import {
-    ProfileCardDeprecated,
-    ProfileCardDeprecatedError,
-    ProfileCardDeprecatedLoader,
-} from '../ProfileCardDeprecated/ProfileCardDeprecated'
 import {
     ProfileCardRedesigned,
     ProfileCardRedesignedError,
@@ -18,18 +11,12 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
     const { isLoading, error } = props
 
     if (isLoading) {
-        return (
-            <ProfileCardRedesignedSkeletons />
-        )
+        return <ProfileCardRedesignedSkeletons />
     }
 
     if (error) {
-        return (
-            <ProfileCardRedesignedError error={error} />
-        )
+        return <ProfileCardRedesignedError error={error} />
     }
 
-    return (
-        <ProfileCardRedesigned {...props} />
-    )
+    return <ProfileCardRedesigned {...props} />
 }

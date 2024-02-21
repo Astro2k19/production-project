@@ -5,8 +5,6 @@ import { Page } from '@/widgets/Page'
 
 import { UiDesignSwitcher } from '@/features/UiDesignSwitcher'
 
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text'
 

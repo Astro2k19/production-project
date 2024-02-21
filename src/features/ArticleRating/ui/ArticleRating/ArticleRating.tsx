@@ -4,9 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { RatingCard } from '@/entities/Rating'
 import { getUserAuthDate } from '@/entities/User'
 
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 
 import {
@@ -66,10 +64,10 @@ const ArticleRating = memo(
         if (isLoading) {
             return (
                 <Skeleton
-                                            width={'100%'}
-                                            height={126}
-                                            borderRadius={'round'}
-                                        />
+                    width={'100%'}
+                    height={126}
+                    borderRadius={'round'}
+                />
             )
         }
 

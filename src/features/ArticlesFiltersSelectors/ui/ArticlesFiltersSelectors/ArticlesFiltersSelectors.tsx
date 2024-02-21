@@ -5,11 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersConst'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { type SortOrder } from '@/shared/types/sortOrder'
-import { Select, type SelectOption } from '@/shared/ui/deprecated/Select'
+import { type SelectOption } from '@/shared/ui/deprecated/Select'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 interface ArticlesFiltersSelectorsProps {
@@ -60,23 +59,27 @@ export const ArticlesFiltersSelectors = memo(
             [t],
         )
 
+        console.log(sort, 'sort')
+
         return (
             <VStack
-                                    gap={'8'}
-                                    className={classNames([className])}
-                                >
-                                    <Text text={t('Sort by')} />
-                                    <ListBox
-                                        items={filterSortOptions}
-                                        value={sort}
-                                        onChange={onChangeSort}
-                                    />
-                                    <ListBox
-                                        items={filterOrderOptions}
-                                        value={order}
-                                        onChange={onChangeOrder}
-                                    />
-                                </VStack>
+                gap={'8'}
+                className={classNames([className])}
+            >
+                <Text text={t('Sort by')} />
+                <ListBox
+                    items={filterSortOptions}
+                    value={sort}
+                    defaultValue={filterSortOptions[0].value}
+                    onChange={onChangeSort}
+                />
+                <ListBox
+                    items={filterOrderOptions}
+                    defaultValue={filterOrderOptions[0].value}
+                    value={order}
+                    onChange={onChangeOrder}
+                />
+            </VStack>
         )
     },
 )

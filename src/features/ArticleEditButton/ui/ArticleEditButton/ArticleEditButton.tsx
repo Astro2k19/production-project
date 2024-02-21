@@ -5,12 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { getCanEditArticle } from '@/entities/Article'
 
 import { getRouteArticleEdit } from '@/shared/const/router'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import {
-    Button as ButtonDeprecated,
-    ButtonVariants,
-} from '@/shared/ui/deprecated/Button'
 import { Button } from '@/shared/ui/redesigned/Button'
 
 interface ArticleEditButtonProps {
@@ -34,13 +29,13 @@ export const ArticleEditButton = memo(
 
         return canEdit ? (
             <Button
-                                    title={t('Edit')}
-                                    className={className}
-                                    onClick={onEdit}
-                                    variant={'outline'}
-                                >
-                                    {t('Edit')}
-                                </Button>
+                title={t('Edit')}
+                className={className}
+                onClick={onEdit}
+                variant={'outline'}
+            >
+                {t('Edit')}
+            </Button>
         ) : null
     },
 )

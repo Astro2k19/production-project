@@ -1,7 +1,5 @@
 import { type FC } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features'
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/ListBox'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
 
 import { Country } from '../../model/const/countryConts'
@@ -40,11 +38,11 @@ export const CountrySelect: FC<CurrencySelectProps> = props => {
 
     return (
         <ListBox
-                            label={'Country'}
-                            items={countryOptions}
-                            value={value}
-                            onChange={onChangeHandler}
-                            readonly={readonly}
-                        />
+            label={'Country'}
+            items={countryOptions}
+            value={value}
+            onChange={onChangeHandler}
+            readonly={readonly}
+        />
     )
 }

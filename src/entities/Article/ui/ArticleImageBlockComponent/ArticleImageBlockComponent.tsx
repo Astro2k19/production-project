@@ -1,8 +1,6 @@
 import { memo } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { TextAligns, Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
 import { Text } from '@/shared/ui/redesigned/Text'
 
@@ -29,9 +27,9 @@ export const ArticleImageBlockComponent = memo(
                     className={cls.image}
                 />
                 <Text
-                                            text={block.title}
-                                            align={'center'}
-                                        />
+                    text={block.title}
+                    align={'center'}
+                />
             </div>
         )
     },

@@ -7,7 +7,6 @@ import {
 } from 'react'
 
 import { classNames } from '@/shared/lib'
-import { toggleFeature } from '@/shared/lib/features/lib/toggleFeatures'
 
 import { Overlay } from '../Overlay'
 import { Portal } from '../Portal'

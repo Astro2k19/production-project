@@ -13,11 +13,8 @@ import {
     getRouteProfile,
     getRouteSettings,
 } from '@/shared/const/router'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Dropdown'
 import { Avatar } from '@/shared/ui/redesigned/Avatar'
 import { Dropdown } from '@/shared/ui/redesigned/Popups'
 
@@ -63,13 +60,13 @@ export const AvatarDropdown = memo(({ authDate }: AvatarDropdownProps) => {
 
     return (
         <Dropdown
-                            trigger={
-                                <Avatar
-                                    src={authDate.avatar}
-                                    size={40}
-                                />
-                            }
-                            items={dropdownOptions}
-                        />
+            trigger={
+                <Avatar
+                    src={authDate.avatar}
+                    size={40}
+                />
+            }
+            items={dropdownOptions}
+        />
     )
 })

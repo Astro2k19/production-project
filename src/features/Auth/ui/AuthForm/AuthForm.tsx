@@ -6,17 +6,8 @@ import {
     DynamicModuleLoader,
     type ReducersList,
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {
-    Button as ButtonDeprecated,
-    ButtonVariants,
-} from '@/shared/ui/deprecated/Button'
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
-import {
-    Text as TextDeprecated,
-    TextVariants,
-} from '@/shared/ui/deprecated/Text'
+import { TextVariants } from '@/shared/ui/deprecated/Text'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { VStack } from '@/shared/ui/redesigned/Stack'
@@ -34,7 +25,6 @@ import {
     authReducer,
     useAuthActions,
 } from '../../model/slice/loginByUsernameSlice'
-import cls from './AuthForm.module.scss'
 
 export interface AuthFormProps {
     className?: string
@@ -69,42 +59,42 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
             reducers={initialReducers}
         >
             <form
-                                    className={classNames([className])}
-                                    onSubmit={onSubmit}
-                                >
-                                    <VStack gap={'16'}>
-                                        <Text title="Authorization form" />
-                                        {error && (
-                                            <Text
-                                                text={getAuthErrorMessage(error)}
-                                                variant={TextVariants.ERROR}
-                                            />
-                                        )}
-                                        <Input
-                                            type="text"
-                                            onChange={setUsername}
-                                            value={username}
-                                            placeholder={'Username'}
-                                            autoFocus
-                                        />
-                                        <Input
-                                            type="password"
-                                            onChange={setPassword}
-                                            value={password}
-                                            placeholder={'Password'}
-                                        />
-                                        <Button
-                                            type="submit"
-                                            variant={'outline'}
-                                            fullWidth
-                                            align={'center'}
-                                            onClick={onSubmit}
-                                            disabled={isLoading}
-                                        >
-                                            {t('Log In')}
-                                        </Button>
-                                    </VStack>
-                                </form>
+                className={classNames([className])}
+                onSubmit={onSubmit}
+            >
+                <VStack gap={'16'}>
+                    <Text title="Authorization form" />
+                    {error && (
+                        <Text
+                            text={getAuthErrorMessage(error)}
+                            variant={TextVariants.ERROR}
+                        />
+                    )}
+                    <Input
+                        type="text"
+                        onChange={setUsername}
+                        value={username}
+                        placeholder={'Username'}
+                        autoFocus
+                    />
+                    <Input
+                        type="password"
+                        onChange={setPassword}
+                        value={password}
+                        placeholder={'Password'}
+                    />
+                    <Button
+                        type="submit"
+                        variant={'outline'}
+                        fullWidth
+                        align={'center'}
+                        onClick={onSubmit}
+                        disabled={isLoading}
+                    >
+                        {t('Log In')}
+                    </Button>
+                </VStack>
+            </form>
         </DynamicModuleLoader>
     )
 }

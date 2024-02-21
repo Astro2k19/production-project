@@ -10,7 +10,6 @@ import { getUserInited, initAuthDate } from '@/entities/User'
 import { AppLayoutLoader } from '@/shared/layouts/AppLayoutLoader/AppLayoutLoader'
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 import { useAppToolbar } from './lib/useAppToolbar'
@@ -32,28 +31,28 @@ const App = memo(() => {
     if (!isInited) {
         return (
             <div
-                                    id={'app'}
-                                    className={classNames(['app_redesigned'])}
-                                >
-                                    <AppLayoutLoader />
-                                </div>
+                id={'app'}
+                className={classNames(['app_redesigned'])}
+            >
+                <AppLayoutLoader />
+            </div>
         )
     }
 
     return (
         <Suspense fallback={<PageLoader />}>
-                            <div
-                                id={'app'}
-                                className={classNames(['app_redesigned'])}
-                            >
-                                <MainLayout
-                                    navbar={<Navbar />}
-                                    sidebar={<Sidebar />}
-                                    content={<AppRouter />}
-                                    toolbar={toolbar}
-                                />
-                            </div>
-                        </Suspense>
+            <div
+                id={'app'}
+                className={classNames(['app_redesigned'])}
+            >
+                <MainLayout
+                    navbar={<Navbar />}
+                    sidebar={<Sidebar />}
+                    content={<AppRouter />}
+                    toolbar={toolbar}
+                />
+            </div>
+        </Suspense>
     )
 })
 export default WithTheme(App)

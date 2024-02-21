@@ -4,20 +4,11 @@ import { memo, useCallback } from 'react'
 import { setJsonSettings } from '@/entities/User'
 
 import ThemeSwitcherIcon from '@/shared/assets/icons/ThemeIcon.svg'
-import ThemeSwitcherIconDeprecated from '@/shared/assets/icons/theme-light.svg'
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
 import { Theme } from '@/shared/const/theme'
-import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
-import {
-    Button as ButtonDeprecated,
-    ButtonVariants,
-} from '@/shared/ui/deprecated/Button'
 import { Icon } from '@/shared/ui/redesigned/Icon'
-
-import cls from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
     className?: string
@@ -36,9 +27,9 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
     return (
         <Icon
-                            clickable
-                            onClick={onSaveTheme}
-                            Svg={ThemeSwitcherIcon}
-                        />
+            clickable
+            onClick={onSaveTheme}
+            Svg={ThemeSwitcherIcon}
+        />
     )
 })

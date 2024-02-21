@@ -1,7 +1,5 @@
 import React, { Suspense } from 'react'
 
-import { ToggleFeatures } from '@/shared/lib/features'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 
 import { ArticleRatingProps } from './ArticleRating'
@@ -15,9 +13,9 @@ export const ArticleRatingAsync = (props: ArticleRatingProps) => {
         <Suspense
             fallback={
                 <Skeleton
-                                            width={'100%'}
-                                            height={126}
-                                        />
+                    width={'100%'}
+                    height={126}
+                />
             }
         >
             <ArticleRatingLazy {...props} />

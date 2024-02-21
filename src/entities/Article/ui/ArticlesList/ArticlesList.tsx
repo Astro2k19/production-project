@@ -2,7 +2,6 @@ import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 
@@ -74,19 +73,19 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
 
     return (
         <HStack
-                            className={classNames([
-                                className,
-                                cls[view],
-                                cls.articlesListRedesigned,
-                            ])}
-                            wrap
-                            alignItems={'start'}
-                            // justify={view === 'GRID' ? 'center' : 'start'}
-                            gap={'24'}
-                            max
-                        >
-                            {articles?.length ? articles.map(renderArticleItem) : null}
-                            {isLoading && getElementSkeleton(view)}
-                        </HStack>
+            className={classNames([
+                className,
+                cls[view],
+                cls.articlesListRedesigned,
+            ])}
+            wrap
+            alignItems={'start'}
+            // justify={view === 'GRID' ? 'center' : 'start'}
+            gap={'24'}
+            max
+        >
+            {articles?.length ? articles.map(renderArticleItem) : null}
+            {isLoading && getElementSkeleton(view)}
+        </HStack>
     )
 }

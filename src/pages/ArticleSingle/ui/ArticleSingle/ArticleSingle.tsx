@@ -7,11 +7,10 @@ import { Page } from '@/widgets/Page'
 import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleSingleRecommendations } from '@/features/ArticleSingleRecommendations'
 
-import { ArticleDetails, useFetchArticleById } from '@/entities/Article'
+import { useFetchArticleById } from '@/entities/Article'
 
 import { StickyLayout } from '@/shared/layouts/StickyLayout'
 import { classNames } from '@/shared/lib'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
@@ -19,7 +18,6 @@ import { VStack } from '@/shared/ui/redesigned/Stack'
 import { ArticleAdditionalContainer } from '../ArticleAdditionalContainer/ArticleAdditionalContainer'
 import { ArticleDetailsContainer } from '../ArticleDetailsContainer/ArticleDetailsContainer'
 import { ArticleSingleComments } from '../ArticleSingleComments/ArticleSingleComments'
-import { ArticleSingleHeader } from '../ArticleSingleHeader/ArticleSingleHeader'
 
 interface ArticleSingleProps {
     className?: string
@@ -49,21 +47,21 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
     return (
         <Page className={classNames([className])}>
             <StickyLayout
-                                    content={
-                                        <Card
-                                            padding={'24'}
-                                            border={'round'}
-                                        >
-                                            <VStack gap={'16'}>
-                                                <ArticleDetailsContainer />
-                                                <ArticleRating articleId={id} />
-                                                <ArticleSingleRecommendations />
-                                                <ArticleSingleComments id={id} />
-                                            </VStack>
-                                        </Card>
-                                    }
-                                    right={<ArticleAdditionalContainer />}
-                                />
+                content={
+                    <Card
+                        padding={'24'}
+                        border={'round'}
+                    >
+                        <VStack gap={'16'}>
+                            <ArticleDetailsContainer />
+                            <ArticleRating articleId={id} />
+                            <ArticleSingleRecommendations />
+                            <ArticleSingleComments id={id} />
+                        </VStack>
+                    </Card>
+                }
+                right={<ArticleAdditionalContainer />}
+            />
         </Page>
     )
 }
