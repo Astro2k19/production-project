@@ -2,7 +2,6 @@ import { addDecorator } from '@storybook/react'
 import { withThemes } from 'storybook-addon-themes/react'
 
 import {
-    FeatureFlagsDecorator,
     StyleDecorator,
     SuspenseDecorator,
     getThemeSettings,
@@ -30,14 +29,4 @@ export const parameters = {
 
 addDecorator(StyleDecorator)
 addDecorator(withThemes)
-// addDecorator(withRouter)
 addDecorator(SuspenseDecorator)
-addDecorator(FeatureFlagsDecorator({}))
-
-// export const decorators = [
-//     StyleDecorator,
-//     SuspenseDecorator,
-//     FeatureFlagsDecorator({ test: true }),
-//     withThemes,
-//     withRouter,
-// ]

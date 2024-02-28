@@ -1,8 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
-
-import { RedesignedDesignDecorator } from '@/shared/config/storybook'
-import { getThemeSettings } from '@/shared/config/storybook/lib/getThemeSettings/getThemeSettings'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { article } from '../../mocks/data.mock'
 import { ArticlesListView } from '../../model/const/articleConst'
@@ -15,6 +13,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withRouter],
 } as ComponentMeta<typeof ArticlesListItem>
 
 const Template: ComponentStory<typeof ArticlesListItem> = args => (
@@ -24,19 +23,6 @@ const Template: ComponentStory<typeof ArticlesListItem> = args => (
 export const GridItem = Template.bind({})
 
 GridItem.args = {
-    article,
-    view: ArticlesListView.GRID,
-}
-
-export const GridItemRedesigned = Template.bind({})
-GridItemRedesigned.story = {
-    parameters: {
-        themes: getThemeSettings(true),
-    },
-}
-GridItemRedesigned.decorators = [RedesignedDesignDecorator]
-
-GridItemRedesigned.args = {
     article,
     view: ArticlesListView.GRID,
 }

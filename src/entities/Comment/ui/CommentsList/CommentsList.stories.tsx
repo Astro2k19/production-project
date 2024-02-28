@@ -1,4 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import avatar from '@/shared/assets/images/tests/avatar.jpg'
 
@@ -10,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withRouter],
 } as ComponentMeta<typeof CommentsList>
 
 const Template: ComponentStory<typeof CommentsList> = args => (

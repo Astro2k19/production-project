@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
-import { PageLoader } from '@/widgets/pageLoader'
 
 import { getUserInited, initAuthDate } from '@/entities/User'
 
@@ -32,7 +31,7 @@ const App = memo(() => {
         return (
             <div
                 id={'app'}
-                className={classNames(['app_redesigned'])}
+                className={classNames(['app'])}
             >
                 <AppLayoutLoader />
             </div>
@@ -40,10 +39,19 @@ const App = memo(() => {
     }
 
     return (
-        <Suspense fallback={<PageLoader />}>
+        <Suspense
+            fallback={
+                <div
+                    id={'app'}
+                    className={classNames(['app'])}
+                >
+                    <AppLayoutLoader />
+                </div>
+            }
+        >
             <div
                 id={'app'}
-                className={classNames(['app_redesigned'])}
+                className={classNames(['app'])}
             >
                 <MainLayout
                     navbar={<Navbar />}

@@ -1,14 +1,16 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { Button } from './Button'
 
 export default {
-    title: 'shared/redesigned/Button',
+    title: 'shared/Button',
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withRouter],
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />

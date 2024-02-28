@@ -1,14 +1,14 @@
 import { Theme } from '@/shared/const/theme'
 
 export const getThemeSettings = (isRedesigned: boolean = false) => {
-    const rootClass = isRedesigned ? 'app_redesigned' : 'app'
+    const rootClass = isRedesigned ? 'redesigned_class' : 'app'
     const mappedColors = {
-        app_redesigned: {
+        app: {
             [Theme.LIGHT]: '#eff5f6',
             [Theme.DARK]: '#0c1214',
             [Theme.DUSK]: '#f0c048',
         },
-        app: {
+        redesigned_class: {
             [Theme.LIGHT]: '#e8e8ea',
             [Theme.DARK]: '#090949',
             [Theme.DUSK]: '#4b4e71',

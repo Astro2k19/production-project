@@ -36,7 +36,7 @@ describe('AppRouter tests', () => {
         expect(page).toBeInTheDocument()
     })
 
-    test("Unauthorized user don't have access to protected pages", async () => {
+    test("Unauthorized user doesn't have access to protected pages", async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
         })
@@ -45,7 +45,7 @@ describe('AppRouter tests', () => {
         expect(page).toBeInTheDocument()
     })
 
-    test('Authorized user have access to protected pages', async () => {
+    test('Authorized user has access to protected pages', async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
             initialState: {
@@ -62,7 +62,7 @@ describe('AppRouter tests', () => {
         expect(page).toBeInTheDocument()
     })
 
-    test("User don't have required roles", async () => {
+    test("User doesn't have required roles", async () => {
         componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {
@@ -79,7 +79,7 @@ describe('AppRouter tests', () => {
         expect(page).toBeInTheDocument()
     })
 
-    test('User have required roles', async () => {
+    test('User has required roles', async () => {
         componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {

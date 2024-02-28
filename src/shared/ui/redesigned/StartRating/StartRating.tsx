@@ -55,7 +55,6 @@ export const StartRating: FC<StartRatingProps> = ({
             {rating.map((starCount, index) => {
                 const commonProps = {
                     Svg: Star,
-                    key: starCount,
                     className: classNames([cls.star], {
                         [cls.hovered]: starCount <= currentStarsCount,
                         [cls.selected]: isSelected,
@@ -71,6 +70,7 @@ export const StartRating: FC<StartRatingProps> = ({
 
                 return (
                     <Icon
+                        key={starCount}
                         clickable={!isSelected}
                         {...commonProps}
                     />

@@ -4,7 +4,6 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
@@ -42,8 +41,8 @@ export const CommentsList = memo(
             return (
                 <Text
                     text={t('UNKNOWN_COMMENTS_ERROR')}
-                    variant={TextVariants.ERROR}
-                    align={TextAligns.CENTER}
+                    variant={'error'}
+                    align={'center'}
                 />
             )
         }

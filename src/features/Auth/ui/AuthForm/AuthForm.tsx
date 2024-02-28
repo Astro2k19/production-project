@@ -7,7 +7,6 @@ import {
     type ReducersList,
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { TextVariants } from '@/shared/ui/deprecated/Text'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { VStack } from '@/shared/ui/redesigned/Stack'
@@ -67,7 +66,7 @@ const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
                     {error && (
                         <Text
                             text={getAuthErrorMessage(error)}
-                            variant={TextVariants.ERROR}
+                            variant={'error'}
                         />
                     )}
                     <Input

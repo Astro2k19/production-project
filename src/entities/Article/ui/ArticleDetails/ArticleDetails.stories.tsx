@@ -1,6 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 import withMock from 'storybook-addon-mock'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { StoreDecorator } from '@/shared/config/storybook'
 
@@ -13,6 +14,7 @@ export default {
 
     decorators: [
         withMock,
+        withRouter,
         StoreDecorator({
             user: {
                 authData: {

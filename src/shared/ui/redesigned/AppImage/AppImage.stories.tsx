@@ -4,7 +4,7 @@ import React from 'react'
 import { AppImage } from './AppImage'
 
 export default {
-    title: 'shared/redesigned/AppImage',
+    title: 'shared/AppImage',
     component: AppImage,
 
     argTypes: {

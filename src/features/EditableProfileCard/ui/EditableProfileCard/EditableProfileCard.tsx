@@ -11,8 +11,8 @@ import {
 } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
-import { Text, TextVariants } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import {
     getProfileError,
@@ -112,7 +112,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({
                     profileValidateErrors.map(err => (
                         <Text
                             key={err}
-                            variant={TextVariants.ERROR}
+                            variant={'error'}
                             text={t(
                                 `validation_error.${ValidateProfileError[err]}`,
                             )} /* i18next-extract-disable-line */

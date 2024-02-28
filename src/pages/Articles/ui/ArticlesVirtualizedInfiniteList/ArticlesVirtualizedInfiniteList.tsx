@@ -23,8 +23,6 @@ import {
     articlesListSelectors,
     articlesPageReducer,
 } from '../../model/slice/articlesPageListSlice/articlesPageListSlice'
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
-import cls from './ArticlesVirtualizedInfiniteList.module.scss'
 
 interface ArticleInfiniteListProps {
     className?: string
@@ -56,24 +54,10 @@ export const ArticlesVirtualizedInfiniteList = memo(
         //     },
         //     [dispatch],
         // )
-        console.log('before useFetchData')
 
         useFetchData(() => {
-            console.log('inside useFetchData')
-
             dispatch(setInitialArticlesListState())
         })
-
-        const Header = useCallback(() => {
-            return (
-                <ArticlesPageFilters
-                    // view={view}
-                    // onChangeListView={onChangeListView}
-                    className={cls.articlesFilter}
-                    // fetchArticlesList={fetchArticlesList}
-                />
-            )
-        }, [])
 
         return (
             <DynamicModuleLoader
@@ -87,7 +71,6 @@ export const ArticlesVirtualizedInfiniteList = memo(
                     hasMore={hasMore}
                     view={view}
                     onReachEnd={loadNextArticles}
-                    Header={Header}
                 />
             </DynamicModuleLoader>
         )

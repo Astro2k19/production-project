@@ -9,32 +9,6 @@
   }
 }
 
-.articlesListDeprecated {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 25px;
-  flex: 1;
-
-  .LIST {
-    .card {
-      margin-bottom: 25px;
-    }
-  }
-
-  .gridListItem {
-    width: 340px;
-
-    @media (max-width: 1024px) {
-      width: calc(50% - 13px);
-    }
-
-    @media (max-width: 640px) {
-      width: 100%;
-    }
-  }
-}
-
 .articlesListRedesigned {
   .gridListItem {
     width: 250px;

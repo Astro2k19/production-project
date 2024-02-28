@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { ArticleDetails } from '@/entities/Article'
 
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface DetailsContainerProps {
     className?: string

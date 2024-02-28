@@ -16,7 +16,6 @@
   opacity: 0;
   transition: all 0.2s ease-in;
   transition-property: opacity, z-index;
-  color: var(--inverted-primary-color);
 
   &.opened {
     z-index: var(--modal-z-index);
@@ -35,8 +34,3 @@
   }
 }
 
-.oldModal {
-  .content {
-    background-color: var(--bg-color);
-  }
-}

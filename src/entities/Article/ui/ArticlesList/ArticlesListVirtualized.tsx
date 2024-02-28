@@ -17,10 +17,10 @@ import {
 
 import { INITIAL_TOP_ARTICLES_INDEX_KEY } from '@/shared/const/localStorage'
 import { classNames } from '@/shared/lib'
-import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button'
-import { Loader } from '@/shared/ui/deprecated/Loader'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { Loader } from '@/shared/ui/redesigned/Loader'
 import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import {
     type ArticleType,
@@ -148,7 +148,7 @@ export const ArticlesListVirtualized: FC<ArticlesListProps> = props => {
                     className={cls.loadMoreWrapper}
                 >
                     <Button
-                        variant={ButtonVariants.OUTLINE}
+                        variant={'outline'}
                         onClick={onClickButton}
                     >
                         {t('Load more')}

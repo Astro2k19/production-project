@@ -1,15 +1,17 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { AppLink } from './AppLink'
 
 export default {
-    title: 'shared/redesigned/AppImage',
+    title: 'shared/AppImage',
     component: AppLink,
 
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withRouter],
 } as ComponentMeta<typeof AppLink>
 
 const Template: ComponentStory<typeof AppLink> = args => <AppLink {...args} />

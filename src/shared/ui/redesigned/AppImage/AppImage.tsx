@@ -6,14 +6,14 @@ import {
     useState,
 } from 'react'
 
-interface AppLinkProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     src?: string
     className?: string
     fallback?: ReactElement
     errorFallback?: ReactElement
 }
 
-export const AppImage = memo((props: AppLinkProps) => {
+export const AppImage = memo((props: AppImageProps) => {
     const { src, fallback, errorFallback, alt = 'image', ...otherProps } = props
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)

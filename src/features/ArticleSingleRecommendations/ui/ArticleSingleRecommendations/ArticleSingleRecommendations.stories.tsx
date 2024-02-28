@@ -1,5 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { article } from '@/entities/Article/testing'
 
@@ -10,11 +11,11 @@ import { ArticleSingleRecommendations } from './ArticleSingleRecommendations'
 export default {
     title: 'features/ArticleSingleRecommendations',
     component: ArticleSingleRecommendations,
-    decorators: [withMock, StoreDecorator({})],
+    decorators: [withMock, withRouter, StoreDecorator({})],
     parameters: {
         mockData: [
             {
-                url: `${__API_URL__}/articles?_limit=4&_expand=user`,
+                url: `${__API_URL__}/articles?_limit=3&_expand=user`,
                 method: 'GET',
                 status: 200,
                 response: [

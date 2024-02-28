@@ -1,98 +1,30 @@
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.views {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-
 .LIST {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .user {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-  }
-
-  .imageWrapper {
-    display: block;
-    height: 178px;
-    margin-block: 20px;
-
-    &:not(.skeleton) {
-      cursor: pointer;
-      transition: transform 0.2s ease-out;
-
-      &:hover {
-        transform: scale(1.02);
-      }
-    }
-  }
-
-  .description {
-    max-height: 140px;
-    overflow-y: hidden;
-    margin-bottom: 50px;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
+  .image {
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
 .GRID {
   .imageWrapper {
     position: relative;
-    height: 260px;
-    margin-bottom: 20px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 32px 32px 0 0;
 
-    &:not(.skeleton) {
-      cursor: pointer;
-      transition: transform 0.2s ease-out;
-
-      &:hover {
-        transform: scale(1.02);
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
-  .date {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px 10px 0 0;
-
-    p {
-      background-color: #eaeaea;
-    }
+  .content {
+    padding: 8px 8px 16px;
   }
 
-  .info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .title h3 {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .type p {
-    width: 90px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  .cardBottom {
+    padding-left: 8px;
   }
 }

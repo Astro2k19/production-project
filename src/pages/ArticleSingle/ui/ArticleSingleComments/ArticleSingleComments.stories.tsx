@@ -1,5 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { mockCommentResponse } from '@/entities/Comment/testing'
 
@@ -10,7 +11,7 @@ import { ArticleSingleComments } from './ArticleSingleComments'
 export default {
     title: 'pages/ArticleSingle/ArticleSingleComments',
     component: ArticleSingleComments,
-    decorators: [withMock, StoreDecorator({})],
+    decorators: [withMock, withRouter, StoreDecorator({})],
     args: {
         id: '1',
     },

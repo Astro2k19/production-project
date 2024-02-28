@@ -5,11 +5,7 @@ import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import { ValidateProfileError } from '@/entities/Profile'
 
-import {
-    FeatureFlagsDecorator,
-    StoreDecorator,
-    getThemeSettings,
-} from '@/shared/config/storybook'
+import { StoreDecorator, getThemeSettings } from '@/shared/config/storybook'
 
 import { EditableProfileCard } from './EditableProfileCard'
 
@@ -65,7 +61,6 @@ NormalRedesigned.decorators = [
             formData: data,
         },
     }),
-    FeatureFlagsDecorator({ isAppRedesigned: true }),
 ]
 
 export const WithValidationErrors = Template.bind({})

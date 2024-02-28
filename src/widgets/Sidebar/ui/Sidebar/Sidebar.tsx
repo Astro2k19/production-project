@@ -1,10 +1,18 @@
 import React, { type FC, useMemo } from 'react'
 
+import { LangSwitcher } from '@/features/LangSwitcher'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
+
+import ToggleArrow from '@/shared/assets/icons/ToggleArrow.svg'
+import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import { getSidebarItems } from '../../selectors/getSidebarItems/getSidebarItems'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
-import { SidebarRedesigned } from '../SidebarRedesigned/SidebarRedesigned'
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
     className?: string
@@ -31,11 +39,41 @@ export const Sidebar: FC = ({ className }: SidebarProps) => {
     )
 
     return (
-        <SidebarRedesigned
-            className={className}
-            items={items}
-            toggleSidebar={toggleSidebar}
-            collapsed={collapsed}
-        />
+        <VStack
+            tag="section"
+            className={classNames([cls.sidebarRedesigned, className], {
+                [cls.collapsed]: collapsed,
+            })}
+            justify={'spaceBetween'}
+            data-testid="sidebar"
+        >
+            <div>
+                <AppLogo
+                    className={cls.logo}
+                    // size={collapsed ? 32 : 54}
+                />
+                <nav>
+                    <VStack gap={'8'}>{items}</VStack>
+                </nav>
+            </div>
+            <HStack
+                justify={'center'}
+                alignItems={'center'}
+                gap={'16'}
+                className={cls.switchers}
+            >
+                <ThemeSwitcher />
+                <LangSwitcher />
+            </HStack>
+            <Icon
+                Svg={ToggleArrow}
+                width={32}
+                height={250}
+                clickable
+                onClick={toggleSidebar}
+                className={classNames([cls.toggleBtn])}
+                data-testid={'ToggleButton'}
+            />
+        </VStack>
     )
 }

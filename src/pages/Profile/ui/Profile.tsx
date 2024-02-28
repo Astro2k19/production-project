@@ -6,7 +6,7 @@ import { Page } from '@/widgets/Page'
 
 import { EditableProfileCard } from '@/features/EditableProfileCard'
 
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 const ProfilePage = memo(() => {
     const { t } = useTranslation()

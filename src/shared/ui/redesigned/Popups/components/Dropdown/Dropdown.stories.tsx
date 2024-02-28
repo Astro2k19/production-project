@@ -1,4 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { Button } from '../../../Button'
 import { Dropdown } from './Dropdown'
@@ -22,6 +23,7 @@ export default {
                 <Story />
             </div>
         ),
+        withRouter,
     ],
 } as ComponentMeta<typeof Dropdown>
 

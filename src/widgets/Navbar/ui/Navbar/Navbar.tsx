@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 
 import { AuthModal } from '@/features/Auth'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
@@ -8,7 +7,6 @@ import { NotificationsButton } from '@/features/NotificationButton'
 
 import { getUserAuthDate } from '@/entities/User'
 
-import { getRouteArticleNew } from '@/shared/const/router'
 import { classNames } from '@/shared/lib'
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector'
 import { Button } from '@/shared/ui/redesigned/Button'
@@ -24,7 +22,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
     const authDate = useAppSelector(getUserAuthDate)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const onClose = useCallback(() => {
         setIsOpen(false)
@@ -34,9 +32,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsOpen(true)
     }, [])
 
-    const onCreateNewArticle = useCallback(() => {
-        navigate(getRouteArticleNew())
-    }, [navigate])
+    // const onCreateNewArticle = useCallback(() => {
+    //     navigate(getRouteArticleNew())
+    // }, [navigate])
 
     if (authDate) {
         return (

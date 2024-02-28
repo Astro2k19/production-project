@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { Route, Routes } from 'react-router-dom'
 
 import { PageError } from '@/widgets/PageError'
-import { PageLoader } from '@/widgets/pageLoader'
+import { PageLoader } from '@/widgets/PageLoader'
 
 import { type ProtectedRouteProps, routerConfig } from '../config/routerConfig'
 import { ProtectedRoute } from './ProtectedRoute'

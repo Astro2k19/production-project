@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Page } from '@/widgets/Page'
 
 import { classNames } from '@/shared/lib'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './NotFound.module.scss'
 
@@ -19,7 +20,10 @@ export const NotFoundPage: FC = ({ className }: NotFoundPageProps) => {
             className={classNames([cls.notFound, className])}
             dataTestId={'NotFoundPage'}
         >
-            <h1>{t('Not found page', { ns: 'translation' })}</h1>
+            <Text
+                title={t('Not found page', { ns: 'translation' })}
+                TitleTag={'h1'}
+            />
         </Page>
     )
 }

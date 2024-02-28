@@ -79,7 +79,7 @@ export const article: Article = {
 }
 
 export const mockArticleResponse = {
-    url: `${__API_URL__}/articles/1`,
+    url: `${__API_URL__}/articles/1?_expand=user`,
     method: 'GET',
     status: 200,
     response: [

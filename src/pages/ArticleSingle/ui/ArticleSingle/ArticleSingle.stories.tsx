@@ -1,12 +1,14 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 import withMock from 'storybook-addon-mock'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { article, mockArticleResponse } from '@/entities/Article/testing'
 import { mockCommentResponse } from '@/entities/Comment/testing'
 import { mockArticleRatingResponse } from '@/entities/Rating/testing'
 
 import { StoreDecorator } from '@/shared/config/storybook'
+import { getRouteArticleSingle } from '@/shared/const/router'
 
 import ArticleSinglePage from './ArticleSingle'
 
@@ -18,6 +20,7 @@ export default {
     },
     decorators: [
         withMock,
+        withRouter,
         StoreDecorator({
             user: {
                 authData: {
@@ -28,7 +31,7 @@ export default {
     ],
     parameters: {
         reactRouter: {
-            routePath: '/articles/:id',
+            routePath: getRouteArticleSingle(':id'),
             routeParams: { id: '1' },
         },
         mockData: [

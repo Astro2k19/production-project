@@ -20,7 +20,7 @@ type UiDesignSwitcherValue = 'new' | 'old'
 export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {
     const { t } = useTranslation()
     const isAppRedesigned = getFeatureFlag('isAppRedesigned')
-    const [updateFeature, { error, isLoading }] = updateFeatureFlag()
+    const [updateFeature, { isLoading }] = updateFeatureFlag()
     const authData = useAppSelector(getUserAuthDate)
     const items = useMemo<Array<ListBoxItem<UiDesignSwitcherValue>>>(
         () => [

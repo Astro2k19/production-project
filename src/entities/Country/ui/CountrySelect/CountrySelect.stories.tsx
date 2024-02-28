@@ -1,10 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import {
-    FeatureFlagsDecorator,
-    getThemeSettings,
-} from '@/shared/config/storybook'
+import { getThemeSettings } from '@/shared/config/storybook'
 
 import { Country } from '../../model/const/countryConts'
 import { CountrySelect as Select } from './CountrySelect'
@@ -32,9 +29,7 @@ CountrySelectRedesigned.story = {
         themes: getThemeSettings(true),
     },
 }
-CountrySelectRedesigned.decorators = [
-    FeatureFlagsDecorator({ isAppRedesigned: true }),
-]
+
 CountrySelectRedesigned.args = {
     value: Country.UKRAINE,
 }

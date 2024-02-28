@@ -11,9 +11,9 @@ import { useFetchArticleById } from '@/entities/Article'
 
 import { StickyLayout } from '@/shared/layouts/StickyLayout'
 import { classNames } from '@/shared/lib'
-import { Text, TextAligns, TextVariants } from '@/shared/ui/deprecated/Text'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { ArticleAdditionalContainer } from '../ArticleAdditionalContainer/ArticleAdditionalContainer'
 import { ArticleDetailsContainer } from '../ArticleDetailsContainer/ArticleDetailsContainer'
@@ -37,8 +37,8 @@ const ArticleSinglePage: FC<ArticleSingleProps> = ({ className }) => {
             <Page className={classNames([className])}>
                 <Text
                     title={t('UNKNOWN_ARTICLE_ERROR')}
-                    variant={TextVariants.ERROR}
-                    align={TextAligns.CENTER}
+                    variant={'error'}
+                    align={'center'}
                 />
             </Page>
         )

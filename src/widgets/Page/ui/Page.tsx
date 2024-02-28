@@ -61,12 +61,10 @@ export const Page = ({
         rootRef.current.scrollTop = scrollTop
     })
 
-    const pageClassName = cls.pageRedesigned
-
     return (
         <section
             ref={rootRef}
-            className={classNames([pageClassName, className])}
+            className={classNames([cls.pageRedesigned, className])}
             onScroll={onScroll}
             data-testid={dataTestId}
         >

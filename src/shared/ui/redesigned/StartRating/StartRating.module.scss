@@ -1,14 +1,3 @@
-.starRating {
-  .hovered path {
-    fill: var(--inverted-primary-color);
-    color: var(--inverted-primary-color);
-  }
-
-  .star path {
-    stroke: var(--inverted-primary-color);
-  }
-}
-
 .starRatingRedesigned {
   .hovered path {
     fill: var(--icon-redesigned);

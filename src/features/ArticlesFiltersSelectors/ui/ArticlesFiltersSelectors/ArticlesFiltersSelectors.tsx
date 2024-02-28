@@ -6,8 +6,7 @@ import { ArticlesSortFields } from '@/pages/Articles/model/const/articleFiltersC
 
 import { classNames } from '@/shared/lib'
 import { type SortOrder } from '@/shared/types/sortOrder'
-import { type SelectOption } from '@/shared/ui/deprecated/Select'
-import { ListBox } from '@/shared/ui/redesigned/Popups'
+import { ListBox, ListBoxItem } from '@/shared/ui/redesigned/Popups'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
@@ -26,7 +25,7 @@ export const ArticlesFiltersSelectors = memo(
         const { className, onChangeOrder, onChangeSort, order, sort } = props
 
         const filterSortOptions = useMemo<
-            Array<SelectOption<ArticlesSortFields>>
+            Array<ListBoxItem<ArticlesSortFields>>
         >(
             () => [
                 {
@@ -45,7 +44,7 @@ export const ArticlesFiltersSelectors = memo(
             [t],
         )
 
-        const filterOrderOptions = useMemo<Array<SelectOption<SortOrder>>>(
+        const filterOrderOptions = useMemo<Array<ListBoxItem<SortOrder>>>(
             () => [
                 {
                     label: t('articles_sort_order.Ascending'),
@@ -58,8 +57,6 @@ export const ArticlesFiltersSelectors = memo(
             ],
             [t],
         )
-
-        console.log(sort, 'sort')
 
         return (
             <VStack

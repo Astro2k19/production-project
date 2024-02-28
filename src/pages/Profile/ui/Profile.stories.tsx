@@ -1,6 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 import withMock from 'storybook-addon-mock'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { profile as data } from '@/entities/Profile/testing'
 
@@ -13,6 +14,7 @@ export default {
     component: ProfilePage,
     decorators: [
         withMock,
+        withRouter,
         StoreDecorator({
             profile: {
                 data,

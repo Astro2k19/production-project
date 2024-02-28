@@ -2,8 +2,8 @@ import { type FC, type HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib'
-import { Text } from '@/shared/ui/deprecated/Text'
 import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { ArticlesListView } from '../../model/const/articleConst'
 import { type Article } from '../../model/types/article'
@@ -65,10 +65,6 @@ export const ArticlesList: FC<ArticlesListProps> = props => {
 
     if (!isLoading && articles?.length === 0) {
         return <Text title={t("Such articles doesn't exist")} />
-    }
-
-    const mods = {
-        [cls.gridList]: view === 'GRID',
     }
 
     return (

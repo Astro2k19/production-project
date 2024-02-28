@@ -1,11 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import {
-    RedesignedDesignDecorator,
-    StoreDecorator,
-    getThemeSettings,
-} from '@/shared/config/storybook'
+import { StoreDecorator } from '@/shared/config/storybook'
 
 import { AuthFormError } from '../../model/const/authConst'
 import AuthForm from './AuthForm'
@@ -32,23 +28,6 @@ AuthFormComponent.decorators = [
         },
     }),
 ]
-
-export const AuthFormRedesigned = Template.bind({})
-AuthFormRedesigned.story = {
-    parameters: {
-        themes: getThemeSettings(true),
-    },
-}
-AuthFormRedesigned.decorators = [
-    StoreDecorator({
-        loginForm: {
-            username: 'test',
-            password: '123456789',
-        },
-    }),
-    RedesignedDesignDecorator,
-]
-AuthFormRedesigned.args = {}
 export const Loading = Template.bind({})
 
 Loading.args = {}
