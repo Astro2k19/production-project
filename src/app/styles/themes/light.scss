@@ -1,3 +1,5 @@
+@import "../variables/global";
+
 .app_light_theme {
   --dark-bg-redesigned: #fff;
   --bq-redesigned: #eff5f6;
@@ -6,8 +8,8 @@
   --hint-redesigned: #adbcc0;
   --cancel-redesigned: #f77;
   --save-redesigned: #62de85;
-  --cancel-redesigned-darken: #{darken(#f77, 20%)};
-  --save-redesigned-darken: #{darken(#62de85, 20%)};
+  --cancel-redesigned-darken: #{adjust-lightness(#f77, -20%)};
+  --save-redesigned-darken: #{adjust-lightness(#62de85, -20%)};
   --icon-redesigned: #5ed3f3;
   --accent-redesigned: #00c8ff;
 }
