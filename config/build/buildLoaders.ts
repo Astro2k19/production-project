@@ -1,14 +1,10 @@
 import type webpack from 'webpack'
-
-// import ReactRefreshTypeScript from 'react-refresh-typescript'
-import { buildBabelLoader } from './loaders/buildBabelLoader'
 import { buildCssLoader } from './loaders/buildCssLoader'
 import { type BuildOptions } from './types/config'
+import { buildEsbuildLoader } from "./loaders/buildEsbuildLoader";
 
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
   const imagesLoader = {
     test: /\.(png|jpg?e|gif)$/i,
@@ -30,15 +26,15 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
 
   const scssLoader = buildCssLoader(options)
 
-  const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false })
-  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTSX: true })
+  const codeEsbuildLoader = buildEsbuildLoader({ ...options, isTSX: false })
+  const tsxCodeEsbuildLoader = buildEsbuildLoader({ ...options, isTSX: true })
 
   return [
     imagesLoader,
     fontsLoader,
     svgLoader,
-    codeBabelLoader,
-    tsxCodeBabelLoader,
+    codeEsbuildLoader,
+    tsxCodeEsbuildLoader,
     scssLoader
   ]
 }

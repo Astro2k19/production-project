@@ -19,6 +19,10 @@ export interface BuildOptions {
   project: 'frontend' | 'storybook' | 'jest'
 }
 
+export interface ExtendedBuildOptions extends BuildOptions {
+  isTSX: boolean;
+}
+
 export interface BuildEnv {
   analyze: boolean
   mode: BuildMode
